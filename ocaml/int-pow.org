@@ -1,0 +1,23 @@
+#+title: Integer Exponentiation
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Surprisingly, there is no function for integer exponentiation in the
+OCaml standard library (though there is an operator ~(**)~ for
+floating-point exponentiation).
+
+Implement the function
+#+begin_src ocaml
+  val pow : int -> int -> int
+#+end_src
+so that ~pow~ $n$ $k$ is $n^k$.  The behavior of the function is
+undefined if $k$ is negative.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (pow 2 2 = 4)
+  let _ = assert (pow 2 4 = 16)
+  let _ = assert (pow (-2) 3 = -8)
+  let _ = assert (pow 3 3 = 27)
+#+end_src

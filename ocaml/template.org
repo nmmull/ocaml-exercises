@@ -1,0 +1,22 @@
+#+title: Integer Square Root
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val sqrt : int -> int
+#+end_src
+so that ~sqrt~ $n$ is the smallest integer $i$ such that $n \leq i^2$.
+The behavior of the function is undefined if $n$ is negative.  You may
+not use the functions ~float_of_int~ or ~int_of_float~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (sqrt 4 = 2)
+  let _ = assert (sqrt 9 = 3)
+  let _ = assert (sqrt 100 = 10)
+  let _ = assert (sqrt 2 = 2)
+  let _ = assert (sqrt 10 = 4)
+  let _ = assert (sqrt 99 = 10)
+#+end_src

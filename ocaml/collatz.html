@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Collatz Conjecture</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">The Collatz Conjecture</h1>
+<p>
+The <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a> asks if the following procedure halts for all
+positive integers \(n\):
+</p>
+
+<ul class="org-ul">
+<li>if \(n = 1\) then <b>HALT</b>;</li>
+<li>if \(n\) is even, divide \(n\) by \(2\);</li>
+<li>if \(n\) is odd, multiply \(n\) by \(3\) and add \(1\).</li>
+</ul>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">collatz</span> : int -&gt; int
+</pre>
+</div>
+<p>
+so that <code>collatz n</code> is the number of steps it takes for the above
+procedure to halt starting at <code>n</code>.  For example <code>collatz 5</code> is <code>5</code>
+because the above procedure has the following behavior:
+</p>
+
+<p>
+\[
+5
+\longrightarrow 16
+\longrightarrow 8
+\longrightarrow 4
+\longrightarrow 2
+\longrightarrow 1
+\]
+</p>
+
+<p>
+Note that, if the conjecture is false, your implementation will not
+halt on all inputs.
+</p>
+<div id="outline-container-org0fbd683" class="outline-2">
+<h2 id="org0fbd683">Examples</h2>
+<div class="outline-text-2" id="text-org0fbd683">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (collatz 5 = 5)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

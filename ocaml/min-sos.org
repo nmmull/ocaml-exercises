@@ -1,0 +1,18 @@
+#+title: Sums of Squares
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val min_sos : int -> int
+#+end_src
+so that ~min_sos n~ is the minimum number of squares required to sum
+up to ~n~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (min_sos 3 = 3)    (* 3 = 1^2 + 1^2 + 1^2 *)
+  let _ = assert (min_sos 4 = 1)    (* 4 = 2^2 *)
+  let _ = assert (min_sos 5 = 2)    (* 5 = 2^2 + 1^2 *)
+#+end_src

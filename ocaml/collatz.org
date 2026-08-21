@@ -1,0 +1,36 @@
+#+title: The Collatz Conjecture
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+The [[https://en.wikipedia.org/wiki/Collatz_conjecture][Collatz conjecture]] asks if the following procedure halts for all
+positive integers $n$:
+
+   - if $n = 1$ then *HALT*;
+   - if $n$ is even, divide $n$ by $2$;
+   - if $n$ is odd, multiply $n$ by $3$ and add $1$.
+
+Implement the function
+#+begin_src ocaml
+  val collatz : int -> int
+#+end_src
+so that ~collatz n~ is the number of steps it takes for the above
+procedure to halt starting at ~n~.  For example ~collatz 5~ is ~5~
+because the above procedure has the following behavior:
+
+$$
+5
+\longrightarrow 16
+\longrightarrow 8
+\longrightarrow 4
+\longrightarrow 2
+\longrightarrow 1
+$$
+
+Note that, if the conjecture is false, your implementation will not
+halt on all inputs.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (collatz 5 = 5)
+#+end_src

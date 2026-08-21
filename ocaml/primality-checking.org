@@ -1,0 +1,20 @@
+#+title: Primality Checking
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val is_prime : int -> bool
+#+end_src
+so that ~is_prime n~ is ~true~ if and only if ~n~ is [[https://en.wikipedia.org/wiki/Prime_number][prime]].
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (not (is_prime 0))
+  let _ = assert (not (is_prime 1))
+  let _ = assert (is_prime 2)
+  let _ = assert (is_prime 37)
+  let _ = assert (not (is_prime 57))
+  let _ = assert (is_prime 97)
+#+end_src

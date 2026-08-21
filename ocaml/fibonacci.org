@@ -1,0 +1,36 @@
+#+title: The Fibonacci Sequence
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+We usually learn to implement the [[https://en.wikipedia.org/wiki/Fibonacci_sequence][Fibonacci sequence]] in a language like Python in (at least) two ways:
+
+#+begin_src python
+  def fib_recr(n):
+      if n == 0 or n == 1:
+          return n
+      else:
+          return fib_recr(n - 1) + fib_recr(n - 2)
+
+  def fib_iter(n):
+      cur, nxt = 0, 1
+      for i in range(n):
+          cur, nxt = (nxt, cur + nxt)
+      return cur
+#+end_src
+
+Provide the equivalent implementations in OCaml.  That is, implement the functions
+#+begin_src ocaml
+  val fib_recr : int -> int
+  val fib_iter : int -> int
+#+end_src
+so that ~fib_recr~ $n$ and ~fib_iter~ $n$ are the $n$^{th} Fibonacci
+numbers.  The behavior of these functions is undefined if $n$ is
+negative.  Note that your implementation of ~fib_iter~ will not be
+/iterative/ in the usual sense; instead it should be /tail recursive/.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (fib_recr 8 = 21)
+  let _ = assert (fib_iter 8 = 21)
+#+end_src

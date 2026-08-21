@@ -1,0 +1,42 @@
+body {
+    margin: 3em;
+    line-height: 1.5;
+}
+
+.subtitle {
+    font-size: 0.5em;
+    display:block
+}
+
+pre{
+    background-color: #e8e8e8;
+    overflow: auto;
+    padding: 10px;
+}
+
+a:link {
+    text-decoration: none;
+    color: #005b9e;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #005b9e;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+img {
+    border: 1px dashed lightgray;
+}
+
+hr {
+    border: 1px dotted black;
+    margin-bottom: 2em;
+}

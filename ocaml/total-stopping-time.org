@@ -1,0 +1,30 @@
+#+title: Total Stopping Time Records
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+In this problem, we define a different sequence based on the [[file:collatz.org][~collatz~]]
+function.  The number ~collatz~ $n$ is sometimes called the *total
+stopping time* of $n$.  We say that $n$ has a *total stopping time
+record* if its total stopping time is greater than that of any
+previous number. That is, $n$ has a total stopping time record if
+~collatz~ $m$ $<$ ~collatz~ $n$ for all $m$ satisfying $1 \leq m < n$.
+
+Implement the function
+#+begin_src ocaml
+  val tst_records : int -> int
+#+end_src
+so that ~tst_records~ $n$ is the $n$^{th} number with a total stopping
+time record.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (tst_records 0 = 1)
+  let _ = assert (tst_records 1 = 2)
+  let _ = assert (tst_records 2 = 3)
+  let _ = assert (tst_records 3 = 6)
+  let _ = assert (tst_records 4 = 7)
+  let _ = assert (tst_records 5 = 9)
+  let _ = assert (tst_records 6 = 18)
+  let _ = assert (tst_records 7 = 25)
+#+end_src

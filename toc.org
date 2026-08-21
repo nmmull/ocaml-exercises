@@ -1,0 +1,26 @@
+#+title: Problems and Exercises
+#+subtitle: Concepts of Programming Languages
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+#+OPTIONS: html-style:nil H:2 toc:nil
+
+This is a collection of problems for the course /CAS CS 320:
+Concepts of Programming Languages/ at Boston University.  More info
+TBD.
+
+-----
+
+1. [[file:ocaml/temperature.org][Fahrenheit to Celsius]]
+2. [[file:ocaml/int-sqrt.org][Integer Square Root]]
+3. [[file:ocaml/int-pow.org][Integer Exponentiation]]
+4. [[file:ocaml/perfect-powers.org][Perfect Powers]]
+5. [[file:ocaml/fibonacci.org][The Fibonacci Sequence]]
+6. [[file:ocaml/collatz.org][The Collatz Conjecture]]
+7. [[file:ocaml/primality-checking.org][Primality Checking]]
+8. [[file:ocaml/nth-prime.org][N^{th} Prime Number]]
+9. [[file:ocaml/number-of-factors.org][Number of Factors]]
+10. [[file:ocaml/perfect-numbers.org][Perfect Numbers]]
+11. [[file:ocaml/min-sos.org][Sums of Squares]]
+12. [[file:ocaml/taxicab-numbers.org][Taxicab Numbers]]
+13. [[file:ocaml/total-stopping-time.org][Total Stopping Time Records]]
+14. [[file:ocaml/path-record.org][Path Records]]
+15. [[file:ocaml/fib-gen.org][The Generalized Fibonacci Sequence]]

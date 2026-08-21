@@ -1,0 +1,19 @@
+#+title: Fahrenheit to Celsius
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val cels_of_fahr : float -> float
+#+end_src
+so that ~cels_of_fahr t~ is the temperature ~t~ in Celsius.  The
+behavior of the function is undefined if the input value is not a
+valid temperature in Fahrenheit.
+
+** Examples
+
+#+begin_src ocaml
+  let is_close f1 f2 = Float.abs (f1 -.f2) < 10. ** (-15.)
+  let _ = assert (is_close (cels_of_fahr 32.) 0.)
+  let _ = assert (is_close (cels_of_fahr 100.) 37.7777777777777786)
+#+end_src

@@ -1,0 +1,18 @@
+#+title: Perfect Numbers
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val is_perfect : int -> bool
+#+end_src
+so that ~is_perfect n~ is ~true~ if and only if ~n~ is equal to the
+sum of its proper divisors.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (is_perfect 6)        (* 6  =  1 + 2 + 3 *)
+  let _ = assert (is_perfect 28)       (* 28 =  1 + 2 + 4 + 7 + 14 *)
+  let _ = assert (not (is_perfect 24)) (* 24 <> 1 + 2 + 3 + 4 + 6 + 8 + 12 *)
+#+end_src

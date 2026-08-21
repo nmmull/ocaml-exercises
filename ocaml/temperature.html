@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fahrenheit to Celsius</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Fahrenheit to Celsius</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">cels_of_fahr</span> : float -&gt; float
+</pre>
+</div>
+<p>
+so that <code>cels_of_fahr t</code> is the temperature <code>t</code> in Celsius.  The
+behavior of the function is undefined if the input value is not a
+valid temperature in Fahrenheit.
+</p>
+<div id="outline-container-org8c1b54b" class="outline-2">
+<h2 id="org8c1b54b">Examples</h2>
+<div class="outline-text-2" id="text-org8c1b54b">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">is_close</span> <span style="color: #a0522d;">f1</span> <span style="color: #a0522d;">f2</span> = <span style="color: #228b22;">Float.</span>abs (f1 -.f2) &lt; 10. ** (-15.)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_close (cels_of_fahr 32.) 0.)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_close (cels_of_fahr 100.) 37.7777777777777786)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

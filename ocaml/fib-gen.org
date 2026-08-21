@@ -1,0 +1,43 @@
+#+title: The Generalized Fibonacci Sequence
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+The Fibonacci sequence is defined by the following recurrence relation.
+
+\begin{equation*}
+F_k =
+\begin{cases}
+k & k < 2 \\
+F_{k - 1} + F_{k - 2} & k \geq 2
+\end{cases}
+\end{equation*}
+
+This sequence can be generalized as follows. Given a list of starting
+values $l$ of length $n$, we define the sequence
+
+\begin{equation*}
+G^l_k =
+\begin{cases}
+l[i] & i < n \\
+\sum_{i = 1}^{n} G^l_{k - i} & i \geq n
+\end{cases}
+\end{equation*}
+
+This is exactly the Fibonacci sequence when $l$ is ~[0; 1]~.
+
+Implement the function
+#+begin_src ocaml
+  val gen_fib : int list -> int -> int
+#+end_src
+So that ~gen_fib~ $l$ $k$ is $G^l_k$ as defined above.  The behavior
+of the function is undefined if $l$ is empty or $k$ is negative.  Your
+solution must be tail recursive.  For an added challenge, try to make
+the running time of your implementation independent of the length of
+the input list, asymptotically.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (gen_fib [0; 1] 8 = 21)
+#+end_src

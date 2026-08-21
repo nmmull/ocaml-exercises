@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Generalized Fibonacci Sequence</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">The Generalized Fibonacci Sequence</h1>
+<p>
+The Fibonacci sequence is defined by the following recurrence relation.
+</p>
+
+\begin{equation*}
+F_k =
+\begin{cases}
+k & k < 2 \\
+F_{k - 1} + F_{k - 2} & k \geq 2
+\end{cases}
+\end{equation*}
+
+<p>
+This sequence can be generalized as follows. Given a list of starting
+values \(l\) of length \(n\), we define the sequence
+</p>
+
+\begin{equation*}
+G^l_k =
+\begin{cases}
+l[i] & i < n \\
+\sum_{i = 1}^{n} G^l_{k - i} & i \geq n
+\end{cases}
+\end{equation*}
+
+<p>
+This is exactly the Fibonacci sequence when \(l\) is <code>[0; 1]</code>.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">gen_fib</span> : int list -&gt; int -&gt; int
+</pre>
+</div>
+<p>
+So that <code>gen_fib</code> \(l\) \(k\) is \(G^l_k\) as defined above.  The behavior
+of the function is undefined if \(l\) is empty or \(k\) is negative.  Your
+solution must be tail recursive.  For an added challenge, try to make
+the running time of your implementation independent of the length of
+the input list, asymptotically.
+</p>
+<div id="outline-container-orge6a1036" class="outline-2">
+<h2 id="orge6a1036">Examples</h2>
+<div class="outline-text-2" id="text-orge6a1036">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (gen_fib [0; 1] 8 = 21)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

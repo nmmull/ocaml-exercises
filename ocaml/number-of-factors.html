@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Number of Factors</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Number of Factors</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">num_factors</span> : int -&gt; int
+</pre>
+</div>
+<p>
+so that <code>num_factors n</code> is the number of prime factors of <code>n</code>.  The behavior of the function
+is undefined if <code>n</code> is not positive.
+</p>
+<div id="outline-container-orgde08730" class="outline-2">
+<h2 id="orgde08730">Examples</h2>
+<div class="outline-text-2" id="text-orgde08730">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (num_factors 16 = 4)   <span style="color: #b22222;">(* </span><span style="color: #b22222;">16 = 2 * 2 * 2 * 2</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (num_factors 18 = 3)   <span style="color: #b22222;">(* </span><span style="color: #b22222;">18 = 2 * 3 * 3</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (num_factors 19 = 1)   <span style="color: #b22222;">(* </span><span style="color: #b22222;">19 is prime</span><span style="color: #b22222;"> *)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+#+title: Number of Factors
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val num_factors : int -> int
+#+end_src
+so that ~num_factors n~ is the number of prime factors of ~n~.  The behavior of the function
+is undefined if ~n~ is not positive.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (num_factors 16 = 4)   (* 16 = 2 * 2 * 2 * 2 *)
+  let _ = assert (num_factors 18 = 3)   (* 18 = 2 * 3 * 3 *)
+  let _ = assert (num_factors 19 = 1)   (* 19 is prime *)
+#+end_src
