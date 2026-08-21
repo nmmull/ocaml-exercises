@@ -1,0 +1,21 @@
+#+title: Toy Language
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+Consider the following BNF grammar.
+
+#+begin_src bnf
+  <prog>  ::= <stmts>
+  <stmts> ::= <stmt> | <stmt> <stmts>
+  <stmt>  ::= let <var> = <val>
+  <var>   ::= x | <var> '
+  <val>   ::= <var> | fun <var> -> <val> | ( <val> <val> )
+#+end_src
+
+Give a parse tree for the sentence
+
+#+begin_src
+  let x = fun x -> x
+  let x' = (x x)
+#+end_src

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Let Without In</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Let Without In</h1>
+<p>
+Suppose we wanted to eliminate the <code>in</code> keyword for local
+let-expressions in OCaml.  Then we could write
+</p>
+
+<pre class="example" id="orgf64b640">
+let sum_of_squares x y =
+  let x_squared = x * x
+  let y_squared = y * y
+  x_squared + y_squared
+</pre>
+
+<p>
+This would require something like the following modification to
+<a href="an-ocaml-like-grammar.html">the grammar from the previous problem</a>
+(only the first production rule for <code>&lt;e&gt;</code> has been modified).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">p</span>&gt;  <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">s</span>&gt; &lt;<span style="color: #483d8b;">p</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">s</span>&gt;
+&lt;<span style="color: #0000ff;">s</span>&gt;  <span style="color: #008b8b;">::=</span> let &lt;<span style="color: #483d8b;">v</span>&gt; = &lt;<span style="color: #483d8b;">e</span>&gt;
+&lt;<span style="color: #0000ff;">e</span>&gt;  <span style="color: #008b8b;">::=</span> let &lt;<span style="color: #483d8b;">v</span>&gt; = &lt;<span style="color: #483d8b;">e</span>&gt; &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> fun &lt;<span style="color: #483d8b;">v</span>&gt; -&gt; &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e2</span>&gt;
+&lt;<span style="color: #0000ff;">e2</span>&gt; <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">e2</span>&gt; &lt;<span style="color: #483d8b;">e3</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e3</span>&gt;
+&lt;<span style="color: #0000ff;">e3</span>&gt; <span style="color: #008b8b;">::=</span> x <span style="color: #ff0000; font-weight: bold;">|</span> y <span style="color: #ff0000; font-weight: bold;">|</span> z <span style="color: #ff0000; font-weight: bold;">|</span> 0 <span style="color: #ff0000; font-weight: bold;">|</span> 1 <span style="color: #ff0000; font-weight: bold;">|</span> 2 <span style="color: #ff0000; font-weight: bold;">|</span> ( &lt;<span style="color: #483d8b;">e</span>&gt; )
+&lt;<span style="color: #0000ff;">v</span>&gt;  <span style="color: #008b8b;">::=</span> x <span style="color: #ff0000; font-weight: bold;">|</span> y <span style="color: #ff0000; font-weight: bold;">|</span> z
+</pre>
+</div>
+
+<p>
+Demonstrate that the above grammar is ambiguous by determining a
+sentence which has multiple parse trees.  Include both parse trees
+in your solution.
+</p>
+</div>
+</body>
+</html>

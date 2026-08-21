@@ -1,0 +1,25 @@
+#+title: Integer Literals
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Complete the BNF grammar below for integer literals based on the
+following informal rules:
+
+   - a positive integer literal is any sequence of digits ~0~
+     through ~9~, not starting with the digit ~0~;
+   - a negative integer literal is a positive integer literal with a
+     negation symbol ~-~ in front of it;
+   - an integer literal is ~0~, a positive integer literal, or a
+     negative integer literal.
+
+#+begin_src bnf
+  <int>    ::= ???
+  <pdigit> ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+  <digit>  ::= 0 | <pdigit>
+  <digits> ::= ???
+  <pint>   ::= ???
+  <nint>   ::= ???
+#+end_src
+
+~<digits>~ represents any sequence of digits, ~<pint>~ represents
+positive integers, and ~<nint>~ represents negative integers.

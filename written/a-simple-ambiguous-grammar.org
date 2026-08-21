@@ -1,0 +1,19 @@
+#+title: A Simple Ambiguous Grammar
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following BNF grammar.
+
+#+begin_src bnf
+  <s> ::= A <s> B | <a>
+  <a> ::= A <a> | A <b>
+  <b> ::= B B <b> | B B
+#+end_src
+
+1. Find the *shortest* sentence which has multiple parse trees.  Also
+   provide two parse trees for your sentence.
+2. Write down a right linear regular grammar for the set of sentences
+   recognized by the above grammar which have at least 2 ~A~ symbols
+   and at least 2 ~B~ symbols.
+3. Write down a regular expression for the set of sentences recognized
+   by the above grammar.

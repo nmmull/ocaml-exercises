@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 16:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nub</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Nub</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">nub</span> : ('a * 'b) list -&gt; ('a * 'b) list
+</pre>
+</div>
+<p>
+so that <code>nub l</code> is the result of removing entries from <code>l</code> until
+every key is associated with at most one value.  In the case that
+<code>l</code> has multiple entries with the same key, the <b>leftmost</b> one
+should be kept and the remaining should be removed.  The order of
+the remaining elements should be maintained.
+</p>
+
+<p>
+<i>Hint:</i> first implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">remove_key</span> : 'a -&gt; ('a * 'b) list -&gt; ('a * 'b) list
+</pre>
+</div>
+<p>
+so that <code>remove_key k l</code> is the result of removing <b>all</b> entries of
+<code>l</code> with the key <code>k</code>.
+</p>
+<div id="outline-container-org70ce185" class="outline-2">
+<h2 id="org70ce185">Examples</h2>
+<div class="outline-text-2" id="text-org70ce185">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (nub [(1, <span style="color: #8b2252;">"1"</span>); (2, <span style="color: #8b2252;">"2"</span>)] = [(1, <span style="color: #8b2252;">"1"</span>); (2, <span style="color: #8b2252;">"2"</span>)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (nub [(1, <span style="color: #8b2252;">"1"</span>); (2, <span style="color: #8b2252;">"2"</span>); (1, <span style="color: #8b2252;">"3"</span>)] = [(1, <span style="color: #8b2252;">"1"</span>); (2, <span style="color: #8b2252;">"2"</span>)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (nub [(1, <span style="color: #8b2252;">"1"</span>); (2, <span style="color: #8b2252;">"2"</span>); (1, <span style="color: #8b2252;">"3"</span>); (1, <span style="color: #8b2252;">"4"</span>)] = [(1, <span style="color: #8b2252;">"1"</span>); (2, <span style="color: #8b2252;">"2"</span>)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (nub [(2, <span style="color: #8b2252;">"2"</span>); (1, <span style="color: #8b2252;">"3"</span>); (1, <span style="color: #8b2252;">"4"</span>); (2, <span style="color: #8b2252;">"5"</span>)] = [(2, <span style="color: #8b2252;">"2"</span>); (1, <span style="color: #8b2252;">"3"</span>)])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

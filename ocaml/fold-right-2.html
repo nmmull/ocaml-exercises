@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Right Fold 2</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Right Fold 2</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fold_right2</span> : ('a -&gt; 'b -&gt; 'acc -&gt; 'acc) -&gt; 'a list -&gt; 'b list -&gt; 'acc -&gt; 'acc
+</pre>
+</div>
+<p>
+so that <code>fold_right2 op l r base</code> is the result of
+right-associatively folding <code>op</code> over the lists <code>l</code> and <code>r</code>
+simultaneously, e.g., <code>fold_right2 op [a1;a2;a3;a4] [b1;b2;b3;b4]
+base</code> is equivalent to
+<code>op a1 b1 (op a2 b2 (op a3 b3 (op a4 b4 base)))</code>.  The behavior of
+the function is undefined if <code>l</code> and <code>r</code> are not the same length.
+</p>
+<div id="outline-container-orgac068de" class="outline-2">
+<h2 id="orgac068de">Examples</h2>
+</div>
+</div>
+</body>
+</html>

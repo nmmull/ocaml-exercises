@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Typing Derivations</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Typing Derivations</h1>
+<p>
+For all derivations, make sure that you label every rule instantiation
+with a rule name, and that you do <i>not</i> include side-conditions.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Determine a type \(\tau\) such that the following typing judgment
+is derivable.  Also provide the derivation.
+</p>
+
+<p>
+\[
+   \{ \texttt{f} : \texttt{int -> bool} \} \vdash \texttt{let x = let y = 3 in y + y in f x} : \tau
+   \]
+</p></li>
+
+<li><p>
+Determine a type \(\tau\) such that the following typing judgment
+is derivable.  Also provide the derivation.
+</p>
+
+<p>
+\[
+   \{\} \vdash \texttt{(fun x -> fun y -> y x) (fun x -> x) (fun f -> f 1)} : \tau
+   \]
+</p></li>
+</ol>
+</div>
+</body>
+</html>

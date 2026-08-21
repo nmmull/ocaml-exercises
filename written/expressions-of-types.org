@@ -1,0 +1,19 @@
+#+title: Expressions of Types
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+For each of the following types, determine an OCaml expression using
+only basic constructs (e.g., anonymous functions, applications,
+variables, list constructors, match statements, etc.) of the given
+type.  In particular, you cannot use exceptions or assertions, and
+the expression should type-check without warnings.  If this is not
+possible, then explain why in 1-2 sentences.
+
+1. ~'a -> 'b -> 'a~
+2. ~int -> 'a~
+3. ~'a -> 'a list~
+4. ~'a list -> 'a~
+5. ~('a -> 'b) -> 'a -> 'b~
+6. ~('a -> 'b) -> ('b -> 'c) -> 'a -> 'c~
+7. ~('a -> 'b, 'c -> 'b) result -> ('a * 'c) -> 'b~
+8. ~('a -> 'b) -> ('c -> 'a, 'b) result -> 'c -> 'b~

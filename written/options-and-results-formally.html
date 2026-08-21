@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 16:29 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Options and Results, Formally</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Options and Results, Formally</h1>
+<p>
+The following are the syntax, typing, and semantic rules for options
+with a simple form of pattern matching.
+</p>
+
+<p>
+<b>Syntax:</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">ty</span>&gt;   <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">ty</span>&gt; option
+&lt;<span style="color: #0000ff;">expr</span>&gt; <span style="color: #008b8b;">::=</span> None <span style="color: #ff0000; font-weight: bold;">|</span> Some &lt;<span style="color: #483d8b;">expr</span>&gt;
+         <span style="color: #ff0000; font-weight: bold;">|</span> match &lt;<span style="color: #483d8b;">expr</span>&gt; with None -&gt; &lt;<span style="color: #483d8b;">expr</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> Some &lt;<span style="color: #483d8b;">var</span>&gt; -&gt; &lt;<span style="color: #483d8b;">expr</span>&gt;
+</pre>
+</div>
+
+<p>
+Note: the <code>|</code> separating the <code>None</code> and <code>Some</code> branches in the
+<code>match</code> production above is part of the expression syntax itself,
+not a BNF alternative — <code>&lt;expr&gt;</code> has exactly three top-level
+productions (<code>None</code>, <code>Some &lt;expr&gt;</code>, and the <code>match</code> form).
+</p>
+
+<p>
+<b>Typing:</b>
+</p>
+
+<p>
+\[
+\dfrac{}{\Gamma \vdash \texttt{None} : \tau\ \texttt{option}}\ (\text{None})
+\]
+\[
+\dfrac{\Gamma \vdash e : \tau}{\Gamma \vdash \texttt{Some}\ e : \tau\ \texttt{option}}\ (\text{Some})
+\]
+\[
+\dfrac{\Gamma \vdash e_1 : \tau_1\ \texttt{option} \quad \Gamma \vdash e_2 : \tau \quad \Gamma, x:\tau_1 \vdash e_3 : \tau}
+      {\Gamma \vdash \texttt{match}\ e_1\ \texttt{with}\ \texttt{None} \to e_2\ |\ \texttt{Some}\ x \to e_3 : \tau}\ (\text{MatchOpt})
+\]
+</p>
+
+<p>
+<b>Semantics:</b> (note the values \(\mathsf{None}\) and \(\mathsf{Some}(v)\))
+</p>
+
+<p>
+\[
+\dfrac{}{\texttt{None} \Downarrow \mathsf{None}}\ (\text{NoneE})
+\]
+\[
+\dfrac{e \Downarrow v}{\texttt{Some}\ e \Downarrow \mathsf{Some}(v)}\ (\text{SomeE})
+\]
+\[
+\dfrac{e_1 \Downarrow \mathsf{None} \quad e_2 \Downarrow v}
+      {\texttt{match}\ e_1\ \texttt{with}\ \texttt{None} \to e_2\ |\ \texttt{Some}\ x \to e_3 \Downarrow v}\ (\text{MatchOptNone})
+\]
+\[
+\dfrac{e_1 \Downarrow \mathsf{Some}(v_1) \quad [v_1/x]e_3 \Downarrow v}
+      {\texttt{match}\ e_1\ \texttt{with}\ \texttt{None} \to e_2\ |\ \texttt{Some}\ x \to e_3 \Downarrow v}\ (\text{MatchOptSome})
+\]
+</p>
+
+<ol class="org-ol">
+<li><p>
+Determine a context \(\Gamma\) and a type \(\tau\) such that the
+following judgment is derivable.  Also provide the derivation.
+You must label all rule instances in your derivation with the
+corresponding rule name.
+</p>
+
+<p>
+\[
+   \Gamma \vdash \texttt{match}\ x\ \texttt{with}\ \texttt{None} \to b\ |\ \texttt{Some}\ y \to y = 2 : \tau
+   \]
+</p>
+
+<p>
+You will need <code>MatchOpt</code> above along with the following rules for
+this derivation.
+</p>
+
+<p>
+\[
+   \dfrac{(x:\tau) \in \Gamma}{\Gamma \vdash x : \tau}\ (\text{Var})
+   \]
+\[
+   \dfrac{n\ \text{is an integer literal}}{\Gamma \vdash n : \texttt{int}}\ (\text{IntLit})
+   \]
+\[
+   \dfrac{\Gamma \vdash e_1 : \tau \quad \Gamma \vdash e_2 : \tau}{\Gamma \vdash e_1 = e_2 : \texttt{bool}}\ (\text{Eq})
+   \]
+</p></li>
+
+<li><p>
+Results are like options, except that the analogous "none"
+variant carries data.  The following are some of the syntax,
+typing, and semantic rules for results.
+</p>
+
+<p>
+<b>Syntax:</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">ty</span>&gt;   <span style="color: #008b8b;">::=</span> ( &lt;<span style="color: #483d8b;">ty</span>&gt;, &lt;<span style="color: #483d8b;">ty</span>&gt; ) result
+&lt;<span style="color: #0000ff;">expr</span>&gt; <span style="color: #008b8b;">::=</span> Ok &lt;<span style="color: #483d8b;">expr</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> Error &lt;<span style="color: #483d8b;">expr</span>&gt;
+         <span style="color: #ff0000; font-weight: bold;">|</span> match &lt;<span style="color: #483d8b;">expr</span>&gt; with Ok &lt;<span style="color: #483d8b;">var</span>&gt; -&gt; &lt;<span style="color: #483d8b;">expr</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> Error &lt;<span style="color: #483d8b;">var</span>&gt; -&gt; &lt;<span style="color: #483d8b;">expr</span>&gt;
+</pre>
+</div>
+
+<p>
+<b>Typing:</b>
+</p>
+
+<p>
+\[
+   \dfrac{\Gamma \vdash e : \tau_1}{\Gamma \vdash \texttt{Ok}\ e : (\tau_1, \tau_2)\ \texttt{result}}\ (\text{Ok})
+   \]
+\[
+   \dfrac{\Gamma \vdash e : \tau_2}{\Gamma \vdash \texttt{Error}\ e : (\tau_1, \tau_2)\ \texttt{result}}\ (\text{Error})
+   \]
+</p>
+
+<p>
+<b>Semantics:</b> (note the values \(\mathsf{Ok}(v)\) and \(\mathsf{Error}(v)\))
+</p>
+
+<p>
+\[
+   \dfrac{e \Downarrow v}{\texttt{Ok}\ e \Downarrow \mathsf{Ok}(v)}\ (\text{OkE})
+   \]
+\[
+   \dfrac{e \Downarrow v}{\texttt{Error}\ e \Downarrow \mathsf{Error}(v)}\ (\text{ErrorE})
+   \]
+</p>
+
+<p>
+In analogy with options, write the typing and semantic rules for
+pattern matching with results.
+</p>
+
+<p>
+Hint: as with options, there should be three rules total.
+</p></li>
+
+<li><p>
+Determine a value \(v\) such that the following judgment is
+derivable.  Also provide the derivation.  You must label all rule
+instances in your derivation with the corresponding rule name.
+</p>
+
+<p>
+\[
+   \texttt{match}\ \texttt{Error}\ 3\ \texttt{with}\ \texttt{Ok}\ x \to x + 1\ |\ \texttt{Error}\ y \to y + 2 \Downarrow v
+   \]
+</p>
+
+<p>
+In addition to the rules you determined in the previous part,
+and <code>OkE</code> and <code>ErrorE</code> above, you'll need some of the following
+rules for this derivation.
+</p>
+
+<p>
+\[
+   \dfrac{n\ \text{is an integer literal for}\ n}{n \Downarrow n}\ (\text{IntLitE})
+   \]
+\[
+   \dfrac{e_1 \Downarrow v_1 \quad e_2 \Downarrow v_2 \quad (v = v_1 + v_2)}{e_1 + e_2 \Downarrow v}\ (\text{AddIntE})
+   \]
+</p></li>
+</ol>
+</div>
+</body>
+</html>

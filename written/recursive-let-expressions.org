@@ -1,0 +1,34 @@
+#+title: Recursive Let-Expressions
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+For all derivations, make sure that you label every rule
+instantiation with a rule name, and that you do /not/ include
+side-conditions.
+
+One rule included in the 32OCaml typing specification is the typing
+rule for recursive let expressions, which have the following syntax.
+
+#+begin_src bnf
+  <expr> ::= let rec <var> = <expr> in <expr>
+#+end_src
+
+The only difference between the let rule and the recursive let rule
+is that, given an expression of the form
+
+\[
+\texttt{let} \ \texttt{rec}\ f \ \texttt{=} \ e_1 \ \texttt{in} \ e_2
+\]
+
+determining the type of $e_1$ requires that $f$ appears in the
+context, since the definition of a recursive function can depend on
+the function itself.
+
+Provide the typing rule for recursive let expressions (call it
+*LetRec*), and use this to give a derivation of the following typing
+judgment.
+
+\[
+\{\} \vdash \texttt{let rec f = fun x -> f (x + 1) = false in f} : \texttt{int -> bool}
+\]

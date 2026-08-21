@@ -1,0 +1,22 @@
+#+title: Semantic Derivations
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+For all derivations, make sure that you label every rule
+instantiation with a rule name, and that you do /not/ include
+side-conditions.
+
+1. Determine a value $v$ such that the following semantic judgment
+   is derivable.  Also provide the derivation.
+
+   \[
+   \texttt{let x = 3 in if x = 4 then x + 1 else x + 2} \Downarrow v
+   \]
+
+2. Determine a value $v$ such that the following semantic judgment
+   is derivable.  Also provide the derivation.
+
+   \[
+   \texttt{let x = let y = 3 + 3 in y in x} \Downarrow v
+   \]

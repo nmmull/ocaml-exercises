@@ -1,6 +1,8 @@
 body {
+    font-family: "Georgia", serif;
     margin: 3em;
     line-height: 1.5;
+    max-width:800px;
 }
 
 .subtitle {
@@ -8,10 +10,14 @@ body {
     display:block
 }
 
-pre{
+pre {
     background-color: #e8e8e8;
     overflow: auto;
     padding: 10px;
+}
+
+code {
+    background-color: #e8e8e8;
 }
 
 a:link {

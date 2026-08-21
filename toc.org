@@ -1,10 +1,9 @@
 #+title: Problems and Exercises
-#+subtitle: Concepts of Programming Languages
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
 #+OPTIONS: html-style:nil H:2 toc:nil
 
-This is a collection of problems for the course /CAS CS 320:
-Concepts of Programming Languages/ at Boston University.  More info
+This is a collection of problems for the course *CAS CS 320:
+Concepts of Programming Languages* at Boston University.  More info
 TBD.
 
 -----
@@ -36,6 +35,36 @@ TBD.
 25. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
 26. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
 27. [[file:ocaml/for-loops.org][Fake Loops]]
-28. [[file:ocaml/map2.org][Map2]]
+28. [[file:ocaml/map2.org][Map 2]]
 29. [[file:ocaml/consecutives.org][Consecutives]]
 30. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
+31. [[file:written/abcs.org][ABCs]]
+32. [[file:written/bnf-derivations.org][Toy Language (1)]]
+33. [[file:written/integer-literals.org][Integer Literals]]
+34. [[file:written/a-simple-ambiguous-grammar.org][A Simple Ambiguous Grammar]]
+35. [[file:written/regular-grammars-and-expressions.org][Regular Grammars and Expressions]]
+36. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
+37. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace Correctly]]
+38. [[file:written/types-of-expressions.org][Types of Expressions]]
+39. [[file:written/expressions-of-types.org][Expressions of Types]]
+40. [[file:written/typing-derivations.org][Typing Derivations]]
+41. [[file:written/semantic-derivations.org][Semantic Derivations]]
+42. [[file:written/recursive-let-expressions.org][Recursive Let-Expressions]]
+43. [[file:written/parse-trees-in-a-simple-grammar.org][Parse Trees in a Simple Grammar]]
+44. [[file:written/match-expressions.org][Match Expressions]]
+45. [[file:written/if-then-else-expressions.org][If-Then-Else Expressions]]
+46. [[file:written/assignment-programs.org][Assignment Programs]]
+47. [[file:ocaml/nub.org][Nub]]
+48. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
+49. [[file:written/gap-buffers.org][Gap Buffers]]
+50. [[file:written/options-and-results-formally.org][Options and Results, Formally]]
+51. [[file:written/options-and-lists-formally.org][Options and Lists, Formally]]
+52. [[file:ocaml/fold-left-2.org][Fold Left 2]]
+53. [[file:ocaml/fold-right-2.org][Fold Right 2]]
+54. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]]
+57. [[file:written/an-ocaml-like-grammar.org][An OCaml-like Grammar]]
+58. [[file:written/top-level-expressions.org][Top-Level Expressions]]
+59. [[file:written/let-without-in.org][Let Without In]]
+60. [[file:written/evaluation-strategies.org][Evaluation Strategies]]
+61. [[file:written/closures-1.org][Closures (1)]]
+62. [[file:written/closures-2.org][Closures (2)]]

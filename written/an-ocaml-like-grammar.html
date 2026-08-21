@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>An OCaml-like Grammar</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">An OCaml-like Grammar</h1>
+<p>
+Consider the following OCaml-like grammar (with start symbol <code>&lt;p&gt;</code>).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">p</span>&gt;  <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">s</span>&gt; &lt;<span style="color: #483d8b;">p</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">s</span>&gt;
+&lt;<span style="color: #0000ff;">s</span>&gt;  <span style="color: #008b8b;">::=</span> let &lt;<span style="color: #483d8b;">v</span>&gt; = &lt;<span style="color: #483d8b;">e</span>&gt;
+&lt;<span style="color: #0000ff;">e</span>&gt;  <span style="color: #008b8b;">::=</span> let &lt;<span style="color: #483d8b;">v</span>&gt; = &lt;<span style="color: #483d8b;">e</span>&gt; in &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> fun &lt;<span style="color: #483d8b;">v</span>&gt; -&gt; &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e2</span>&gt;
+&lt;<span style="color: #0000ff;">e2</span>&gt; <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">e2</span>&gt; &lt;<span style="color: #483d8b;">e3</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e3</span>&gt;
+&lt;<span style="color: #0000ff;">e3</span>&gt; <span style="color: #008b8b;">::=</span> x <span style="color: #ff0000; font-weight: bold;">|</span> y <span style="color: #ff0000; font-weight: bold;">|</span> z <span style="color: #ff0000; font-weight: bold;">|</span> 0 <span style="color: #ff0000; font-weight: bold;">|</span> 1 <span style="color: #ff0000; font-weight: bold;">|</span> 2 <span style="color: #ff0000; font-weight: bold;">|</span> ( &lt;<span style="color: #483d8b;">e</span>&gt; )
+&lt;<span style="color: #0000ff;">v</span>&gt;  <span style="color: #008b8b;">::=</span> x <span style="color: #ff0000; font-weight: bold;">|</span> y <span style="color: #ff0000; font-weight: bold;">|</span> z
+</pre>
+</div>
+
+<p>
+Demonstrate that the sentence
+</p>
+<pre class="example" id="orgfa4ec37">
+let x = let y = 0 in y
+let z = (fun x -&gt; x) 1
+</pre>
+<p>
+is recognized by the above grammar by providing a parse tree for it.
+</p>
+</div>
+</body>
+</html>

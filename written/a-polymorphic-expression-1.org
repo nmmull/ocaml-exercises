@@ -1,0 +1,16 @@
+#+title: A Polymorphic Expression (1)
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall that the type ~('a, 'b) result~ is defined as follows.
+#+begin_src ocaml
+  type ('a, 'b) result =
+    | Ok of 'a
+    | Error of 'b
+#+end_src
+
+Determine an OCaml expression with the following polymorphic type.
+#+begin_src ocaml
+  ('a -> 'b, 'c -> 'b) result -> ('a * 'c) -> 'b
+#+end_src
+Your expression may not include ~assert false~.

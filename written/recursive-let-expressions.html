@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 14:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Recursive Let-Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Recursive Let-Expressions</h1>
+<p>
+For all derivations, make sure that you label every rule
+instantiation with a rule name, and that you do <i>not</i> include
+side-conditions.
+</p>
+
+<p>
+One rule included in the 32OCaml typing specification is the typing
+rule for recursive let expressions, which have the following syntax.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">expr</span>&gt; <span style="color: #008b8b;">::=</span> let rec &lt;<span style="color: #483d8b;">var</span>&gt; = &lt;<span style="color: #483d8b;">expr</span>&gt; in &lt;<span style="color: #483d8b;">expr</span>&gt;
+</pre>
+</div>
+
+<p>
+The only difference between the let rule and the recursive let rule
+is that, given an expression of the form
+</p>
+
+<p>
+\[
+\texttt{let} \ \texttt{rec}\ f \ \texttt{=} \ e_1 \ \texttt{in} \ e_2
+\]
+</p>
+
+<p>
+determining the type of \(e_1\) requires that \(f\) appears in the
+context, since the definition of a recursive function can depend on
+the function itself.
+</p>
+
+<p>
+Provide the typing rule for recursive let expressions (call it
+<b>LetRec</b>), and use this to give a derivation of the following typing
+judgment.
+</p>
+
+<p>
+\[
+\{\} \vdash \texttt{let rec f = fun x -> f (x + 1) = false in f} : \texttt{int -> bool}
+\]
+</p>
+</div>
+</body>
+</html>

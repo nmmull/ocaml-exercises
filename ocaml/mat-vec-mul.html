@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Matrix Vector Multiplication</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Matrix Vector Multiplication</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">mat_vec_mul</span> : float list list -&gt; float list -&gt; float list
+</pre>
+</div>
+<p>
+so that <code>mat_vec_mul mat vec</code> is the result of multiplying <code>mat</code> on
+the left with <code>vec</code>.  The behavior of this function is undefined if
+<code>a</code> and <code>v</code> are not the same length (i.e., if <code>a</code> has more or fewer
+rows than <code>v</code> has entries) or if <code>a</code> is not a valid matrix.
+</p>
+<div id="outline-container-orga0a0fff" class="outline-2">
+<h2 id="orga0a0fff">Examples</h2>
+<div class="outline-text-2" id="text-orga0a0fff">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">a</span> = [[1. ; 2.] ; [3. ; 4.]]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">v</span> = [5. ; 6.]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (mat_vec_mul a v = [(1. *. 5. +. 2. *. 6.); (3. *. 5. +. 4. *. 6.)])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

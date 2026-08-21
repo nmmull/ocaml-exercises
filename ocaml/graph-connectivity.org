@@ -1,0 +1,34 @@
+#+title: Graph Connectivity
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Suppose we represent a graph with nodes of type ~'a~ as a list of
+edges.  More formally, if ~gph~ is of type ~('a * 'a) list~, and ~u~
+and ~v~ are of type ~'a~, then ~u~ and ~v~ are connected in ~gph~ if
+and only if ~(u, v)~ or ~(v, u)~ is a member of ~gph~.
+
+Implement the function
+#+begin_src ocaml
+  val connected : int -> 'a -> 'a -> ('a * 'a) list -> bool
+#+end_src
+so that ~connected len src snk gph~ is ~true~ if and only if there
+is a path in ~gph~ from ~src~ to ~snk~ of length ~len~.  A *path* is
+a sequence of adjacent edges, and for this problem an edge may
+appear multiple times in a path.  Also note that edges are
+undirected, and so may appear in any orientation in a path.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (connected 0 1 1 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)])
+  (* empty path *)
+  let _ = assert (not (connected 0 1 2 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)]))
+  let _ = assert (connected 1 1 2 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)])
+  (* 1 --> 2 *)
+  let _ = assert (connected 2 1 4 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)])
+  (* 1 --> 2 --> 4 *)
+  let _ = assert (connected 4 5 3 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)])
+  (* 5 --> 4 --> 2 --> 1 --> 3 *)
+  let _ = assert (connected 2 4 4 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)])
+  (* 4 --> 5 --> 4 *)
+#+end_src

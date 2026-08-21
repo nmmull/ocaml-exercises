@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gap Buffers</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Gap Buffers</h1>
+<p>
+A <b>gap buffer</b> is a data structure common in the implementation of
+text editors.  It's like a list, but with an interface for moving
+and accessing a cursor location.  Below is a toy OCaml implementation
+of a gap buffer.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a cur</span> = <span style="color: #b22222;">(* </span><span style="color: #b22222;">1.</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a gbuf</span> = <span style="color: #b22222;">(* </span><span style="color: #b22222;">1.</span><span style="color: #b22222;"> *)</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">empty</span> :<span style="color: #228b22;"> 'a gbuf </span>= { lft = <span style="color: #000000; background-color: #ffffff;">[]</span>; rgt = <span style="color: #000000; background-color: #ffffff;">End</span> }
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">get_cur</span> (<span style="color: #a0522d;">c</span> :<span style="color: #228b22;"> 'a cur</span>) :<span style="color: #228b22;"> 'a option </span>=
+  <span style="color: #a020f0;">match</span> c <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">End</span> -&gt; <span style="color: #000000; background-color: #ffffff;">None</span>
+  | <span style="color: #000000; background-color: #ffffff;">Cur</span> (x, _) -&gt; <span style="color: #000000; background-color: #ffffff;">Some</span> x
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">get</span> (<span style="color: #a0522d;">g</span> :<span style="color: #228b22;"> 'a gbuf</span>) :<span style="color: #228b22;"> 'a option </span>= get_cur g.rgt
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">insert</span> (<span style="color: #a0522d;">x</span> :<span style="color: #228b22;"> 'a</span>) (<span style="color: #a0522d;">g</span> :<span style="color: #228b22;"> 'a gbuf</span>) :<span style="color: #228b22;"> 'a gbuf </span>= { lft = x <span style="color: #000000; background-color: #ffffff;">::</span> g.lft; rgt = g.rgt }
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">move_left</span> (<span style="color: #a0522d;">g</span> :<span style="color: #228b22;"> 'a gbuf</span>) :<span style="color: #228b22;"> 'a gbuf </span>=
+  <span style="color: #a020f0;">match</span> g.lft <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">[]</span> -&gt; g
+  | x <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt;
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">r</span> =
+      <span style="color: #a020f0;">match</span> g.rgt <span style="color: #a020f0;">with</span>
+      | <span style="color: #000000; background-color: #ffffff;">End</span> -&gt; <span style="color: #000000; background-color: #ffffff;">[]</span>
+      | <span style="color: #000000; background-color: #ffffff;">Cur</span> (y, ys) -&gt; y <span style="color: #000000; background-color: #ffffff;">::</span> ys
+    <span style="color: #000000; font-weight: bold;">in</span>
+    { lft = xs; rgt = <span style="color: #000000; background-color: #ffffff;">Cur</span> (x, r) }
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">ex</span> = get (move_left (move_left (insert 3 (insert 2 (insert 1 empty))))) <span style="color: #b22222;">(* </span><span style="color: #b22222;">2.</span><span style="color: #b22222;"> *)</span>
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>Determine the types <code>'a cur</code> and <code>'a gbuf</code>, assuming all pattern
+matches above are exhaustive.</li>
+<li>Determine the value of <code>ex</code>.  Explain your answer.</li>
+</ol>
+</div>
+</body>
+</html>

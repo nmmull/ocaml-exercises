@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evaluation Strategies</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Evaluation Strategies</h1>
+<p>
+Recall the big-step call-by-value (CBV) semantics for the
+$&lambda;$-calculus:
+</p>
+
+<p>
+\[
+\dfrac{}{\lambda x.e \Downarrow \lambda x.e}\ (\text{Fun})
+\]
+\[
+\dfrac{e_1 \Downarrow \lambda x.e \quad e_2 \Downarrow v_2 \quad (e' = [v_2/x]e) \quad e' \Downarrow v}{e_1\ e_2 \Downarrow v}\ (\text{AppCBV})
+\]
+</p>
+
+<p>
+and the big-step call-by-name (CBN) semantics for the
+$&lambda;$-calculus:
+</p>
+
+<p>
+\[
+\dfrac{}{\lambda x.e \Downarrow \lambda x.e}\ (\text{Fun})
+\]
+\[
+\dfrac{e_1 \Downarrow \lambda x.e \quad (e' = [e_2/x]e) \quad e' \Downarrow v}{e_1\ e_2 \Downarrow v}\ (\text{AppCBN})
+\]
+</p>
+<div id="outline-container-orgc7dd604" class="outline-2">
+<h2 id="orgc7dd604">Task 1</h2>
+<div class="outline-text-2" id="text-orgc7dd604">
+<p>
+Give a closed<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> expression \(e_0\) and a value \(v_0\) such that \(e_0
+\Downarrow v_0\) is derivable using CBN semantics, but <b>not</b>
+derivable using CBV semantics.  Your solution must include:
+</p>
+
+<ol class="org-ol">
+<li>the CBN semantic derivation of \(e_0 \Downarrow v_0\);</li>
+<li>a one sentence description for why \(e_0 \Downarrow v_0\) is not
+derivable using CBV semantics.</li>
+</ol>
+
+<p>
+Hint: recall the expression \((\lambda x.\ x x)(\lambda x.\ x x)\).
+</p>
+</div>
+</div>
+<div id="outline-container-org034177c" class="outline-2">
+<h2 id="org034177c">Task 2</h2>
+<div class="outline-text-2" id="text-org034177c">
+<p>
+One notable feature of the semantic systems above is that they do
+not <i>evaluate under binders</i>.  This is why we were able to ignore
+capture-avoidance when working with closed expressions.  The <i>full</i>
+evaluation strategy (which does evaluate under binders — note the
+difference in the <code>Fun</code> rule) has the following semantic rules.
+</p>
+
+<p>
+\[
+\dfrac{x\ \text{is a variable}}{x \Downarrow x}\ (\text{Var})
+\]
+\[
+\dfrac{e \Downarrow v}{\lambda x.e \Downarrow \lambda x.v}\ (\text{Fun})
+\]
+\[
+\dfrac{e_1 \Downarrow \lambda x.e \quad e_2 \Downarrow v_2 \quad (e' = [v_2/x]e) \quad e' \Downarrow v}{e_1\ e_2 \Downarrow v}\ (\text{App})
+\]
+</p>
+
+<p>
+Determine a value \(v\) up to $&alpha;$-equivalence<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> such that
+</p>
+
+<p>
+\[
+\lambda y.\ (\lambda x.\ \lambda y.\ x)\ y \Downarrow v
+\]
+</p>
+
+<p>
+using the full evaluation strategy.  Also provide the derivation.
+Hint: this will require $&alpha;$-renaming.  You may choose any fresh
+variable you'd like.
+</p>
+
+<p>
+<b>Capture-Avoiding Substitution:</b>
+</p>
+
+\begin{align*}
+[v / y]\ x &=
+\begin{cases}
+  v & x = y \\
+  x & \text{otherwise}
+\end{cases} \\
+[v / y]\ (\lambda x.\ e) &=
+\begin{cases}
+  \lambda x.\ e & x = y \\
+  \lambda z.\ [v / y][z / x]e & x \in FV(v),\ z\ \text{is fresh} \\
+  \lambda x.\ [v / y]e & \text{otherwise}
+\end{cases} \\
+[v / y]\ (e_1\ e_2) &= ([v / y]e_1)([v / y]e_2)
+\end{align*}
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">An expression is <b>closed</b> if it has no free
+variables.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">This means that
+your choice of \(v\) can differ from ours in the naming of bound
+variables.</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

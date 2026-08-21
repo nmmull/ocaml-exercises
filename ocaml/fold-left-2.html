@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 17:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Left Fold 2</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Left Fold 2</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fold_left2</span> : ('acc -&gt; 'a -&gt; 'b -&gt; 'acc) -&gt; 'acc -&gt; 'a list -&gt; 'b list -&gt; 'acc
+</pre>
+</div>
+<p>
+so that <code>fold_left2 op base l r</code> is the result of left-associatively
+folding <code>op</code> over the lists <code>l</code> and <code>r</code> simultaneously, e.g.,
+<code>fold_left2 op base [a1;a2;a3;a4] [b1;b2;b3;b4]</code> is equivalent to <code>op
+(op (op (op base a1 b1) a2 b2) a3 b3) a4 b4</code>.  The behavior of the
+function is undefined if <code>l</code> and <code>r</code> are not the same length.  Your
+solution must be tail recursive.
+</p>
+<div id="outline-container-org36be0ce" class="outline-2">
+<h2 id="org36be0ce">Examples</h2>
+</div>
+</div>
+</body>
+</html>

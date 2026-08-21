@@ -1,0 +1,17 @@
+#+title: Match Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src bnf
+  <e>  ::= match <e> with <cs> | x | true | false | ( <e> )
+  <cs> ::= <c> | <c> <cs>
+  <c>  ::= | <p> -> <e>
+  <p>  ::= x | true | false
+#+end_src
+
+1. Demonstrate that the sentence ~match x with | true -> false |
+   false -> true~ is recognized by the above grammar by providing a
+   parse tree for it.
+2. Demonstrate that the above grammar is ambiguous by determining a
+   sentence which has multiple parse trees.  Include both parse trees
+   in your solution.

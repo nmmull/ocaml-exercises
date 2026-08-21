@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:28 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Integer Literals</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Integer Literals</h1>
+<p>
+Complete the BNF grammar below for integer literals based on the
+following informal rules:
+</p>
+
+<ul class="org-ul">
+<li>a positive integer literal is any sequence of digits <code>0</code>
+through <code>9</code>, not starting with the digit <code>0</code>;</li>
+<li>a negative integer literal is a positive integer literal with a
+negation symbol <code>-</code> in front of it;</li>
+<li>an integer literal is <code>0</code>, a positive integer literal, or a
+negative integer literal.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">int</span>&gt;    <span style="color: #008b8b;">::=</span> ???
+&lt;<span style="color: #0000ff;">pdigit</span>&gt; <span style="color: #008b8b;">::=</span> 1 <span style="color: #ff0000; font-weight: bold;">|</span> 2 <span style="color: #ff0000; font-weight: bold;">|</span> 3 <span style="color: #ff0000; font-weight: bold;">|</span> 4 <span style="color: #ff0000; font-weight: bold;">|</span> 5 <span style="color: #ff0000; font-weight: bold;">|</span> 6 <span style="color: #ff0000; font-weight: bold;">|</span> 7 <span style="color: #ff0000; font-weight: bold;">|</span> 8 <span style="color: #ff0000; font-weight: bold;">|</span> 9
+&lt;<span style="color: #0000ff;">digit</span>&gt;  <span style="color: #008b8b;">::=</span> 0 <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">pdigit</span>&gt;
+&lt;<span style="color: #0000ff;">digits</span>&gt; <span style="color: #008b8b;">::=</span> ???
+&lt;<span style="color: #0000ff;">pint</span>&gt;   <span style="color: #008b8b;">::=</span> ???
+&lt;<span style="color: #0000ff;">nint</span>&gt;   <span style="color: #008b8b;">::=</span> ???
+</pre>
+</div>
+
+<p>
+<code>&lt;digits&gt;</code> represents any sequence of digits, <code>&lt;pint&gt;</code> represents
+positive integers, and <code>&lt;nint&gt;</code> represents negative integers.
+</p>
+</div>
+</body>
+</html>

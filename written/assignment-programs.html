@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 16:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assignment Programs</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Assignment Programs</h1>
+<p>
+The following grammar expresses that a program (<code>&lt;p&gt;</code>) is a sequence
+of assignment statements (<code>&lt;w&gt; = &lt;e&gt;</code>) ending with an optional
+expression (<code>&lt;e&gt;</code>).<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>  For
+example, <code>x = 1 y = &amp;x x + * y</code> is a well-formed program.  Note that
+it can be written more naturally as:<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+</p>
+
+<pre class="example" id="org245ee92">
+x = 1
+y = &amp;x
+x + *y
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">p</span>&gt;  <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">w</span>&gt; = &lt;<span style="color: #483d8b;">e</span>&gt; &lt;<span style="color: #483d8b;">p</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">w</span>&gt; = &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e</span>&gt;
+&lt;<span style="color: #0000ff;">e</span>&gt;  <span style="color: #008b8b;">::=</span> &lt;<span style="color: #483d8b;">e2</span>&gt; &lt;<span style="color: #483d8b;">o</span>&gt; &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e2</span>&gt;
+&lt;<span style="color: #0000ff;">e2</span>&gt; <span style="color: #008b8b;">::=</span> &amp; &lt;<span style="color: #483d8b;">w</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">w</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> ( &lt;<span style="color: #483d8b;">e</span>&gt; ) <span style="color: #ff0000; font-weight: bold;">|</span> 1 <span style="color: #ff0000; font-weight: bold;">|</span> 2 <span style="color: #ff0000; font-weight: bold;">|</span> 3
+&lt;<span style="color: #0000ff;">o</span>&gt;  <span style="color: #008b8b;">::=</span> + <span style="color: #ff0000; font-weight: bold;">|</span> - <span style="color: #ff0000; font-weight: bold;">|</span> * <span style="color: #ff0000; font-weight: bold;">|</span> /
+&lt;<span style="color: #0000ff;">w</span>&gt;  <span style="color: #008b8b;">::=</span> * &lt;<span style="color: #483d8b;">w</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> x <span style="color: #ff0000; font-weight: bold;">|</span> y <span style="color: #ff0000; font-weight: bold;">|</span> z
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>Demonstrate that the sentence <code>x = 1 y = &amp;x x + * y</code> is recognized
+by the above grammar by providing a parse tree for it.</li>
+<li>Demonstrate that the above grammar is ambiguous by determining a
+sentence which has multiple parse trees.  Include both parse
+trees in your solution.</li>
+</ol>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">This is similar to how Rust works.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The meaning of this program
+doesn't matter for this problem, but we might understand this
+program to be saying: <code>x</code> is assigned to <code>1</code>, and then <code>y</code> is
+assigned to a reference to <code>x</code>, and then the output of the program
+is <code>x</code> plus the value that <code>y</code> refers to, i.e., <code>y</code> is
+<i>dereferenced</i>.</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

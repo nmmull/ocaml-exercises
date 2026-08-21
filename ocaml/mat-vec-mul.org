@@ -1,0 +1,21 @@
+#+title: Matrix Vector Multiplication
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+Implement the function
+#+begin_src ocaml
+  val mat_vec_mul : float list list -> float list -> float list
+#+end_src
+so that ~mat_vec_mul mat vec~ is the result of multiplying ~mat~ on
+the left with ~vec~.  The behavior of this function is undefined if
+~a~ and ~v~ are not the same length (i.e., if ~a~ has more or fewer
+rows than ~v~ has entries) or if ~a~ is not a valid matrix.
+
+** Examples
+
+#+begin_src ocaml
+  let a = [[1. ; 2.] ; [3. ; 4.]]
+  let v = [5. ; 6.]
+  let _ = assert (mat_vec_mul a v = [(1. *. 5. +. 2. *. 6.); (3. *. 5. +. 4. *. 6.)])
+#+end_src

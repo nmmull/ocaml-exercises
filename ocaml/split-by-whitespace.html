@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Split by Whitespace</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Split by Whitespace</h1>
+<p>
+When parsing input for a simple language (e.g., a calculator), we
+often need to split an expression, provided as a string, into its
+whitespace-separated parts, e.g., the following assertions should
+hold.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (split_on_ws <span style="color: #8b2252;">"1 23 + -94  *"</span>
+   = [<span style="color: #8b2252;">"1"</span>; <span style="color: #8b2252;">"23"</span>; <span style="color: #8b2252;">"+"</span>; <span style="color: #8b2252;">"-94"</span>; <span style="color: #8b2252;">"*"</span>])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (split_on_ws <span style="color: #8b2252;">"  foo    bar  \n\n   baz   "</span>
+   = [<span style="color: #8b2252;">"foo"</span>; <span style="color: #8b2252;">"bar"</span>; <span style="color: #8b2252;">"baz"</span>])
+</pre>
+</div>
+
+<p>
+To make this easier, you can work with strings as lists of
+characters, using the functions <code>explode</code> and <code>implode</code> below to
+convert between strings and character lists.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">explode</span> (<span style="color: #a0522d;">s</span> :<span style="color: #228b22;"> string</span>) :<span style="color: #228b22;"> char list </span>=
+  <span style="color: #228b22;">List.</span>init (<span style="color: #228b22;">String.</span>length s) (<span style="color: #228b22;">String.</span>get s)
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">implode</span> (<span style="color: #a0522d;">l</span> :<span style="color: #228b22;"> char list</span>) :<span style="color: #228b22;"> string </span>=
+  <span style="color: #228b22;">String.</span>init (<span style="color: #228b22;">List.</span>length l) (<span style="color: #228b22;">List.</span>nth l)
+</pre>
+</div>
+
+<p>
+For example, a helper working over character lists should satisfy
+the following.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (split_on_ws_helper [<span style="color: #8b2252;">'1'</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">'2'</span>; <span style="color: #8b2252;">'3'</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">'+'</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">'-'</span>; <span style="color: #8b2252;">'9'</span>; <span style="color: #8b2252;">'4'</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">'*'</span>]
+   = [[<span style="color: #8b2252;">'1'</span>]; [<span style="color: #8b2252;">'2'</span>; <span style="color: #8b2252;">'3'</span>]; [<span style="color: #8b2252;">'+'</span>]; [<span style="color: #8b2252;">'-'</span>; <span style="color: #8b2252;">'9'</span>; <span style="color: #8b2252;">'4'</span>]; [<span style="color: #8b2252;">'*'</span>]])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (split_on_ws_helper [<span style="color: #8b2252;">'f'</span>; <span style="color: #8b2252;">'o'</span>; <span style="color: #8b2252;">'o'</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">'\n'</span>; <span style="color: #8b2252;">'b'</span>; <span style="color: #8b2252;">'a'</span>; <span style="color: #8b2252;">'z'</span>; <span style="color: #8b2252;">' '</span>; <span style="color: #8b2252;">' '</span>]
+   = [[<span style="color: #8b2252;">'f'</span>; <span style="color: #8b2252;">'o'</span>; <span style="color: #8b2252;">'o'</span>]; [<span style="color: #8b2252;">'b'</span>; <span style="color: #8b2252;">'a'</span>; <span style="color: #8b2252;">'z'</span>]])
+</pre>
+</div>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_on_ws</span> : string -&gt; string list
+</pre>
+</div>
+<p>
+so that <code>split_on_ws s</code> is the list of contiguous non-whitespace
+substrings of <code>s</code>, in the order in which they appear, as in the
+above examples.  Note: <code>split_on_ws_helper</code> is just an illustration
+of one possible approach — you do not need to implement it
+separately.
+</p>
+
+<p>
+<b>Challenge worth nothing:</b> despite the above, it's bad practice to
+work with strings as lists of characters.  Implement <code>split_on_ws</code>
+without <code>explode</code> and <code>implode</code>, instead by making use of the
+function <code>String.sub</code>.
+</p>
+</div>
+</body>
+</html>

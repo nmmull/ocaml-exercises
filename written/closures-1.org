@@ -1,0 +1,38 @@
+#+title: Closures (1)
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the following environment-based semantic rules (which use
+only unnamed closures, written $\langle \mathcal{E}, \lambda x.e
+\rangle$ for the closure pairing an environment $\mathcal{E}$ with a
+function body $\lambda x.e$).
+
+\[
+\dfrac{n\ \text{is an integer literal for}\ n}{\mathcal{E} \vdash n \Downarrow n}\ (\text{IntLitE})
+\]
+\[
+\dfrac{}{\mathcal{E} \vdash x \Downarrow \mathcal{E}(x)}\ (\text{VarE})
+\]
+\[
+\dfrac{}{\mathcal{E} \vdash \texttt{fun}\ x \to e \Downarrow \langle \mathcal{E}, \lambda x.e \rangle}\ (\text{FunE})
+\]
+\[
+\dfrac{\mathcal{E}_1 \vdash e_1 \Downarrow \langle \mathcal{E}_2, \lambda x.e \rangle \quad
+       \mathcal{E}_1 \vdash e_2 \Downarrow v_2 \quad
+       (\mathcal{E}_3 = \mathcal{E}_2[x \mapsto v_2]) \quad
+       \mathcal{E}_3 \vdash e \Downarrow v}
+      {\mathcal{E}_1 \vdash e_1\ e_2 \Downarrow v}\ (\text{AppE})
+\]
+\[
+\dfrac{\mathcal{E}_1 \vdash e_1 \Downarrow v_1 \quad \mathcal{E}_1[x \mapsto v_1] \vdash e_2 \Downarrow v_2}
+      {\mathcal{E}_1 \vdash \texttt{let}\ x = e_1\ \texttt{in}\ e_2 \Downarrow v_2}\ (\text{LetE})
+\]
+
+Determine the (closure) value of the following expression.  You do
+not need to provide a derivation, but you must show your work or
+include a short description indicating how you got your solution.
+
+#+begin_src ocaml
+  (fun f -> fun x -> f x) (let z = 1 in fun y -> y + z)
+#+end_src

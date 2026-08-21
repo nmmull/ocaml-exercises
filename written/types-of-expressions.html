@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Types of Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Types of Expressions</h1>
+<ol class="org-ol">
+<li><p>
+What is the type of <code>g</code> so that the following expression is
+well-typed?  Can <code>g</code> be given a polymorphic type?  Also, what is
+the type of the following expression?  Justify your answer.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">f</span> <span style="color: #a0522d;">x</span> = g x + g (f x) <span style="color: #000000; font-weight: bold;">in</span> f
+</pre>
+</div></li>
+<li><p>
+Suppose that <code>h</code> is of type <code>'a list -&gt; 'a list -&gt; 'a</code> and <code>k</code> is
+of type <code>'b -&gt; ('b -&gt; 'b) list</code>.  Determine the type of the
+following expression.  Justify your answer.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> <span style="color: #a0522d;">y</span> -&gt; h x (k y)
+</pre>
+</div></li>
+</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+#+title: Evaluation Strategies
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the big-step call-by-value (CBV) semantics for the
+$\lambda$-calculus:
+
+\[
+\dfrac{}{\lambda x.e \Downarrow \lambda x.e}\ (\text{Fun})
+\]
+\[
+\dfrac{e_1 \Downarrow \lambda x.e \quad e_2 \Downarrow v_2 \quad (e' = [v_2/x]e) \quad e' \Downarrow v}{e_1\ e_2 \Downarrow v}\ (\text{AppCBV})
+\]
+
+and the big-step call-by-name (CBN) semantics for the
+$\lambda$-calculus:
+
+\[
+\dfrac{}{\lambda x.e \Downarrow \lambda x.e}\ (\text{Fun})
+\]
+\[
+\dfrac{e_1 \Downarrow \lambda x.e \quad (e' = [e_2/x]e) \quad e' \Downarrow v}{e_1\ e_2 \Downarrow v}\ (\text{AppCBN})
+\]
+
+** Task 1
+
+Give a closed[fn::An expression is *closed* if it has no free
+variables.] expression $e_0$ and a value $v_0$ such that $e_0
+\Downarrow v_0$ is derivable using CBN semantics, but *not*
+derivable using CBV semantics.  Your solution must include:
+
+1. the CBN semantic derivation of $e_0 \Downarrow v_0$;
+2. a one sentence description for why $e_0 \Downarrow v_0$ is not
+   derivable using CBV semantics.
+
+Hint: recall the expression $(\lambda x.\ x x)(\lambda x.\ x x)$.
+
+** Task 2
+
+One notable feature of the semantic systems above is that they do
+not /evaluate under binders/.  This is why we were able to ignore
+capture-avoidance when working with closed expressions.  The /full/
+evaluation strategy (which does evaluate under binders — note the
+difference in the ~Fun~ rule) has the following semantic rules.
+
+\[
+\dfrac{x\ \text{is a variable}}{x \Downarrow x}\ (\text{Var})
+\]
+\[
+\dfrac{e \Downarrow v}{\lambda x.e \Downarrow \lambda x.v}\ (\text{Fun})
+\]
+\[
+\dfrac{e_1 \Downarrow \lambda x.e \quad e_2 \Downarrow v_2 \quad (e' = [v_2/x]e) \quad e' \Downarrow v}{e_1\ e_2 \Downarrow v}\ (\text{App})
+\]
+
+Determine a value $v$ up to $\alpha$-equivalence[fn::This means that
+your choice of $v$ can differ from ours in the naming of bound
+variables.] such that
+
+\[
+\lambda y.\ (\lambda x.\ \lambda y.\ x)\ y \Downarrow v
+\]
+
+using the full evaluation strategy.  Also provide the derivation.
+Hint: this will require $\alpha$-renaming.  You may choose any fresh
+variable you'd like.
+
+*Capture-Avoiding Substitution:*
+
+\begin{align*}
+[v / y]\ x &=
+\begin{cases}
+  v & x = y \\
+  x & \text{otherwise}
+\end{cases} \\
+[v / y]\ (\lambda x.\ e) &=
+\begin{cases}
+  \lambda x.\ e & x = y \\
+  \lambda z.\ [v / y][z / x]e & x \in FV(v),\ z\ \text{is fresh} \\
+  \lambda x.\ [v / y]e & \text{otherwise}
+\end{cases} \\
+[v / y]\ (e_1\ e_2) &= ([v / y]e_1)([v / y]e_2)
+\end{align*}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 16:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>If-Then-Else Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">If-Then-Else Expressions</h1>
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">e</span>&gt;  <span style="color: #008b8b;">::=</span> if &lt;<span style="color: #483d8b;">e</span>&gt; then &lt;<span style="color: #483d8b;">e</span>&gt; else &lt;<span style="color: #483d8b;">e</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e</span>&gt; + &lt;<span style="color: #483d8b;">e2</span>&gt; <span style="color: #ff0000; font-weight: bold;">|</span> &lt;<span style="color: #483d8b;">e2</span>&gt;
+&lt;<span style="color: #0000ff;">e2</span>&gt; <span style="color: #008b8b;">::=</span> true <span style="color: #ff0000; font-weight: bold;">|</span> false <span style="color: #ff0000; font-weight: bold;">|</span> 1 <span style="color: #ff0000; font-weight: bold;">|</span> ( &lt;<span style="color: #483d8b;">e</span>&gt; )
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>Demonstrate that the sentence <code>if true then 1 + 1 else 1</code> is
+recognized by the above grammar by providing a parse tree for it.</li>
+<li>Demonstrate that the above grammar is ambiguous by determining a
+sentence which has multiple parse trees.  Include both parse
+trees in your solution.</li>
+</ol>
+</div>
+</body>
+</html>

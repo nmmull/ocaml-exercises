@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Regular Grammars and Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Regular Grammars and Expressions</h1>
+<ol class="org-ol">
+<li>Write down a regular expression which recognizes all binary strings
+without a contiguous subsequence of <code>1</code>'s of length 3, e.g.,
+\(\epsilon\) and <code>001</code> and <code>00110001001000001</code> but not <code>111</code> or
+<code>0011000101111001</code>.</li>
+<li>Write down a right linear regular grammar which recognizes all
+binary strings with an odd number of zeros and an odd number of
+ones, e.g., <code>01</code> and <code>001011</code> but not <code>001100010</code> or <code>0011</code>.  (Note
+that it would be a fair amount more difficult to give a regular
+expression, even though the two representations are equivalent in
+expressivity.)</li>
+<li>Write down a regular expression which recognizes all strings of
+characters without whitespace or parentheses which represent
+(possibly empty) <code>int list~s of ~0~s in OCaml, e.g., ~0::0::[]</code> and
+<code>0::[0;0;0]</code> and <code>[0;]</code> (note the optional trailing semicolon) and
+<code>[]</code>.</li>
+</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+#+title: An OCaml-like Grammar
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following OCaml-like grammar (with start symbol ~<p>~).
+
+#+begin_src bnf
+  <p>  ::= <s> <p> | <s>
+  <s>  ::= let <v> = <e>
+  <e>  ::= let <v> = <e> in <e> | fun <v> -> <e> | <e2>
+  <e2> ::= <e2> <e3> | <e3>
+  <e3> ::= x | y | z | 0 | 1 | 2 | ( <e> )
+  <v>  ::= x | y | z
+#+end_src
+
+Demonstrate that the sentence
+#+begin_example
+  let x = let y = 0 in y
+  let z = (fun x -> x) 1
+#+end_example
+is recognized by the above grammar by providing a parse tree for it.

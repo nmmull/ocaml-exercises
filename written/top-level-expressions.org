@@ -1,0 +1,30 @@
+#+title: Top-Level Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Suppose we wanted to allow expressions at the top-level in OCaml.
+Then we could write
+
+#+begin_example
+  let x = "foo"
+  let y = "bar"
+  print_endline x
+  print_endline y
+#+end_example
+
+This would require something like the following modification to
+[[file:an-ocaml-like-grammar.org][the grammar from the previous problem]]
+(only two production rules for ~<p>~ have been added).
+
+#+begin_src bnf
+  <p>  ::= <s> <p> | <s> | <e> <p> | <e>
+  <s>  ::= let <v> = <e>
+  <e>  ::= let <v> = <e> in <e> | fun <v> -> <e> | <e2>
+  <e2> ::= <e2> <e3> | <e3>
+  <e3> ::= x | y | z | 0 | 1 | 2 | ( <e> )
+  <v>  ::= x | y | z
+#+end_src
+
+Demonstrate that the above grammar is ambiguous by determining a
+sentence which has multiple parse trees.  Include both parse trees
+in your solution.

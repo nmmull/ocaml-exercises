@@ -1,0 +1,16 @@
+#+title: Left Fold 2
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val fold_left2 : ('acc -> 'a -> 'b -> 'acc) -> 'acc -> 'a list -> 'b list -> 'acc
+#+end_src
+so that ~fold_left2 op base l r~ is the result of left-associatively
+folding ~op~ over the lists ~l~ and ~r~ simultaneously, e.g.,
+~fold_left2 op base [a1;a2;a3;a4] [b1;b2;b3;b4]~ is equivalent to ~op
+(op (op (op base a1 b1) a2 b2) a3 b3) a4 b4~.  The behavior of the
+function is undefined if ~l~ and ~r~ are not the same length.  Your
+solution must be tail recursive.
+
+** Examples

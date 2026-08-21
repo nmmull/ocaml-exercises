@@ -1,0 +1,16 @@
+#+title: Types of Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+1. What is the type of ~g~ so that the following expression is
+   well-typed?  Can ~g~ be given a polymorphic type?  Also, what is
+   the type of the following expression?  Justify your answer.
+   #+begin_src ocaml
+     let rec f x = g x + g (f x) in f
+   #+end_src
+2. Suppose that ~h~ is of type ~'a list -> 'a list -> 'a~ and ~k~ is
+   of type ~'b -> ('b -> 'b) list~.  Determine the type of the
+   following expression.  Justify your answer.
+   #+begin_src ocaml
+     fun x y -> h x (k y)
+   #+end_src

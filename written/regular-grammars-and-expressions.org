@@ -1,0 +1,19 @@
+#+title: Regular Grammars and Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+1. Write down a regular expression which recognizes all binary strings
+   without a contiguous subsequence of ~1~'s of length 3, e.g.,
+   $\epsilon$ and ~001~ and ~00110001001000001~ but not ~111~ or
+   ~0011000101111001~.
+2. Write down a right linear regular grammar which recognizes all
+   binary strings with an odd number of zeros and an odd number of
+   ones, e.g., ~01~ and ~001011~ but not ~001100010~ or ~0011~.  (Note
+   that it would be a fair amount more difficult to give a regular
+   expression, even though the two representations are equivalent in
+   expressivity.)
+3. Write down a regular expression which recognizes all strings of
+   characters without whitespace or parentheses which represent
+   (possibly empty) ~int list~s of ~0~s in OCaml, e.g., ~0::0::[]~ and
+   ~0::[0;0;0]~ and ~[0;]~ (note the optional trailing semicolon) and
+   ~[]~.

@@ -1,0 +1,16 @@
+#+title: Right Fold 2
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val fold_right2 : ('a -> 'b -> 'acc -> 'acc) -> 'a list -> 'b list -> 'acc -> 'acc
+#+end_src
+so that ~fold_right2 op l r base~ is the result of
+right-associatively folding ~op~ over the lists ~l~ and ~r~
+simultaneously, e.g., ~fold_right2 op [a1;a2;a3;a4] [b1;b2;b3;b4]
+base~ is equivalent to
+~op a1 b1 (op a2 b2 (op a3 b3 (op a4 b4 base)))~.  The behavior of
+the function is undefined if ~l~ and ~r~ are not the same length.
+
+** Examples

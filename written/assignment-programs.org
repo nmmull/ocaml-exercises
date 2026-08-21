@@ -1,0 +1,34 @@
+#+title: Assignment Programs
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+The following grammar expresses that a program (~<p>~) is a sequence
+of assignment statements (~<w> = <e>~) ending with an optional
+expression (~<e>~).[fn::This is similar to how Rust works.]  For
+example, ~x = 1 y = &x x + * y~ is a well-formed program.  Note that
+it can be written more naturally as:[fn::The meaning of this program
+doesn't matter for this problem, but we might understand this
+program to be saying: ~x~ is assigned to ~1~, and then ~y~ is
+assigned to a reference to ~x~, and then the output of the program
+is ~x~ plus the value that ~y~ refers to, i.e., ~y~ is
+/dereferenced/.]
+
+#+begin_example
+  x = 1
+  y = &x
+  x + *y
+#+end_example
+
+#+begin_src bnf
+  <p>  ::= <w> = <e> <p> | <w> = <e> | <e>
+  <e>  ::= <e2> <o> <e> | <e2>
+  <e2> ::= & <w> | <w> | ( <e> ) | 1 | 2 | 3
+  <o>  ::= + | - | * | /
+  <w>  ::= * <w> | x | y | z
+#+end_src
+
+1. Demonstrate that the sentence ~x = 1 y = &x x + * y~ is recognized
+   by the above grammar by providing a parse tree for it.
+2. Demonstrate that the above grammar is ambiguous by determining a
+   sentence which has multiple parse trees.  Include both parse
+   trees in your solution.

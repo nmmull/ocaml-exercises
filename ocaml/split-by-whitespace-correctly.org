@@ -1,0 +1,12 @@
+#+title: Split by Whitespace Correctly
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+If you didn't in the [[file:split-by-whitespace.org][other]] version of this problem, implement the function
+#+begin_src ocaml
+  val split_on_ws : string -> string list
+#+end_src
+so that ~split_on_ws s~ is the list of contiguous non-whitespace
+substrings of ~s~, in the order in which they appear, /but without
+using implode and explode./  Instead you should use ~String.sub~.

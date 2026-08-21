@@ -1,0 +1,17 @@
+#+title: ABCs
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following BNF grammar.
+
+#+begin_src bnf
+  <s> ::= <a> | <b> | <c>
+  <a> ::= A <b> | A A <b>
+  <b> ::= B <b> | A B <b> | A B <c>
+  <c> ::= C | C <c> B
+#+end_src
+
+1. Give two different parse trees of the sentence ~AABABC~.
+2. Find every derivable sentence with 5 (terminal) symbols.  Circle
+   (or otherwise mark) any sentences which can be derived in multiple
+   ways.

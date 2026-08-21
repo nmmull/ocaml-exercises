@@ -1,0 +1,14 @@
+#+title: If-Then-Else Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src bnf
+  <e>  ::= if <e> then <e> else <e> | <e> + <e2> | <e2>
+  <e2> ::= true | false | 1 | ( <e> )
+#+end_src
+
+1. Demonstrate that the sentence ~if true then 1 + 1 else 1~ is
+   recognized by the above grammar by providing a parse tree for it.
+2. Demonstrate that the above grammar is ambiguous by determining a
+   sentence which has multiple parse trees.  Include both parse
+   trees in your solution.
