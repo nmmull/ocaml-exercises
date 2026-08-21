@@ -1,0 +1,49 @@
+#+title: Boolean Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+#+begin_src ocaml
+  type bexp
+    = Var of string
+    | Not of bexp
+    | And of bexp * bexp
+    | Or of bexp * bexp
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val eval : (string * bool) list -> bexp -> bool option
+#+end_src
+so that ~eval v e~ is ~Some b~ if every variable in ~e~ also appears
+in ~v~ and ~e~ evaluates to ~b~, or ~None~ if not all variables in
+~e~ appear in ~v~.
+
+One way to think about evaluation: imagine ~v~ as defining a
+collection of ~bool~ values in OCaml:
+#+begin_src ocaml
+  let a = true
+  let b = false
+  let c = true
+#+end_src
+and an expression as defining a boolean expression in OCaml:
+#+begin_src ocaml
+  let e = a && (b || c)
+#+end_src
+The goal of evaluation is to determine the value of ~e~.  Likewise,
+if you define an expression with a name that has not been defined,
+you would get a compile-time error,
+#+begin_src ocaml
+  let f = not d
+#+end_src
+which is why ~eval~ should return ~None~ on ~f~.
+
+** Examples
+
+#+begin_src ocaml
+  let v = [("a", true); ("b", false); ("c", true)]
+  let e = And (Var "a", Or (Var "b", Var "c"))
+  let f = Not (Var "d")
+  let _ = assert (eval v e = Some true)
+  let _ = assert (eval v f = None)
+#+end_src

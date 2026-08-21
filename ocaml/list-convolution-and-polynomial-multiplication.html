@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>List Convolution and Multiplying Polynomials</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">List Convolution and Multiplying Polynomials</h1>
+<p>
+We can use <code>List.map</code> and <a href="consecutives.html"><code>consecutives</code></a> to implement a process called
+<b>list convolution</b>, which can be used to implement polynomial
+multiplication.<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">list_conv</span>
+    (<span style="color: #a0522d;">f</span> :<span style="color: #228b22;"> 'a list -&gt; 'b list -&gt; 'c</span>)
+    (<span style="color: #a0522d;">l</span> :<span style="color: #228b22;"> 'a list</span>)
+    (<span style="color: #a0522d;">r</span> :<span style="color: #228b22;"> 'b list</span>) :<span style="color: #228b22;"> 'c list </span>=
+  <span style="color: #228b22;">List.</span>map (f l) (consecutives (<span style="color: #228b22;">List.</span>length l) r)
+</pre>
+</div>
+
+<p>
+In essence, the list <code>l</code> is "lined up" with <code>r</code> in all possible ways,
+and <code>f</code> is applied to <code>l</code> and the sublist of <code>r</code> it is lined up with.
+For example, <code>list_conv f [1;2] [3;4;5;6]</code> is equivalent to <code>[f [1;2]
+[3;4] ; f [1;2] [4;5] ; f [1;2] [5;6]]</code>.
+</p>
+
+<p>
+A polynomial is represented as an <code>int list</code> where the <code>i</code>-th
+element is the coefficient of \(x^i\).  For example, \(p(x) = 1 + 2x +
+5x^2 + 4x^4\) is represented by <code>[1;2;5;0;4]</code>.
+</p>
+
+<p>
+The function for multiplying polynomials is filled in below for you
+using list convolution.<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">poly_mult</span> (<span style="color: #a0522d;">p</span> :<span style="color: #228b22;"> int list</span>) (<span style="color: #a0522d;">q</span> :<span style="color: #228b22;"> int list</span>) :<span style="color: #228b22;"> int list </span>=
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">padding</span> = <span style="color: #228b22;">List.</span>init (<span style="color: #228b22;">List.</span>length p - 1) (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">_</span> -&gt; 0) <span style="color: #000000; font-weight: bold;">in</span>
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">padded_q</span> = padding <span style="color: #a52a2a;">@</span> q <span style="color: #a52a2a;">@</span> padding <span style="color: #000000; font-weight: bold;">in</span>
+  list_conv poly_mult_helper p padded_q
+</pre>
+</div>
+
+<p>
+Your task is to implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">poly_mult_helper</span> : int list -&gt; int list -&gt; int
+</pre>
+</div>
+<p>
+to determine what function to convolve with.
+</p>
+<div id="outline-container-org3ef8760" class="outline-2">
+<h2 id="org3ef8760">Examples</h2>
+<div class="outline-text-2" id="text-org3ef8760">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (poly_mult [1;2;3] [4;5] = [4;13;22;15])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (poly_mult [4;5] [1;2;3] = [4;13;22;15])
+<span style="color: #b22222;">(* </span><span style="color: #b22222;">( 1 + 2x + 3x^2 ) ( 4 + 5x ) = 4 + 13x + 22x^2 + 15x^3</span><span style="color: #b22222;"> *)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara"><b>Challenge:</b> If you know what list convolution is,
+try first to implement it yourself (it's okay if you already peaked at
+the solution, it's still a good exercise).</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara"><b>Challenge:</b> Same as before, try to
+implement polynomial multiplication from scratch using list
+convolution.</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

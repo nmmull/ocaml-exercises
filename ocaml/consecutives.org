@@ -1,0 +1,23 @@
+#+title: Consecutives
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+
+#+begin_src ocaml
+  val consecutives : int -> 'a list -> 'a list list
+#+end_src
+
+so that ~consecutives len l~ is the list of all consecutive sublists
+of ~l~ of length ~min len (List.length l)~.  The behavior of the
+function is undefined if ~len~ is not positive.
+
+Hint: use the functions [[file:map2.org][~map2~]] and ~List.map~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (consecutives 2 [1;2;3;4;5] = [[1;2];[2;3];[3;4];[4;5]])
+  let _ = assert (consecutives 1 [] = [[]])
+  let _ = assert (consecutives 10 [1;2;3;4;5] = [[1;2;3;4;5]])
+#+end_src

@@ -1,0 +1,67 @@
+#+title: Fake Loops
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+In Python we might write the following code to generate Pythagorean
+triples.
+
+#+begin_src python
+  def pythagorean_triples(n):
+      out = []
+      for i in range(1, n):
+          for j in range(i + 1, n):
+              for k in range(j + 1, n):
+                  if i * i + j * j == k * k:
+                      out.append((i, j, k))
+      return out
+#+end_src
+
+In this problem you'll implement a version of this logic in OCaml
+using higher-order functions.  This problem has two parts.
+
+#+begin_src ocaml
+  let rec range i j =
+    if i >= j then
+      []
+    else
+      i :: range (i + 1) j
+#+end_src
+
+** For Loops
+
+Implement the function
+#+begin_src ocaml
+  val for_loop : 'a list -> ('a -> 'b list) -> 'b list
+#+end_src
+so that ~for_loop l f~ is the result of applying ~f~ to each element
+of ~l~ and then concatenating the outputs.  For example,
+~for_loop [x;y;z] f~ is equivalent to ~f x @ f y @ f z~.
+
+For example, ~foo~ below uses ~for_loop~ like a Python for-loop:
+#+begin_src ocaml
+  let foo i j =
+    for_loop (range i j) (fun k -> [k + k])
+
+  let _ = assert (foo 1 10 = List.map (fun k -> k + k) (range 1 10))
+#+end_src
+
+** Pythagorean Triples
+
+Implement the function
+#+begin_src ocaml
+  val pythagorean_triples : int -> (int * int * int) list
+#+end_src
+so that ~pythagorean_triples n~ is the list of all triples
+~(i, j, k)~ in lexicographical order such that
+
+   - ~i * i + j * j = k * k~;
+   - ~i < j < k < n~.
+
+You should use the ~for_loop~ function and mimic the structure of
+the Python code above.  Think about how you might use ~List.filter~
+to get the Pythagorean triples from the list of all triples.
+
+#+begin_src ocaml
+  let _ = assert (pythagorean_triples 20 =
+    [(3, 4, 5); (5, 12, 13); (6, 8, 10); (8, 15, 17); (9, 12, 15)])
+#+end_src

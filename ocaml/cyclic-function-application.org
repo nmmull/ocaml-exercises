@@ -1,0 +1,28 @@
+#+title: Cyclic Function Application
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val apply_cycle : ('a -> 'a) list -> int -> 'a -> 'a
+#+end_src
+so that ~apply_cycle funcs n x~ is the result of applying ~n~
+functions to ~x~, where the functions applied are the functions in
+~funcs~ in order from left to right, starting again from the beginning
+as necessary.  For example, ~apply_cycle [f1;f2;f3] 5 x~ is equivalent
+to ~f2 (f1 (f3 (f2 (f1 x))))~.  Your implementation must be tail
+recursive.  The behavior of the function is undefined if ~n~ is
+negative.
+
+** Examples
+
+#+begin_src ocaml
+  let f x = x + 1
+  let g x = x - 1
+  let h x = x * x
+  let k x = x / 2
+  let _ = assert (apply_cycle [f;g;g] 8 0 = -2)
+  let _ = assert (apply_cycle [g;f;f] 8 0 = 2)
+  let _ = assert (apply_cycle [f;g;g] 0 10 = 10)
+  let _ = assert (apply_cycle [f;h;k] 4 5 = 19)
+#+end_src

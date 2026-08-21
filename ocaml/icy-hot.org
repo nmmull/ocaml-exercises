@@ -1,0 +1,28 @@
+#+title: Icy Hot
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+#+begin_src ocaml
+  type temp
+    = Hot of int
+    | Icy of int
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val reduce : temp list -> temp list
+#+end_src
+so that ~reduce l~ is the list gotten from ~l~ by the following
+reduction rule: if ~Hot i~ and ~Icy i~ are adjacent (in particular,
+they must be carrying the same value) in any order, then they
+cancel out and are removed from the list.  This rule should be
+carried out until it is not possible to reduce the list any further.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (reduce [Hot 0;Icy 0] = [])
+  let _ = assert (reduce [Hot 0;Icy 1;Hot 1;Icy 0] = [])
+  let _ = assert (reduce [Hot 0;Hot 1;Icy 2;Hot 2;Hot 0;Icy 1] = [Hot 0;Hot 1;Hot 0;Icy 1])
+#+end_src

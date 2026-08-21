@@ -1,0 +1,52 @@
+#+title: List Convolution and Multiplying Polynomials
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+We can use ~List.map~ and [[file:consecutives.org][~consecutives~]] to implement a process called
+*list convolution*, which can be used to implement polynomial
+multiplication.[fn::*Challenge:* If you know what list convolution is,
+try first to implement it yourself (it's okay if you already peaked at
+the solution, it's still a good exercise).]
+
+#+begin_src ocaml
+  let list_conv
+      (f : 'a list -> 'b list -> 'c)
+      (l : 'a list)
+      (r : 'b list) : 'c list =
+    List.map (f l) (consecutives (List.length l) r)
+#+end_src
+
+In essence, the list ~l~ is "lined up" with ~r~ in all possible ways,
+and ~f~ is applied to ~l~ and the sublist of ~r~ it is lined up with.
+For example, ~list_conv f [1;2] [3;4;5;6]~ is equivalent to ~[f [1;2]
+[3;4] ; f [1;2] [4;5] ; f [1;2] [5;6]]~.
+
+A polynomial is represented as an ~int list~ where the ~i~-th
+element is the coefficient of $x^i$.  For example, $p(x) = 1 + 2x +
+5x^2 + 4x^4$ is represented by ~[1;2;5;0;4]~.
+
+The function for multiplying polynomials is filled in below for you
+using list convolution.[fn::*Challenge:* Same as before, try to
+implement polynomial multiplication from scratch using list
+convolution.]
+
+#+begin_src ocaml
+  let poly_mult (p : int list) (q : int list) : int list =
+    let padding = List.init (List.length p - 1) (fun _ -> 0) in
+    let padded_q = padding @ q @ padding in
+    list_conv poly_mult_helper p padded_q
+#+end_src
+
+Your task is to implement the function
+#+begin_src ocaml
+  val poly_mult_helper : int list -> int list -> int
+#+end_src
+to determine what function to convolve with.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (poly_mult [1;2;3] [4;5] = [4;13;22;15])
+  let _ = assert (poly_mult [4;5] [1;2;3] = [4;13;22;15])
+  (* ( 1 + 2x + 3x^2 ) ( 4 + 5x ) = 4 + 13x + 22x^2 + 15x^3 *)
+#+end_src

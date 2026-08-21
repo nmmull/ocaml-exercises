@@ -1,0 +1,29 @@
+#+title: Grouping Integers and Strings
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+#+begin_src ocaml
+  type int_or_string
+    = Int of int
+    | String of string
+
+  type int_list_or_string_list
+    = IntList of int list
+    | StringList of string list
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val convert : int_or_string list -> int_list_or_string_list list
+#+end_src
+so that ~convert l~ is a list of ~int_list_or_string_list~ values such that
+adjacent ~int~ values and ~string~ values in ~l~ are grouped together.
+
+** Examples
+
+#+begin_src ocaml
+  let test_in = [Int 2; Int 3; String "a"; String "b"; Int 4; String "c"]
+  let test_out = [IntList [2;3]; StringList ["a";"b"]; IntList [4]; StringList ["c"]]
+  let _ = assert (convert test_in = test_out)
+#+end_src

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Forklist</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Forklist</h1>
+<p>
+A <code>forklist</code> is a combination of a list and a binary tree.  It has
+constructors for the empty list (<code>Nil</code>), a single link (<code>Cons</code>), and
+a double link (<code>Fork</code>).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a forklist</span>
+  = <span style="color: #000000; background-color: #ffffff;">Nil</span>
+  | <span style="color: #000000; background-color: #ffffff;">Cons</span> <span style="color: #a020f0;">of</span> 'a * 'a forklist
+  | <span style="color: #000000; background-color: #ffffff;">Fork</span> <span style="color: #a020f0;">of</span> 'a * 'a forklist * 'a forklist
+</pre>
+</div>
+
+<p>
+A forklist <code>l</code> with distinct elements is <b>ordered</b> if it satisfies
+the following properties:
+</p>
+
+<ol class="org-ol">
+<li>if <code>l</code> is of the form <code>Cons (x, xs)</code> then every element in
+<code>xs</code> is greater than <code>x</code>;</li>
+<li>if <code>l</code> is of the form <code>Fork (x, lxs, rxs)</code> then every element
+in <code>lxs</code> is less than <code>x</code> and every element in <code>rxs</code> is
+greater than <code>x</code>.</li>
+</ol>
+
+<p>
+A forklist <code>l</code> is <b>tailed</b> if it satisfies the property that if
+<code>Cons (x, xs)</code> appears in <code>l</code>, then <code>xs</code> contains no <code>Fork</code> constructors.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">delay_cons</span> : int forklist -&gt; int forklist
+</pre>
+</div>
+<p>
+so that, given an ordered forklist of integers <code>f</code>, <code>delay_cons f</code>
+is a tailed ordered forklist with the following properties:
+</p>
+
+<ol class="org-ol">
+<li>it has the same elements as <code>f</code>;</li>
+<li>it has the same number of <code>Cons</code>, <code>Fork</code>, and <code>Nil</code> constructors
+as <code>f</code>, respectively.</li>
+</ol>
+
+<p>
+Note that the output does not need to look exactly like the one in
+the example below; it just has to satisfy the above properties.
+</p>
+<div id="outline-container-org353fe79" class="outline-2">
+<h2 id="org353fe79">Examples</h2>
+<div class="outline-text-2" id="text-org353fe79">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">f</span> = <span style="color: #000000; background-color: #ffffff;">Cons</span> (2, <span style="color: #000000; background-color: #ffffff;">Fork</span> (4, <span style="color: #000000; background-color: #ffffff;">Cons</span> (3, <span style="color: #000000; background-color: #ffffff;">Nil</span>), <span style="color: #000000; background-color: #ffffff;">Cons</span> (5, <span style="color: #000000; background-color: #ffffff;">Nil</span>)))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">g</span> = <span style="color: #000000; background-color: #ffffff;">Fork</span> (4, <span style="color: #000000; background-color: #ffffff;">Cons</span> (2, <span style="color: #000000; background-color: #ffffff;">Cons</span> (3, <span style="color: #000000; background-color: #ffffff;">Nil</span>)), <span style="color: #000000; background-color: #ffffff;">Cons</span> (5, <span style="color: #000000; background-color: #ffffff;">Nil</span>))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (delay_cons f = g)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

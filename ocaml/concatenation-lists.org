@@ -1,0 +1,31 @@
+#+title: Concatenation Lists
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+A ~concatlist~ is a list whose constructors are based on
+concatenation instead of cons.  It has a constructor for the empty
+list (~Nil~), a single element list (~Single~), and the
+concatenation of two lists (~Concat~).
+
+#+begin_src ocaml
+  type 'a concatlist
+    = Nil
+    | Single of 'a
+    | Concat of 'a concatlist * 'a concatlist
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val sort : 'a concatlist -> 'a list
+#+end_src
+so that ~sort l~ is a regular list with the same elements as ~l~ but
+in sorted order.  You should do this without first converting ~l~
+into a regular list; in particular, you *cannot* use the function
+~List.sort~.
+
+** Examples
+
+#+begin_src ocaml
+  let l = Concat (Concat (Single 3, Single 2), Concat (Single 1, Single 10))
+  let _ = assert (sort l = [1;2;3;10])
+#+end_src

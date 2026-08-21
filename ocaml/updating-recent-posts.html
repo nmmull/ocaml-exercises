@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Updating Recent Posts</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Updating Recent Posts</h1>
+<p>
+An online post (defined by the record type <code>post</code> below) has a
+title, content, and timestamp.  A user is defined by a record type
+with many fields (see below) but the important fields for this
+problem are
+</p>
+
+<ul class="org-ul">
+<li><code>old_posts</code>: a list of posts in decreasing order of timestamp;</li>
+<li><code>recent_posts</code>: a list of posts in decreasing order of timestamp.</li>
+</ul>
+
+<p>
+These fields have the further property that every post in
+<code>old_posts</code> is older than every post in <code>recent_posts</code> (i.e., their
+timestamps are smaller).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">post</span> = {
+  title : string;
+  content : string;
+  timestamp : int;
+}
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">user</span> = {
+  username : string;
+  email : string;
+  time_joined : int;
+  is_paid_user : bool;
+  balance : int;
+  next_payment_time : int;
+  is_paused : bool;
+  num_followers : int;
+  num_likes : int;
+  old_posts : post list;
+  recent_posts : post list;
+}
+</pre>
+</div>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">update_recent</span> : user -&gt; int -&gt; int -&gt; user
+</pre>
+</div>
+<p>
+so that <code>update_recent u time stale</code> is a new <code>user</code> with the
+following properties:
+</p>
+
+<ul class="org-ul">
+<li>every post in <code>recent_posts</code> at least <code>stale</code> timesteps old
+(with respect to the current time <code>time</code>) has been moved to
+<code>old_posts</code>;</li>
+<li>the ordering property above is maintained: timestamps still
+appear in decreasing order, and <code>old_posts</code> are older than
+<code>recent_posts</code>.</li>
+</ul>
+<div id="outline-container-orge22b243" class="outline-2">
+<h2 id="orge22b243">Examples</h2>
+<div class="outline-text-2" id="text-orge22b243">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">p</span> <span style="color: #a0522d;">t</span> = {title=<span style="color: #8b2252;">""</span>;content=<span style="color: #8b2252;">""</span>;timestamp=t}
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">mk</span> <span style="color: #a0522d;">op</span> <span style="color: #a0522d;">rp</span> = {
+  username = <span style="color: #8b2252;">""</span> ;
+  email = <span style="color: #8b2252;">""</span> ;
+  time_joined = 0 ;
+  is_paid_user = <span style="color: #008b8b;">true</span> ;
+  balance = 0 ;
+  next_payment_time = 0 ;
+  is_paused = <span style="color: #008b8b;">true</span> ;
+  num_followers = 0 ;
+  num_likes = 0 ;
+  old_posts = op ;
+  recent_posts = rp ;
+}
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (update_recent (mk <span style="color: #000000; background-color: #ffffff;">[]</span> [p 30;p 20;p 10;p 0]) 50 30 = mk [p 20;p 10;p 0] [p 30])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

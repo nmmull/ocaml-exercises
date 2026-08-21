@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Listing Paths</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Listing Paths</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">dir</span> = <span style="color: #000000; background-color: #ffffff;">N</span> | <span style="color: #000000; background-color: #ffffff;">S</span> | <span style="color: #000000; background-color: #ffffff;">E</span> | <span style="color: #000000; background-color: #ffffff;">W</span>
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">point</span> = {
+  x : int;
+  y : int;
+}
+</pre>
+</div>
+
+<p>
+A <i>sequence of directions</i> is a list of <code>dir * int</code> pairs with the
+property that no adjacent elements have the same <code>dir</code>.  For
+example, <code>[(N, 1); (S, 1); (N, 3)]</code> is a valid sequence of
+directions, but <code>[(N, 1); (N, 3); (S, 1)]</code> is not; instead, this
+should be <code>[(N, 4); (S, 1)]</code>.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">all_paths</span> : int -&gt; point -&gt; point -&gt; (dir * int) list list
+</pre>
+</div>
+<p>
+so that <code>all_paths len stp endp</code> is a list of sequences of
+directions, where each sequence describes a way to get from <code>stp</code> to
+<code>endp</code> in exactly <code>len</code> steps.
+</p>
+<div id="outline-container-orge643074" class="outline-2">
+<h2 id="orge643074">Examples</h2>
+<div class="outline-text-2" id="text-orge643074">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">origin</span> = {x = 0; y = 0}
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (all_paths 0 origin origin = [<span style="color: #000000; background-color: #ffffff;">[]</span>])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (all_paths 1 origin origin = <span style="color: #000000; background-color: #ffffff;">[]</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (all_paths 2 origin origin =
+    [
+      [(<span style="color: #000000; background-color: #ffffff;">N</span>, 1); (<span style="color: #000000; background-color: #ffffff;">S</span>, 1)];
+      [(<span style="color: #000000; background-color: #ffffff;">S</span>, 1); (<span style="color: #000000; background-color: #ffffff;">N</span>, 1)];
+      [(<span style="color: #000000; background-color: #ffffff;">E</span>, 1); (<span style="color: #000000; background-color: #ffffff;">W</span>, 1)];
+      [(<span style="color: #000000; background-color: #ffffff;">W</span>, 1); (<span style="color: #000000; background-color: #ffffff;">E</span>, 1)];
+    ])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (all_paths 3 origin origin = <span style="color: #000000; background-color: #ffffff;">[]</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [(<span style="color: #000000; background-color: #ffffff;">N</span>, 2); (<span style="color: #000000; background-color: #ffffff;">S</span>, 2)] (all_paths 4 origin origin))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [(<span style="color: #000000; background-color: #ffffff;">N</span>, 1); (<span style="color: #000000; background-color: #ffffff;">E</span>, 1); (<span style="color: #000000; background-color: #ffffff;">W</span>, 1); (<span style="color: #000000; background-color: #ffffff;">S</span>, 1)] (all_paths 4 origin origin))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

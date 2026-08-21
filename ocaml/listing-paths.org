@@ -1,0 +1,45 @@
+#+title: Listing Paths
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+#+begin_src ocaml
+  type dir = N | S | E | W
+
+  type point = {
+    x : int;
+    y : int;
+  }
+#+end_src
+
+A /sequence of directions/ is a list of ~dir * int~ pairs with the
+property that no adjacent elements have the same ~dir~.  For
+example, ~[(N, 1); (S, 1); (N, 3)]~ is a valid sequence of
+directions, but ~[(N, 1); (N, 3); (S, 1)]~ is not; instead, this
+should be ~[(N, 4); (S, 1)]~.
+
+Implement the function
+#+begin_src ocaml
+  val all_paths : int -> point -> point -> (dir * int) list list
+#+end_src
+so that ~all_paths len stp endp~ is a list of sequences of
+directions, where each sequence describes a way to get from ~stp~ to
+~endp~ in exactly ~len~ steps.
+
+** Examples
+
+#+begin_src ocaml
+  let origin = {x = 0; y = 0}
+  let _ = assert (all_paths 0 origin origin = [[]])
+  let _ = assert (all_paths 1 origin origin = [])
+  let _ = assert (all_paths 2 origin origin =
+      [
+        [(N, 1); (S, 1)];
+        [(S, 1); (N, 1)];
+        [(E, 1); (W, 1)];
+        [(W, 1); (E, 1)];
+      ])
+  let _ = assert (all_paths 3 origin origin = [])
+  let _ = assert (List.mem [(N, 2); (S, 2)] (all_paths 4 origin origin))
+  let _ = assert (List.mem [(N, 1); (E, 1); (W, 1); (S, 1)] (all_paths 4 origin origin))
+#+end_src

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 13:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>For Loops</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">For Loops</h1>
+<p>
+In Python we might write the following code to generate Pythagorean
+triples.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">def</span> <span style="color: #0000ff;">pythagorean_triples</span>(n):
+    <span style="color: #a0522d;">out</span> = []
+    <span style="color: #a020f0;">for</span> i <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(1, n):
+        <span style="color: #a020f0;">for</span> j <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(i + 1, n):
+            <span style="color: #a020f0;">for</span> k <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(j + 1, n):
+                <span style="color: #a020f0;">if</span> i * i + j * j == k * k:
+                    out.append((i, j, k))
+    <span style="color: #a020f0;">return</span> out
+</pre>
+</div>
+
+<p>
+In this problem you'll implement a version of this logic in OCaml
+using higher-order functions.  This problem has two parts.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">range</span> <span style="color: #a0522d;">i</span> <span style="color: #a0522d;">j</span> =
+  <span style="color: #a020f0;">if</span> i &gt;= j <span style="color: #a020f0;">then</span>
+    <span style="color: #000000; background-color: #ffffff;">[]</span>
+  <span style="color: #a020f0;">else</span>
+    i <span style="color: #000000; background-color: #ffffff;">::</span> range (i + 1) j
+</pre>
+</div>
+<div id="outline-container-orga1ee731" class="outline-2">
+<h2 id="orga1ee731">For Loops</h2>
+<div class="outline-text-2" id="text-orga1ee731">
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">for_loop</span> : 'a list -&gt; ('a -&gt; 'b list) -&gt; 'b list
+</pre>
+</div>
+<p>
+so that <code>for_loop l f</code> is the result of applying <code>f</code> to each element
+of <code>l</code> and then concatenating the outputs.  For example,
+<code>for_loop [x;y;z] f</code> is equivalent to <code>f x @ f y @ f z</code>.
+</p>
+
+<p>
+For example, <code>foo</code> below uses <code>for_loop</code> like a Python for-loop:
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">foo</span> <span style="color: #a0522d;">i</span> <span style="color: #a0522d;">j</span> =
+  for_loop (range i j) (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">k</span> -&gt; [k + k])
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (foo 1 10 = <span style="color: #228b22;">List.</span>map (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">k</span> -&gt; k + k) (range 1 10))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbbc386e" class="outline-2">
+<h2 id="orgbbc386e">Pythagorean Triples</h2>
+<div class="outline-text-2" id="text-orgbbc386e">
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">pythagorean_triples</span> : int -&gt; (int * int * int) list
+</pre>
+</div>
+<p>
+so that <code>pythagorean_triples n</code> is the list of all triples
+<code>(i, j, k)</code> in lexicographical order such that
+</p>
+
+<ul class="org-ul">
+<li><code>i * i + j * j = k * k</code>;</li>
+<li><code>i &lt; j &lt; k &lt; n</code>.</li>
+</ul>
+
+<p>
+You should use the <code>for_loop</code> function and mimic the structure of
+the Python code above.  Think about how you might use <code>List.filter</code>
+to get the Pythagorean triples from the list of all triples.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (pythagorean_triples 20 =
+  [(3, 4, 5); (5, 12, 13); (6, 8, 10); (8, 15, 17); (9, 12, 15)])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

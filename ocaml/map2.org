@@ -1,0 +1,21 @@
+#+title: Map2
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+
+Implement the function
+
+#+begin_src ocaml
+  val map2 : ('a -> 'b -> 'c) -> 'a list -> 'b list -> 'c list
+#+end_src
+
+so that ~map2 f l r~ is the result of applying ~f~ to each element
+of ~l~ and ~r~ pointwise.  If ~l~ and ~r~ are different lengths,
+then the longer list should be truncated to the length of the
+shorter list.  For example, ~map2 f [a;b] [c;d;e]~ is equivalent to
+~[f a c ; f b d]~.
+
+This is a two-list version of the function ~List.map~.  You should
+not use the function ~List.map2~ in your implementation (the
+standard library version does not work the way we've defined ~map2~
+here).

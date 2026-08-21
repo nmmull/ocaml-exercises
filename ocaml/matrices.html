@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 12:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Matrices</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Matrices</h1>
+<p>
+In this problem you'll build a (very) small interface for matrices.  A
+matrix is represented as a record which keeps track of its numbers of
+rows and columns, as well as its values, represented as a list of rows
+(i.e., a list of lists).  You will implement some error handling by
+working with <code>result</code> values.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">error</span>
+  = <span style="color: #000000; background-color: #ffffff;">Uneven_rows</span>
+  | <span style="color: #000000; background-color: #ffffff;">Zero_rows</span>
+  | <span style="color: #000000; background-color: #ffffff;">Zero_cols</span>
+  | <span style="color: #000000; background-color: #ffffff;">Mul_mismatch</span>
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a matrix</span> = {
+  num_rows : int ;
+  num_cols : int ;
+  rows : 'a list list ;
+}
+</pre>
+</div>
+<div id="outline-container-orgf2227f7" class="outline-2">
+<h2 id="orgf2227f7">Constructor</h2>
+<div class="outline-text-2" id="text-orgf2227f7">
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">mk_matrix</span> : 'a list list -&gt; ('a matrix, error) result
+</pre>
+</div>
+<p>
+so that <code>mk_matrix rs</code> is a matrix represented by the list of lists
+<code>rs</code> if it is valid, or an <code>error</code> otherwise.  The error conditions
+are:
+</p>
+
+<ul class="org-ul">
+<li>if the lengths of the rows in <code>rs</code> are not all equal, then
+<code>mk_matrix</code> should return <code>Error Uneven_rows</code>;</li>
+<li>if <code>rs</code> is empty, then <code>mk_matrix</code> should return
+<code>Error Zero_rows</code>;</li>
+<li>if <code>rs</code> contains only empty lists, then <code>mk_matrix</code> should
+return <code>Error Zero_cols</code>.</li>
+</ul>
+
+<p>
+In other words, <code>mk_matrix</code> should only return a matrix if <code>rs</code>
+represents a nonempty rectangular grid of values.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l</span> = [[1;2;3];[4;5;6]]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">rm</span> = mk_matrix l
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">match</span> rm <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">Ok</span> m -&gt;
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (m.num_rows = 2) <span style="color: #000000; font-weight: bold;">in</span>
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (m.num_cols = 3) <span style="color: #000000; font-weight: bold;">in</span>
+    ()
+  | _ -&gt; <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">r</span> = [[1;2;3;4];[1;2;3]]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">rm'</span> = mk_matrix r
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">match</span> rm' <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">Ok</span> _ -&gt; <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span>
+  | <span style="color: #000000; background-color: #ffffff;">Error</span> e -&gt; <span style="color: #a020f0;">assert</span> (e = <span style="color: #000000; background-color: #ffffff;">Uneven_rows</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org20a54bb" class="outline-2">
+<h2 id="org20a54bb">Traspose</h2>
+<div class="outline-text-2" id="text-org20a54bb">
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">transpose</span> : 'a matrix -&gt; 'a matrix
+</pre>
+</div>
+<p>
+so that <code>transpose m</code> is the <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of <code>m</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">match</span> rm <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">Ok</span> m -&gt;
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">tm</span> = transpose m <span style="color: #000000; font-weight: bold;">in</span>
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tm.num_rows = 3) <span style="color: #000000; font-weight: bold;">in</span>
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tm.num_cols = 2) <span style="color: #000000; font-weight: bold;">in</span>
+    <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tm.rows = [[1;4];[2;5];[3;6]]) <span style="color: #000000; font-weight: bold;">in</span>
+    ()
+  | _ -&gt; <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc561927" class="outline-2">
+<h2 id="orgc561927">Multiply</h2>
+<div class="outline-text-2" id="text-orgc561927">
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">multiply</span> : float matrix -&gt; float matrix -&gt; (float matrix, error) result
+</pre>
+</div>
+<p>
+so that <code>multiply m n</code> is the product of <code>m</code> and <code>n</code> (see
+<a href="https://en.wikipedia.org/wiki/Matrix_multiplication">matrix multiplication</a>)
+if it is possible to multiply them.  The error condition:
+</p>
+
+<ul class="org-ul">
+<li>if the number of columns of <code>m</code> is not the same as the number
+of rows of <code>n</code>, then <code>multiply</code> should return
+<code>Error Mul_mismatch</code>.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">a</span> =
+  { num_rows = 2 ;
+    num_cols = 2 ;
+    rows = [[1.;2.];[3.;4.]] ;
+  }
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">b</span> =
+  { num_rows = 1 ;
+    num_cols = 2 ;
+    rows = [[1.; 2.]] ;
+  }
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (multiply a a = <span style="color: #000000; background-color: #ffffff;">Ok</span> {
+  num_rows = 2 ;
+  num_cols = 2 ;
+  rows = [[7.;10.];[15.;22.]] ;
+ })
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (multiply a b = <span style="color: #000000; background-color: #ffffff;">Error</span> <span style="color: #000000; background-color: #ffffff;">Mul_mismatch</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
