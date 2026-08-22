@@ -1,0 +1,35 @@
+#+title: Transpose
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Fill in the following implementation of the function ~transpose~
+which, given ~m : 'a list list~, returns the transpose of ~m~,
+assuming ~m~ represents the rows of a valid $m \times n$ matrix,
+where $m$ and $n$ are positive.
+
+#+begin_src ocaml
+  open List
+
+  let f1 = ...
+  let f2 = ...
+
+  let rec transpose m =
+    if is_empty (hd m)
+    then []
+    else map f1 m :: transpose (map f2 m)
+#+end_src
+
+Recall that ~hd~ (used in the first line of ~transpose~) returns the
+first element of a list and ~tl~ returns everything except the first
+element.  You may use these functions in your solution, but
+otherwise you may not use any functions from the standard library
+except constructors and operators.
+
+Determine definitions for ~f1~ and ~f2~ so that ~transpose~ is
+correct.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (transpose [[1;2;3];[4;5;6]] = [[1;4];[2;5];[3;6]])
+#+end_src

@@ -1,0 +1,26 @@
+#+title: Typing Derivation (I)
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Give a typing derivation of the following typing judgment using the
+rules below.  Do not use any shorthands in your derivation.
+
+\[
+\{ \texttt{x} : \texttt{int},\ \texttt{y} : \texttt{bool} \} \vdash \texttt{if y then [] else x :: []} : \texttt{int list}
+\]
+
+\[
+\dfrac{(x : \tau) \in \Gamma}{\Gamma \vdash x : \tau}\ (\text{Var})
+\]
+\[
+\dfrac{\Gamma \vdash e_1 : \texttt{bool} \quad \Gamma \vdash e_2 : \tau \quad \Gamma \vdash e_3 : \tau}
+      {\Gamma \vdash \texttt{if}\ e_1\ \texttt{then}\ e_2\ \texttt{else}\ e_3 : \tau}\ (\text{If})
+\]
+\[
+\dfrac{}{\Gamma \vdash \texttt{[]} : \tau\ \texttt{list}}\ (\text{Nil})
+\]
+\[
+\dfrac{\Gamma \vdash e_1 : \tau \quad \Gamma \vdash e_2 : \tau\ \texttt{list}}
+      {\Gamma \vdash e_1\ \texttt{::}\ e_2 : \tau\ \texttt{list}}\ (\text{Cons})
+\]

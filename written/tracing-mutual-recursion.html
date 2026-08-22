@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-22 Sat 12:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tracing Mutual Recursion</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Tracing Mutual Recursion</h1>
+<p>
+Consider the following OCaml function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">f</span> =
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">g</span> <span style="color: #a0522d;">lst</span> =
+    <span style="color: #a020f0;">match</span> lst <span style="color: #a020f0;">with</span>
+    | 1 <span style="color: #000000; background-color: #ffffff;">::</span> 1 <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt; h xs
+    | <span style="color: #000000; background-color: #ffffff;">[]</span> -&gt; <span style="color: #008b8b;">true</span>
+    | _ -&gt; <span style="color: #008b8b;">false</span>
+  <span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">h</span> <span style="color: #a0522d;">lst</span> =
+    <span style="color: #a020f0;">match</span> lst <span style="color: #a020f0;">with</span>
+    | 0 <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt; k xs
+    | _ -&gt; <span style="color: #008b8b;">false</span>
+  <span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">k</span> <span style="color: #a0522d;">lst</span> = g lst <span style="color: #a52a2a;">||</span> h lst
+  <span style="color: #000000; font-weight: bold;">in</span> k
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>What is the type of <code>f</code>?</li>
+<li>Evaluate the following expressions.
+<ol class="org-ol">
+<li><code>f []</code></li>
+<li><code>f [1]</code></li>
+<li><code>f [1;1;0]</code></li>
+<li><code>f [1;1;1;0;0]</code></li>
+<li><code>f [1;1;1;0;0;1;1;0]</code></li>
+</ol></li>
+</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#+title: Typing Judgment to English
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following typing judgment.
+
+\[
+\{ \texttt{s} : \texttt{string},\ \texttt{i} : \texttt{int} \} \vdash \texttt{s.[i]} : \texttt{char}
+\]
+
+Write down an English sentence which expresses the same thing as the
+above typing judgment.

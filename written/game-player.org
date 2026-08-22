@@ -1,0 +1,31 @@
+#+title: Game Player
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following small interface for a player in a video game.
+
+#+begin_src ocaml
+  let greet (p : player) = "Hello " ^ p.name ^ "!"
+
+  let level_up (p : player) =
+    { p with level = p.level + 1 }
+
+  let take_potion (p : player) =
+    match p.curr_item with
+    | Potion info ->
+      { p with
+        health = p.health + info.boost ;
+        curr_item = List.hd p.inventory ;
+        inventory = List.tl p.inventory ;
+      }
+    | _ -> p
+
+  let value (i : item) =
+    match i with
+    | Potion { boost = n } -> n * 2
+    | Sword -> 100
+    | Map -> 0
+#+end_src
+
+Define the types ~item~ and ~player~ so that the above code
+type-checks.

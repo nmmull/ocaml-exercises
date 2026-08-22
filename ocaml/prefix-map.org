@@ -1,0 +1,23 @@
+#+title: Prefix Map
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val prefix_map : ('a list -> 'b option) -> 'a list -> ('b * 'a list) option
+#+end_src
+so that ~prefix_map f l~ is
+
+   - ~Some (b, rest)~ if ~pre~ is the shortest list such that
+     ~f pre~ is not ~None~, ~f pre = Some b~, and
+     ~pre @ rest = l~;
+   - ~None~ if ~f pre = None~ for every prefix ~pre~ of ~l~
+     (including ~l~ itself).
+
+** Examples
+
+#+begin_src ocaml
+  let f pre = let s = List.fold_left (+) 0 pre in if s >= 5 then Some s else None
+  let _ = assert (prefix_map f [1;2;3;4] = Some (6, [4]))
+  let _ = assert (prefix_map f [1;1] = None)
+#+end_src

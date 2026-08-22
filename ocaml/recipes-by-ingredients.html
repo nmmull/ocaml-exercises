@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 12:45 -->
+<!-- 2026-08-22 Sat 12:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Recipes by Ingredients</title>
@@ -16,8 +16,8 @@
 <h1 class="title">Recipes by Ingredients</h1>
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">recipe</span> = {
-  name : string ;
-  ingrs : string list ;
+  name : string;
+  ingrs : string list;
 }
 </pre>
 </div>
@@ -35,19 +35,15 @@ so that <code>recs_by_ingrs recs ingrs</code> is the list of those recipes in
 <code>ingrs</code>.  You may assume that <code>ingrs</code> and <code>r.ingrs</code> for every <code>r</code> in
 <code>recs</code> do not contain duplicates.
 </p>
-
-<p>
-Hint: the function <code>List.mem</code> may be useful.
-</p>
-<div id="outline-container-org83d10f6" class="outline-2">
-<h2 id="org83d10f6">Examples</h2>
-<div class="outline-text-2" id="text-org83d10f6">
+<div id="outline-container-org39aae2f" class="outline-2">
+<h2 id="org39aae2f">Examples</h2>
+<div class="outline-text-2" id="text-org39aae2f">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">r1</span> = { name = <span style="color: #8b2252;">"1"</span> ; ingrs = [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"b"</span>; <span style="color: #8b2252;">"d"</span>] }
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">r2</span> = { name = <span style="color: #8b2252;">"2"</span> ; ingrs = [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"c"</span>; <span style="color: #8b2252;">"e"</span>] }
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">r3</span> = { name = <span style="color: #8b2252;">"3"</span> ; ingrs = [<span style="color: #8b2252;">"b"</span>; <span style="color: #8b2252;">"c"</span>] }
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (recs_by_ingrs [r1;r2;r3] [<span style="color: #8b2252;">"a"</span>;<span style="color: #8b2252;">"b"</span>;<span style="color: #8b2252;">"c"</span>;<span style="color: #8b2252;">"d"</span>] = [r1;r3])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (recs_by_ingrs [r1;r2;r3] [<span style="color: #8b2252;">"a"</span>;<span style="color: #8b2252;">"b"</span>;<span style="color: #8b2252;">"c"</span>;<span style="color: #8b2252;">"e"</span>] = [r2;r3])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (recs_by_ingrs [r1; r2; r3] [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"b"</span>; <span style="color: #8b2252;">"c"</span>; <span style="color: #8b2252;">"d"</span>] = [r1; r3])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (recs_by_ingrs [r1; r2; r3] [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"b"</span>; <span style="color: #8b2252;">"c"</span>; <span style="color: #8b2252;">"e"</span>] = [r2; r3])
 </pre>
 </div>
 </div>

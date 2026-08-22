@@ -1,0 +1,19 @@
+#+title: Uncurry 3
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val uncurry3 : ('a -> 'b -> 'c -> 'd) -> ('a * 'b * 'c) -> 'd
+#+end_src
+which is the inverse of ~curry3~, i.e., it converts a curried
+three-argument function into a function which takes a tuple as an
+argument.
+
+** Examples
+
+#+begin_src ocaml
+  let f x y z = x + y + z
+  let g = uncurry3 f
+  let _ = assert (g (1, 2, 3) = 6)
+#+end_src

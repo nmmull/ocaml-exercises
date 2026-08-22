@@ -1,3 +1,6 @@
 + assign07 (s24) could be the basis of a more interesting longer assignment
 + RPN (s26) calculator should be the basis of a longer assignment
 + Infix (s26) should be the basis of longer assignment
++ Did not deal with s26 labs
++ Did not deail with assign2 (s25) FRACTRAN
++ Did not deal with assign3 (s25) URMs

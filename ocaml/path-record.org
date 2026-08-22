@@ -3,7 +3,7 @@
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
 We consider one last variation of the [[file:collatz.org][~collatz~]] function.  The *path
-value* of a number $n$ is the smallest number that appears during the
+value* of a number $n$ is the largest number that appears during the
 ~collatz~ procedure starting at $n$. For example, the path value of 5
 is 16.[fn::See the example on the [[file:collatz.org][~collatz~]] page.] We say that $n$ has
 a *path record* if its path value is greater than that of any previous

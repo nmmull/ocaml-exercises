@@ -1,0 +1,37 @@
+#+title: No Collisions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following game.  Player 1 and Player 2 stand on integers on the
+number line.  At each step they both move either left or right one
+integer, independently of one another.  They are not allowed to move
+to any integer that would force them to collide.  For example, if
+Player 1 is on 1 and Player 2 is on 2, then it is not allowed for Player 1 to move
+right and Player 2 to move left (they cannot pass through each other).
+Likewise, if Player 1 is on 4 and Player 2 is on 2, then it is not allowed for
+Player 1 to move left and Player 2 to move right (they cannot occupy the same
+space).
+
+A sequence of moves is represented as a list of pairs of directions
+(~dir~ below), where the first element of the pair is a move for
+Player 1 and the second element of the pair is a move for Player 2.
+
+#+begin_src ocaml
+  type dir = Left | Right
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val no_collisions : int -> int -> int -> (dir * dir) list list
+#+end_src
+so that ~no_collisions start1 start2 num_steps~ is the list of all
+possible sequences of moves (without collisions) of length
+~num_steps~, with Player 1 starting at ~start1~ and Player 2 starting at
+~start2~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (List.mem [(Left, Right)] (no_collisions 0 2 1))
+  let _ = assert (not (List.mem [(Right, Left)] (no_collisions 0 2 1)))
+#+end_src

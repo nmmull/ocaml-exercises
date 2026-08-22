@@ -1,0 +1,18 @@
+#+title: Drop Trailing
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val drop_trailing : int -> int list -> int list
+#+end_src
+so that ~drop_trailing k l~ is the result of removing all instances
+of ~k~ from the /end/ of the list ~l~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (drop_trailing 3 [1;2;3;3] = [1;2])
+  let _ = assert (drop_trailing 5 [1;2;3] = [1;2;3])
+  let _ = assert (drop_trailing 2 [2;2;2] = [])
+#+end_src

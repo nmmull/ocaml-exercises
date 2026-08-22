@@ -2,7 +2,8 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-We usually learn to implement the [[https://en.wikipedia.org/wiki/Fibonacci_sequence][Fibonacci sequence]] in a language like Python in (at least) two ways:
+We usually learn to implement the [[https://en.wikipedia.org/wiki/Fibonacci_sequence][Fibonacci sequence]] in a language
+like Python in (at least) two ways:
 
 #+begin_src python
   def fib_recr(n):

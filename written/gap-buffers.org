@@ -3,14 +3,11 @@
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
 A *gap buffer* is a data structure common in the implementation of
-text editors.  It's like a list, but with an interface for moving
-and accessing a cursor location.  Below is a toy OCaml implementation
-of a gap buffer.
+text editors.  It's like a list, but with an interface for moving and
+accessing a cursor location.  Below is a toy OCaml implementation of a
+gap buffer.
 
 #+begin_src ocaml
-  type 'a cur = (* 1. *)
-  type 'a gbuf = (* 1. *)
-
   let empty : 'a gbuf = { lft = []; rgt = End }
 
   let get_cur (c : 'a cur) : 'a option =
@@ -33,9 +30,9 @@ of a gap buffer.
       in
       { lft = xs; rgt = Cur (x, r) }
 
-  let ex = get (move_left (move_left (insert 3 (insert 2 (insert 1 empty))))) (* 2. *)
+  let ex = get (move_left (move_left (insert 3 (insert 2 (insert 1 empty)))))
 #+end_src
 
 1. Determine the types ~'a cur~ and ~'a gbuf~, assuming all pattern
    matches above are exhaustive.
-2. Determine the value of ~ex~.  Explain your answer.
+2. Determine the value of ~ex~.  Justify your answer.

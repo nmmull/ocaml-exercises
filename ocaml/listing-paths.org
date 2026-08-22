@@ -1,4 +1,4 @@
-#+title: Listing Paths
+#+title:  Manhattan Paths
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
@@ -24,7 +24,7 @@ Implement the function
 #+end_src
 so that ~all_paths len stp endp~ is a list of sequences of
 directions, where each sequence describes a way to get from ~stp~ to
-~endp~ in exactly ~len~ steps.
+~endp~ on a path of length ~len~.
 
 ** Examples
 

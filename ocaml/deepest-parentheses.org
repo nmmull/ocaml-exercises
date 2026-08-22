@@ -1,0 +1,28 @@
+#+title: Deepest Parentheses
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src ocaml
+  type paren = Op | Cl
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val deepest_parens : paren list -> int
+#+end_src
+so that ~deepest_parens ps~ is the index of (the left parenthesis of)
+the leftmost deepest pair of parentheses in ~ps~.  The behavior of the
+function is undefined if ~ps~ does not represent a balanced set of
+parentheses.  Try to do so using ~List.fold_left~.
+
+*Challenge worth nothing:* Think about how your algorithm changes if
+we consider the /rightmost/ deepest pair.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (deepest_parens [Op;Cl] = 0)                   (* () *)
+  let _ = assert (deepest_parens [Op;Cl;Op;Op;Cl;Cl] = 3)       (* ()(()) *)
+  let _ = assert (deepest_parens [Op;Op;Cl;Op;Cl;Cl] = 1)       (* (()()) *)
+  let _ = assert (deepest_parens [Op;Op;Cl;Op;Op;Cl;Cl;Cl] = 4) (* (()(())) *)
+#+end_src

@@ -1,0 +1,64 @@
+#+title: Results
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the syntax, typing rules, and semantic rules for options and
+option matching.
+
+*Syntax:*
+
+#+begin_src bnf
+  <ty>   ::= <ty> option
+  <expr> ::= None | Some <expr>
+           | match <expr> with None -> <expr> | Some <var> -> <expr>
+#+end_src
+
+*Typing:*
+
+\[
+\dfrac{}{\Gamma \vdash \texttt{None} : \tau\ \texttt{option}}\ (\text{None})
+\]
+\[
+\dfrac{\Gamma \vdash e : \tau}{\Gamma \vdash \texttt{Some}\ e : \tau\ \texttt{option}}\ (\text{Some})
+\]
+\[
+\dfrac{\Gamma \vdash e_1 : \tau_1\ \texttt{option} \quad \Gamma \vdash e_2 : \tau \quad \Gamma, x:\tau_1 \vdash e_3 : \tau}
+      {\Gamma \vdash \texttt{match}\ e_1\ \texttt{with}\ \texttt{None} \to e_2\ |\ \texttt{Some}\ x \to e_3 : \tau}\ (\text{MatchOpt})
+\]
+
+*Semantics:* (note the values $\mathsf{None}$ and $\mathsf{Some}(v)$)
+
+\[
+\dfrac{}{\texttt{None} \Downarrow \mathsf{None}}\ (\text{NoneE})
+\]
+\[
+\dfrac{e \Downarrow v}{\texttt{Some}\ e \Downarrow \mathsf{Some}(v)}\ (\text{SomeE})
+\]
+\[
+\dfrac{e_1 \Downarrow \mathsf{None} \quad e_2 \Downarrow v}
+      {\texttt{match}\ e_1\ \texttt{with}\ \texttt{None} \to e_2\ |\ \texttt{Some}\ x \to e_3 \Downarrow v}\ (\text{MatchOptNone})
+\]
+\[
+\dfrac{e_1 \Downarrow \mathsf{Some}(v_1) \quad [v_1/x]e_3 \Downarrow v}
+      {\texttt{match}\ e_1\ \texttt{with}\ \texttt{None} \to e_2\ |\ \texttt{Some}\ x \to e_3 \Downarrow v}\ (\text{MatchOptSome})
+\]
+
+*The Task:* write the syntax, typing rules, and semantic rules for
+results and result matching, in analogy with the rules for options.
+Your semantic rules should introduce new values of the form
+$\mathsf{Ok}(v)$ and $\mathsf{Error}(v)$ (where $v$ can be any
+value).
+
+Use these rules to give derivations for the following judgments.
+
+\[
+\{ \texttt{r} : \texttt{(int, bool) result} \} \vdash
+\texttt{match}\ \texttt{r}\ \texttt{with}\ \texttt{Ok}\ x \to \texttt{Error}\ (x + 1)\ |\ \texttt{Error}\ b \to \texttt{Ok}\ b
+: \texttt{(bool, int) result}
+\]
+
+\[
+\texttt{match}\ \texttt{Ok}\ (1 + 1)\ \texttt{with}\ \texttt{Ok}\ x \to \texttt{Error}\ (x + 1)\ |\ \texttt{Error}\ b \to \texttt{Ok}\ b
+\Downarrow \mathsf{Error}(3)
+\]

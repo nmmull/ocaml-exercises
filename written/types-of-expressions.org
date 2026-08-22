@@ -2,6 +2,8 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
+The following is a collection of problems which require you to reason
+about the types of OCaml expressions.
 1. What is the type of ~g~ so that the following expression is
    well-typed?  Can ~g~ be given a polymorphic type?  Also, what is
    the type of the following expression?  Justify your answer.
@@ -14,3 +16,30 @@
    #+begin_src ocaml
      fun x y -> h x (k y)
    #+end_src
+3. Determine the smallest context such that the following expression
+   is well-typed.  Also determine the type of the expression.
+   #+begin_src ocaml
+     let rec f x = f (x + g (f y)) in h (g (x = y)) = f x
+   #+end_src
+4. Determine the type of the function ~f~.
+   #+begin_src ocaml
+     let f =
+       let rec g lst =
+         match lst with
+         | 1 :: 1 :: xs -> h xs
+         | [] -> true
+         | _ -> false
+       and h lst =
+         match lst with
+         | 0 :: xs -> k xs
+         | _ -> false
+       and k lst = g lst || h lst
+       in k
+   #+end_src
+
+   Also determine the values of the following expressions:
+       + ~f []~
+       + ~f [1]~
+       + ~f [1;1;0]~
+       + ~f [1;1;1;0;0]~
+       + ~f [1;1;1;0;0;1;1;0]~

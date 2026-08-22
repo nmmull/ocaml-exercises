@@ -1,0 +1,28 @@
+#+title: Tracing Mutual Recursion
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following OCaml function.
+
+#+begin_src ocaml
+  let f =
+    let rec g lst =
+      match lst with
+      | 1 :: 1 :: xs -> h xs
+      | [] -> true
+      | _ -> false
+    and h lst =
+      match lst with
+      | 0 :: xs -> k xs
+      | _ -> false
+    and k lst = g lst || h lst
+    in k
+#+end_src
+
+1. What is the type of ~f~?
+2. Evaluate the following expressions.
+   1. ~f []~
+   2. ~f [1]~
+   3. ~f [1;1;0]~
+   4. ~f [1;1;1;0;0]~
+   5. ~f [1;1;1;0;0;1;1;0]~

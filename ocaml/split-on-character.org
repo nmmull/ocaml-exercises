@@ -1,0 +1,27 @@
+#+title: Split on Character
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val split_on_char : char -> string -> string list
+#+end_src
+so that ~split_on_char sep s~ is the list of all (possibly empty)
+substrings of ~s~ that are delimited by the character ~sep~.  If ~s~
+is empty, the result is the singleton list ~[""]~.
+
+# Note: working with strings in OCaml is different from working with
+# lists (in a sense they might seem more familiar if you're coming
+# from a language with arrays).  We cannot destruct strings the way we
+# destruct lists; rather, we use the functions ~String.get~ and
+# ~String.sub~ to access parts of a string.  See the
+# [[https://nmmull.github.io/stdlib320/stdlib320/Stdlib320/String/index.html][standard library documentation on strings]]
+# for more details.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (split_on_char ' ' "foo bar baz" = ["foo"; "bar"; "baz"])
+  let _ = assert (split_on_char ',' "a,,b" = ["a"; ""; "b"])
+  let _ = assert (split_on_char ',' "" = [""])
+#+end_src

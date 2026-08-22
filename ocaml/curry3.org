@@ -1,0 +1,18 @@
+#+title: Curry 3
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val curry3 : ('a * 'b * 'c -> 'd) -> 'a -> 'b -> 'c -> 'd
+#+end_src
+which converts a "multi-argument" function (i.e., a function which
+takes a tuple as an argument) into nested single-argument functions.
+
+** Examples
+
+#+begin_src ocaml
+  let f (x, y, z) = x + y + z
+  let g = curry3 f
+  let _ = assert (g 1 2 3 = 6)
+#+end_src

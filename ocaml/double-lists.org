@@ -1,0 +1,30 @@
+#+title: Reversing Double Lists
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+A ~doublelist~ is a data type which represents a list, but elements
+are ~Cons~-ed two at a time.  In order to represent lists with an odd
+number of elements, there is also a constructor for a singleton
+list.
+
+#+begin_src ocaml
+  type 'a doublelist
+    = Nil
+    | Single of 'a
+    | Cons of 'a * 'a * 'a doublelist
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val rev : 'a doublelist -> 'a doublelist
+#+end_src
+which reverses a ~doublelist~.
+
+*Challenge worth nothing:* Give a tail recursive implementation.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (rev (Cons (1, 2, Nil)) = Cons (2, 1, Nil))
+  let _ = assert (rev (Cons (1, 2, Single 3)) = Cons (3, 2, Single 1))
+#+end_src

@@ -4,10 +4,10 @@
 #+HTML_LINK_HOME: ../toc.html
 For each of the following types, determine an OCaml expression using
 only basic constructs (e.g., anonymous functions, applications,
-variables, list constructors, match statements, etc.) of the given
-type.  In particular, you cannot use exceptions or assertions, and
-the expression should type-check without warnings.  If this is not
-possible, then explain why in 1-2 sentences.
+variables, constructors, match statements, etc.) of the given type.
+In particular, you cannot use exceptions or assertions, and the
+expression should type-check without warnings.  If this is not
+possible, then explain why.
 
 1. ~'a -> 'b -> 'a~
 2. ~int -> 'a~

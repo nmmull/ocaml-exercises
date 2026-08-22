@@ -1,0 +1,34 @@
+#+title: If Without Else
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Many programming languages support if-statements without
+else-branches.  This isn't exactly possible in OCaml, because every
+expression must have a value, including if-expressions — without an
+else-branch, it's not clear what the value of an if-expression would
+be.
+
+One possibility is to let the value of an if-without-else expression
+be an ~option~, and let the implicit else-branch have the value
+~None~.  Suppose we wanted to introduce this language construct to
+OCaml, with the syntax
+
+#+begin_src bnf
+  <expr> ::= if <expr> then <expr>
+#+end_src
+
+so that the typing and semantic behavior of ~if e1 then e2~ is
+exactly the same as the typing and semantic behavior of
+~if e1 then Some e2 else None~.
+
+Write the typing and semantic rules for if-without-else expressions,
+and then give a derivation of the following judgments.
+
+\[
+\cdot \vdash \texttt{match if true then 1 with | None -> 2 | Some x -> x + 1} : \texttt{int}
+\]
+
+\[
+\texttt{match if true then 1 with | None -> 2 | Some x -> x + 1} \Downarrow 2
+\]

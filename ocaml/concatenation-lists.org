@@ -1,4 +1,4 @@
-#+title: Concatenation Lists
+#+title: Sorting Concatenation Lists
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
@@ -20,7 +20,7 @@ Implement the function
 #+end_src
 so that ~sort l~ is a regular list with the same elements as ~l~ but
 in sorted order.  You should do this without first converting ~l~
-into a regular list; in particular, you *cannot* use the function
+into a regular list; in particular, you cannot use the function
 ~List.sort~.
 
 ** Examples

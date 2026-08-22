@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-21 Fri 18:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>If Without Else</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">If Without Else</h1>
+<p>
+Many programming languages support if-statements without
+else-branches.  This isn't exactly possible in OCaml, because every
+expression must have a value, including if-expressions — without an
+else-branch, it's not clear what the value of an if-expression would
+be.
+</p>
+
+<p>
+One possibility is to let the value of an if-without-else expression
+be an <code>option</code>, and let the implicit else-branch have the value
+<code>None</code>.  Suppose we wanted to introduce this language construct to
+OCaml, with the syntax
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bnf">&lt;<span style="color: #0000ff;">expr</span>&gt; <span style="color: #008b8b;">::=</span> if &lt;<span style="color: #483d8b;">expr</span>&gt; then &lt;<span style="color: #483d8b;">expr</span>&gt;
+</pre>
+</div>
+
+<p>
+so that the typing and semantic behavior of <code>if e1 then e2</code> is
+exactly the same as the typing and semantic behavior of
+<code>if e1 then Some e2 else None</code>.
+</p>
+
+<p>
+Write the typing and semantic rules for if-without-else expressions,
+and then give a derivation of the following judgments.
+</p>
+
+<p>
+\[
+\cdot \vdash \texttt{match if true then 1 with | None -> 2 | Some x -> x + 1} : \texttt{int}
+\]
+</p>
+
+<p>
+\[
+\texttt{match if true then 1 with | None -> 2 | Some x -> x + 1} \Downarrow 2
+\]
+</p>
+</div>
+</body>
+</html>

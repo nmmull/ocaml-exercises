@@ -6,9 +6,9 @@ Implement the function
 #+begin_src ocaml
   val cels_of_fahr : float -> float
 #+end_src
-so that ~cels_of_fahr t~ is the temperature ~t~ in Celsius.  The
-behavior of the function is undefined if the input value is not a
-valid temperature in Fahrenheit.
+so that ~cels_of_fahr t~ is the Fahrenheit temperature ~t~ in Celsius.
+The behavior of the function is undefined if the input is not a valid
+temperature in Fahrenheit.
 
 ** Examples
 

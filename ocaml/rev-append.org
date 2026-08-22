@@ -1,0 +1,19 @@
+#+title: Reverse Append
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val rev_append : 'a list -> 'a list -> 'a list
+#+end_src
+so that ~rev_append l r~ is equivalent to ~(List.rev l) @ r~, but
+does not use the function ~List.rev~.  Your implementation must be
+tail recursive.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (rev_append [1;2;3] [4;5] = [3;2;1;4;5])
+  let _ = assert (rev_append [] [1;2] = [1;2])
+  let _ = assert (rev_append [1] [] = [1])
+#+end_src

@@ -1,0 +1,14 @@
+#+title: Grammar Rule to English
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following BNF grammar rule (this is actual OCaml
+syntax).
+
+#+begin_src bnf
+  <expr> ::= <expr> . [ <expr> ]
+#+end_src
+
+Write down an English sentence which expresses the same thing as the
+above grammar rule.  In particular, distinguish in your sentence
+between the terminal and non-terminal symbols that appear in the rule.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 12:44 -->
+<!-- 2026-08-22 Sat 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Boolean Expressions</title>
@@ -65,9 +65,9 @@ you would get a compile-time error,
 <p>
 which is why <code>eval</code> should return <code>None</code> on <code>f</code>.
 </p>
-<div id="outline-container-org794544a" class="outline-2">
-<h2 id="org794544a">Examples</h2>
-<div class="outline-text-2" id="text-org794544a">
+<div id="outline-container-org0e7e9ed" class="outline-2">
+<h2 id="org0e7e9ed">Examples</h2>
+<div class="outline-text-2" id="text-org0e7e9ed">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">v</span> = [(<span style="color: #8b2252;">"a"</span>, <span style="color: #008b8b;">true</span>); (<span style="color: #8b2252;">"b"</span>, <span style="color: #008b8b;">false</span>); (<span style="color: #8b2252;">"c"</span>, <span style="color: #008b8b;">true</span>)]
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">e</span> = <span style="color: #000000; background-color: #ffffff;">And</span> (<span style="color: #000000; background-color: #ffffff;">Var</span> <span style="color: #8b2252;">"a"</span>, <span style="color: #000000; background-color: #ffffff;">Or</span> (<span style="color: #000000; background-color: #ffffff;">Var</span> <span style="color: #8b2252;">"b"</span>, <span style="color: #000000; background-color: #ffffff;">Var</span> <span style="color: #8b2252;">"c"</span>))

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 13:50 -->
+<!-- 2026-08-22 Sat 12:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Types of Expressions</title>
@@ -14,6 +14,10 @@
 <body>
 <div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Types of Expressions</h1>
+<p>
+The following is a collection of problems which require you to reason
+about the types of OCaml expressions.
+</p>
 <ol class="org-ol">
 <li><p>
 What is the type of <code>g</code> so that the following expression is
@@ -33,6 +37,43 @@ following expression.  Justify your answer.
 <pre class="src src-ocaml"><span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> <span style="color: #a0522d;">y</span> -&gt; h x (k y)
 </pre>
 </div></li>
+<li><p>
+Determine the smallest context such that the following expression
+is well-typed.  Also determine the type of the expression.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">f</span> <span style="color: #a0522d;">x</span> = f (x + g (f y)) <span style="color: #000000; font-weight: bold;">in</span> h (g (x = y)) = f x
+</pre>
+</div></li>
+<li><p>
+Determine the type of the function <code>f</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">f</span> =
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">g</span> <span style="color: #a0522d;">lst</span> =
+    <span style="color: #a020f0;">match</span> lst <span style="color: #a020f0;">with</span>
+    | 1 <span style="color: #000000; background-color: #ffffff;">::</span> 1 <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt; h xs
+    | <span style="color: #000000; background-color: #ffffff;">[]</span> -&gt; <span style="color: #008b8b;">true</span>
+    | _ -&gt; <span style="color: #008b8b;">false</span>
+  <span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">h</span> <span style="color: #a0522d;">lst</span> =
+    <span style="color: #a020f0;">match</span> lst <span style="color: #a020f0;">with</span>
+    | 0 <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt; k xs
+    | _ -&gt; <span style="color: #008b8b;">false</span>
+  <span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">k</span> <span style="color: #a0522d;">lst</span> = g lst <span style="color: #a52a2a;">||</span> h lst
+  <span style="color: #000000; font-weight: bold;">in</span> k
+</pre>
+</div>
+
+<p>
+Also determine the values of the following expressions:
+</p>
+<ul class="org-ul">
+<li><code>f []</code></li>
+<li><code>f [1]</code></li>
+<li><code>f [1;1;0]</code></li>
+<li><code>f [1;1;1;0;0]</code></li>
+<li><code>f [1;1;1;0;0;1;1;0]</code></li>
+</ul></li>
 </ol>
 </div>
 </body>

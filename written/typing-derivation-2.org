@@ -1,0 +1,29 @@
+#+title: Typing Derivation (II)
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+\[
+\Gamma \vdash \texttt{g (f (g 0))} : \tau
+\]
+
+Determine a *minimal* context $\Gamma$ and type $\tau$ such that the
+above typing judgment is derivable, and then give a derivation.
+Minimal here means that if you remove a variable declaration from
+$\Gamma$, then the judgment is no longer derivable.  You may use the
+following rules.  Do not use any shorthands in your derivation.
+
+\[
+\dfrac{(x : \tau) \in \Gamma}{\Gamma \vdash x : \tau}\ (\text{Var})
+\]
+\[
+\dfrac{n\ \text{is an integer literal}}{\Gamma \vdash n : \texttt{int}}\ (\text{Int})
+\]
+\[
+\dfrac{\Gamma \vdash e_1 : \tau_2 \to \tau \quad \Gamma \vdash e_2 : \tau_2}
+      {\Gamma \vdash e_1\ e_2 : \tau}\ (\text{App})
+\]
+
+Can there be more than one choice of $\Gamma$ and $\tau$?  Justify
+your answer and explain the relationship between $\Gamma$ and
+$\tau$.

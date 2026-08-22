@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 12:02 -->
+<!-- 2026-08-22 Sat 11:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Path Records</title>
@@ -48,7 +48,7 @@
 <h1 class="title">Path Records</h1>
 <p>
 We consider one last variation of the <a href="collatz.html"><code>collatz</code></a> function.  The <b>path
-value</b> of a number \(n\) is the smallest number that appears during the
+value</b> of a number \(n\) is the largest number that appears during the
 <code>collatz</code> procedure starting at \(n\). For example, the path value of 5
 is 16.<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> We say that \(n\) has
 a <b>path record</b> if its path value is greater than that of any previous
@@ -67,9 +67,9 @@ so that <code>path_record</code> \(n\) is the \(n\)<sup>th</sup> path record.  N
 that this is not the \(n\)<sup>th</sup> value with a path record; it's
 the path value of the \(n\)<sup>th</sup> value with a path record.
 </p>
-<div id="outline-container-orgc877c96" class="outline-2">
-<h2 id="orgc877c96">Examples</h2>
-<div class="outline-text-2" id="text-orgc877c96">
+<div id="outline-container-org4b8a743" class="outline-2">
+<h2 id="org4b8a743">Examples</h2>
+<div class="outline-text-2" id="text-org4b8a743">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (path_record 0 = 1)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (path_record 1 = 2)

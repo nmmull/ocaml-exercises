@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-22 Sat 12:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Game Player</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Game Player</h1>
+<p>
+Consider the following small interface for a player in a video game.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">greet</span> (<span style="color: #a0522d;">p</span> :<span style="color: #228b22;"> player</span>) = <span style="color: #8b2252;">"Hello "</span> <span style="color: #a52a2a;">^</span> p.name <span style="color: #a52a2a;">^</span> <span style="color: #8b2252;">"!"</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">level_up</span> (<span style="color: #a0522d;">p</span> :<span style="color: #228b22;"> player</span>) =
+  { p <span style="color: #a020f0;">with</span> level = p.level + 1 }
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">take_potion</span> (<span style="color: #a0522d;">p</span> :<span style="color: #228b22;"> player</span>) =
+  <span style="color: #a020f0;">match</span> p.curr_item <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">Potion</span> info -&gt;
+    { p <span style="color: #a020f0;">with</span>
+      health = p.health + info.boost ;
+      curr_item = <span style="color: #228b22;">List.</span>hd p.inventory ;
+      inventory = <span style="color: #228b22;">List.</span>tl p.inventory ;
+    }
+  | _ -&gt; p
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">value</span> (<span style="color: #a0522d;">i</span> :<span style="color: #228b22;"> item</span>) =
+  <span style="color: #a020f0;">match</span> i <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">Potion</span> { boost = n } -&gt; n * 2
+  | <span style="color: #000000; background-color: #ffffff;">Sword</span> -&gt; 100
+  | <span style="color: #000000; background-color: #ffffff;">Map</span> -&gt; 0
+</pre>
+</div>
+
+<p>
+Define the types <code>item</code> and <code>player</code> so that the above code
+type-checks.
+</p>
+</div>
+</body>
+</html>

@@ -2,23 +2,17 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-When parsing input for a simple language (e.g., a calculator), we
-often need to split an expression, provided as a string, into its
-whitespace-separated parts, e.g., the following assertions should
-hold.
 
+Implement the function
 #+begin_src ocaml
-  let _ = assert
-    (split_on_ws "1 23 + -94  *"
-     = ["1"; "23"; "+"; "-94"; "*"])
-  let _ = assert
-    (split_on_ws "  foo    bar  \n\n   baz   "
-     = ["foo"; "bar"; "baz"])
+  val split_on_ws : string -> string list
 #+end_src
+so that ~split_on_ws s~ is the list of contiguous non-whitespace
+substrings of ~s~, in the order in which they appear.
 
-To make this easier, you can work with strings as lists of
-characters, using the functions ~explode~ and ~implode~ below to
-convert between strings and character lists.
+For this version of the problem, you may work with strings as lists of
+characters, using the functions ~explode~ and ~implode~ to convert
+between strings and character lists.
 
 #+begin_src ocaml
   let explode (s : string) : char list =
@@ -28,29 +22,9 @@ convert between strings and character lists.
     String.init (List.length l) (List.nth l)
 #+end_src
 
-For example, a helper working over character lists should satisfy
-the following.
+** Examples
 
 #+begin_src ocaml
-  let _ = assert
-    (split_on_ws_helper ['1'; ' '; '2'; '3'; ' '; '+'; ' '; '-'; '9'; '4'; ' '; ' '; '*']
-     = [['1']; ['2'; '3']; ['+']; ['-'; '9'; '4']; ['*']])
-  let _ = assert
-    (split_on_ws_helper ['f'; 'o'; 'o'; ' '; '\n'; 'b'; 'a'; 'z'; ' '; ' ']
-     = [['f'; 'o'; 'o']; ['b'; 'a'; 'z']])
+  let _ = assert (split_on_ws "1 23 + -94  *" = ["1"; "23"; "+"; "-94"; "*"])
+  let _ = assert (split_on_ws "  foo    bar  \n\n   baz   " = ["foo"; "bar"; "baz"])
 #+end_src
-
-Implement the function
-#+begin_src ocaml
-  val split_on_ws : string -> string list
-#+end_src
-so that ~split_on_ws s~ is the list of contiguous non-whitespace
-substrings of ~s~, in the order in which they appear, as in the
-above examples.  Note: ~split_on_ws_helper~ is just an illustration
-of one possible approach — you do not need to implement it
-separately.
-
-*Challenge worth nothing:* despite the above, it's bad practice to
-work with strings as lists of characters.  Implement ~split_on_ws~
-without ~explode~ and ~implode~, instead by making use of the
-function ~String.sub~.
