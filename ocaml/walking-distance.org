@@ -1,0 +1,42 @@
+#+title: Walking Distance
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+The following is a simple variant type for the cardinal directions,
+along with a type synonym for a path represented as a list of
+directions.
+
+#+begin_src ocaml
+  type dir
+    = North
+    | South
+    | East
+    | West
+
+  type path = dir list
+#+end_src
+
+We think of a path as representing a walk along a grid, with each
+direction in the path representing one step in this grid.  To be
+concrete, we will presume that one "step" is 1 meter (i.e., ~North~
+is interpreted to mean "walk 1 meter north").  Note that a path may
+backtrack and intersect with itself.
+
+Implement the function
+#+begin_src ocaml
+  val dist : path -> float
+#+end_src
+so that ~dist dirs~, given a list of directions ~dirs~, computes the
+$\ell_2$ distance (i.e., "as the crow flies") in meters between the
+starting point and ending point of the path given by ~dirs~.  Note
+that it doesn't matter where you start, the distance between the
+starting and ending points will always be the same.
+
+** Examples
+
+#+begin_src ocaml
+  (* We'll use an unnecessarily large error margin *)
+  let is_close f1 f2 = abs_float (f1 -. f2) < 0.000001
+
+  let _ = assert (is_close (dist [North; North; South; East]) (sqrt 2.))
+#+end_src
