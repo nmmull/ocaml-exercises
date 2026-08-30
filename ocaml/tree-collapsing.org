@@ -1,0 +1,82 @@
+#+title: Tree Collapsing
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+One way to represent trees in OCaml is with the following recursive
+ADT.  In this representation, a node may have zero or more children
+(as opposed to exactly two in the case of binary trees).
+
+#+begin_src ocaml
+  type tree =
+    | Leaf of int
+    | Node of tree list
+#+end_src
+
+The height of a tree is defined as the maximum number of steps from
+the root to a leaf or node.  If a tree is just a leaf or a node with
+no children, then it has height 0 (this may be different from other
+definitions of height).  So, for example, the tree
+
+#+begin_src ocaml
+  let t =
+    Node
+      [ Node
+        [ Leaf 1
+        ; Node []
+        ; Leaf 100
+        ]
+      ; Leaf 1
+      ]
+#+end_src
+
+has height 2.
+
+The height of an element in a tree (i.e., a node or a leaf in a tree)
+is the number of steps from the root to that element.  Note that the
+height of an element is at most the height of the tree.
+
+An element in a tree is *terminal* if it is a leaf or a node with no
+children.  Note that terminal elements are the only elements whose
+height can be the same as the height of the tree.
+
+The process of *collapsing* a tree to height $i$ (where $i > 0$) is
+defined formally as follows: for every node $N$ of height $i - 1$,
+replace its children with the terminal elements in the subtree
+rooted at $N$, in order from left to right.  So for example,
+collapsing ~t~ above to height 1 would yield the tree
+
+#+begin_src ocaml
+  let t' =
+    Node
+      [ Leaf 1
+      ; Node []
+      ; Leaf 100
+      ; Leaf 1
+      ]
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val collapse : int -> tree -> tree
+#+end_src
+so that ~collapse h t~, given a *positive* integer ~h~ and a tree
+~t~, returns the same tree collapsed to height ~h~.  The behavior of
+the function is undefined if ~h~ is not positive.
+
+** Examples
+
+#+begin_src ocaml
+  let t =
+    Node
+      [ Node
+        [ Leaf 1
+        ; Node []
+        ; Leaf 100
+        ]
+      ; Leaf 1
+      ]
+
+  let _ = assert (collapse 1 t =
+      Node [ Leaf 1; Node []; Leaf 100; Leaf 1 ])
+  let _ = assert (collapse 2 t = t)
+#+end_src

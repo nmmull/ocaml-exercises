@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-29 Sat 21:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grouping</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Grouping</h1>
+<p>
+A list of integers <code>l</code> is <b>valid</b> if it satisfies the following
+properties:
+</p>
+
+<ul class="org-ul">
+<li>every <code>0</code> appearing in <code>l</code> <b>must</b> have nonzero integers to the left
+and right of it <b>of opposite signs</b></li>
+<li>for every nonzero entry <code>x</code> of <code>l</code>, if there is an entry adjacent
+to <code>x</code>, then it must be the same sign as <code>x</code> or <code>0</code></li>
+</ul>
+
+<p>
+Lists which do not satisfy these properties are <b>invalid</b>.  So, for
+example
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l1</span> = [1;2;3;0;-1;-2;-3;0;1]
+</pre>
+</div>
+<p>
+is valid, whereas
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l1</span> = [1;2;3;0;1;2;3;0;1]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l2</span> = [0;1;2;3]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l3</span> = [1;0;0;-1]
+</pre>
+</div>
+<p>
+are invalid.
+</p>
+
+<p>
+Intuitively, a list is valid if it is made of nonempty sublists of
+same-sign integers, switching between positive and negative,
+separated by zeros (see how much nicer the formal description is?).
+</p>
+
+<p>
+The <b>grouping</b> of a valid list of integers is a list of integer
+<b>lists</b> which groups together the adjacent nonzero entries (and drops
+the zero entries).  So, for example,
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l1_grouping</span> = [[1;2;3];[-1;-2;-3];[1]]
+</pre>
+</div>
+<p>
+is the grouping for the valid list <code>l1</code> above.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">group</span> : int list -&gt; int list list option
+</pre>
+</div>
+<p>
+so that <code>group l</code>, given a list of integers <code>l</code>, returns the grouping
+of <code>l</code> given <code>l</code> is valid.  The grouping should be returned as an
+<code>option</code>, where the output is <code>None</code> if the list is invalid.
+</p>
+<div id="outline-container-orgec01e3c" class="outline-2">
+<h2 id="orgec01e3c">Examples</h2>
+<div class="outline-text-2" id="text-orgec01e3c">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (group [1;2;3;0;-1;-2;-3;0;1] = <span style="color: #000000; background-color: #ffffff;">Some</span> [[1;2;3];[-1;-2;-3];[1]])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (group [1;2;3;0;1;2;3;0;1] = <span style="color: #000000; background-color: #ffffff;">None</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (group [0;1;2;3] = <span style="color: #000000; background-color: #ffffff;">None</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (group [1;0;0;-1] = <span style="color: #000000; background-color: #ffffff;">None</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

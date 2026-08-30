@@ -47,6 +47,7 @@ all of which are also valuable resources for this course.
 10. [[file:ocaml/nub.org][Nub]]
 11. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
 12. [[file:ocaml/split-at.org][Split At]]
+13. [[file:ocaml/grouping.org][Grouping]]
 * Strings
 1. [[file:ocaml/string-reversal.org][Reverse]]
 2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
@@ -68,6 +69,7 @@ all of which are also valuable resources for this course.
 11. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
 12. [[file:ocaml/ordered-binary-trees.org][Ordered Binary Trees]] (TODO: Split)
 13. [[file:ocaml/walking-distance.org][Walking Distance]]
+14. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
 * Records
 1. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 2. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
