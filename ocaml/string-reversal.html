@@ -3,46 +3,36 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-29 Sat 21:10 -->
+<!-- 2026-08-29 Sat 21:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Reversing Strings</title>
+<title>Reverse</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
 <div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">Reversing Strings</h1>
+<h1 class="title">Reverse</h1>
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">string_rev</span> : string -&gt; string
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">rev_string</span> : string -&gt; string
 </pre>
 </div>
 <p>
-so that <code>string_rev s</code> is the string with the same characters as <code>s</code>
-but in reverse order.
+so that <code>rev_string s</code> is the string with the same characters as <code>s</code>
+but in reverse order.  Do this without converting the string into a
+list of characters.
 </p>
-
-<p>
-<i>Hint:</i> Recall that there are no built-in functions for converting
-between <code>string</code> and <code>char</code>. Take a look at the following functions
-in the OCaml documentation:
-</p>
-
-<ul class="org-ul">
-<li><code>String.sub</code></li>
-<li><code>String.length</code></li>
-</ul>
-<div id="outline-container-org97b2132" class="outline-2">
-<h2 id="org97b2132">Examples</h2>
-<div class="outline-text-2" id="text-org97b2132">
+<div id="outline-container-orga70cd99" class="outline-2">
+<h2 id="orga70cd99">Examples</h2>
+<div class="outline-text-2" id="text-orga70cd99">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_rev <span style="color: #8b2252;">"testing"</span> = <span style="color: #8b2252;">"gnitset"</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_rev <span style="color: #8b2252;">"12345"</span> = <span style="color: #8b2252;">"54321"</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_rev <span style="color: #8b2252;">"noon"</span> = <span style="color: #8b2252;">"noon"</span>)
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rev_string <span style="color: #8b2252;">"testing"</span> = <span style="color: #8b2252;">"gnitset"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rev_string <span style="color: #8b2252;">"12345"</span> = <span style="color: #8b2252;">"54321"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rev_string <span style="color: #8b2252;">"noon"</span> = <span style="color: #8b2252;">"noon"</span>)
 </pre>
 </div>
 </div>

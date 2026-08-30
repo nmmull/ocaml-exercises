@@ -1,26 +1,19 @@
-#+title: Reversing Strings
+#+title: Reverse
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
 Implement the function
 #+begin_src ocaml
-  val string_rev : string -> string
+  val rev_string : string -> string
 #+end_src
-so that ~string_rev s~ is the string with the same characters as ~s~
+so that ~rev_string s~ is the string with the same characters as ~s~
 but in reverse order.  Do this without converting the string into a
 list of characters.
-
-/Hint:/ Recall that there are no built-in functions for converting
-between ~string~ and ~char~. Take a look at the following functions
-in the OCaml documentation:
-
-+ ~String.sub~
-+ ~String.length~
 
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (string_rev "testing" = "gnitset")
-  let _ = assert (string_rev "12345" = "54321")
-  let _ = assert (string_rev "noon" = "noon")
+  let _ = assert (rev_string "testing" = "gnitset")
+  let _ = assert (rev_string "12345" = "54321")
+  let _ = assert (rev_string "noon" = "noon")
 #+end_src

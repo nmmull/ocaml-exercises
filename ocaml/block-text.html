@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-29 Sat 21:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Block Text</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Block Text</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">block_text</span> : string -&gt; int -&gt; int -&gt; string
+</pre>
+</div>
+<p>
+so that <code>block_text s min_width max_width</code>, given
+</p>
+
+<ul class="org-ul">
+<li>a string <code>s</code> consisting only of capital English characters A-Z</li>
+<li>a nonnegative integer <code>min_width</code></li>
+<li>a positive integer <code>max_width</code></li>
+</ul>
+
+<p>
+returns a string with the same characters as <code>s</code> but separated into
+lines with the following properties:
+</p>
+
+<ul class="org-ul">
+<li>each line has length at most <code>max_width</code></li>
+<li>each line has the same length except possibly the last line</li>
+<li>the last line has length at least <code>min_width</code></li>
+</ul>
+
+<p>
+If the above three properties are not possible to satisfy, then every
+line except for the last line of the returned string should have
+length <code>max_width</code> (in other words, ignore the last condition).
+</p>
+
+<p>
+If there are multiple ways to satisfy the above three properties, the
+choice with the longest lines (besides the last line) should be used.
+</p>
+<div id="outline-container-org46c73a3" class="outline-2">
+<h2 id="org46c73a3">Examples</h2>
+<div class="outline-text-2" id="text-org46c73a3">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (block_text <span style="color: #8b2252;">"ABCDEFGHIJ"</span> 0 3 = <span style="color: #8b2252;">"ABC\nDEF\nGHI\nJ"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (block_text <span style="color: #8b2252;">"ABCDEFGHIJ"</span> 2 3 = <span style="color: #8b2252;">"AB\nCD\nEF\nGH\nIJ"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (block_text <span style="color: #8b2252;">"ABCDEFGHIJ"</span> 0 4 = <span style="color: #8b2252;">"ABCD\nEFGH\nIJ"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (block_text <span style="color: #8b2252;">"ABCDEFGHIJ"</span> 3 4 = <span style="color: #8b2252;">"ABCD\nEFGH\nIJ"</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

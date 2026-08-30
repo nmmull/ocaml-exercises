@@ -45,10 +45,11 @@ all of which are also valuable resources for this course.
 10. [[file:ocaml/nub.org][Nub]]
 11. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
 * Strings
-1. [[file:ocaml/string-reversal.org][Reversing Strings]]
+1. [[file:ocaml/string-reversal.org][Reverse]]
 2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
 3. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace, Correctly]]
 4. [[file:ocaml/split-on-character.org][Split on Character]]
+5. [[file:ocaml/block-text.org][Block Text]]
 * Abstract Data Types
 1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 2. [[file:ocaml/icy-hot.org][Icy Hot]]
