@@ -1,0 +1,20 @@
+#+title: String Triangle
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val string_tri : string -> string
+#+end_src
+so that ~string_tri s~ a string with the same characters but organized
+as a right triangle.  If the last line has too few letters, pad it
+with ~'*'~.  You may assume that ~s~ consists of visible ASCII
+characters.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (string_tri "ABCDE" = "A\nBC\nDE*")
+  let _ = assert (string_tri "ABCDEFGH" = "A\nBC\nDEF\nGH**")
+  let _ = assert (string_tri "AAA" = "A\nAA")
+#+end_src

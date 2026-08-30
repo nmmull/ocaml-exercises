@@ -1,0 +1,23 @@
+#+title: Pythagorean Triples
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val py_trip_hyp : int -> bool
+#+end_src
+so that ~py_trip_hyp n~ is ~true~ if and only if ~n~ can be the
+hypotenuse of a right triangle with integer side lengths (i.e., there
+are ~a~ and ~b~ such that ~a * a + b * b = n * n~).  The behavior of
+the function is undefined if ~n~ is not positive.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (py_trip_hyp 5)
+  let _ = assert (py_trip_hyp 13)
+  let _ = assert (py_trip_hyp 17)
+  let _ = assert (py_trip_hyp 29)
+  let _ = assert (not (py_trip_hyp 28))
+  let _ = assert (not (py_trip_hyp 6))
+#+end_src

@@ -1,0 +1,20 @@
+#+title: Modular Arithmetic
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val modulo : int -> int -> int
+#+end_src
+so that ~modulo n k~ is ~n mod k~.  Your implementation should not use
+the operator ~(mod)~, and should be tail recursive.  The behavior of
+the function is undefined if ~n~ is negative or if ~k~ is not
+positive.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (modulo 10 3 = 1)
+  let _ = assert (modulo 7 7 = 0)
+  let _ = assert (modulo 0 5 = 0)
+#+end_src

@@ -32,6 +32,8 @@ all of which are also valuable resources for this course.
 13. [[file:ocaml/taxicab-numbers.org][Taxicab Numbers]]
 14. [[file:ocaml/total-stopping-time.org][Total Stopping Time Records]]
 15. [[file:ocaml/path-record.org][Path Records]]
+16. [[file:ocaml/modular-arithmetic.org][Modular Arithmetic]]
+17. [[file:ocaml/pythagorean-triples.org][Pythagorean Triples]]
 * Lists
 1. [[file:ocaml/rev-append.org][Reverse Append]]
 2. [[file:ocaml/rev-concat.org][Reverse Concatenation]]
@@ -50,6 +52,7 @@ all of which are also valuable resources for this course.
 3. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace, Correctly]]
 4. [[file:ocaml/split-on-character.org][Split on Character]]
 5. [[file:ocaml/block-text.org][Block Text]]
+6. [[file:ocaml/string-triangle.org][String Triangle]]
 * Abstract Data Types
 1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 2. [[file:ocaml/icy-hot.org][Icy Hot]]
