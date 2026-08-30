@@ -46,3 +46,25 @@ hr {
     border: 1px dotted black;
     margin-bottom: 2em;
 }
+
+#table-of-contents {
+    position: fixed;
+    right: 1.5em;
+    top: 1.25em;
+    max-height: 100%;
+    width: 20em;
+    overflow: auto;
+}
+
+@media only screen and (max-width: calc(800px + 24em)) {
+    #table-of-contents {
+        display: none;
+    }
+}
+
+ul {
+    list-style-type: "▹  ";
+    margin-top: 0;
+    padding-left: 2em;
+    padding-bottom: 0.25em;
+}

@@ -1,0 +1,12 @@
+#+title: List Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Determine which of the following are valid, type-checking OCaml
+~list~ expressions.
+
+1. ~(1 :: 2 :: []) :: (3 :: [4])~
+2. ~((1 :: 2) :: []) :: (3 :: [])~
+3. ~1 :: 2 :: [3] :: 4 :: [5]~
+4. ~1 :: 2 :: [3] @ (4 :: [])~
+5. ~(1 :: 2) :: [3] @ (4 :: [])~

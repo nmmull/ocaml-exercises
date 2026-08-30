@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-22 Sat 13:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tracing Mutual Recursion (3)</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Tracing Mutual Recursion (3)</h1>
+<p>
+Consider the following pair of functions.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">foo</span> <span style="color: #a0522d;">l</span> =
+  <span style="color: #a020f0;">match</span> l <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">[]</span> -&gt; <span style="color: #000000; background-color: #ffffff;">[]</span>
+  | <span style="color: #008b8b;">false</span> <span style="color: #000000; background-color: #ffffff;">::</span> bs -&gt;
+    <span style="color: #228b22;">List.</span>map (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x - 1) (0 <span style="color: #000000; background-color: #ffffff;">::</span> foo bs)
+  | <span style="color: #008b8b;">true</span> <span style="color: #000000; background-color: #ffffff;">::</span> bs -&gt; bar l
+<span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">bar</span> <span style="color: #a0522d;">l</span> =
+  <span style="color: #a020f0;">match</span> l <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">[]</span> -&gt; <span style="color: #000000; background-color: #ffffff;">[]</span>
+  | <span style="color: #008b8b;">false</span> <span style="color: #000000; background-color: #ffffff;">::</span> bs -&gt; foo l
+  | <span style="color: #008b8b;">true</span> <span style="color: #000000; background-color: #ffffff;">::</span> bs -&gt; <span style="color: #228b22;">List.</span>map ((<span style="color: #0000ff;">+</span>) 1) (0 <span style="color: #000000; background-color: #ffffff;">::</span> bar bs)
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>What is the type of <code>foo</code>?</li>
+<li>What is the value of the following expression?
+<code>foo [true;true;true;false;false;false;false;true;true;false]</code></li>
+</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+#+title: Tracing Mutual Recursion (3)
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following pair of functions.
+
+#+begin_src ocaml
+  let rec foo l =
+    match l with
+    | [] -> []
+    | false :: bs ->
+      List.map (fun x -> x - 1) (0 :: foo bs)
+    | true :: bs -> bar l
+  and bar l =
+    match l with
+    | [] -> []
+    | false :: bs -> foo l
+    | true :: bs -> List.map ((+) 1) (0 :: bar bs)
+#+end_src
+
+1. What is the type of ~foo~?
+2. What is the value of the following expression?
+   ~foo [true;true;true;false;false;false;false;true;true;false]~

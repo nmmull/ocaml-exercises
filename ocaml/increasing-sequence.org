@@ -1,0 +1,21 @@
+#+title: Increasing Sequence
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val inc : (int -> int) -> int -> int list
+#+end_src
+so that ~inc f~ is a function which, given an integer ~x~, returns
+the longest sequence of the form
+~[x ; f x ; f (f x) ; f (f (f x)) ; ...]~ such that
+~x < f x < f (f x) < ...~.  In the case that this sequence goes on
+forever, the function should not terminate.
+
+** Examples
+
+#+begin_src ocaml
+  let f x = if x * x > 100 then x else x * x
+  let _ = assert (inc f 3 = [3;9;81])
+  let _ = assert (inc f 2 = [2;4;16])
+#+end_src

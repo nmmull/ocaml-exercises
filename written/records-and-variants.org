@@ -1,0 +1,16 @@
+#+title: Records and Variants
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Write down the type ~animal~ so that the following function
+type-checks.
+
+#+begin_src ocaml
+  let get_name_and_age (a : animal) (year : int) =
+    match a with
+    | Cow { name = n ; age = i } -> (Some n, Some i)
+    | Chicken info ->
+      (Some info.name, Some (year - info.birth_year))
+    | Pig age -> (None, Some age)
+    | Goose -> (None, None)
+#+end_src

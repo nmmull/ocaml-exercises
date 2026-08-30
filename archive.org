@@ -1,0 +1,42 @@
+* Written Problems
+** Reasoning about OCaml
+38. [[file:written/types-of-expressions.org][Types of Expressions]]
+39. [[file:written/expressions-of-types.org][Expressions of Types]]
+49. [[file:written/gap-buffers.org][Gap Buffers]]
+81. [[file:written/game-player.org][Game Player]]
+85. [[file:written/records-and-variants.org][Records and Variants]]
+86. [[file:written/list-expressions.org][List Expressions]]
+87. [[file:written/tracing-mutual-recursion-3.org][Tracing Mutual Recursion (3)]]
+** Formal Grammar
+66. [[file:written/grammar-rule-to-english.org][Grammar Rule to English]]
+31. [[file:written/abcs.org][ABCs]]
+32. [[file:written/bnf-derivations.org][Toy Language (1)]]
+33. [[file:written/integer-literals.org][Integer Literals]]
+35. [[file:written/regular-grammars-and-expressions.org][Regular Grammars and Expressions]]
+43. [[file:written/parse-trees-in-a-simple-grammar.org][Parse Trees in a Simple Grammar]]
+57. [[file:written/an-ocaml-like-grammar.org][An OCaml-like Grammar]]
+** Grammatical Ambiguity
+34. [[file:written/a-simple-ambiguous-grammar.org][A Simple Ambiguous Grammar]]
+44. [[file:written/match-expressions.org][Match Expressions]]
+45. [[file:written/if-then-else-expressions.org][If-Then-Else Expressions]]
+46. [[file:written/assignment-programs.org][Assignment Programs]]
+58. [[file:written/top-level-expressions.org][Top-Level Expressions]]
+59. [[file:written/let-without-in.org][Let Without In]]
+** Inference Systems
+67. [[file:written/typing-judgment-to-english.org][Typing Judgment to English]]
+68. [[file:written/typing-rule-to-english.org][Typing Rule to English]]
+** Typing/Semantic Derivations
+70. [[file:written/typing-derivation-1.org][Typing Derivation (I)]]
+71. [[file:written/typing-derivation-2.org][Typing Derivation (II)]]
+42. [[file:written/recursive-let-expressions.org][Recursive Let-Expressions]]
+40. [[file:written/typing-derivations.org][Typing Derivations]]
+41. [[file:written/semantic-derivations.org][Semantic Derivations]]
+50. [[file:written/options-and-results-formally.org][Options and Results, Formally]]
+51. [[file:written/options-and-lists-formally.org][Options and Lists, Formally]]
+73. [[file:written/if-without-else.org][If Without Else]]
+79. [[file:written/results.org][Results]]
+** Formal Semantics
+60. [[file:written/evaluation-strategies.org][Evaluation Strategies]]
+** Environment-Based Semantics
+61. [[file:written/closures-1.org][Closures (1)]]
+62. [[file:written/closures-2.org][Closures (2)]]

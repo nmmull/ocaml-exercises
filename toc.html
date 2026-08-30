@@ -3,28 +3,41 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:45 -->
+<!-- 2026-08-29 Sat 21:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Problems and Exercises</title>
+<title>OCaml Exercises</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Problems and Exercises</h1>
+<h1 class="title">OCaml Exercises</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6acffe6">Basics</a></li>
+<li><a href="#org348456a">Lists</a></li>
+<li><a href="#org2b83625">Strings</a></li>
+<li><a href="#orgc792df5">Abstract Data Types</a></li>
+<li><a href="#orgc71f2a3">Records</a></li>
+<li><a href="#org30fb430">Higher-Order Programming</a></li>
+</ul>
+</div>
+</div>
 <p>
-This is a collection of problems and exercises for the course <b>CAS CS
-320: Concepts of Programming Languages</b> at Boston University.  They've
-been written by <a href="https://nmmull.github.io">me</a> over the last several years of running the course,
-with help from <a href="https://ankushdas.github.io">Ankush Das</a>.  This page is along the lines of a course
-specific
+This is a collection of OCaml programming exercises for the course
+<b>CAS CS 320: Concepts of Programming Languages</b> at Boston University.
+They've been written by <a href="https://nmmull.github.io">me</a> over the last several years of running the
+course, with help from <a href="https://ankushdas.github.io">Ankush Das</a>.  This page is essentially a course
+specific version of
 </p>
 
 <ul class="org-ul">
 <li><a href="https://ocaml.org/exercises">OCaml Exercises</a></li>
-<li>Exericses from <a href="https://cs3110.github.io/textbook/cover.html">OCaml Programming: Correct + Efficient + Beautiful</a></li>
+<li>Exercises from <a href="https://cs3110.github.io/textbook/cover.html">OCaml Programming: Correct + Efficient + Beautiful</a></li>
 <li><a href="https://projecteuler.net">Project Euler</a></li>
 </ul>
 
@@ -33,15 +46,12 @@ all of which are also valuable resources for this course.
 </p>
 
 <hr />
-<div id="outline-container-org51df4d7" class="outline-2">
-<h2 id="org51df4d7"><span class="section-number-2">1.</span> OCaml Programming Problems</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org6f14ebb" class="outline-3">
-<h3 id="org6f14ebb"><span class="section-number-3">1.1.</span> Basics</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org6acffe6" class="outline-2">
+<h2 id="org6acffe6">Basics</h2>
+<div class="outline-text-2" id="text-org6acffe6">
 <ol class="org-ol">
 <li><a href="ocaml/temperature.html">Fahrenheit to Celsius</a></li>
+<li><a href="ocaml/num-digits.html">Number of Digits</a></li>
 <li><a href="ocaml/int-sqrt.html">Integer Square Root</a></li>
 <li><a href="ocaml/int-pow.html">Integer Exponentiation</a></li>
 <li><a href="ocaml/perfect-powers.html">Perfect Powers</a></li>
@@ -58,27 +68,27 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-org32db5fe" class="outline-3">
-<h3 id="org32db5fe"><span class="section-number-3">1.2.</span> Recursion</h3>
-</div>
-<div id="outline-container-org684163e" class="outline-3">
-<h3 id="org684163e"><span class="section-number-3">1.3.</span> Lists</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org348456a" class="outline-2">
+<h2 id="org348456a">Lists</h2>
+<div class="outline-text-2" id="text-org348456a">
 <ol class="org-ol">
 <li><a href="ocaml/rev-append.html">Reverse Append</a></li>
+<li><a href="ocaml/rev-concat.html">Reverse Concatenation</a></li>
 <li><a href="ocaml/drop-leading.html">Drop Leading</a></li>
 <li><a href="ocaml/drop-trailing.html">Drop Trailing</a></li>
 <li><a href="ocaml/suffixes.html">Suffixes</a></li>
+<li><a href="ocaml/prefixes.html">Prefixes</a></li>
 <li><a href="ocaml/every-n.html">Every N Elements</a></li>
+<li><a href="ocaml/bitonic-sequences.html">Bitonic Sequences</a></li>
 <li><a href="ocaml/fib-gen.html">The Generalized Fibonacci Sequence</a></li>
 <li><a href="ocaml/nub.html">Nub</a></li>
 <li><a href="ocaml/graph-connectivity.html">Graph Connectivity</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org6dfd04a" class="outline-3">
-<h3 id="org6dfd04a"><span class="section-number-3">1.4.</span> Strings</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org2b83625" class="outline-2">
+<h2 id="org2b83625">Strings</h2>
+<div class="outline-text-2" id="text-org2b83625">
 <ol class="org-ol">
 <li><a href="ocaml/split-by-whitespace.html">Split by Whitespace</a></li>
 <li><a href="ocaml/split-by-whitespace-correctly.html">Split by Whitespace, Correctly</a></li>
@@ -86,9 +96,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-org0c8839a" class="outline-3">
-<h3 id="org0c8839a"><span class="section-number-3">1.5.</span> Abstract Data Types</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgc792df5" class="outline-2">
+<h2 id="orgc792df5">Abstract Data Types</h2>
+<div class="outline-text-2" id="text-orgc792df5">
 <ol class="org-ol">
 <li><a href="ocaml/grouping-integers-and-strings.html">Grouping Integers and Strings</a></li>
 <li><a href="ocaml/icy-hot.html">Icy Hot</a></li>
@@ -96,6 +106,7 @@ all of which are also valuable resources for this course.
 <li><a href="ocaml/concatenation-lists.html">Sorting Concatenation Lists</a></li>
 <li><a href="ocaml/forklist.html">Tailing Fork Lists</a></li>
 <li><a href="ocaml/double-lists.html">Reversing Double Lists</a></li>
+<li><a href="ocaml/list-to-reversed-doublelist.html">Double List of List</a></li>
 <li><a href="ocaml/boolean-expressions.html">Boolean Expressions</a> (TODO: Include or separate into Interpreters?)</li>
 <li><a href="ocaml/rose-trees.html">Rose Trees</a> (TODO: Split)</li>
 <li><a href="ocaml/no-collisions-on-a-line.html">No Collisions</a></li>
@@ -103,9 +114,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgeb021a0" class="outline-3">
-<h3 id="orgeb021a0"><span class="section-number-3">1.6.</span> Records</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgc71f2a3" class="outline-2">
+<h2 id="orgc71f2a3">Records</h2>
+<div class="outline-text-2" id="text-orgc71f2a3">
 <ol class="org-ol">
 <li><a href="ocaml/recipes-by-ingredients.html">Recipes by Ingredients</a></li>
 <li><a href="ocaml/updating-recent-posts.html">Updating Recent Posts</a></li>
@@ -113,9 +124,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf249710" class="outline-3">
-<h3 id="orgf249710"><span class="section-number-3">1.7.</span> Higher-Order Programming</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-org30fb430" class="outline-2">
+<h2 id="org30fb430">Higher-Order Programming</h2>
+<div class="outline-text-2" id="text-org30fb430">
 <ol class="org-ol">
 <li><a href="ocaml/curry3.html">Curry 3</a></li>
 <li><a href="ocaml/uncurry3.html">Uncurry 3</a></li>
@@ -124,6 +135,8 @@ all of which are also valuable resources for this course.
 <li><a href="ocaml/prefix-map.html">Prefix Map</a></li>
 <li><a href="ocaml/fold-right-2.html">Fold Right 2</a> (TODO: Add examples)</li>
 <li><a href="ocaml/fold-left-2.html">Fold Left 2</a> (TODO: Add examples)</li>
+<li><a href="ocaml/filter-any.html">Filter Any</a></li>
+<li><a href="ocaml/filter-all.html">Filter All</a></li>
 <li><a href="ocaml/cyclic-function-application.html">Cyclic Function Application</a></li>
 <li><a href="ocaml/walking-on-a-graph.html">Walking on a Graph</a></li>
 <li><a href="ocaml/for-loops.html">Fake Loops</a></li>
@@ -131,103 +144,12 @@ all of which are also valuable resources for this course.
 <li><a href="ocaml/list-convolution-and-polynomial-multiplication.html">List Convolution and Multiplying Polynomials</a></li>
 <li><a href="ocaml/mat-vec-mul.html">Matrix-Vector Multiplication</a> (TODO: Make part of matrices?)</li>
 <li><a href="ocaml/fixpoints.html">Fixpoints</a></li>
-<li><a href="ocaml/transpose.html">Transpose</a></li>
-<li><a href="ocaml/filter-any.html">Filter Any</a></li>
+<li><a href="ocaml/transpose.html">Transpose</a> (TODO: Move, part of matrices )</li>
+<li><a href="ocaml/diagonal.html">Diagonal</a> (TOOD: Move to matrices )</li>
+<li><a href="ocaml/increasing-sequence.html">Increasing Sequence</a></li>
+<li><a href="ocaml/function-maximum.html">Function Maximum</a></li>
 </ol>
 </div>
-</div>
-</div>
-<div id="outline-container-orgdb747c3" class="outline-2">
-<h2 id="orgdb747c3"><span class="section-number-2">2.</span> Written Problems</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgf3362f1" class="outline-3">
-<h3 id="orgf3362f1"><span class="section-number-3">2.1.</span> Reasoning about OCaml</h3>
-<div class="outline-text-3" id="text-2-1">
-<ol class="org-ol">
-<li><a href="written/types-of-expressions.html">Types of Expressions</a></li>
-<li><a href="written/expressions-of-types.html">Expressions of Types</a></li>
-<li><a href="written/gap-buffers.html">Gap Buffers</a></li>
-<li><a href="written/tracing-mutual-recursion.html">Tracing Mutual Recursion</a></li>
-<li><a href="written/game-player.html">Game Player</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org8891420" class="outline-3">
-<h3 id="org8891420"><span class="section-number-3">2.2.</span> Formal Grammar</h3>
-<div class="outline-text-3" id="text-2-2">
-<ol class="org-ol">
-<li><a href="written/grammar-rule-to-english.html">Grammar Rule to English</a></li>
-<li><a href="written/abcs.html">ABCs</a></li>
-<li><a href="written/bnf-derivations.html">Toy Language (1)</a></li>
-<li><a href="written/integer-literals.html">Integer Literals</a></li>
-<li><a href="written/regular-grammars-and-expressions.html">Regular Grammars and Expressions</a></li>
-<li><a href="written/parse-trees-in-a-simple-grammar.html">Parse Trees in a Simple Grammar</a></li>
-<li><a href="written/an-ocaml-like-grammar.html">An OCaml-like Grammar</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org286ec8b" class="outline-3">
-<h3 id="org286ec8b"><span class="section-number-3">2.3.</span> Grammatical Ambiguity</h3>
-<div class="outline-text-3" id="text-2-3">
-<ol class="org-ol">
-<li><a href="written/a-simple-ambiguous-grammar.html">A Simple Ambiguous Grammar</a></li>
-<li><a href="written/match-expressions.html">Match Expressions</a></li>
-<li><a href="written/if-then-else-expressions.html">If-Then-Else Expressions</a></li>
-<li><a href="written/assignment-programs.html">Assignment Programs</a></li>
-<li><a href="written/top-level-expressions.html">Top-Level Expressions</a></li>
-<li><a href="written/let-without-in.html">Let Without In</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org1672130" class="outline-3">
-<h3 id="org1672130"><span class="section-number-3">2.4.</span> Inference Systems</h3>
-<div class="outline-text-3" id="text-2-4">
-<ol class="org-ol">
-<li><a href="written/typing-judgment-to-english.html">Typing Judgment to English</a></li>
-<li><a href="written/typing-rule-to-english.html">Typing Rule to English</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org94e3f45" class="outline-3">
-<h3 id="org94e3f45"><span class="section-number-3">2.5.</span> Typing/Semantic Derivations</h3>
-<div class="outline-text-3" id="text-2-5">
-<ol class="org-ol">
-<li><a href="written/typing-derivation-1.html">Typing Derivation (I)</a></li>
-<li><a href="written/typing-derivation-2.html">Typing Derivation (II)</a></li>
-<li><a href="written/recursive-let-expressions.html">Recursive Let-Expressions</a></li>
-<li><a href="written/typing-derivations.html">Typing Derivations</a></li>
-<li><a href="written/semantic-derivations.html">Semantic Derivations</a></li>
-<li><a href="written/options-and-results-formally.html">Options and Results, Formally</a></li>
-<li><a href="written/options-and-lists-formally.html">Options and Lists, Formally</a></li>
-<li><a href="written/if-without-else.html">If Without Else</a></li>
-<li><a href="written/results.html">Results</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orge8ebf3e" class="outline-3">
-<h3 id="orge8ebf3e"><span class="section-number-3">2.6.</span> Formal Semantics</h3>
-<div class="outline-text-3" id="text-2-6">
-<ol class="org-ol">
-<li><a href="written/evaluation-strategies.html">Evaluation Strategies</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgedb0bd3" class="outline-3">
-<h3 id="orgedb0bd3"><span class="section-number-3">2.7.</span> Environment-Based Semantics</h3>
-<div class="outline-text-3" id="text-2-7">
-<ol class="org-ol">
-<li><a href="written/closures-1.html">Closures (1)</a></li>
-<li><a href="written/closures-2.html">Closures (2)</a></li>
-</ol>
-</div>
-</div>
-</div>
-<div id="outline-container-orgcdf474e" class="outline-2">
-<h2 id="orgcdf474e"><span class="section-number-2">3.</span> Interpreters</h2>
-</div>
-<div id="outline-container-orgdc417b5" class="outline-2">
-<h2 id="orgdc417b5"><span class="section-number-2">4.</span> Other</h2>
 </div>
 </div>
 </body>

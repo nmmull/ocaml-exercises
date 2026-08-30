@@ -1,0 +1,18 @@
+#+title: Number of Digits
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val num_digits : int -> int
+#+end_src
+so that ~num_digits n~ is the number of digits in ~n~.  You may only
+use arithmetic operations.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (num_digits 12345 = 5)
+  let _ = assert (num_digits (-10) = 2)
+  let _ = assert (num_digits 0 = 1)
+#+end_src

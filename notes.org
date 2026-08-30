@@ -4,3 +4,6 @@
 + Did not deal with s26 labs
 + Did not deail with assign2 (s25) FRACTRAN
 + Did not deal with assign3 (s25) URMs
+
++ I believe that I'm done with s24 except for the assignment 7 note
+  above.

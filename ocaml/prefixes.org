@@ -1,0 +1,19 @@
+#+title: Prefixes
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val prefixes : 'a list -> 'a list list
+#+end_src
+so that ~prefixes l~ is the list of all prefixes of ~l~ in
+increasing order of length (a list ~pre~ is a prefix of ~l~ if there
+is a list ~suf~ such that ~pre @ suf = l~).  You may use the
+function ~List.map~, but otherwise you may not use any functions
+from the standard library except constructors and operators.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (prefixes [1;2;3] = [[]; [1]; [1;2]; [1;2;3]])
+#+end_src

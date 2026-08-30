@@ -36,10 +36,38 @@ about the types of OCaml expressions.
        and k lst = g lst || h lst
        in k
    #+end_src
-
    Also determine the values of the following expressions:
-       + ~f []~
-       + ~f [1]~
-       + ~f [1;1;0]~
-       + ~f [1;1;1;0;0]~
-       + ~f [1;1;1;0;0;1;1;0]~
+   + ~f []~
+   + ~f [1]~
+   + ~f [1;1;0]~
+   + ~f [1;1;1;0;0]~
+   + ~f [1;1;1;0;0;1;1;0]~
+5. Determine the type of the function ~f~.
+   #+begin_src ocaml
+     let f =
+       let rec g lst =
+         match lst with
+         | true :: false :: xs -> 1 + k xs
+         | _ -> 0
+       and h lst =
+         match lst with
+         | true :: xs -> 1 + k xs
+         | _ -> 0
+       and k lst = max (g lst) (h lst)
+       in k
+   #+end_src
+   Also determine the values of the following expressions:
+   + ~f []~
+   + ~f [true]~
+   + ~f [true;false]~
+   + ~f [false;true;true;false]~
+   + ~f [true;true;true;false;true]~
+6. Determine the type of the function ~x~.
+   #+begin_src ocaml
+     let x y =
+       let x = y in
+       let y x = x + 1 in
+       let x y = y x in
+       x y
+   #+end_src
+   Also determine the value of ~x 2~.

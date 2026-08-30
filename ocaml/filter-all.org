@@ -1,0 +1,18 @@
+#+title: Filter All
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val filter_all : ('a -> 'b -> bool) -> 'a list -> 'b list -> 'b list
+#+end_src
+so that ~filter_all f l r~ is the members ~x~ of ~r~ — in order —
+for which ~f a x~ is ~true~ for /every/ member ~a~ of ~l~.
+
+** Examples
+
+#+begin_src ocaml
+  let l = [1;2;3;4;5;6;7]
+  let _ = assert (filter_all (>) [4;2] l = [1])
+  let _ = assert (filter_all (<) [4;2] l = [5;6;7])
+#+end_src

@@ -1,0 +1,27 @@
+#+title: Tracing Mutual Recursion (2)
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following OCaml function.
+
+#+begin_src ocaml
+  let f =
+    let rec g lst =
+      match lst with
+      | true :: false :: xs -> 1 + k xs
+      | _ -> 0
+    and h lst =
+      match lst with
+      | true :: xs -> 1 + k xs
+      | _ -> 0
+    and k lst = max (g lst) (h lst)
+    in k
+#+end_src
+
+1. What is the type of ~f~?
+2. Evaluate the following expressions.
+   - ~f []~
+   - ~f [true]~
+   - ~f [true;false]~
+   - ~f [false;true;true;false]~
+   - ~f [true;true;true;false;true]~

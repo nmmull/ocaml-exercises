@@ -1,0 +1,18 @@
+#+title: Double List of List
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+
+#+begin_src ocaml
+  val of_list_rev: 'a list -> 'a doublelist
+#+end_src
+so that ~of_list_rev l~ is the list ~l~ represented as a ~doublelist~
+/in reverse order/.  Your implementation must be tail recursive.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (of_list_rev [1;2;3] = Cons (3, 2, Single 1))
+  let _ = assert (of_list_rev [1;2;3;4] = Cons (4, 3, Cons (2, 1, Nil)))
+#+end_src

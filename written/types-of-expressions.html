@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:52 -->
+<!-- 2026-08-22 Sat 13:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Types of Expressions</title>
@@ -63,7 +63,6 @@ Determine the type of the function <code>f</code>.
   <span style="color: #000000; font-weight: bold;">in</span> k
 </pre>
 </div>
-
 <p>
 Also determine the values of the following expressions:
 </p>
@@ -74,6 +73,47 @@ Also determine the values of the following expressions:
 <li><code>f [1;1;1;0;0]</code></li>
 <li><code>f [1;1;1;0;0;1;1;0]</code></li>
 </ul></li>
+<li><p>
+Determine the type of the function <code>f</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">f</span> =
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">g</span> <span style="color: #a0522d;">lst</span> =
+    <span style="color: #a020f0;">match</span> lst <span style="color: #a020f0;">with</span>
+    | <span style="color: #008b8b;">true</span> <span style="color: #000000; background-color: #ffffff;">::</span> <span style="color: #008b8b;">false</span> <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt; 1 + k xs
+    | _ -&gt; 0
+  <span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">h</span> <span style="color: #a0522d;">lst</span> =
+    <span style="color: #a020f0;">match</span> lst <span style="color: #a020f0;">with</span>
+    | <span style="color: #008b8b;">true</span> <span style="color: #000000; background-color: #ffffff;">::</span> xs -&gt; 1 + k xs
+    | _ -&gt; 0
+  <span style="color: #000000; font-weight: bold;">and</span> <span style="color: #0000ff;">k</span> <span style="color: #a0522d;">lst</span> = max (g lst) (h lst)
+  <span style="color: #000000; font-weight: bold;">in</span> k
+</pre>
+</div>
+<p>
+Also determine the values of the following expressions:
+</p>
+<ul class="org-ul">
+<li><code>f []</code></li>
+<li><code>f [true]</code></li>
+<li><code>f [true;false]</code></li>
+<li><code>f [false;true;true;false]</code></li>
+<li><code>f [true;true;true;false;true]</code></li>
+</ul></li>
+<li><p>
+Determine the type of the function <code>x</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">x</span> <span style="color: #a0522d;">y</span> =
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = y <span style="color: #000000; font-weight: bold;">in</span>
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">y</span> <span style="color: #a0522d;">x</span> = x + 1 <span style="color: #000000; font-weight: bold;">in</span>
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">x</span> <span style="color: #a0522d;">y</span> = y x <span style="color: #000000; font-weight: bold;">in</span>
+  x y
+</pre>
+</div>
+<p>
+Also determine the value of <code>x 2</code>.
+</p></li>
 </ol>
 </div>
 </body>

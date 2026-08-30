@@ -1,67 +1,71 @@
-#+title: Problems and Exercises
+#+title: OCaml Exercises
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
-#+OPTIONS: html-style:nil H:2 toc:nil
+#+OPTIONS: html-style:nil H:2 toc:2 num:nil
 
-This is a collection of problems and exercises for the course *CAS CS
-320: Concepts of Programming Languages* at Boston University.  They've
-been written by [[https://nmmull.github.io][me]] over the last several years of running the course,
-with help from [[https://ankushdas.github.io][Ankush Das]].  This page is along the lines of a course
-specific
+This is a collection of OCaml programming exercises for the course
+*CAS CS 320: Concepts of Programming Languages* at Boston University.
+They've been written by [[https://nmmull.github.io][me]] over the last several years of running the
+course, with help from [[https://ankushdas.github.io][Ankush Das]].  This page is essentially a course
+specific version of
 
 + [[https://ocaml.org/exercises][OCaml Exercises]]
-+ Exericses from [[https://cs3110.github.io/textbook/cover.html][OCaml Programming: Correct + Efficient + Beautiful]]
++ Exercises from [[https://cs3110.github.io/textbook/cover.html][OCaml Programming: Correct + Efficient + Beautiful]]
 + [[https://projecteuler.net][Project Euler]]
 
 all of which are also valuable resources for this course.
 
 -----
 
-* OCaml Programming Problems
-** Basics
+* Basics
 1. [[file:ocaml/temperature.org][Fahrenheit to Celsius]]
-2. [[file:ocaml/int-sqrt.org][Integer Square Root]]
-3. [[file:ocaml/int-pow.org][Integer Exponentiation]]
-4. [[file:ocaml/perfect-powers.org][Perfect Powers]]
-5. [[file:ocaml/fibonacci.org][The Fibonacci Sequence]]
-6. [[file:ocaml/collatz.org][The Collatz Conjecture]]
-7. [[file:ocaml/primality-checking.org][Primality Checking]]
-8. [[file:ocaml/nth-prime.org][N^{th} Prime Number]]
-9. [[file:ocaml/number-of-factors.org][Number of Factors]]
-10. [[file:ocaml/perfect-numbers.org][Perfect Numbers]]
-11. [[file:ocaml/min-sos.org][Sums of Squares]]
-12. [[file:ocaml/taxicab-numbers.org][Taxicab Numbers]]
-13. [[file:ocaml/total-stopping-time.org][Total Stopping Time Records]]
-14. [[file:ocaml/path-record.org][Path Records]]
-** Recursion
-** Lists
+2. [[file:ocaml/num-digits.org][Number of Digits]]
+3. [[file:ocaml/int-sqrt.org][Integer Square Root]]
+4. [[file:ocaml/int-pow.org][Integer Exponentiation]]
+5. [[file:ocaml/perfect-powers.org][Perfect Powers]]
+6. [[file:ocaml/fibonacci.org][The Fibonacci Sequence]]
+7. [[file:ocaml/collatz.org][The Collatz Conjecture]]
+8. [[file:ocaml/primality-checking.org][Primality Checking]]
+9. [[file:ocaml/nth-prime.org][N^{th} Prime Number]]
+10. [[file:ocaml/number-of-factors.org][Number of Factors]]
+11. [[file:ocaml/perfect-numbers.org][Perfect Numbers]]
+12. [[file:ocaml/min-sos.org][Sums of Squares]]
+13. [[file:ocaml/taxicab-numbers.org][Taxicab Numbers]]
+14. [[file:ocaml/total-stopping-time.org][Total Stopping Time Records]]
+15. [[file:ocaml/path-record.org][Path Records]]
+* Lists
 1. [[file:ocaml/rev-append.org][Reverse Append]]
-2. [[file:ocaml/drop-leading.org][Drop Leading]]
-3. [[file:ocaml/drop-trailing.org][Drop Trailing]]
-8. [[file:ocaml/suffixes.org][Suffixes]]
+2. [[file:ocaml/rev-concat.org][Reverse Concatenation]]
+3. [[file:ocaml/drop-leading.org][Drop Leading]]
+4. [[file:ocaml/drop-trailing.org][Drop Trailing]]
+5. [[file:ocaml/suffixes.org][Suffixes]]
+6. [[file:ocaml/prefixes.org][Prefixes]]
 7. [[file:ocaml/every-n.org][Every N Elements]]
-4. [[file:ocaml/fib-gen.org][The Generalized Fibonacci Sequence]]
-5. [[file:ocaml/nub.org][Nub]]
-6. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
-** Strings
-1. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
-2. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace, Correctly]]
-3. [[file:ocaml/split-on-character.org][Split on Character]]
-** Abstract Data Types
+8. [[file:ocaml/bitonic-sequences.org][Bitonic Sequences]]
+9. [[file:ocaml/fib-gen.org][The Generalized Fibonacci Sequence]]
+10. [[file:ocaml/nub.org][Nub]]
+11. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
+* Strings
+1. [[file:ocaml/string-reversal.org][Reversing Strings]]
+2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
+3. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace, Correctly]]
+4. [[file:ocaml/split-on-character.org][Split on Character]]
+* Abstract Data Types
 1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 2. [[file:ocaml/icy-hot.org][Icy Hot]]
 3. [[file:ocaml/listing-paths.org][Manhattan Paths]]
 4. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
 5. [[file:ocaml/forklist.org][Tailing Fork Lists]]
 11. [[file:ocaml/double-lists.org][Reversing Double Lists]]
+12. [[file:ocaml/list-to-reversed-doublelist.org][Double List of List]]
 8. [[file:ocaml/boolean-expressions.org][Boolean Expressions]] (TODO: Include or separate into Interpreters?)
 7. [[file:ocaml/rose-trees.org][Rose Trees]] (TODO: Split)
 9. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
 10. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
-** Records
+* Records
 1. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 2. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
 3. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
-** Higher-Order Programming
+* Higher-Order Programming
 1. [[file:ocaml/curry3.org][Curry 3]]
 2. [[file:ocaml/uncurry3.org][Uncurry 3]]
 3. [[file:ocaml/map2.org][Map 2]]
@@ -69,53 +73,16 @@ all of which are also valuable resources for this course.
 5. [[file:ocaml/prefix-map.org][Prefix Map]]
 6. [[file:ocaml/fold-right-2.org][Fold Right 2]] (TODO: Add examples)
 7. [[file:ocaml/fold-left-2.org][Fold Left 2]] (TODO: Add examples)
-8. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
-9. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
-10. [[file:ocaml/for-loops.org][Fake Loops]]
-11. [[file:ocaml/consecutives.org][Consecutives]]
-12. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
-13. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]] (TODO: Make part of matrices?)
-14. [[file:ocaml/fixpoints.org][Fixpoints]]
-15. [[file:ocaml/transpose.org][Transpose]] (TODO: Move, part of matrices *)
-16. [[file:ocaml/filter-any.org][Filter Any]]
-* Written Problems
-** Reasoning about OCaml
-38. [[file:written/types-of-expressions.org][Types of Expressions]]
-39. [[file:written/expressions-of-types.org][Expressions of Types]]
-49. [[file:written/gap-buffers.org][Gap Buffers]]
-81. [[file:written/game-player.org][Game Player]]
-** Formal Grammar
-66. [[file:written/grammar-rule-to-english.org][Grammar Rule to English]]
-31. [[file:written/abcs.org][ABCs]]
-32. [[file:written/bnf-derivations.org][Toy Language (1)]]
-33. [[file:written/integer-literals.org][Integer Literals]]
-35. [[file:written/regular-grammars-and-expressions.org][Regular Grammars and Expressions]]
-43. [[file:written/parse-trees-in-a-simple-grammar.org][Parse Trees in a Simple Grammar]]
-57. [[file:written/an-ocaml-like-grammar.org][An OCaml-like Grammar]]
-** Grammatical Ambiguity
-34. [[file:written/a-simple-ambiguous-grammar.org][A Simple Ambiguous Grammar]]
-44. [[file:written/match-expressions.org][Match Expressions]]
-45. [[file:written/if-then-else-expressions.org][If-Then-Else Expressions]]
-46. [[file:written/assignment-programs.org][Assignment Programs]]
-58. [[file:written/top-level-expressions.org][Top-Level Expressions]]
-59. [[file:written/let-without-in.org][Let Without In]]
-** Inference Systems
-67. [[file:written/typing-judgment-to-english.org][Typing Judgment to English]]
-68. [[file:written/typing-rule-to-english.org][Typing Rule to English]]
-** Typing/Semantic Derivations
-70. [[file:written/typing-derivation-1.org][Typing Derivation (I)]]
-71. [[file:written/typing-derivation-2.org][Typing Derivation (II)]]
-42. [[file:written/recursive-let-expressions.org][Recursive Let-Expressions]]
-40. [[file:written/typing-derivations.org][Typing Derivations]]
-41. [[file:written/semantic-derivations.org][Semantic Derivations]]
-50. [[file:written/options-and-results-formally.org][Options and Results, Formally]]
-51. [[file:written/options-and-lists-formally.org][Options and Lists, Formally]]
-73. [[file:written/if-without-else.org][If Without Else]]
-79. [[file:written/results.org][Results]]
-** Formal Semantics
-60. [[file:written/evaluation-strategies.org][Evaluation Strategies]]
-** Environment-Based Semantics
-61. [[file:written/closures-1.org][Closures (1)]]
-62. [[file:written/closures-2.org][Closures (2)]]
-* Interpreters
-* Other
+8. [[file:ocaml/filter-any.org][Filter Any]]
+9. [[file:ocaml/filter-all.org][Filter All]]
+10. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
+11. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
+12. [[file:ocaml/for-loops.org][Fake Loops]]
+13. [[file:ocaml/consecutives.org][Consecutives]]
+14. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
+15. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]] (TODO: Make part of matrices?)
+16. [[file:ocaml/fixpoints.org][Fixpoints]]
+17. [[file:ocaml/transpose.org][Transpose]] (TODO: Move, part of matrices )
+18. [[file:ocaml/diagonal.org][Diagonal]] (TOOD: Move to matrices )
+19. [[file:ocaml/increasing-sequence.org][Increasing Sequence]]
+20. [[file:ocaml/function-maximum.org][Function Maximum]]

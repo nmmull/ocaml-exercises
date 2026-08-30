@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-22 Sat 13:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>List Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">List Expressions</h1>
+<p>
+Determine which of the following are valid, type-checking OCaml
+<code>list</code> expressions.
+</p>
+
+<ol class="org-ol">
+<li><code>(1 :: 2 :: []) :: (3 :: [4])</code></li>
+<li><code>((1 :: 2) :: []) :: (3 :: [])</code></li>
+<li><code>1 :: 2 :: [3] :: 4 :: [5]</code></li>
+<li><code>1 :: 2 :: [3] @ (4 :: [])</code></li>
+<li><code>(1 :: 2) :: [3] @ (4 :: [])</code></li>
+</ol>
+</div>
+</body>
+</html>
