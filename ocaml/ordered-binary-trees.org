@@ -1,0 +1,54 @@
+#+title: Ordered Binary Trees
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+A binary tree is represented by the following ADT.
+
+#+begin_src ocaml
+  type 'a tree
+    = Empty
+    | Node of 'a * 'a tree * 'a tree
+#+end_src
+
+A tree is *ordered* if, for every ~Node (a, left, right)~, every
+element of ~left~ is at most ~a~ and every element of ~right~ is
+greater than ~a~ (repetitions are allowed).
+
+** Task 1
+
+Implement the function
+#+begin_src ocaml
+  val insert : 'a -> 'a tree -> 'a tree
+#+end_src
+so that ~insert x t~, given an ordered tree ~t~, returns an ordered
+tree with the same elements as ~t~ along with the new element ~x~.
+
+#+begin_src ocaml
+  let _ = assert (insert 4 (insert 8 (insert 3 (insert 5 Empty))) =
+      Node (5, Node (3, Empty, Node (4, Empty, Empty)), Node (8, Empty, Empty)))
+#+end_src
+
+** Task 2
+
+Implement the function
+#+begin_src ocaml
+  val flatten : 'a tree -> 'a list
+#+end_src
+so that ~flatten t~, given an ordered tree ~t~, returns the list with
+the same elements as ~t~ in sorted order.
+
+#+begin_src ocaml
+  let _ = assert (flatten (insert 4 (insert 8 (insert 3 (insert 5 Empty)))) = [3; 4; 5; 8])
+#+end_src
+
+** Task 3
+
+Using ~insert~ and ~flatten~, implement the function
+#+begin_src ocaml
+  val sort : 'a list -> 'a list
+#+end_src
+so that ~sort l~ is the elements of ~l~ in sorted order.
+
+#+begin_src ocaml
+  let _ = assert (sort [5; 3; 8; 1; 4] = [1; 3; 4; 5; 8])
+#+end_src

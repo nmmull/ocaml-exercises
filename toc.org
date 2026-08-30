@@ -66,6 +66,7 @@ all of which are also valuable resources for this course.
 7. [[file:ocaml/rose-trees.org][Rose Trees]] (TODO: Split)
 9. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
 10. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
+13. [[file:ocaml/ordered-binary-trees.org][Ordered Binary Trees]] (TODO: Split)
 * Records
 1. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 2. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
