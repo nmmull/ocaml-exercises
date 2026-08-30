@@ -1,0 +1,40 @@
+#+title: Folding and OUnit
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Roughly speaking, test suites in OUnit2 are represented by the
+following ADT.
+
+#+begin_src ocaml
+  type 'a test =
+    | TestCase of 'a
+    | TestList of 'a test list
+#+end_src
+
+A test suite is either a test case (created using the ~(>::)~
+operator) or made up of a list of other test suites (created using
+the ~(>:::)~ operator).  The ADT is parametrized by the type
+variable ~'a~ because there are multiple kinds of test cases.
+
+When we check a test suite, we run each test in that suite from left
+to right (i.e., in-order traversal) and collect all the results.
+This is most naturally represented by a *fold* operation over the
+test suite.
+
+Implement the function
+#+begin_src ocaml
+  val fold_left : ('a -> 'b -> 'a) -> 'a -> 'b test -> 'a
+#+end_src
+so that ~fold_left op base test~ is the result of applying ~op~
+left-associatively to the test cases in ~test~ from left to right,
+starting with ~base~.
+
+** Examples
+
+#+begin_src ocaml
+  let t = TestList [TestCase 1; TestList [TestCase 2; TestCase 3]; TestCase 4]
+
+  let _ = assert (fold_left (+) 0 t = 10)
+  let _ = assert (fold_left (fun acc x -> acc @ [x]) [] t = [1;2;3;4])
+  let _ = assert (fold_left (fun acc _ -> acc + 1) 0 (TestList []) = 0)
+#+end_src

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-29 Sat 22:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Folding and OUnit</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Folding and OUnit</h1>
+<p>
+Roughly speaking, test suites in OUnit2 are represented by the
+following ADT.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a test</span> =
+  | <span style="color: #000000; background-color: #ffffff;">TestCase</span> <span style="color: #a020f0;">of</span> 'a
+  | <span style="color: #000000; background-color: #ffffff;">TestList</span> <span style="color: #a020f0;">of</span> 'a test list
+</pre>
+</div>
+
+<p>
+A test suite is either a test case (created using the <code>(&gt;::)</code>
+operator) or made up of a list of other test suites (created using
+the <code>(&gt;:::)</code> operator).  The ADT is parametrized by the type
+variable <code>'a</code> because there are multiple kinds of test cases.
+</p>
+
+<p>
+When we check a test suite, we run each test in that suite from left
+to right (i.e., in-order traversal) and collect all the results.
+This is most naturally represented by a <b>fold</b> operation over the
+test suite.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fold_left</span> : ('a -&gt; 'b -&gt; 'a) -&gt; 'a -&gt; 'b test -&gt; 'a
+</pre>
+</div>
+<p>
+so that <code>fold_left op base test</code> is the result of applying <code>op</code>
+left-associatively to the test cases in <code>test</code> from left to right,
+starting with <code>base</code>.
+</p>
+<div id="outline-container-orgd703706" class="outline-2">
+<h2 id="orgd703706">Examples</h2>
+<div class="outline-text-2" id="text-orgd703706">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t</span> = <span style="color: #000000; background-color: #ffffff;">TestList</span> [<span style="color: #000000; background-color: #ffffff;">TestCase</span> 1; <span style="color: #000000; background-color: #ffffff;">TestList</span> [<span style="color: #000000; background-color: #ffffff;">TestCase</span> 2; <span style="color: #000000; background-color: #ffffff;">TestCase</span> 3]; <span style="color: #000000; background-color: #ffffff;">TestCase</span> 4]
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fold_left (<span style="color: #0000ff;">+</span>) 0 t = 10)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fold_left (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">acc</span> <span style="color: #a0522d;">x</span> -&gt; acc <span style="color: #a52a2a;">@</span> [x]) <span style="color: #000000; background-color: #ffffff;">[]</span> t = [1;2;3;4])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fold_left (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">acc</span> <span style="color: #a0522d;">_</span> -&gt; acc + 1) 0 (<span style="color: #000000; background-color: #ffffff;">TestList</span> <span style="color: #000000; background-color: #ffffff;">[]</span>) = 0)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
