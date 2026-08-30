@@ -1,0 +1,23 @@
+#+title: Replicate
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val replicate : 'a list -> ('a -> 'a) -> int -> 'a list
+#+end_src
+so that ~replicate l f n~, given a list ~l~, a function ~f~ and a
+positive integer ~n~, returns the list where $f^1, f^2, \dots, f^n$
+are applied (in this order) to each element of ~l~. For example,
+~replicate [a;b] f 3~ is
+#+begin_src ocaml
+  [f a; f (f a); f (f (f a)); f b; f (f b); f (f (f b))]
+#+end_src
+The behavior of the function is undefined if ~n~ is not positive.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (replicate [1;5;8;9] (fun x -> x + 1) 2 = [2;3;6;7;9;10;10;11])
+  let _ = assert (replicate [1;2;3] (fun x -> x * x) 1 = [1;4;9])
+#+end_src
