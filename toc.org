@@ -46,6 +46,7 @@ all of which are also valuable resources for this course.
 9. [[file:ocaml/fib-gen.org][The Generalized Fibonacci Sequence]]
 10. [[file:ocaml/nub.org][Nub]]
 11. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
+12. [[file:ocaml/split-at.org][Split At]]
 * Strings
 1. [[file:ocaml/string-reversal.org][Reverse]]
 2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]

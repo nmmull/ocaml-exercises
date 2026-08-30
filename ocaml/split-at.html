@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-29 Sat 21:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Split At</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Split At</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_at</span> : 'a list -&gt; int -&gt; 'a list * 'a list
+</pre>
+</div>
+<p>
+so that <code>split_at l index</code> returns a pair of lists <code>(a, b)</code> such that
+</p>
+
+<ul class="org-ul">
+<li><code>a @ b</code> is the same as <code>l</code></li>
+<li><code>a</code> has length <code>min (max 0 index) (List.length l)</code></li>
+</ul>
+<div id="outline-container-org3f980fa" class="outline-2">
+<h2 id="org3f980fa">Examples</h2>
+<div class="outline-text-2" id="text-org3f980fa">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_at [1;2;3] (-10) = (<span style="color: #000000; background-color: #ffffff;">[]</span>, [1;2;3]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_at [1;2;3;4;5] 2 = ([1;2], [3;4;5]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_at [1;2;3;4;5] 10 = ([1;2;3;4;5], <span style="color: #000000; background-color: #ffffff;">[]</span>))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

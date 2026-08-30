@@ -1,0 +1,20 @@
+#+title: Split At
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val split_at : 'a list -> int -> 'a list * 'a list
+#+end_src
+so that ~split_at l index~ returns a pair of lists ~(a, b)~ such that
+
++ ~a @ b~ is the same as ~l~
++ ~a~ has length ~min (max 0 index) (List.length l)~
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (split_at [1;2;3] (-10) = ([], [1;2;3]))
+  let _ = assert (split_at [1;2;3;4;5] 2 = ([1;2], [3;4;5]))
+  let _ = assert (split_at [1;2;3;4;5] 10 = ([1;2;3;4;5], []))
+#+end_src
