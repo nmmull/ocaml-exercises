@@ -96,6 +96,7 @@ all of which are also valuable resources for this course.
 19. [[file:ocaml/increasing-sequence.org][Increasing Sequence]]
 20. [[file:ocaml/function-maximum.org][Function Maximum]]
 21. [[file:ocaml/replicate.org][Replicate]]
+22. [[file:ocaml/last-function-standing.org][Last Function Standing]]
 * Reasoning about OCaml
 1. An OCaml Puzzle
 2. [[file:written/types-of-expressions.org][Types of Expressions]]

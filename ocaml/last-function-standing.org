@@ -1,0 +1,52 @@
+#+title: Last Function Standing
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Given
+
++ a *starting value* $s$ of type ~'a~
++ a *failing condition* $P$ of type ~'a -> bool~
+
+we say that a function $f$ of type ~'a -> 'a~ *survives for $k$ steps
+with respect to $s$ and $P$* if $P(f^i(s))$ is false for every integer
+$i$ satisfying $1 \leq i \leq k$.  In logical notation:
+$$\neg P(f(s)) \land \neg P(f(f(s))) \land \dots \land \neg P(f^k(s))$$
+We define $\mathsf{lifespan}(f, s, P)$ to be the greatest number of
+steps $f$ survives with respect to $s$ and $P$.  Note that this value
+may be $\infty$.
+
+Given a set of functions $F$, we define the *last function standing
+with respect to $s$ and $P$* to be
+$$\mathsf{argmax}_{f \in F} \mathsf{lifespan}(f, s, P)$$
+For this problem, we will say that the $\mathsf{argmax}$ is undefined
+if there are multiple functions in $F$ with the same lifespan, or if
+$F$ is empty.
+
+Implement the function
+#+begin_src ocaml
+  val last_function_standing : ('a -> 'a) list -> 'a -> ('a -> bool) -> ('a -> 'a) option
+#+end_src
+so that ~last_function_standing funcs start pred~ is the last
+function standing in ~funcs~ with respect to the starting point
+~start~ and failing condition ~pred~.  The value should be returned
+as an option, where the value is ~None~ when ~funcs~ is empty, or
+there are multiple functions in ~funcs~ with the same *finite*
+maximum lifespan.  The behavior of the implementation is undefined if
+~funcs~ has multiple functions with infinite lifespan.
+
+** Examples
+
+#+begin_src ocaml
+  let f1 x = x + 3 (* lifespan 3 w.r.t. 0 and (fun x -> x > 10) *)
+  let f2 x = x + 6 (* lifespan 1 w.r.t. 0 and (fun x -> x > 10) *)
+  let f3 x = x + 1 (* lifespan 10 w.r.t. 0 and (fun x -> x > 10) *)
+  let pred x = x > 10
+
+  let _ =
+    match last_function_standing [f1; f2; f3] 0 pred with
+    | Some f -> assert (f 0 = 1) (* f3 is the last function standing *)
+    | None -> assert false
+
+  let _ = assert (last_function_standing [] 0 pred = None)
+  let _ = assert (last_function_standing [f1; (fun x -> x + 3)] 0 pred = None)
+#+end_src

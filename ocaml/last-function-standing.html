@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-29 Sat 22:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Last Function Standing</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Last Function Standing</h1>
+<p>
+Given
+</p>
+
+<ul class="org-ul">
+<li>a <b>starting value</b> \(s\) of type <code>'a</code></li>
+<li>a <b>failing condition</b> \(P\) of type <code>'a -&gt; bool</code></li>
+</ul>
+
+<p>
+we say that a function \(f\) of type <code>'a -&gt; 'a</code> <b>survives for \(k\) steps
+with respect to \(s\) and \(P\)</b> if \(P(f^i(s))\) is false for every integer
+\(i\) satisfying \(1 \leq i \leq k\).  In logical notation:
+\[\neg P(f(s)) \land \neg P(f(f(s))) \land \dots \land \neg P(f^k(s))\]
+We define \(\mathsf{lifespan}(f, s, P)\) to be the greatest number of
+steps \(f\) survives with respect to \(s\) and \(P\).  Note that this value
+may be \(\infty\).
+</p>
+
+<p>
+Given a set of functions \(F\), we define the <b>last function standing
+with respect to \(s\) and \(P\)</b> to be
+\[\mathsf{argmax}_{f \in F} \mathsf{lifespan}(f, s, P)\]
+For this problem, we will say that the \(\mathsf{argmax}\) is undefined
+if there are multiple functions in \(F\) with the same lifespan, or if
+\(F\) is empty.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">last_function_standing</span> : ('a -&gt; 'a) list -&gt; 'a -&gt; ('a -&gt; bool) -&gt; ('a -&gt; 'a) option
+</pre>
+</div>
+<p>
+so that <code>last_function_standing funcs start pred</code> is the last
+function standing in <code>funcs</code> with respect to the starting point
+<code>start</code> and failing condition <code>pred</code>.  The value should be returned
+as an option, where the value is <code>None</code> when <code>funcs</code> is empty, or
+there are multiple functions in <code>funcs</code> with the same <b>finite</b>
+maximum lifespan.  The behavior of the implementation is undefined if
+<code>funcs</code> has multiple functions with infinite lifespan.
+</p>
+<div id="outline-container-org43e3e08" class="outline-2">
+<h2 id="org43e3e08">Examples</h2>
+<div class="outline-text-2" id="text-org43e3e08">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f1</span> <span style="color: #a0522d;">x</span> = x + 3 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 3 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f2</span> <span style="color: #a0522d;">x</span> = x + 6 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 1 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f3</span> <span style="color: #a0522d;">x</span> = x + 1 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 10 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">pred</span> <span style="color: #a0522d;">x</span> = x &gt; 10
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> =
+  <span style="color: #a020f0;">match</span> last_function_standing [f1; f2; f3] 0 pred <span style="color: #a020f0;">with</span>
+  | <span style="color: #000000; background-color: #ffffff;">Some</span> f -&gt; <span style="color: #a020f0;">assert</span> (f 0 = 1) <span style="color: #b22222;">(* </span><span style="color: #b22222;">f3 is the last function standing</span><span style="color: #b22222;"> *)</span>
+  | <span style="color: #000000; background-color: #ffffff;">None</span> -&gt; <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (last_function_standing <span style="color: #000000; background-color: #ffffff;">[]</span> 0 pred = <span style="color: #000000; background-color: #ffffff;">None</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (last_function_standing [f1; (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x + 3)] 0 pred = <span style="color: #000000; background-color: #ffffff;">None</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
