@@ -73,7 +73,7 @@ all of which are also valuable resources for this course.
 5. [[file:ocaml/block-text.org][Block Text]]
 6. [[file:ocaml/string-triangle.org][String Triangle]]
 7. [[file:ocaml/hourglass.org][Hourglass]]
-* Data
+* Algebraic Data Types
 1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 2. [[file:ocaml/icy-hot.org][Icy Hot]]
 3. [[file:ocaml/listing-paths.org][Manhattan Paths]]
@@ -101,6 +101,7 @@ all of which are also valuable resources for this course.
 22. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
 23. [[file:ocaml/association-lists.org][Association Lists]]
 24. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
+* Records
 25. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 25. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
 26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
@@ -137,7 +138,7 @@ all of which are also valuable resources for this course.
 29. [[file:ocaml/all-map.org][All Map]]
 30. [[file:ocaml/reimplement-list-functions.org][Reimplementing List Functions]]
 31. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
-* Reasoning about OCaml
+* Written Problems
 1. [[file:written/an-ocaml-puzzle.org][An OCaml Puzzle]]
 2. [[file:written/types-of-expressions.org][Types of Expressions]]
 3. [[file:written/expressions-of-types.org][Expressions of Types]]
