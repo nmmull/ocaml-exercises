@@ -1,4 +1,5 @@
 #+title: OCaml Exercises
+#+subtitle: UNDER CONSTRUCTION
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
 #+OPTIONS: html-style:nil H:2 toc:2 num:nil
 
@@ -48,6 +49,11 @@ all of which are also valuable resources for this course.
 11. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
 12. [[file:ocaml/split-at.org][Split At]]
 13. [[file:ocaml/grouping.org][Grouping]]
+14. [[file:ocaml/sublists.org][Sublists]]
+15. [[file:ocaml/splits.org][Splits]]
+16. [[file:ocaml/permutations.org][Permutations]]
+17. [[file:ocaml/pack.org][Pack]]
+18. [[file:ocaml/factorize.org][Factorize]]
 * Strings
 1. [[file:ocaml/string-reversal.org][Reverse]]
 2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]

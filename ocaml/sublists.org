@@ -1,0 +1,30 @@
+#+title: Sublists
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+A sublist of a list ~l~ is a list containing a subset of the elements
+in ~l~, in the same order as they appear in ~l~, e.g., ~[1;2]~,
+~[2;3]~, ~[]~, and ~[1;3]~ are sublists of the list ~[1;2;3]~.
+
+Implement the function
+#+begin_src ocaml
+  val sublists : 'a list -> 'a list list
+#+end_src
+so that ~sublists l~ generates all possible sublists of ~l~. You may
+assume that the elements of ~l~ are distinct.  You should not use any
+library function for this problem; if you'd like to use a library
+function, define it yourself first.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (sublists [] = [[]])
+  let _ = assert (List.length (sublists [1]) = 2)
+  let _ = assert (List.mem [] (sublists [1]))
+  let _ = assert (List.mem [1] (sublists [1]))
+  let _ = assert (List.length (sublists [1;2;3]) = 8)
+  let _ = assert (List.mem [1;2] (sublists [1;2;3]))
+  let _ = assert (List.mem [2;3] (sublists [1;2;3]))
+  let _ = assert (List.mem [1;3] (sublists [1;2;3]))
+  let _ = assert (List.mem [] (sublists [1;2;3]))
+#+end_src

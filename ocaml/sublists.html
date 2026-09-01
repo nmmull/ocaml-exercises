@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-29 Sat 22:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sublists</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Sublists</h1>
+<p>
+A sublist of a list <code>l</code> is a list containing a subset of the elements
+in <code>l</code>, in the same order as they appear in <code>l</code>, e.g., <code>[1;2]</code>,
+<code>[2;3]</code>, <code>[]</code>, and <code>[1;3]</code> are sublists of the list <code>[1;2;3]</code>.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">sublists</span> : 'a list -&gt; 'a list list
+</pre>
+</div>
+<p>
+so that <code>sublists l</code> generates all possible sublists of <code>l</code>. You may
+assume that the elements of <code>l</code> are distinct.  You should not use any
+library function for this problem; if you'd like to use a library
+function, define it yourself first.
+</p>
+<div id="outline-container-orgf69f1cc" class="outline-2">
+<h2 id="orgf69f1cc">Examples</h2>
+<div class="outline-text-2" id="text-orgf69f1cc">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sublists <span style="color: #000000; background-color: #ffffff;">[]</span> = [<span style="color: #000000; background-color: #ffffff;">[]</span>])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>length (sublists [1]) = 2)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem <span style="color: #000000; background-color: #ffffff;">[]</span> (sublists [1]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [1] (sublists [1]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>length (sublists [1;2;3]) = 8)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [1;2] (sublists [1;2;3]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [2;3] (sublists [1;2;3]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [1;3] (sublists [1;2;3]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem <span style="color: #000000; background-color: #ffffff;">[]</span> (sublists [1;2;3]))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
