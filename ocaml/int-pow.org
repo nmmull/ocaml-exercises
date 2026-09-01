@@ -3,15 +3,15 @@
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
 Surprisingly, there is no function for integer exponentiation in the
-OCaml standard library (though there is an operator ~(**)~ for
+OCaml standard library (even though there's an operator ~(**)~ for
 floating-point exponentiation).
 
 Implement the function
 #+begin_src ocaml
   val pow : int -> int -> int
 #+end_src
-so that ~pow~ $n$ $k$ is $n^k$.  The behavior of the function is
-undefined if $k$ is negative.
+so that ~pow n k~ is $n^k$.  The behavior of the function is
+undefined if ~k~ is negative.
 
 ** Examples
 

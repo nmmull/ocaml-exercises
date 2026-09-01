@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 10:41 -->
+<!-- 2026-09-01 Tue 15:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Palindromic Integers</title>
@@ -15,9 +15,9 @@
 <div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Palindromic Integers</h1>
 <p>
-An integer is <i>palindromic</i> if it is the same as itself written in
-reverse order (we'll say that no negative integer is palindromic).
-For example <code>12321</code> is a palindromic integer.
+An integer is <i>palindromic</i> if it's the same as itself with its digits
+written in reverse order.  For example <code>12321</code> is a palindromic
+integer.  Note that negative numbers are not palindromic.
 </p>
 
 <p>
@@ -28,12 +28,12 @@ Implement the function
 </pre>
 </div>
 <p>
-so that <code>is_palindromic n</code> is <code>true</code> if <code>n</code> is palindromic and
-<code>false</code> otherwise.
+so that <code>is_palindromic n</code> is <code>true</code> if and only if <code>n</code> is
+palindromic.
 </p>
-<div id="outline-container-orge3209ed" class="outline-2">
-<h2 id="orge3209ed">Examples</h2>
-<div class="outline-text-2" id="text-orge3209ed">
+<div id="outline-container-org017bba0" class="outline-2">
+<h2 id="org017bba0">Examples</h2>
+<div class="outline-text-2" id="text-org017bba0">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_palindromic 0)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_palindromic 7)

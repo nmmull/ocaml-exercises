@@ -6,9 +6,9 @@ Implement the function
 #+begin_src ocaml
   val sqrt : int -> int
 #+end_src
-so that ~sqrt~ $n$ is the smallest nonnegative integer $i$ such that $n \leq i^2$.
-The behavior of the function is undefined if $n$ is negative.  You may
-not use the functions ~float_of_int~ or ~int_of_float~.
+so that ~sqrt n~ is the smallest nonnegative integer $i$ such that
+$i^2 \geq n$.  The behavior of the function is undefined if ~n~ is
+negative.  You may not convert ~n~ into a floating-point number.
 
 ** Examples
 

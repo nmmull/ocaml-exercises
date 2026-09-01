@@ -6,7 +6,7 @@ Implement the function
 #+begin_src ocaml
   val perfect_pow : int -> int -> bool
 #+end_src
-so that ~perfect_pow~ $i$ $n$ is ~true~ if and only if there is an integer $k$ such that $k^i = n$.
+so that ~perfect_pow i n~ is ~true~ if and only if there is an integer $k$ such that $k^i = n$.
 
 ** Examples
 

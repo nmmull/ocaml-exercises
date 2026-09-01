@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 12:11 -->
+<!-- 2026-09-01 Tue 15:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OCaml Exercises</title>
@@ -21,22 +21,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org066093b">Basics</a></li>
-<li><a href="#org866dfc8">Lists</a></li>
-<li><a href="#orga70bbc4">Strings</a></li>
-<li><a href="#org28e03bb">Algebraic Data Types</a></li>
-<li><a href="#orgd2b9130">Records</a></li>
-<li><a href="#org21ba25d">Higher-Order Programming</a></li>
-<li><a href="#org485c448">Written Problems</a></li>
+<li><a href="#org815c90e">Basics</a></li>
+<li><a href="#org01bcb65">Basics (unchecked)</a></li>
+<li><a href="#org5d76ea2">Lists</a></li>
+<li><a href="#orga99ac0b">Strings</a></li>
+<li><a href="#org7c43f8a">Algebraic Data Types</a></li>
+<li><a href="#org1405b3a">Records</a></li>
+<li><a href="#org659c855">Higher-Order Programming</a></li>
+<li><a href="#org86fb821">Written Problems</a></li>
 </ul>
 </div>
 </div>
 <p>
 This is a collection of OCaml programming exercises for the course
 <b>CAS CS 320: Concepts of Programming Languages</b> at Boston University.
-They've been written by <a href="https://nmmull.github.io">me</a> over the last several years of running the
-course, with help from <a href="https://ankushdas.github.io">Ankush Das</a>.  This page is essentially a course
-specific version of
+They've been written by <a href="https://nmmull.github.io">me</a> over the last iterations of the course,
+with help from <a href="https://ankushdas.github.io">Ankush Das</a> and others.  This page is essentially a
+course-specific version of
 </p>
 
 <ul class="org-ul">
@@ -46,21 +47,28 @@ specific version of
 </ul>
 
 <p>
-all of which are also valuable resources for this course.
+all of which are also valuable resources.
 </p>
-
-<hr />
-<div id="outline-container-org066093b" class="outline-2">
-<h2 id="org066093b">Basics</h2>
-<div class="outline-text-2" id="text-org066093b">
+<div id="outline-container-org815c90e" class="outline-2">
+<h2 id="org815c90e">Basics</h2>
+<div class="outline-text-2" id="text-org815c90e">
 <ol class="org-ol">
 <li><a href="ocaml/temperature.html">Fahrenheit to Celsius</a></li>
 <li><a href="ocaml/num-digits.html">Number of Digits</a></li>
+<li><a href="ocaml/palindromic-integers.html">Palindromic Integers</a></li>
+<li><a href="ocaml/modular-arithmetic.html">Modular Arithmetic</a></li>
+<li><a href="ocaml/fibonacci.html">The Fibonacci Sequence</a></li>
+<li><a href="ocaml/collatz.html">The Collatz Conjecture</a></li>
 <li><a href="ocaml/int-sqrt.html">Integer Square Root</a></li>
 <li><a href="ocaml/int-pow.html">Integer Exponentiation</a></li>
 <li><a href="ocaml/perfect-powers.html">Perfect Powers</a></li>
-<li><a href="ocaml/fibonacci.html">The Fibonacci Sequence</a></li>
-<li><a href="ocaml/collatz.html">The Collatz Conjecture</a></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org01bcb65" class="outline-2">
+<h2 id="org01bcb65">Basics (unchecked)</h2>
+<div class="outline-text-2" id="text-org01bcb65">
+<ol class="org-ol">
 <li><a href="ocaml/primality-checking.html">Primality Checking</a></li>
 <li><a href="ocaml/nth-prime.html">N<sup>th</sup> Prime Number</a></li>
 <li><a href="ocaml/number-of-factors.html">Number of Factors</a></li>
@@ -69,16 +77,14 @@ all of which are also valuable resources for this course.
 <li><a href="ocaml/taxicab-numbers.html">Taxicab Numbers</a></li>
 <li><a href="ocaml/total-stopping-time.html">Total Stopping Time Records</a></li>
 <li><a href="ocaml/path-record.html">Path Records</a></li>
-<li><a href="ocaml/modular-arithmetic.html">Modular Arithmetic</a></li>
 <li><a href="ocaml/pythagorean-triples.html">Pythagorean Triples</a></li>
 <li><a href="ocaml/hanoi.html">Towers of Hanoi</a></li>
-<li><a href="ocaml/palindromic-integers.html">Palindromic Integers</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org866dfc8" class="outline-2">
-<h2 id="org866dfc8">Lists</h2>
-<div class="outline-text-2" id="text-org866dfc8">
+<div id="outline-container-org5d76ea2" class="outline-2">
+<h2 id="org5d76ea2">Lists</h2>
+<div class="outline-text-2" id="text-org5d76ea2">
 <ol class="org-ol">
 <li><a href="ocaml/rev-append.html">Reverse Append</a></li>
 <li><a href="ocaml/rev-concat.html">Reverse Concatenation</a></li>
@@ -110,9 +116,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-orga70bbc4" class="outline-2">
-<h2 id="orga70bbc4">Strings</h2>
-<div class="outline-text-2" id="text-orga70bbc4">
+<div id="outline-container-orga99ac0b" class="outline-2">
+<h2 id="orga99ac0b">Strings</h2>
+<div class="outline-text-2" id="text-orga99ac0b">
 <ol class="org-ol">
 <li><a href="ocaml/string-reversal.html">Reverse</a></li>
 <li><a href="ocaml/split-by-whitespace.html">Split by Whitespace</a></li>
@@ -124,9 +130,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-org28e03bb" class="outline-2">
-<h2 id="org28e03bb">Algebraic Data Types</h2>
-<div class="outline-text-2" id="text-org28e03bb">
+<div id="outline-container-org7c43f8a" class="outline-2">
+<h2 id="org7c43f8a">Algebraic Data Types</h2>
+<div class="outline-text-2" id="text-org7c43f8a">
 <ol class="org-ol">
 <li><a href="ocaml/grouping-integers-and-strings.html">Grouping Integers and Strings</a></li>
 <li><a href="ocaml/icy-hot.html">Icy Hot</a></li>
@@ -158,9 +164,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd2b9130" class="outline-2">
-<h2 id="orgd2b9130">Records</h2>
-<div class="outline-text-2" id="text-orgd2b9130">
+<div id="outline-container-org1405b3a" class="outline-2">
+<h2 id="org1405b3a">Records</h2>
+<div class="outline-text-2" id="text-org1405b3a">
 <ol class="org-ol">
 <li><a href="ocaml/recipes-by-ingredients.html">Recipes by Ingredients</a></li>
 <li><a href="ocaml/updating-recent-posts.html">Updating Recent Posts</a></li>
@@ -168,9 +174,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-org21ba25d" class="outline-2">
-<h2 id="org21ba25d">Higher-Order Programming</h2>
-<div class="outline-text-2" id="text-org21ba25d">
+<div id="outline-container-org659c855" class="outline-2">
+<h2 id="org659c855">Higher-Order Programming</h2>
+<div class="outline-text-2" id="text-org659c855">
 <ol class="org-ol">
 <li><a href="ocaml/curry3.html">Curry 3</a></li>
 <li><a href="ocaml/uncurry3.html">Uncurry 3</a></li>
@@ -207,9 +213,9 @@ all of which are also valuable resources for this course.
 </ol>
 </div>
 </div>
-<div id="outline-container-org485c448" class="outline-2">
-<h2 id="org485c448">Written Problems</h2>
-<div class="outline-text-2" id="text-org485c448">
+<div id="outline-container-org86fb821" class="outline-2">
+<h2 id="org86fb821">Written Problems</h2>
+<div class="outline-text-2" id="text-org86fb821">
 <ol class="org-ol">
 <li><a href="written/an-ocaml-puzzle.html">An OCaml Puzzle</a></li>
 <li><a href="written/types-of-expressions.html">Types of Expressions</a></li>

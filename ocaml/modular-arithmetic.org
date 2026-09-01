@@ -6,10 +6,9 @@ Implement the function
 #+begin_src ocaml
   val modulo : int -> int -> int
 #+end_src
-so that ~modulo n k~ is ~n mod k~.  Your implementation should not use
-the operator ~(mod)~, and should be tail recursive.  The behavior of
-the function is undefined if ~n~ is negative or if ~k~ is not
-positive.
+so that ~modulo n k~ is ~n mod k~.  Your implementation may not use
+the operator ~(mod)~, and must be tail recursive.  The behavior of the
+function is undefined if ~n~ is negative or if ~k~ is not positive.
 
 ** Examples
 

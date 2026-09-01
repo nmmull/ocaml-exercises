@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 12:02 -->
+<!-- 2026-09-01 Tue 15:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Integer Square Root</title>
@@ -54,13 +54,13 @@ Implement the function
 </pre>
 </div>
 <p>
-so that <code>sqrt</code> \(n\) is the smallest nonnegative integer \(i\) such that \(n \leq i^2\).
-The behavior of the function is undefined if \(n\) is negative.  You may
-not use the functions <code>float_of_int</code> or <code>int_of_float</code>.
+so that <code>sqrt n</code> is the smallest nonnegative integer \(i\) such that
+\(i^2 \geq n\).  The behavior of the function is undefined if <code>n</code> is
+negative.  You may not convert <code>n</code> into a floating-point number.
 </p>
-<div id="outline-container-org3149c4a" class="outline-2">
-<h2 id="org3149c4a">Examples</h2>
-<div class="outline-text-2" id="text-org3149c4a">
+<div id="outline-container-org62055df" class="outline-2">
+<h2 id="org62055df">Examples</h2>
+<div class="outline-text-2" id="text-org62055df">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sqrt 4 = 2)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sqrt 9 = 3)

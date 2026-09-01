@@ -2,16 +2,16 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-An integer is /palindromic/ if it is the same as itself written in
-reverse order (we'll say that no negative integer is palindromic).
-For example ~12321~ is a palindromic integer.
+An integer is /palindromic/ if it's the same as itself with its digits
+written in reverse order.  For example ~12321~ is a palindromic
+integer.  Note that negative numbers are not palindromic.
 
 Implement the function
 #+begin_src ocaml
   val is_palindromic : int -> bool
 #+end_src
-so that ~is_palindromic n~ is ~true~ if ~n~ is palindromic and
-~false~ otherwise.
+so that ~is_palindromic n~ is ~true~ if and only if ~n~ is
+palindromic.
 
 ** Examples
 

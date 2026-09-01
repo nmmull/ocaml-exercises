@@ -5,26 +5,29 @@
 
 This is a collection of OCaml programming exercises for the course
 *CAS CS 320: Concepts of Programming Languages* at Boston University.
-They've been written by [[https://nmmull.github.io][me]] over the last several years of running the
-course, with help from [[https://ankushdas.github.io][Ankush Das]].  This page is essentially a course
-specific version of
+They've been written by [[https://nmmull.github.io][me]] over the last iterations of the course,
+with help from [[https://ankushdas.github.io][Ankush Das]] and others.  This page is essentially a
+course-specific version of
 
 + [[https://ocaml.org/exercises][OCaml Exercises]]
 + Exercises from [[https://cs3110.github.io/textbook/cover.html][OCaml Programming: Correct + Efficient + Beautiful]]
 + [[https://projecteuler.net][Project Euler]]
 
-all of which are also valuable resources for this course.
+all of which are also valuable resources.
 
 -----
 
 * Basics
 1. [[file:ocaml/temperature.org][Fahrenheit to Celsius]]
 2. [[file:ocaml/num-digits.org][Number of Digits]]
-3. [[file:ocaml/int-sqrt.org][Integer Square Root]]
-4. [[file:ocaml/int-pow.org][Integer Exponentiation]]
-5. [[file:ocaml/perfect-powers.org][Perfect Powers]]
+3. [[file:ocaml/palindromic-integers.org][Palindromic Integers]]
+4. [[file:ocaml/modular-arithmetic.org][Modular Arithmetic]]
 6. [[file:ocaml/fibonacci.org][The Fibonacci Sequence]]
 7. [[file:ocaml/collatz.org][The Collatz Conjecture]]
+5. [[file:ocaml/int-sqrt.org][Integer Square Root]]
+6. [[file:ocaml/int-pow.org][Integer Exponentiation]]
+7. [[file:ocaml/perfect-powers.org][Perfect Powers]]
+* Basics (unchecked)
 8. [[file:ocaml/primality-checking.org][Primality Checking]]
 9. [[file:ocaml/nth-prime.org][N^{th} Prime Number]]
 10. [[file:ocaml/number-of-factors.org][Number of Factors]]
@@ -33,10 +36,8 @@ all of which are also valuable resources for this course.
 13. [[file:ocaml/taxicab-numbers.org][Taxicab Numbers]]
 14. [[file:ocaml/total-stopping-time.org][Total Stopping Time Records]]
 15. [[file:ocaml/path-record.org][Path Records]]
-16. [[file:ocaml/modular-arithmetic.org][Modular Arithmetic]]
 17. [[file:ocaml/pythagorean-triples.org][Pythagorean Triples]]
 18. [[file:ocaml/hanoi.org][Towers of Hanoi]]
-19. [[file:ocaml/palindromic-integers.org][Palindromic Integers]]
 * Lists
 1. [[file:ocaml/rev-append.org][Reverse Append]]
 2. [[file:ocaml/rev-concat.org][Reverse Concatenation]]

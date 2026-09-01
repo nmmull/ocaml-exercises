@@ -24,10 +24,10 @@ Provide the equivalent implementations in OCaml.  That is, implement the functio
   val fib_recr : int -> int
   val fib_iter : int -> int
 #+end_src
-so that ~fib_recr~ $n$ and ~fib_iter~ $n$ are the $n$^{th} Fibonacci
-numbers.  The behavior of these functions is undefined if $n$ is
+so that ~fib_recr n~ and ~fib_iter n~ are the $n$^{th} Fibonacci
+number.  The behavior of these functions is undefined if ~n~ is
 negative.  Note that your implementation of ~fib_iter~ will not be
-/iterative/ in the usual sense; instead it should be /tail recursive/.
+/iterative/ in the usual sense; rathe it should be tail recursive.
 
 ** Examples
 

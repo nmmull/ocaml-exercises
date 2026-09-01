@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 12:02 -->
+<!-- 2026-09-01 Tue 15:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Integer Exponentiation</title>
@@ -48,7 +48,7 @@
 <h1 class="title">Integer Exponentiation</h1>
 <p>
 Surprisingly, there is no function for integer exponentiation in the
-OCaml standard library (though there is an operator <code>(**)</code> for
+OCaml standard library (even though there's an operator <code>(**)</code> for
 floating-point exponentiation).
 </p>
 
@@ -60,12 +60,12 @@ Implement the function
 </pre>
 </div>
 <p>
-so that <code>pow</code> \(n\) \(k\) is \(n^k\).  The behavior of the function is
-undefined if \(k\) is negative.
+so that <code>pow n k</code> is \(n^k\).  The behavior of the function is
+undefined if <code>k</code> is negative.
 </p>
-<div id="outline-container-orgfafd89e" class="outline-2">
-<h2 id="orgfafd89e">Examples</h2>
-<div class="outline-text-2" id="text-orgfafd89e">
+<div id="outline-container-orgd266e72" class="outline-2">
+<h2 id="orgd266e72">Examples</h2>
+<div class="outline-text-2" id="text-orgd266e72">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (pow 2 2 = 4)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (pow 2 4 = 16)

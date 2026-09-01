@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:39 -->
+<!-- 2026-09-01 Tue 15:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Fibonacci Sequence</title>
@@ -75,14 +75,14 @@ Provide the equivalent implementations in OCaml.  That is, implement the functio
 </pre>
 </div>
 <p>
-so that <code>fib_recr</code> \(n\) and <code>fib_iter</code> \(n\) are the \(n\)<sup>th</sup> Fibonacci
-numbers.  The behavior of these functions is undefined if \(n\) is
+so that <code>fib_recr n</code> and <code>fib_iter n</code> are the \(n\)<sup>th</sup> Fibonacci
+number.  The behavior of these functions is undefined if <code>n</code> is
 negative.  Note that your implementation of <code>fib_iter</code> will not be
-<i>iterative</i> in the usual sense; instead it should be <i>tail recursive</i>.
+<i>iterative</i> in the usual sense; rathe it should be tail recursive.
 </p>
-<div id="outline-container-org12a9d6c" class="outline-2">
-<h2 id="org12a9d6c">Examples</h2>
-<div class="outline-text-2" id="text-org12a9d6c">
+<div id="outline-container-org1245722" class="outline-2">
+<h2 id="org1245722">Examples</h2>
+<div class="outline-text-2" id="text-org1245722">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fib_recr 8 = 21)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fib_iter 8 = 21)
