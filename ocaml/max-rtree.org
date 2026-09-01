@@ -1,0 +1,32 @@
+#+title: Max of a Rose Tree
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the definition of rose trees:
+#+begin_src ocaml
+  type 'a rtree = Node of 'a * 'a rtree list
+#+end_src
+
+For this problem, you can use arithmetic operators from the standard
+library and any of the following higher-order functions:
+#+begin_src ocaml
+  val List.map : ('a -> 'b) -> 'a list -> 'b list
+  val List.filter : ('a -> bool) -> 'a list -> 'a list
+  val List.fold_right : ('a -> 'b -> 'b) -> 'a list -> 'b -> 'b
+  val List.fold_left : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val max : int rtree -> int
+#+end_src
+so that ~max t~ is the maximum of all the elements at the nodes of
+~t~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (max (Node (1, [Node (2, []); Node (3, [])])) = 3)
+  let _ = assert (max (Node (5, [])) = 5)
+  let _ = assert (max (Node (1, [Node (-2, []); Node (0, [])])) = 1)
+#+end_src

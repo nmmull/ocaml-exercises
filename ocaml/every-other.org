@@ -1,0 +1,22 @@
+#+title: Every Other
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Without using any functions from the standard library except for the
+usual arithmetic operators, implement the function
+#+begin_src ocaml
+  val every_other : int list -> int list * int list
+#+end_src
+so that ~every_other l~ is a pair of lists such that the first list
+contains every other element of ~l~ starting at the ~0~-th element,
+and the second list contains every other element of ~l~ starting at
+the ~1~-th element.  You must maintain the relative order of
+elements.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (every_other [1;3;5;2;4;6] = ([1;5;4], [3;2;6]))
+  let _ = assert (every_other [1] = ([1], []))
+  let _ = assert (every_other [] = ([], []))
+#+end_src

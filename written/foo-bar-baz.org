@@ -1,0 +1,15 @@
+#+title: Foo Bar Baz
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following function.
+#+begin_src ocaml
+  let do_thing (s : 'a stuff) (x : int) =
+    match s with
+    | Foo f -> f x
+    | Bar (y, z) -> (if y then y else y) :: z
+    | Baz l -> l.first (l.second (l.third = x))
+#+end_src
+
+Determine the *smallest* type ~stuff~ such that ~do_thing~ is
+well-typed.

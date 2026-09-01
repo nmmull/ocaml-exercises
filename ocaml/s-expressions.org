@@ -1,0 +1,97 @@
+#+title: S-Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the type ~'a ntree~ from ~stdlib320~.
+#+begin_src ocaml
+  type 'a ntree = Node of 'a * 'a ntree list
+#+end_src
+Elsewhere, we've implemented a parser for S-expressions with the
+following type.
+#+begin_src ocaml
+  val parse : string -> string ntree option
+#+end_src
+The issue is that using nonempty trees makes it impossible to parse
+S-expressions like ~((foo) bar)~, where the first element is another
+S-expression.  Alternatively, we could write a parser with the type
+#+begin_src ocaml
+  val parse' : string -> string sexpr option
+#+end_src
+so that it passes a test like
+#+begin_src ocaml
+  let _ = assert (parse' "((foo) bar)"
+                  = Some (List [List [Atom "foo"]; Atom "bar"]))
+#+end_src
+
+In this problem, we'll be looking at conversions between this
+better-suited type ~'a sexpr~ and nonempty trees.  Consider the
+following code.  You should read through it and try to understand
+what it's doing.
+
+#+begin_src ocaml
+  let all (l : 'a option list) : 'a list option = assert false (* Task 2 *)
+
+  let ntree_of_sexpr (e : 'a sexpr) : 'a ntree option =
+    let rec go (e : 'a sexpr) : 'a ntree option =
+      match e with
+      | Atom a -> Some (Node (a, []))
+      | List (Atom a :: es) -> (
+        match all (List.map go es) with
+        | None -> None
+        | Some ts -> Some (Node (a, ts))
+      )
+      | List _ -> None
+    in go e
+
+  let sexpr_of_ntree (t : 'a ntree) : 'a sexpr = assert false (* Task 3, extra credit *)
+
+  let _ = assert (ntree_of_sexpr (List [Atom "foo"; Atom "bar"; Atom "baz"])
+                  = Some (Node ("foo", [Node ("bar", []); Node ("baz", [])])))
+  let _ = assert (ntree_of_sexpr (List [List [Atom "foo"]; Atom "bar"]) = None)
+  let _ = assert (ntree_of_sexpr (List [List [List []]]) = None)
+  let _ = assert (ntree_of_sexpr (List [Atom "one"; List [Atom "two"]])
+                  = Some (Node ("one", [Node ("two", [])])))
+#+end_src
+
+** Task 1
+
+There is enough information in the given code to determine the
+structure of the type ~'a sexpr~, assuming all pattern matches are
+exhaustive.  Write down the OCaml ADT definition for the type
+~'a sexpr~.
+
+** Task 2
+
+The function ~ntree_of_sexpr~ depends on the function
+#+begin_src ocaml
+  val all : 'a option list -> 'a list option
+#+end_src
+which converts a list of options into an optional list according to
+the following specification.
+
++ If ~None~ is an element of the list ~l~, then ~all l~ is ~None~.
++ Otherwise, ~all l~ is ~Some l'~ where ~l'~ is a list of the
+  arguments of the ~Some~ elements of ~l~.
+
+Without using any functions from the standard library (except for
+basic constructors like ~Some~, ~None~, ~(::)~, and ~[]~), implement
+this function.
+
+#+begin_src ocaml
+  let _ = assert (all [Some 1; Some 2; Some 3] = Some [1;2;3])
+  let _ = assert (all [Some 1; None; Some 3] = None)
+#+end_src
+
+** Task 3 (Extra Credit)
+
+Implement the function
+#+begin_src ocaml
+  val sexpr_of_ntree : 'a ntree -> 'a sexpr
+#+end_src
+so that it is a (partial) inverse of ~ntree_of_sexpr~.  You may use
+any functions in the standard library.
+
+#+begin_src ocaml
+  let t = Node ("foo", [Node ("bar", []); Node ("baz", [])])
+  let _ = assert (ntree_of_sexpr (sexpr_of_ntree t) = Some t)
+#+end_src

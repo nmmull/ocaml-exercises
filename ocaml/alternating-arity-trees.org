@@ -1,0 +1,68 @@
+#+title: Alternating Arity Trees
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following ADT, which represents trees with nodes that
+either have 2 or 3 children.
+#+begin_src ocaml
+  type 'a tree23 =
+    | Leaf
+    | Node2 of 'a * 'a tree23 * 'a tree23
+    | Node3 of 'a * 'a tree23 * 'a tree23 * 'a tree23
+#+end_src
+Suppose we wanted to further restrict the ADT so that nodes which
+are an even distance from the root have 2 children and nodes which
+are an odd distance from the root have 3 children (it's possible in
+the ADT above to have nodes with 2 or 3 children anywhere in the
+tree).  We can't do this with a single ADT, but we /can/ do it with
+multiple mutually recursive ADTs:
+#+begin_src ocaml
+  type 'a tree23 =
+    | Leaf2
+    | Node2 of 'a * 'a tree32 * 'a tree32
+  and 'a tree32 =
+    | Leaf3
+    | Node3 of 'a * 'a tree23 * 'a tree23 * 'a tree23
+#+end_src
+Here we require the children of a ~Node2~ to be ~tree32~s and the
+children of ~Node3~ to be ~tree23~s.  Note the keyword ~and~, which
+we use to let OCaml know that we're making something mutually
+recursive.  A simple example:
+#+begin_src ocaml
+  let example : int tree23 =
+    Node2
+      ( 1
+      , Node3
+          ( 2
+          , Node2 (3, Leaf3, Leaf3)
+          , Node2 (4, Leaf3, Leaf3)
+          , Node2 (5, Leaf3, Leaf3)
+          )
+      , Node3
+          ( 6
+          , Node2 (7, Leaf3, Leaf3)
+          , Leaf2
+          , Leaf2
+          )
+      )
+#+end_src
+
+Implement the functions ~count~ and ~sum~ for ~tree23~, where
+~count t~ is the number of nodes in ~t~ and ~sum t~ is the sum of
+the (integer) values in ~t~.
+#+begin_src ocaml
+  val count : 'a tree23 -> int
+  val sum : int tree23 -> int
+#+end_src
+You'll need to write these functions /mutually recursively/, e.g.,
+in order to count nodes in ~tree23~s, you need to count nodes in
+~tree32~s, and vice versa.  *Hint:* you can use the keyword ~and~
+for mutually recursive functions as well.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (count example = 7)
+  let _ = assert (sum example = 28)
+  let _ = assert (count Leaf2 = 0)
+#+end_src

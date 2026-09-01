@@ -35,6 +35,8 @@ all of which are also valuable resources for this course.
 15. [[file:ocaml/path-record.org][Path Records]]
 16. [[file:ocaml/modular-arithmetic.org][Modular Arithmetic]]
 17. [[file:ocaml/pythagorean-triples.org][Pythagorean Triples]]
+18. [[file:ocaml/hanoi.org][Towers of Hanoi]]
+19. [[file:ocaml/palindromic-integers.org][Palindromic Integers]]
 * Lists
 1. [[file:ocaml/rev-append.org][Reverse Append]]
 2. [[file:ocaml/rev-concat.org][Reverse Concatenation]]
@@ -54,6 +56,15 @@ all of which are also valuable resources for this course.
 16. [[file:ocaml/permutations.org][Permutations]]
 17. [[file:ocaml/pack.org][Pack]]
 18. [[file:ocaml/factorize.org][Factorize]]
+19. [[file:ocaml/repeats.org][Repeats]]
+20. [[file:ocaml/split-by.org][Split By]]
+21. [[file:ocaml/pairs.org][Pairs]]
+22. [[file:ocaml/partition-by-value.org][Partition by Value]]
+23. [[file:ocaml/sum-at-k.org][Sum at K]]
+24. [[file:ocaml/every-other.org][Every Other]]
+25. [[file:ocaml/prod-above-k.org][Product Above K]]
+26. [[file:ocaml/lookup.org][Lookup]]
+27. [[file:ocaml/take-while.org][Take While]]
 * Strings
 1. [[file:ocaml/string-reversal.org][Reverse]]
 2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
@@ -61,7 +72,8 @@ all of which are also valuable resources for this course.
 4. [[file:ocaml/split-on-character.org][Split on Character]]
 5. [[file:ocaml/block-text.org][Block Text]]
 6. [[file:ocaml/string-triangle.org][String Triangle]]
-* Abstract Data Types
+7. [[file:ocaml/hourglass.org][Hourglass]]
+* Data
 1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 2. [[file:ocaml/icy-hot.org][Icy Hot]]
 3. [[file:ocaml/listing-paths.org][Manhattan Paths]]
@@ -71,7 +83,10 @@ all of which are also valuable resources for this course.
 7. [[file:ocaml/list-to-reversed-doublelist.org][Double List of List]]
 8. [[file:ocaml/boolean-expressions.org][Boolean Expressions]] (TODO: Include or separate into Interpreters?)
 9. [[file:ocaml/rose-trees.org][Rose Trees]] (TODO: Split)
-10. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
+10. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
+11. [[file:ocaml/sum-rtree.org][Sum of a Rose Tree]]
+12. [[file:ocaml/max-rtree.org][Max of a Rose Tree]]
+13. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
 11. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
 12. [[file:ocaml/ordered-binary-trees.org][Ordered Binary Trees]] (TODO: Split)
 13. [[file:ocaml/walking-distance.org][Walking Distance]]
@@ -81,10 +96,14 @@ all of which are also valuable resources for this course.
 17. [[file:ocaml/file-trees.org][File Trees]]
 18. [[file:ocaml/printing-expressions.org][Printing Expressions]]
 19. [[file:ocaml/mapping-keys.org][Mapping Keys]] (TODO: Find a better place to put this)
-* Records
-1. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
-2. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
-3. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
+20. [[file:ocaml/merge-sort-with-a-tree.org][Merge Sort with a Tree]]
+21. [[file:ocaml/alternating-paths.org][Alternating Paths]]
+22. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
+23. [[file:ocaml/association-lists.org][Association Lists]]
+24. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
+25. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
+25. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
+26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming
 1. [[file:ocaml/curry3.org][Curry 3]]
 2. [[file:ocaml/uncurry3.org][Uncurry 3]]
@@ -113,7 +132,11 @@ all of which are also valuable resources for this course.
 24. [[file:ocaml/uncurry.org][Uncurry]]
 25. [[file:ocaml/split-list.org][Split List]]
 26. [[file:ocaml/split-tree.org][Split Tree]]
-27. [[file:ocaml/random-walks.org][Random Walks]]
+27. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
+28. [[file:ocaml/double-fold.org][Double Fold]]
+29. [[file:ocaml/all-map.org][All Map]]
+30. [[file:ocaml/reimplement-list-functions.org][Reimplementing List Functions]]
+31. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
 * Reasoning about OCaml
 1. [[file:written/an-ocaml-puzzle.org][An OCaml Puzzle]]
 2. [[file:written/types-of-expressions.org][Types of Expressions]]
@@ -123,3 +146,6 @@ all of which are also valuable resources for this course.
 6. [[file:written/records-and-variants.org][Records and Variants]]
 7. [[file:written/list-expressions.org][List Expressions]]
 8. [[file:written/tracing-mutual-recursion-3.org][Tracing Mutual Recursion (3)]]
+9. [[file:written/compute-tasks.org][Compute Tasks]]
+10. [[file:written/apply-tasks.org][Apply Tasks]]
+11. [[file:written/foo-bar-baz.org][Foo Bar Baz]]

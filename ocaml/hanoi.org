@@ -1,0 +1,41 @@
+#+title: Towers of Hanoi
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+[[https://en.wikipedia.org/wiki/Tower_of_Hanoi][Towers of Hanoi]] is a puzzle game consisting of disks of distinct
+sizes placed on one of three pegs in order of decreasing size (from
+top to bottom).  The goal is to move a stack of disks on one peg
+(let's say the left) to another (let's say the right), with the
+following restrictions:
+
+1. only one disk may be moved at a time;
+2. each move consists of taking the upper disk from one of the
+   stacks and placing it on top of another stack or on an empty
+   peg;
+3. no disk may be placed on top of a disk that is smaller than it.
+
+See the Wikipedia page (linked above) for more information about the
+rules.
+
+Implement the function
+#+begin_src ocaml
+  val hanoi : int -> unit
+#+end_src
+so that ~hanoi n~ prints out the moves required to solve the towers
+of Hanoi problem with ~n~ disks, moving the stack from the left peg
+to the right peg (using the middle peg as an auxiliary), one move
+per line, in the format ~"move disk from <src> peg to <dst> peg"~.
+
+** Examples
+
+For instance, ~hanoi 3~ should print
+
+#+begin_example
+  move disk from left peg to right peg
+  move disk from left peg to middle peg
+  move disk from right peg to left peg
+  move disk from left peg to right peg
+  move disk from middle peg to right peg
+  move disk from middle peg to left peg
+  move disk from right peg to middle peg
+#+end_example

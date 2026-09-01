@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>S-Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">S-Expressions</h1>
+<p>
+Recall the type <code>'a ntree</code> from <code>stdlib320</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a ntree</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a ntree list
+</pre>
+</div>
+<p>
+Elsewhere, we've implemented a parser for S-expressions with the
+following type.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">parse</span> : string -&gt; string ntree option
+</pre>
+</div>
+<p>
+The issue is that using nonempty trees makes it impossible to parse
+S-expressions like <code>((foo) bar)</code>, where the first element is another
+S-expression.  Alternatively, we could write a parser with the type
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">parse'</span> : string -&gt; string sexpr option
+</pre>
+</div>
+<p>
+so that it passes a test like
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (parse' <span style="color: #8b2252;">"((foo) bar)"</span>
+                = <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"foo"</span>]; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"bar"</span>]))
+</pre>
+</div>
+
+<p>
+In this problem, we'll be looking at conversions between this
+better-suited type <code>'a sexpr</code> and nonempty trees.  Consider the
+following code.  You should read through it and try to understand
+what it's doing.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">all</span> (<span style="color: #a0522d;">l</span> :<span style="color: #228b22;"> 'a option list</span>) :<span style="color: #228b22;"> 'a list option </span>= <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span> <span style="color: #b22222;">(* </span><span style="color: #b22222;">Task 2</span><span style="color: #b22222;"> *)</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">ntree_of_sexpr</span> (<span style="color: #a0522d;">e</span> :<span style="color: #228b22;"> 'a sexpr</span>) :<span style="color: #228b22;"> 'a ntree option </span>=
+  <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">go</span> (<span style="color: #a0522d;">e</span> :<span style="color: #228b22;"> 'a sexpr</span>) :<span style="color: #228b22;"> 'a ntree option </span>=
+    <span style="color: #a020f0;">match</span> e <span style="color: #a020f0;">with</span>
+    | <span style="color: #000000; background-color: #ffffff;">Atom</span> a -&gt; <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">Node</span> (a, <span style="color: #000000; background-color: #ffffff;">[]</span>))
+    | <span style="color: #000000; background-color: #ffffff;">List</span> (<span style="color: #000000; background-color: #ffffff;">Atom</span> a <span style="color: #000000; background-color: #ffffff;">::</span> es) -&gt; (
+      <span style="color: #a020f0;">match</span> all (<span style="color: #228b22;">List.</span>map go es) <span style="color: #a020f0;">with</span>
+      | <span style="color: #000000; background-color: #ffffff;">None</span> -&gt; <span style="color: #000000; background-color: #ffffff;">None</span>
+      | <span style="color: #000000; background-color: #ffffff;">Some</span> ts -&gt; <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">Node</span> (a, ts))
+    )
+    | <span style="color: #000000; background-color: #ffffff;">List</span> _ -&gt; <span style="color: #000000; background-color: #ffffff;">None</span>
+  <span style="color: #000000; font-weight: bold;">in</span> go e
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">sexpr_of_ntree</span> (<span style="color: #a0522d;">t</span> :<span style="color: #228b22;"> 'a ntree</span>) :<span style="color: #228b22;"> 'a sexpr </span>= <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span> <span style="color: #b22222;">(* </span><span style="color: #b22222;">Task 3, extra credit</span><span style="color: #b22222;"> *)</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (ntree_of_sexpr (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"foo"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"bar"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"baz"</span>])
+                = <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"foo"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"bar"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"baz"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (ntree_of_sexpr (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"foo"</span>]; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"bar"</span>]) = <span style="color: #000000; background-color: #ffffff;">None</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (ntree_of_sexpr (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">List</span> <span style="color: #000000; background-color: #ffffff;">[]</span>]]) = <span style="color: #000000; background-color: #ffffff;">None</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (ntree_of_sexpr (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"one"</span>; <span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"two"</span>]])
+                = <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"one"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"two"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])))
+</pre>
+</div>
+<div id="outline-container-org67c60d9" class="outline-2">
+<h2 id="org67c60d9">Task 1</h2>
+<div class="outline-text-2" id="text-org67c60d9">
+<p>
+There is enough information in the given code to determine the
+structure of the type <code>'a sexpr</code>, assuming all pattern matches are
+exhaustive.  Write down the OCaml ADT definition for the type
+<code>'a sexpr</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-orga93ea5a" class="outline-2">
+<h2 id="orga93ea5a">Task 2</h2>
+<div class="outline-text-2" id="text-orga93ea5a">
+<p>
+The function <code>ntree_of_sexpr</code> depends on the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">all</span> : 'a option list -&gt; 'a list option
+</pre>
+</div>
+<p>
+which converts a list of options into an optional list according to
+the following specification.
+</p>
+
+<ul class="org-ul">
+<li>If <code>None</code> is an element of the list <code>l</code>, then <code>all l</code> is <code>None</code>.</li>
+<li>Otherwise, <code>all l</code> is <code>Some l'</code> where <code>l'</code> is a list of the
+arguments of the <code>Some</code> elements of <code>l</code>.</li>
+</ul>
+
+<p>
+Without using any functions from the standard library (except for
+basic constructors like <code>Some</code>, <code>None</code>, <code>(::)</code>, and <code>[]</code>), implement
+this function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (all [<span style="color: #000000; background-color: #ffffff;">Some</span> 1; <span style="color: #000000; background-color: #ffffff;">Some</span> 2; <span style="color: #000000; background-color: #ffffff;">Some</span> 3] = <span style="color: #000000; background-color: #ffffff;">Some</span> [1;2;3])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (all [<span style="color: #000000; background-color: #ffffff;">Some</span> 1; <span style="color: #000000; background-color: #ffffff;">None</span>; <span style="color: #000000; background-color: #ffffff;">Some</span> 3] = <span style="color: #000000; background-color: #ffffff;">None</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8b2b2c7" class="outline-2">
+<h2 id="org8b2b2c7">Task 3 (Extra Credit)</h2>
+<div class="outline-text-2" id="text-org8b2b2c7">
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">sexpr_of_ntree</span> : 'a ntree -&gt; 'a sexpr
+</pre>
+</div>
+<p>
+so that it is a (partial) inverse of <code>ntree_of_sexpr</code>.  You may use
+any functions in the standard library.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"foo"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"bar"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"baz"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (ntree_of_sexpr (sexpr_of_ntree t) = <span style="color: #000000; background-color: #ffffff;">Some</span> t)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

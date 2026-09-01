@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Towers of Hanoi</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Towers of Hanoi</h1>
+<p>
+<a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Towers of Hanoi</a> is a puzzle game consisting of disks of distinct
+sizes placed on one of three pegs in order of decreasing size (from
+top to bottom).  The goal is to move a stack of disks on one peg
+(let's say the left) to another (let's say the right), with the
+following restrictions:
+</p>
+
+<ol class="org-ol">
+<li>only one disk may be moved at a time;</li>
+<li>each move consists of taking the upper disk from one of the
+stacks and placing it on top of another stack or on an empty
+peg;</li>
+<li>no disk may be placed on top of a disk that is smaller than it.</li>
+</ol>
+
+<p>
+See the Wikipedia page (linked above) for more information about the
+rules.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">hanoi</span> : int -&gt; unit
+</pre>
+</div>
+<p>
+so that <code>hanoi n</code> prints out the moves required to solve the towers
+of Hanoi problem with <code>n</code> disks, moving the stack from the left peg
+to the right peg (using the middle peg as an auxiliary), one move
+per line, in the format <code>"move disk from &lt;src&gt; peg to &lt;dst&gt; peg"</code>.
+</p>
+<div id="outline-container-orgd3ab0d0" class="outline-2">
+<h2 id="orgd3ab0d0">Examples</h2>
+<div class="outline-text-2" id="text-orgd3ab0d0">
+<p>
+For instance, <code>hanoi 3</code> should print
+</p>
+
+<pre class="example" id="org3880c98">
+move disk from left peg to right peg
+move disk from left peg to middle peg
+move disk from right peg to left peg
+move disk from left peg to right peg
+move disk from middle peg to right peg
+move disk from middle peg to left peg
+move disk from right peg to middle peg
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

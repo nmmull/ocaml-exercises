@@ -1,0 +1,39 @@
+#+title: Hourglass
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val hourglass : int -> string
+#+end_src
+so that ~hourglass n~ is a string in the shape of an hourglass with
+~2 * n + 1~ lines, e.g., ~hourglass 4~ is the string
+
+#+begin_example
+  *********
+   *******
+    *****
+     ***
+      *
+     ***
+    *****
+   *******
+  *********
+#+end_example
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (hourglass 0 = "*")
+  let _ = assert (hourglass 1 = "***\n *\n***")
+  let _ = assert (hourglass 4 =
+    "*********\n" ^
+    " *******\n" ^
+    "  *****\n" ^
+    "   ***\n" ^
+    "    *\n" ^
+    "   ***\n" ^
+    "  *****\n" ^
+    " *******\n" ^
+    "*********")
+#+end_src

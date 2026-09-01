@@ -1,0 +1,26 @@
+#+title: Lookup
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val lookup : ('a * 'b) list -> 'a -> 'b option
+#+end_src
+so that ~lookup l a~ is
+
++ ~Some b~ if there is a pair of the form ~(a, b)~ in ~l~.  If there
+  are multiple such pairs, the output should be the value associated
+  with the /rightmost/ such pair in ~l~;
++ ~None~ if there is no such pair.
+
+You /cannot/ use anything from the standard library except for
+comparison operators and constructors, e.g., ~(::)~ and ~[]~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (lookup [] 2 = None)
+  let _ = assert (lookup [(2, "2")] 2 = Some "2")
+  let _ = assert (lookup [(2, "2"); (3, "3"); (2, "4"); (3, "5")] 2 = Some "4")
+  let _ = assert (lookup [(2, "2"); (3, "3"); (2, "4"); (3, "5")] 4 = None)
+#+end_src

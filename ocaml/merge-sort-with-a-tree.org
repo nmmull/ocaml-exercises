@@ -1,0 +1,49 @@
+#+title: Merge Sort with a Tree
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following partial implementation of merge sort using a
+specialized ADT called ~merge_list~.
+
+#+begin_src ocaml
+  let rec append (x : 'a) (l : 'a merge_list) : 'a merge_list = match l with
+    | Nil -> Single x
+    | Single y -> Merge {left=Single x;right=Single y}
+    | Merge {left;right} -> Merge {left=right;right=append x left}
+
+  let rec of_list l = match l with
+    | [] -> Nil
+    | x :: xs -> append x (of_list xs)
+
+  let rec merge l r = assert false
+
+  let rec merge_sort (l : 'a list) : 'a list =
+    let rec go l = match l with
+      | Nil -> []
+      | Single x -> [x]
+      | Merge ls -> merge (go ls.left) (go ls.right)
+    in go (of_list l)
+#+end_src
+
+** Task 1
+
+Based on the above code, give the definition of the ~merge_list~
+type.
+
+** Task 2
+
+Implement the function
+#+begin_src ocaml
+  val merge : 'a list -> 'a list -> 'a list
+#+end_src
+so that ~merge l r~ is the sorted list with the same elements as
+~l @ r~, *assuming ~l~ and ~r~ are already sorted*.  You may not use
+any functions from the standard library except for comparison
+functions like ~(<)~.
+
+#+begin_src ocaml
+  let _ = assert (merge [1;3;5] [2;4;6] = [1;2;3;4;5;6])
+  let _ = assert (merge [] [1;2;3] = [1;2;3])
+  let _ = assert (merge [1;2] [] = [1;2])
+  let _ = assert (merge [1;1;3] [1;2] = [1;1;1;2;3])
+#+end_src

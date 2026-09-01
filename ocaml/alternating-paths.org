@@ -1,0 +1,52 @@
+#+title: Alternating Paths
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following ADT for a binary tree.
+#+begin_src ocaml
+  type 'a tree =
+    | Leaf
+    | Node of 'a * 'a tree * 'a tree
+#+end_src
+
+We can think of a path in a binary tree from the root of the tree to
+a leaf as a sequence of "lefts" and "rights", i.e., whether the path
+goes down a left subtree or a right subtree.  The /alternation
+number/ of a path is the number of times the path went "left" after
+going "right" or vice versa.  The alternation number of a tree is
+the maximum alternation number over all paths from the root to a
+leaf in the tree.
+
+Implement the function
+#+begin_src ocaml
+  val alt_num : 'a tree -> int
+#+end_src
+so that ~alt_num t~ is the alternation number of the tree ~t~.  You
+may not use any function in the standard library except ~max~.
+*Hint:* Write a helper function that returns /two/ values instead of
+one.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (alt_num Leaf = 0)
+  let _ = assert (alt_num (Node (1, Leaf, Leaf)) = 0)
+
+  (* a single path root -L-> 2 -R-> 4 -L-> 6, with switches L->R and R->L *)
+  let t1 =
+    Node
+      ( 1
+      , Node (2, Leaf, Node (4, Node (6, Leaf, Leaf), Leaf))
+      , Leaf
+      )
+  let _ = assert (alt_num t1 = 2)
+
+  (* root -L-> 2 -L-> 4 (no switches) vs. root -R-> 3 -R-> 5 -L-> 7 (one switch) *)
+  let t2 =
+    Node
+      ( 1
+      , Node (2, Node (4, Leaf, Leaf), Leaf)
+      , Node (3, Leaf, Node (5, Node (7, Leaf, Leaf), Leaf))
+      )
+  let _ = assert (alt_num t2 = 1)
+#+end_src

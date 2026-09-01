@@ -1,0 +1,36 @@
+#+title: Double Fold
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Suppose we wanted to fold multiple functions over the same data.  We
+could imagine a function with the following signature.
+#+begin_src ocaml
+  val fold_left2 :
+    ('acc1 -> 'a -> 'acc1) -> ('acc2 -> 'a -> 'acc2)
+    -> 'acc1 -> 'acc2
+    -> 'a list -> 'acc1 * 'acc2
+#+end_src
+where ~fold_left2 f g b1 b2 l~ is equivalent to
+~(List.fold_left f b1 l, List.fold_left g b2 l)~.  We can implement
+this function with a /single/ call to ~List.fold_left~:
+#+begin_src ocaml
+  let fold_left2 f g b1 b2 l =
+    let combine = assert false (* TODO *) in
+    let b = assert false (* TODO *) in
+    List.fold_left combine b l
+#+end_src
+Using the skeleton above, implement the function ~fold_left2~.
+*Reproduce the entire definition, not just the incomplete parts.*
+Recall that the type of ~List.fold_left~ is
+#+begin_src ocaml
+  ('acc -> 'a -> 'acc) -> 'acc -> 'a list -> 'acc
+#+end_src
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (fold_left2 (+) ( * ) 0 1 [1;2;3;4] = (10, 24))
+  let _ = assert (fold_left2 (fun acc x -> acc @ [x]) (fun acc x -> acc + 1)
+                     [] 0 [1;2;3]
+                  = ([1;2;3], 3))
+#+end_src

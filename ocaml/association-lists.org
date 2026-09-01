@@ -1,0 +1,73 @@
+#+title: Association Lists
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+An /association list/ is a list of key-value pairs, used as a simple
+alternative to a map.  *For all parts of this problem, you may not
+use anything from the OCaml standard library except for constructors
+like ~[]~, ~(::)~, ~None~, and ~Some~.*  In particular, you may not
+use the function ~(@)~.
+
+We say that an association list ~l~ satisfies the *unique keys
+property* if no key appears more than once in ~l~.  For example,
+~[(1, 2); (2, 3); (3, 2)]~ satisfies the unique keys property, but
+~[(1, 2); (1, 3)]~ does not, and neither does
+~[(1, 2); (2, 3); (1, 2)]~.
+
+** Task 1
+
+Implement the function
+#+begin_src ocaml
+  val find_opt : 'k -> ('k * 'v) list -> 'v option
+#+end_src
+so that ~find_opt k l~ is ~Some v~ if ~(k, v)~ is an element of ~l~,
+and is ~None~ otherwise.  You may assume that ~l~ satisfies the
+unique keys property.
+
+#+begin_src ocaml
+  let _ = assert (find_opt "1" [] = None)
+  let _ = assert (find_opt "1" [("2", 2); ("1", 1)] = Some 1)
+  let _ = assert (find_opt "1" [("2", 2); ("one", 1)] = None)
+#+end_src
+
+** Task 2
+
+Implement the function
+#+begin_src ocaml
+  val rev_append : 'a list -> 'a list -> 'a list
+#+end_src
+so that ~rev_append l r~ is equivalent to ~(List.rev l) @ r~.  In
+other words, ~rev_append l r~ is the result of appending the reverse
+of ~l~ to ~r~.  *Your implementation must be tail recursive.*
+
+#+begin_src ocaml
+  let _ = assert (rev_append [1;2;3] [4;5;6] = [3;2;1;4;5;6])
+  let _ = assert (rev_append [] [1;2;3] = [1;2;3])
+#+end_src
+
+** Task 3
+
+Implement the function
+#+begin_src ocaml
+  val add : 'k -> 'v -> ('k * 'v) list -> ('k * 'v) list
+#+end_src
+so that ~add k v l~ is the association list ~l~ but with the mapping
+~(k, v)~.  You may assume that ~l~ satisfies the unique keys
+property.  Your implementation should additionally satisfy the
+following properties.
+
++ The first element of ~add k v l~ is ~(k, v)~.
++ The list ~add k v l~ satisfies the unique keys property.
++ *Your implementation must be tail recursive.*
+
+You may use the function ~rev_append~ from Task 2 without
+reimplementing it.  Note that the order of key-value pairs is
+otherwise irrelevant; ~add k v~ may reorder elements it does not
+remove.
+
+#+begin_src ocaml
+  let _ = assert (add 1 true [] = [(1, true)])
+  let _ = assert (add 1 true [(2, false)] = [(1, true); (2, false)])
+  let _ = assert (add 1 true [(2, false); (1, false)] = [(1, true); (2, false)])
+  let _ = assert (add 1 true [(2, false); (1, true)] = [(1, true); (2, false)])
+#+end_src

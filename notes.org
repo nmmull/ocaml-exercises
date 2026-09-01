@@ -7,5 +7,12 @@
 
 + I believe that I'm done with s24 except for the assignment 7 note
   above.
++ TSV reader?
++ S-expression parser?
 
 + Reject problem?
+
++ TSV
++ S-expression
++ FRACTRAN
++ URM

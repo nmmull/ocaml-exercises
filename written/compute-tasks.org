@@ -1,0 +1,24 @@
+#+title: Compute Tasks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+The following signatures are provided for your benefit.
+#+begin_src ocaml
+  val List.map : ('a -> 'b) -> 'a list -> 'b list
+  val List.filter : ('a -> bool) -> 'a list -> 'a list
+  val List.fold_right : ('a -> 'b -> 'b) -> 'a list -> 'b -> 'b
+  val List.fold_left : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a
+#+end_src
+
+Consider the following function.
+#+begin_src ocaml
+  let output (t : task) (x : int) =
+    match t with
+    | Compute (f) -> f x
+    | Double (l) -> List.map (fun e -> 2 * e) l
+    | Filter (p, l) -> List.filter (p x) l
+    | Append (l) -> List.fold_right (fun a b -> a :: b) l.second l.first
+#+end_src
+
+Determine the *smallest* type ~task~ such that ~output~ is
+well-typed.

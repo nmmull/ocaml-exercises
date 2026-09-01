@@ -1,0 +1,65 @@
+#+title: Matrix Init, Map, and Fold
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the representation of matrices as a record keeping track of
+its numbers of rows and columns, as well as its values, represented
+as a list of rows (i.e., a list of lists).
+#+begin_src ocaml
+  type 'a matrix = {
+    num_rows : int ;
+    num_cols : int ;
+    rows : 'a list list ;
+  }
+#+end_src
+
+** Task 1
+
+Implement the function
+#+begin_src ocaml
+  val init : int * int -> (int -> int -> 'a) -> 'a matrix
+#+end_src
+so that ~init (m, n) f~ is the $(m \times n)$ matrix ~a~ where
+~a.rows~'s entry at row ~i~ and column ~j~ (both ~0~-indexed) is the
+value ~f i j~.  You should use the function ~List.init~.
+
+#+begin_src ocaml
+  val List.init : int -> (int -> 'a) -> 'a list
+#+end_src
+
+#+begin_src ocaml
+  let _ = assert (init (2, 3) (fun i j -> 10 * i + j) =
+      { num_rows = 2; num_cols = 3; rows = [[0;1;2];[10;11;12]] })
+#+end_src
+
+** Task 2
+
+Implement the function
+#+begin_src ocaml
+  val map : ('a -> 'b) -> 'a matrix -> 'b matrix
+#+end_src
+so that ~map f a~ is the matrix gotten by applying ~f~ to every
+value of ~a~, maintaining ~a~'s shape.
+
+#+begin_src ocaml
+  let a = { num_rows = 2; num_cols = 2; rows = [[1;2];[3;4]] }
+  let _ = assert (map (fun x -> x * x) a =
+      { num_rows = 2; num_cols = 2; rows = [[1;4];[9;16]] })
+#+end_src
+
+** Task 3
+
+Implement the function
+#+begin_src ocaml
+  val fold_left : ('acc -> 'a -> 'acc) -> 'acc -> 'a matrix -> 'acc
+#+end_src
+so that ~fold_left f acc a~ folds ~f~ over the values of ~a~,
+iterating over rows from top to bottom, and elements within a row
+from left to right (so it should start at the top-left value and end
+at the bottom-right value).
+
+#+begin_src ocaml
+  let a = { num_rows = 2; num_cols = 2; rows = [[1;2];[3;4]] }
+  let _ = assert
+      (fold_left (fun acc x -> acc ^ string_of_int x) "" a = "1234")
+#+end_src

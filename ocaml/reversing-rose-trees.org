@@ -1,0 +1,36 @@
+#+title: Reversing Rose Trees
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Recall the definition of rose trees:
+#+begin_src ocaml
+  type 'a rtree = Node of 'a * 'a rtree list
+#+end_src
+
+In this problem, you can use any of the following functions from the
+standard library:
+#+begin_src ocaml
+  val List.rev : 'a list -> 'a list
+  val List.map : ('a -> 'b) -> 'a list -> 'b list
+  val List.fold_right : ('a -> 'acc -> 'acc) -> 'a list -> 'acc -> 'acc
+  val List.fold_left : ('acc -> 'a -> 'acc) -> 'acc -> 'a list -> 'acc
+#+end_src
+You cannot use any other functions from the standard library.
+
+Implement the function
+#+begin_src ocaml
+  val reverse : 'a rtree -> 'a rtree
+#+end_src
+so that it reverses the order of nodes, i.e., ~reverse t~ is the
+mirror image of ~t~ about the /y/-axis.  Equivalently, the order of
+children is reversed at every level of the tree, recursively.
+
+** Examples
+
+#+begin_src ocaml
+  let n x l = Node (x, l)
+  let _ = assert
+    (reverse (n 1 [n 2 [n 3 []; n 4 []]; n 5 []; n 6 [n 7 []; n 8 []]])
+     =        n 1 [n 6 [n 8 []; n 7 []]; n 5 []; n 2 [n 4 []; n 3 []]])
+  let _ = assert (reverse (n 1 []) = n 1 [])
+#+end_src

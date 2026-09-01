@@ -1,0 +1,21 @@
+#+title: Product Above K
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Without using any functions from the standard library except for the
+usual arithmetic operators, implement the function
+#+begin_src ocaml
+  val prod_above_k : int list -> int -> int
+#+end_src
+so that ~prod_above_k l k~ is the result of multiplying together the
+elements of the list ~l~ whose /index/ is larger than ~k~.  If no
+elements of ~l~ have an index larger than ~k~, the result should be
+~1~.  *Your implementation must be tail recursive.*
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (prod_above_k [1;5;2;3;4;6;7] 3 = 4 * 6 * 7)
+  let _ = assert (prod_above_k [1;2;3] 10 = 1)
+  let _ = assert (prod_above_k [1;2;3] (-1) = 1 * 2 * 3)
+#+end_src
