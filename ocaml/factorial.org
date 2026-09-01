@@ -1,0 +1,28 @@
+#+title: Factorial, Twice
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the functions
+#+begin_src ocaml
+  val fact_dir : int -> int
+  val fact_tr : int -> int
+#+end_src
+so that ~fact_dir n~ and ~fact_tr n~ are $n!$, but ~fact_dir~ is
+implemented /directly/, i.e., using the definition
+
+\[
+n ! = \begin{cases}
+  1 & n = 0 \\
+  n \times (n - 1)! & \text{n > 0}
+\end{cases}
+\]
+
+and ~fact_tr~ is implemented tail recursively.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (fact_dir 5 = 120)
+  let _ = assert (fact_tr 5 = 120)
+#+end_src

@@ -1,0 +1,20 @@
+#+title: Drop While
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val drop_while : ('a -> bool) -> 'a list -> 'a list
+#+end_src
+so that ~drop_while f l~ is the result of removing the longest
+prefix from ~l~ whose elements satisfy the predicate ~f~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (drop_while (fun x -> x <= 3) [1;2;3;4;5;4;3;2;1] = [4;5;4;3;2;1])
+  let _ = assert (drop_while (fun x -> x) [true;true;false;true] = [false;true])
+  let _ = assert (drop_while (fun _ -> true) [1;2;3;4;5] = [])
+  let _ = assert (drop_while (fun _ -> false) [1;2;3;4;5] = [1;2;3;4;5])
+#+end_src
