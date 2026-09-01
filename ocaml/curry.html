@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Curry</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Curry</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">curry</span> : (('a * 'b) -&gt; 'c) -&gt; 'a -&gt; 'b -&gt; 'c
+</pre>
+</div>
+<p>
+which converts a "multi-argument" function (i.e., a function which
+takes a tuple as an argument) into nested single-argument functions.
+</p>
+<div id="outline-container-org14ee5a1" class="outline-2">
+<h2 id="org14ee5a1">Examples</h2>
+<div class="outline-text-2" id="text-org14ee5a1">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f</span> (<span style="color: #a0522d;">x</span>, <span style="color: #a0522d;">y</span>) = x + y
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">g</span> = curry f
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (g 2 3 = 5)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

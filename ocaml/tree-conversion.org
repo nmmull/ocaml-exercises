@@ -1,0 +1,47 @@
+#+title: Tree Conversion
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+A binary tree is represented by an ADT with two constructors, a
+~Leaf~ (representing an empty tree) and a ~Node2~ with a value and
+two children.
+
+#+begin_src ocaml
+  type 'a tree =
+    | Leaf
+    | Node2 of 'a * 'a tree * 'a tree
+#+end_src
+
+A *nonempty* (or /multiway/) tree, on the other hand, is represented
+by an ADT with a single constructor, a ~Node~ with a value and a
+list of children (a nonempty tree always has a value, though it may
+have no children).
+
+#+begin_src ocaml
+  type 'a ntree = Node of 'a * 'a ntree list
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val ntree_of_tree : 'a tree -> 'a ntree option
+#+end_src
+so that ~ntree_of_tree t~ is ~None~ if ~t~ is empty (i.e., it's just
+a ~Leaf~) and, otherwise, is ~Some t'~ where ~t'~ is a representation
+of ~t~ as a nonempty tree.  In particular, each child of a ~Node2~
+that is a ~Leaf~ should simply not appear in the list of children of
+the corresponding ~Node~.
+
+** Examples
+
+#+begin_src ocaml
+  let t1 : int tree =
+    Node2
+      ( 1
+      , Node2 (2, Leaf, Leaf)
+      , Node2 (3, Leaf, Node2 (4, Leaf, Leaf))
+      )
+  let _ = assert (ntree_of_tree t1 =
+      Some (Node (1, [Node (2, []); Node (3, [Node (4, [])])])))
+  let _ = assert (ntree_of_tree (Node2 (1, Leaf, Leaf)) = Some (Node (1, [])))
+  let _ = assert (ntree_of_tree Leaf = None)
+#+end_src

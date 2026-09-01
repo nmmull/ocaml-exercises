@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>An OCaml Puzzle</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">An OCaml Puzzle</h1>
+<p>
+Consider the following OCaml program.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a foo</span> = <span style="color: #000000; background-color: #ffffff;">Foo</span> <span style="color: #a020f0;">of</span> ('a foo -&gt; 'a)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">bar</span> (<span style="color: #000000; background-color: #ffffff;">Foo</span> <span style="color: #a0522d;">f</span>) = f
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">baz</span> <span style="color: #a0522d;">x</span> = bar x x
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">out</span> = baz <span style="color: #a52a2a;">???</span>
+</pre>
+</div>
+
+<p>
+Give an expression to put in place of <code>???</code> so that <code>out</code> evaluates
+to the integer <code>42</code>.  Explain your answer.
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+#+title: An OCaml Puzzle
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Consider the following OCaml program.
+
+#+begin_src ocaml
+  type 'a foo = Foo of ('a foo -> 'a)
+  let bar (Foo f) = f
+  let baz x = bar x x
+  let out = baz ???
+#+end_src
+
+Give an expression to put in place of ~???~ so that ~out~ evaluates
+to the integer ~42~.  Explain your answer.

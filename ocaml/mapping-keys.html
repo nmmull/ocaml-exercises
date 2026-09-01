@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mapping Keys</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Mapping Keys</h1>
+<p>
+OCaml's standard library provides maps and sets, implemented using
+<i>module functors</i>.  To use a map, we create a module for the type we
+want to use as keys via <code>Map.Make</code>; for a set, we create a module
+for the type of its elements via <code>Set.Make</code>.  For this problem,
+assume we're given the following three modules.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">module</span> <span style="color: #228b22;">StringMap</span> : <span style="color: #228b22;">Map.S</span> <span style="color: #000000; font-weight: bold;">with type</span> <span style="color: #228b22;">key</span> = string
+<span style="color: #000000; font-weight: bold;">module</span> <span style="color: #228b22;">IntMap</span> : <span style="color: #228b22;">Map.S</span> <span style="color: #000000; font-weight: bold;">with type</span> <span style="color: #228b22;">key</span> = int
+<span style="color: #000000; font-weight: bold;">module</span> <span style="color: #228b22;">StringSet</span> : <span style="color: #228b22;">Set.S</span> <span style="color: #000000; font-weight: bold;">with type</span> <span style="color: #228b22;">elt</span> = string
+</pre>
+</div>
+
+<p>
+<code>StringMap</code> and <code>IntMap</code> are maps with <code>string</code> and <code>int</code> keys,
+respectively, and <code>StringSet</code> is a set of <code>string</code> values.  Each
+supports the usual <a href="https://ocaml.org/manual/5.3/api/Map.S.html"><code>Map.S</code></a> and <a href="https://ocaml.org/manual/5.3/api/Set.S.html"><code>Set.S</code></a> operations, e.g.,
+<code>StringMap.add</code>, <code>StringMap.find</code>, <code>StringMap.bindings</code>,
+<code>StringSet.add</code>, <code>StringSet.elements</code>, and so on.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">flip_keys_and_values</span> : int <span style="color: #228b22;">StringMap.</span>t -&gt; <span style="color: #228b22;">StringSet.</span>t <span style="color: #228b22;">IntMap.</span>t
+</pre>
+</div>
+<p>
+so that <code>flip_keys_and_values m</code> is the map <code>m'</code> gotten by making
+the values of <code>m</code> into keys.  The value associated with a key <code>v</code> in
+<code>m'</code> is the set of keys in <code>m</code> which map to the value <code>v</code>.
+</p>
+<div id="outline-container-orgf67d6e7" class="outline-2">
+<h2 id="orgf67d6e7">Examples</h2>
+<div class="outline-text-2" id="text-orgf67d6e7">
+<p>
+Since <code>StringMap.t</code> and <code>IntMap.t</code> values aren't directly comparable
+with <code>=</code> in a way that reflects their bindings, we compare using
+<code>bindings</code> (and <code>StringSet.elements</code>) instead, both of which return
+their entries/elements in increasing order.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">m</span> = <span style="color: #228b22;">StringMap.</span>of_seq (<span style="color: #228b22;">List.</span>to_seq [(<span style="color: #8b2252;">"a"</span>, 1); (<span style="color: #8b2252;">"b"</span>, 2); (<span style="color: #8b2252;">"c"</span>, 1); (<span style="color: #8b2252;">"d"</span>, 3)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">out</span> = flip_keys_and_values m
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+    (<span style="color: #228b22;">List.</span>map (<span style="color: #a020f0;">fun</span> (<span style="color: #a0522d;">k</span>, <span style="color: #a0522d;">s</span>) -&gt; (k, <span style="color: #228b22;">StringSet.</span>elements s)) (<span style="color: #228b22;">IntMap.</span>bindings out)
+     = [(1, [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"c"</span>]); (2, [<span style="color: #8b2252;">"b"</span>]); (3, [<span style="color: #8b2252;">"d"</span>])])
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">IntMap.</span>bindings (flip_keys_and_values <span style="color: #228b22;">StringMap.</span>empty) = <span style="color: #000000; background-color: #ffffff;">[]</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

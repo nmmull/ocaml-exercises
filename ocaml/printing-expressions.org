@@ -1,0 +1,53 @@
+#+title: Printing Expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src ocaml
+  type expr
+    = Num of int
+    | Var of string
+    | Add of expr * expr
+    | Mul of expr * expr
+#+end_src
+
+The type ~expr~ represents arithmetic expressions (over addition and
+multiplication only) with variables.
+
+Implement the function
+#+begin_src ocaml
+  val string_of_expr : expr -> string
+#+end_src
+so that ~string_of_expr e~ is a string representation of ~e~
+according to the following rules.
+
++ Every operator is surrounded by exactly one space.  There is no
+  other whitespace in the string.
++ Multiplication has higher precedence than addition.  This means
+  that the expression ~Mul (Num 2, Add (Num 3, Num 4))~ should be
+  represented by the string ~"2 * (3 + 4)"~ and not ~"2 * 3 + 4"~.
++ Sequences of the same operator should not have parentheses.  For
+  example, ~Add (Num 2, Add (Num 3, Num 4))~ should be represented
+  by the string ~"2 + 3 + 4"~ and not ~"(2 + 3) + 4"~ or
+  ~"2 + (3 + 4)"~.
++ Parentheses should be included only when necessary for
+  disambiguation.  For example, ~Add (Mul (Num 2, Num 3), Num 4)~
+  should be represented by the string ~"2 * 3 + 4"~ and not
+  ~"(2 * 3) + 4"~.
++ A negative number should be surrounded by parentheses *unless* it
+  is the first number of a (possibly empty) sequence of operations
+  at the top-level, or within parentheses.  For example,
+  ~Add (Num (-2), Add (Num (-3), Num 4))~ should be represented as
+  the string ~"-2 + (-3) + 4"~ whereas
+  ~Mul (Num (-2), Add (Num (-3), Num 4))~ should be represented by
+  the string ~"-2 * (-3 + 4)"~.  Note that ~-3~ is not surrounded by
+  parentheses in this last example.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (string_of_expr (Mul (Num 2, Add (Num 3, Num 4))) = "2 * (3 + 4)")
+  let _ = assert (string_of_expr (Add (Num 2, Add (Num 3, Num 4))) = "2 + 3 + 4")
+  let _ = assert (string_of_expr (Add (Mul (Num 2, Num 3), Num 4)) = "2 * 3 + 4")
+  let _ = assert (string_of_expr (Add (Num (-2), Add (Num (-3), Num 4))) = "-2 + (-3) + 4")
+  let _ = assert (string_of_expr (Mul (Num (-2), Add (Num (-3), Num 4))) = "-2 * (-3 + 4)")
+#+end_src

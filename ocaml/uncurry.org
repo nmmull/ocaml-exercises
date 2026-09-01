@@ -1,0 +1,19 @@
+#+title: Uncurry
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val uncurry : ('a -> 'b -> 'c) -> ('a * 'b) -> 'c
+#+end_src
+which is the inverse of [[file:curry.org][curry]], i.e., it converts a Curried
+two-argument function into a function which takes a tuple as an
+argument.
+
+** Examples
+
+#+begin_src ocaml
+  let f x y = x + y
+  let g = uncurry f
+  let _ = assert (g (2, 3) = 5)
+#+end_src

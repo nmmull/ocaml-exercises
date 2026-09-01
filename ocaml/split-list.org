@@ -1,0 +1,19 @@
+#+title: Split List
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+Implement the function
+#+begin_src ocaml
+  val split_list : ('a * 'b) list -> 'a list * 'b list
+#+end_src
+so that ~split_list l~ is a pair of lists ~(lefts, rights)~ where
+~lefts~ consists of the first elements of every pair in ~l~ (in
+order) and ~rights~ consists of the second elements of every pair in
+~l~ (in order).
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (split_list [] = ([], []))
+  let _ = assert (split_list [(1, "a"); (2, "b"); (3, "c")] = ([1;2;3], ["a";"b";"c"]))
+#+end_src

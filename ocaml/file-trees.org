@@ -1,0 +1,80 @@
+#+title: File Trees
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src ocaml
+  type 'a ntree = Node of 'a * 'a ntree list
+#+end_src
+
+We can think of a file system as a tree of directories and files.
+In this problem we will be converting a list of file paths into an
+~ntree~.  For example, given the paths
+
+#+begin_example
+  dir1/file1
+  dir1/file2
+  dir2/dir3/file1
+  dir2/file1
+#+end_example
+
+we can construct the nonempty tree ~file_tree "." paths~:
+
+#+begin_src ocaml
+  Node
+    ( "."
+    , [ Node ("dir1", [Node ("file1", []); Node ("file2", [])])
+      ; Node ("dir2", [Node ("dir3", [Node ("file1", [])]); Node ("file1", [])])
+      ]
+    )
+#+end_src
+
+which, printed as a tree, looks like
+
+#+begin_example
+  .
+  ├──dir1
+  │  ├──file1
+  │  └──file2
+  └──dir2
+     ├──dir3
+     │  └──file1
+     └──file1
+#+end_example
+
+In this representation, a file is a leaf node, i.e., a node with no
+children.  We will take a very relaxed definition of a file name: /a
+file name can be any sequence of characters not including '/'/.
+This means that every string is a valid path (even ~"foo/bar///baz"~).
+In particular ~""~ represents the file with the empty string as its
+name (this is not realistic, but it makes the problem easier).
+
+Implement the function
+#+begin_src ocaml
+  val file_tree : string -> string list -> string ntree
+#+end_src
+so that ~file_tree root file_paths~ is an ~ntree~ consisting of all
+the paths given in ~file_paths~, and whose root value is ~root~.  It
+is possible for ~file_paths~ to contain duplicates, but if it does
+not, there should be a one-to-one correspondence between paths from
+the root to the leaves of the tree and paths in ~file_paths~.
+
+*Note.* The order of the children at each node is not important, as
+long as the correspondence above holds.  One way to sanity-check
+your implementation: if you strip the root off of every path from
+the root to a leaf of ~file_tree root file_paths~, you should get
+back ~file_paths~ (potentially in a different order).
+
+** Examples
+
+#+begin_src ocaml
+  let paths = ["dir1/file1"; "dir1/file2"; "dir2/dir3/file1"; "dir2/file1"]
+  let _ = assert (file_tree "." paths =
+      Node
+        ( "."
+        , [ Node ("dir1", [Node ("file1", []); Node ("file2", [])])
+          ; Node ("dir2", [Node ("dir3", [Node ("file1", [])]); Node ("file1", [])])
+          ]
+        ))
+  let _ = assert (file_tree "root" [] = Node ("root", []))
+  let _ = assert (file_tree "root" ["a"] = Node ("root", [Node ("a", [])]))
+#+end_src

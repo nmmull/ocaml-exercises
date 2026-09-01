@@ -1,0 +1,46 @@
+#+title: Mapping Keys
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+OCaml's standard library provides maps and sets, implemented using
+/module functors/.  To use a map, we create a module for the type we
+want to use as keys via ~Map.Make~; for a set, we create a module
+for the type of its elements via ~Set.Make~.  For this problem,
+assume we're given the following three modules.
+
+#+begin_src ocaml
+  module StringMap : Map.S with type key = string
+  module IntMap : Map.S with type key = int
+  module StringSet : Set.S with type elt = string
+#+end_src
+
+~StringMap~ and ~IntMap~ are maps with ~string~ and ~int~ keys,
+respectively, and ~StringSet~ is a set of ~string~ values.  Each
+supports the usual [[https://ocaml.org/manual/5.3/api/Map.S.html][~Map.S~]] and [[https://ocaml.org/manual/5.3/api/Set.S.html][~Set.S~]] operations, e.g.,
+~StringMap.add~, ~StringMap.find~, ~StringMap.bindings~,
+~StringSet.add~, ~StringSet.elements~, and so on.
+
+Implement the function
+#+begin_src ocaml
+  val flip_keys_and_values : int StringMap.t -> StringSet.t IntMap.t
+#+end_src
+so that ~flip_keys_and_values m~ is the map ~m'~ gotten by making
+the values of ~m~ into keys.  The value associated with a key ~v~ in
+~m'~ is the set of keys in ~m~ which map to the value ~v~.
+
+** Examples
+
+Since ~StringMap.t~ and ~IntMap.t~ values aren't directly comparable
+with ~=~ in a way that reflects their bindings, we compare using
+~bindings~ (and ~StringSet.elements~) instead, both of which return
+their entries/elements in increasing order.
+
+#+begin_src ocaml
+  let m = StringMap.of_seq (List.to_seq [("a", 1); ("b", 2); ("c", 1); ("d", 3)])
+  let out = flip_keys_and_values m
+  let _ = assert
+      (List.map (fun (k, s) -> (k, StringSet.elements s)) (IntMap.bindings out)
+       = [(1, ["a"; "c"]); (2, ["b"]); (3, ["d"])])
+
+  let _ = assert (IntMap.bindings (flip_keys_and_values StringMap.empty) = [])
+#+end_src

@@ -76,6 +76,11 @@ all of which are also valuable resources for this course.
 12. [[file:ocaml/ordered-binary-trees.org][Ordered Binary Trees]] (TODO: Split)
 13. [[file:ocaml/walking-distance.org][Walking Distance]]
 14. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
+15. [[file:ocaml/memory-allocator.org][Memory Allocator]]
+16. [[file:ocaml/tree-conversion.org][Tree Conversion]] (TODO: use rose trees)
+17. [[file:ocaml/file-trees.org][File Trees]]
+18. [[file:ocaml/printing-expressions.org][Printing Expressions]]
+19. [[file:ocaml/mapping-keys.org][Mapping Keys]] (TODO: Find a better place to put this)
 * Records
 1. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 2. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
@@ -104,8 +109,13 @@ all of which are also valuable resources for this course.
 21. [[file:ocaml/replicate.org][Replicate]]
 22. [[file:ocaml/last-function-standing.org][Last Function Standing]]
 15. [[file:ocaml/folding-and-ounit.org][Folding and OUnit]]
+23. [[file:ocaml/curry.org][Curry]]
+24. [[file:ocaml/uncurry.org][Uncurry]]
+25. [[file:ocaml/split-list.org][Split List]]
+26. [[file:ocaml/split-tree.org][Split Tree]]
+27. [[file:ocaml/random-walks.org][Random Walks]]
 * Reasoning about OCaml
-1. An OCaml Puzzle
+1. [[file:written/an-ocaml-puzzle.org][An OCaml Puzzle]]
 2. [[file:written/types-of-expressions.org][Types of Expressions]]
 3. [[file:written/expressions-of-types.org][Expressions of Types]]
 4. [[file:written/gap-buffers.org][Gap Buffers]]

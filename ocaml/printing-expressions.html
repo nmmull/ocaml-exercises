@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Printing Expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Printing Expressions</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">expr</span>
+  = <span style="color: #000000; background-color: #ffffff;">Num</span> <span style="color: #a020f0;">of</span> int
+  | <span style="color: #000000; background-color: #ffffff;">Var</span> <span style="color: #a020f0;">of</span> string
+  | <span style="color: #000000; background-color: #ffffff;">Add</span> <span style="color: #a020f0;">of</span> expr * expr
+  | <span style="color: #000000; background-color: #ffffff;">Mul</span> <span style="color: #a020f0;">of</span> expr * expr
+</pre>
+</div>
+
+<p>
+The type <code>expr</code> represents arithmetic expressions (over addition and
+multiplication only) with variables.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">string_of_expr</span> : expr -&gt; string
+</pre>
+</div>
+<p>
+so that <code>string_of_expr e</code> is a string representation of <code>e</code>
+according to the following rules.
+</p>
+
+<ul class="org-ul">
+<li>Every operator is surrounded by exactly one space.  There is no
+other whitespace in the string.</li>
+<li>Multiplication has higher precedence than addition.  This means
+that the expression <code>Mul (Num 2, Add (Num 3, Num 4))</code> should be
+represented by the string <code>"2 * (3 + 4)"</code> and not <code>"2 * 3 + 4"</code>.</li>
+<li>Sequences of the same operator should not have parentheses.  For
+example, <code>Add (Num 2, Add (Num 3, Num 4))</code> should be represented
+by the string <code>"2 + 3 + 4"</code> and not <code>"(2 + 3) + 4"</code> or
+<code>"2 + (3 + 4)"</code>.</li>
+<li>Parentheses should be included only when necessary for
+disambiguation.  For example, <code>Add (Mul (Num 2, Num 3), Num 4)</code>
+should be represented by the string <code>"2 * 3 + 4"</code> and not
+<code>"(2 * 3) + 4"</code>.</li>
+<li>A negative number should be surrounded by parentheses <b>unless</b> it
+is the first number of a (possibly empty) sequence of operations
+at the top-level, or within parentheses.  For example,
+<code>Add (Num (-2), Add (Num (-3), Num 4))</code> should be represented as
+the string <code>"-2 + (-3) + 4"</code> whereas
+<code>Mul (Num (-2), Add (Num (-3), Num 4))</code> should be represented by
+the string <code>"-2 * (-3 + 4)"</code>.  Note that <code>-3</code> is not surrounded by
+parentheses in this last example.</li>
+</ul>
+<div id="outline-container-orga51296b" class="outline-2">
+<h2 id="orga51296b">Examples</h2>
+<div class="outline-text-2" id="text-orga51296b">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_of_expr (<span style="color: #000000; background-color: #ffffff;">Mul</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> 2, <span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> 3, <span style="color: #000000; background-color: #ffffff;">Num</span> 4))) = <span style="color: #8b2252;">"2 * (3 + 4)"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_of_expr (<span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> 2, <span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> 3, <span style="color: #000000; background-color: #ffffff;">Num</span> 4))) = <span style="color: #8b2252;">"2 + 3 + 4"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_of_expr (<span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Mul</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> 2, <span style="color: #000000; background-color: #ffffff;">Num</span> 3), <span style="color: #000000; background-color: #ffffff;">Num</span> 4)) = <span style="color: #8b2252;">"2 * 3 + 4"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_of_expr (<span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> (-2), <span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> (-3), <span style="color: #000000; background-color: #ffffff;">Num</span> 4))) = <span style="color: #8b2252;">"-2 + (-3) + 4"</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (string_of_expr (<span style="color: #000000; background-color: #ffffff;">Mul</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> (-2), <span style="color: #000000; background-color: #ffffff;">Add</span> (<span style="color: #000000; background-color: #ffffff;">Num</span> (-3), <span style="color: #000000; background-color: #ffffff;">Num</span> 4))) = <span style="color: #8b2252;">"-2 * (-3 + 4)"</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

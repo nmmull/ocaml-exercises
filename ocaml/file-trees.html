@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>File Trees</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">File Trees</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a ntree</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a ntree list
+</pre>
+</div>
+
+<p>
+We can think of a file system as a tree of directories and files.
+In this problem we will be converting a list of file paths into an
+<code>ntree</code>.  For example, given the paths
+</p>
+
+<pre class="example" id="org94f1c40">
+dir1/file1
+dir1/file2
+dir2/dir3/file1
+dir2/file1
+</pre>
+
+<p>
+we can construct the nonempty tree <code>file_tree "." paths</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; background-color: #ffffff;">Node</span>
+  ( <span style="color: #8b2252;">"."</span>
+  , [ <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"dir1"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file1"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file2"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+    ; <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"dir2"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"dir3"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file1"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)]); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file1"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+    ]
+  )
+</pre>
+</div>
+
+<p>
+which, printed as a tree, looks like
+</p>
+
+<pre class="example" id="orgc20946d">
+.
+├──dir1
+│  ├──file1
+│  └──file2
+└──dir2
+   ├──dir3
+   │  └──file1
+   └──file1
+</pre>
+
+<p>
+In this representation, a file is a leaf node, i.e., a node with no
+children.  We will take a very relaxed definition of a file name: <i>a
+file name can be any sequence of characters not including '</i>'/.
+This means that every string is a valid path (even <code>"foo/bar///baz"</code>).
+In particular <code>""</code> represents the file with the empty string as its
+name (this is not realistic, but it makes the problem easier).
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">file_tree</span> : string -&gt; string list -&gt; string ntree
+</pre>
+</div>
+<p>
+so that <code>file_tree root file_paths</code> is an <code>ntree</code> consisting of all
+the paths given in <code>file_paths</code>, and whose root value is <code>root</code>.  It
+is possible for <code>file_paths</code> to contain duplicates, but if it does
+not, there should be a one-to-one correspondence between paths from
+the root to the leaves of the tree and paths in <code>file_paths</code>.
+</p>
+
+<p>
+<b>Note.</b> The order of the children at each node is not important, as
+long as the correspondence above holds.  One way to sanity-check
+your implementation: if you strip the root off of every path from
+the root to a leaf of <code>file_tree root file_paths</code>, you should get
+back <code>file_paths</code> (potentially in a different order).
+</p>
+<div id="outline-container-orgb79b6be" class="outline-2">
+<h2 id="orgb79b6be">Examples</h2>
+<div class="outline-text-2" id="text-orgb79b6be">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">paths</span> = [<span style="color: #8b2252;">"dir1/file1"</span>; <span style="color: #8b2252;">"dir1/file2"</span>; <span style="color: #8b2252;">"dir2/dir3/file1"</span>; <span style="color: #8b2252;">"dir2/file1"</span>]
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (file_tree <span style="color: #8b2252;">"."</span> paths =
+    <span style="color: #000000; background-color: #ffffff;">Node</span>
+      ( <span style="color: #8b2252;">"."</span>
+      , [ <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"dir1"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file1"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file2"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+        ; <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"dir2"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"dir3"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file1"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)]); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"file1"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+        ]
+      ))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (file_tree <span style="color: #8b2252;">"root"</span> <span style="color: #000000; background-color: #ffffff;">[]</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"root"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (file_tree <span style="color: #8b2252;">"root"</span> [<span style="color: #8b2252;">"a"</span>] = <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"root"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"a"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)]))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

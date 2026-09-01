@@ -1,0 +1,120 @@
+#+title: Memory Allocator
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src ocaml
+  type mem_status =
+    | Free
+    | Occupied
+
+  type memory = (mem_status * int) list
+#+end_src
+
+In this problem, you will be building an allocator for a very simple
+model of (unlimited) memory.  In this model, we represent memory as
+a list of pairs of values, each representing a chunk of memory.  The
+first entry of the pair tells us if the chunk is ~Free~ or
+~Occupied~, and the second tells us how many units of memory the
+chunk occupies.  Furthermore, we require that memory has the
+following properties:
+
++ There are no adjacent ~Free~ chunks of memory (there may be
+  adjacent chunks of ~Occupied~ memory)
++ There is no ~Free~ chunk of memory at the end of the list, i.e.,
+  either the list is empty or the last element is an ~Occupied~
+  block.
+
+For example, the list
+
+#+begin_src ocaml
+  [(Free, 3); (Occupied, 1); (Occupied, 3); (Free, 2); (Occupied, 1)]
+#+end_src
+
+would represent the layout
+
+#+begin_example
+  Status:   | F | F | F | O | O | O | O | F | F | O | F | F | ...
+  Position: 0   1   2   3   4   5   6   7   8   9   10  11  12...
+#+end_example
+
+Note that positions do not correspond to indices of chunks in the
+list.
+
+You will be implementing two functions.  The function ~allocate~
+allocates memory by placing an ~Occupied~ chunk of memory in the
+/leftmost/ available position.  It's possible to allocate a chunk of
+memory at position ~i~ of size ~size~ if the positions ~i~, ~i + 1~,
+~...~, ~i + size - 1~ are ~Free~.  After allocation, these positions
+become ~Occupied~.  In the above example, it should be possible to
+allocate a chunk of memory of size ~2~ at position ~0~, giving us
+the list
+
+#+begin_src ocaml
+  [(Occupied, 2); (Free, 1); (Occupied, 1); (Occupied, 3); (Free, 2); (Occupied, 1)]
+#+end_src
+
+whereas the leftmost place to allocate a chunk of memory of size ~5~
+is at position ~10~, giving us the list
+
+#+begin_src ocaml
+  [(Free, 3); (Occupied, 1); (Occupied, 3); (Free, 2); (Occupied, 1); (Occupied, 5)]
+#+end_src
+
+The second function ~free~ should make an ~Occupied~ block of memory
+into a ~Free~ block, given its position.  In addition it *must*
+maintain the invariants described above.
+
+Implement the functions
+#+begin_src ocaml
+  type alloc_result =
+    | Success of int * memory
+    | Invalid_size
+
+  val allocate : int -> memory -> alloc_result
+#+end_src
+so that ~allocate size mem~ is an ~alloc_result~ according to the
+following allocation strategy:
+
++ If ~size~ is not positive, then it is invalid.
++ Otherwise, ~allocate size mem~ should be the same as ~mem~ except
+  with an ~Occupied~ chunk of memory of size ~size~ in the
+  /leftmost/ possible position, together with the position itself.
+
+#+begin_src ocaml
+  type free_result =
+    | Success of memory
+    | Invalid_position
+
+  val free : int -> memory -> free_result
+#+end_src
+so that ~free pos mem~ is a ~free_result~ such that:
+
++ If ~pos~ is negative, or is not the beginning of an ~Occupied~
+  chunk of memory, then the position is invalid.
++ The chunk starting at ~pos~ in ~mem~ should be converted to a
+  ~Free~ block, and the result should be updated to maintain the
+  above invariants (no adjacent ~Free~ chunks, no trailing ~Free~
+  chunk).
+
+** Examples
+
+#+begin_src ocaml
+  let m0 = [(Free, 3); (Occupied, 1); (Occupied, 3); (Free, 2); (Occupied, 1)]
+
+  let _ = assert (allocate 0 m0 = Invalid_size)
+  let _ = assert (allocate (-1) m0 = Invalid_size)
+  let _ = assert (allocate 2 m0 =
+                   Success (0, [(Occupied, 2); (Free, 1); (Occupied, 1);
+                                (Occupied, 3); (Free, 2); (Occupied, 1)]))
+  let _ = assert (allocate 5 m0 =
+                   Success (10, [(Free, 3); (Occupied, 1); (Occupied, 3);
+                                 (Free, 2); (Occupied, 1); (Occupied, 5)]))
+
+  let _ = assert (free (-1) m0 = Invalid_position)
+  let _ = assert (free 1 m0 = Invalid_position) (* not the start of a chunk *)
+  let _ = assert (free 3 m0 =
+                   Success [(Free, 4); (Occupied, 3); (Free, 2); (Occupied, 1)])
+  let _ = assert (free 9 m0 =
+                   Success [(Free, 3); (Occupied, 1); (Occupied, 3)])
+    (* the trailing Free chunk is dropped, since memory is unlimited *)
+#+end_src

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Memory Allocator</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Memory Allocator</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">mem_status</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Free</span>
+  | <span style="color: #000000; background-color: #ffffff;">Occupied</span>
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">memory</span> = (mem_status * int) list
+</pre>
+</div>
+
+<p>
+In this problem, you will be building an allocator for a very simple
+model of (unlimited) memory.  In this model, we represent memory as
+a list of pairs of values, each representing a chunk of memory.  The
+first entry of the pair tells us if the chunk is <code>Free</code> or
+<code>Occupied</code>, and the second tells us how many units of memory the
+chunk occupies.  Furthermore, we require that memory has the
+following properties:
+</p>
+
+<ul class="org-ul">
+<li>There are no adjacent <code>Free</code> chunks of memory (there may be
+adjacent chunks of <code>Occupied</code> memory)</li>
+<li>There is no <code>Free</code> chunk of memory at the end of the list, i.e.,
+either the list is empty or the last element is an <code>Occupied</code>
+block.</li>
+</ul>
+
+<p>
+For example, the list
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml">[(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)]
+</pre>
+</div>
+
+<p>
+would represent the layout
+</p>
+
+<pre class="example" id="org62e28b6">
+Status:   | F | F | F | O | O | O | O | F | F | O | F | F | ...
+Position: 0   1   2   3   4   5   6   7   8   9   10  11  12...
+</pre>
+
+<p>
+Note that positions do not correspond to indices of chunks in the
+list.
+</p>
+
+<p>
+You will be implementing two functions.  The function <code>allocate</code>
+allocates memory by placing an <code>Occupied</code> chunk of memory in the
+<i>leftmost</i> available position.  It's possible to allocate a chunk of
+memory at position <code>i</code> of size <code>size</code> if the positions <code>i</code>, <code>i + 1</code>,
+<code>...</code>, <code>i + size - 1</code> are <code>Free</code>.  After allocation, these positions
+become <code>Occupied</code>.  In the above example, it should be possible to
+allocate a chunk of memory of size <code>2</code> at position <code>0</code>, giving us
+the list
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml">[(<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)]
+</pre>
+</div>
+
+<p>
+whereas the leftmost place to allocate a chunk of memory of size <code>5</code>
+is at position <code>10</code>, giving us the list
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml">[(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 5)]
+</pre>
+</div>
+
+<p>
+The second function <code>free</code> should make an <code>Occupied</code> block of memory
+into a <code>Free</code> block, given its position.  In addition it <b>must</b>
+maintain the invariants described above.
+</p>
+
+<p>
+Implement the functions
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">alloc_result</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Success</span> <span style="color: #a020f0;">of</span> int * memory
+  | <span style="color: #000000; background-color: #ffffff;">Invalid_size</span>
+
+<span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">allocate</span> : int -&gt; memory -&gt; alloc_result
+</pre>
+</div>
+<p>
+so that <code>allocate size mem</code> is an <code>alloc_result</code> according to the
+following allocation strategy:
+</p>
+
+<ul class="org-ul">
+<li>If <code>size</code> is not positive, then it is invalid.</li>
+<li>Otherwise, <code>allocate size mem</code> should be the same as <code>mem</code> except
+with an <code>Occupied</code> chunk of memory of size <code>size</code> in the
+<i>leftmost</i> possible position, together with the position itself.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">free_result</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Success</span> <span style="color: #a020f0;">of</span> memory
+  | <span style="color: #000000; background-color: #ffffff;">Invalid_position</span>
+
+<span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">free</span> : int -&gt; memory -&gt; free_result
+</pre>
+</div>
+<p>
+so that <code>free pos mem</code> is a <code>free_result</code> such that:
+</p>
+
+<ul class="org-ul">
+<li>If <code>pos</code> is negative, or is not the beginning of an <code>Occupied</code>
+chunk of memory, then the position is invalid.</li>
+<li>The chunk starting at <code>pos</code> in <code>mem</code> should be converted to a
+<code>Free</code> block, and the result should be updated to maintain the
+above invariants (no adjacent <code>Free</code> chunks, no trailing <code>Free</code>
+chunk).</li>
+</ul>
+<div id="outline-container-org6f00e9b" class="outline-2">
+<h2 id="org6f00e9b">Examples</h2>
+<div class="outline-text-2" id="text-org6f00e9b">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">m0</span> = [(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)]
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (allocate 0 m0 = <span style="color: #000000; background-color: #ffffff;">Invalid_size</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (allocate (-1) m0 = <span style="color: #000000; background-color: #ffffff;">Invalid_size</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (allocate 2 m0 =
+                 <span style="color: #000000; background-color: #ffffff;">Success</span> (0, [(<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1);
+                              (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)]))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (allocate 5 m0 =
+                 <span style="color: #000000; background-color: #ffffff;">Success</span> (10, [(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3);
+                               (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 5)]))
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (free (-1) m0 = <span style="color: #000000; background-color: #ffffff;">Invalid_position</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (free 1 m0 = <span style="color: #000000; background-color: #ffffff;">Invalid_position</span>) <span style="color: #b22222;">(* </span><span style="color: #b22222;">not the start of a chunk</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (free 3 m0 =
+                 <span style="color: #000000; background-color: #ffffff;">Success</span> [(<span style="color: #000000; background-color: #ffffff;">Free</span>, 4); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (free 9 m0 =
+                 <span style="color: #000000; background-color: #ffffff;">Success</span> [(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3)])
+  <span style="color: #b22222;">(* </span><span style="color: #b22222;">the trailing Free chunk is dropped, since memory is unlimited</span><span style="color: #b22222;"> *)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

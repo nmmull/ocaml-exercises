@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-01 Tue 10:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Split List</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Split List</h1>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_list</span> : ('a * 'b) list -&gt; 'a list * 'b list
+</pre>
+</div>
+<p>
+so that <code>split_list l</code> is a pair of lists <code>(lefts, rights)</code> where
+<code>lefts</code> consists of the first elements of every pair in <code>l</code> (in
+order) and <code>rights</code> consists of the second elements of every pair in
+<code>l</code> (in order).
+</p>
+<div id="outline-container-org7ebebe6" class="outline-2">
+<h2 id="org7ebebe6">Examples</h2>
+<div class="outline-text-2" id="text-org7ebebe6">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_list <span style="color: #000000; background-color: #ffffff;">[]</span> = (<span style="color: #000000; background-color: #ffffff;">[]</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_list [(1, <span style="color: #8b2252;">"a"</span>); (2, <span style="color: #8b2252;">"b"</span>); (3, <span style="color: #8b2252;">"c"</span>)] = ([1;2;3], [<span style="color: #8b2252;">"a"</span>;<span style="color: #8b2252;">"b"</span>;<span style="color: #8b2252;">"c"</span>]))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

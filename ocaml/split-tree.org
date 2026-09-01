@@ -1,0 +1,26 @@
+#+title: Split Tree
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../toc.html
+#+begin_src ocaml
+  type 'a ntree = Node of 'a * 'a ntree list
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val split_tree : ('a * 'b) ntree -> 'a ntree * 'b ntree
+#+end_src
+so that ~split_tree t~ constructs two trees of the same structure as
+~t~, one with the left element of the tuple in each node of ~t~, and
+one with the right element of the tuple in each node.
+
+** Examples
+
+#+begin_src ocaml
+  let t = Node ((1, "a"), [Node ((2, "b"), []); Node ((3, "c"), [])])
+  let _ = assert (split_tree t =
+      ( Node (1, [Node (2, []); Node (3, [])])
+      , Node ("a", [Node ("b", []); Node ("c", [])])
+      ))
+  let _ = assert (split_tree (Node ((1, "a"), [])) = (Node (1, []), Node ("a", [])))
+#+end_src
