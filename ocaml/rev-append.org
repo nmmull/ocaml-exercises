@@ -7,9 +7,8 @@ Implement the function
 #+begin_src ocaml
   val rev_append : 'a list -> 'a list -> 'a list
 #+end_src
-so that ~rev_append l r~ is equivalent to ~(List.rev l) @ r~, but
-does not use the function ~List.rev~.  Your implementation must be
-tail recursive.
+so that ~rev_append l r~ is ~(List.rev l) @ r~, but does not use the
+function ~List.rev~.  Your implementation must be tail recursive.
 
 ** Examples
 

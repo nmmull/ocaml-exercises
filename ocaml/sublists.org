@@ -3,18 +3,16 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-A sublist of a list ~l~ is a list containing a subset of the elements
-in ~l~, in the same order as they appear in ~l~, e.g., ~[1;2]~,
-~[2;3]~, ~[]~, and ~[1;3]~ are sublists of the list ~[1;2;3]~.
+A /sublist/ of a list ~l~ is a list containing a sequence of the
+elements in ~l~, in the same order as they appear in ~l~, e.g.,
+~[1;2]~, ~[2;3]~, ~[]~, and ~[1;3]~ are sublists of the list
+~[1;2;3]~.
 
 Implement the function
 #+begin_src ocaml
   val sublists : 'a list -> 'a list list
 #+end_src
-so that ~sublists l~ generates all possible sublists of ~l~. You may
-assume that the elements of ~l~ are distinct.  You should not use any
-library function for this problem; if you'd like to use a library
-function, define it yourself first.
+so that ~sublists l~ is the list of all sublists of ~l~.
 
 ** Examples
 

@@ -1,27 +1,25 @@
-#+title: Factorize
+#+title: Factoring
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
 Implement the function
 #+begin_src ocaml
-  val factorize : int -> (int * int) list
+  val factor : int -> (int * int) list
 #+end_src
-so that ~factorize n~ computes the prime factorization of ~n~ and
-returns it as a list of pairs of a prime factor and its
-corresponding exponent.  That is, if ~n~ can be written as
-$p_1^{e_1} \cdot p_2^{e_2} \cdots p_k^{e_k}$, then ~factorize n~
-should be ~[(p1, e1); (p2, e2); ...; (pk, ek)]~, with the primes
-appearing in increasing order.  For example, ~factorize 360~ should
-be ~[(2,3);(3,2);(5,1)]~, since $360 = 2^3 \cdot 3^2 \cdot 5^1$.  For
-input ~1~, the output should be the empty list.  You may assume the
-input is positive.
+so that ~factor n~ computes the prime factorization of ~n~ and returns
+it as a list of pairs of a prime factor and its corresponding
+exponent.  That is, if ~n~ can be written as $p_1^{e_1} \cdot
+p_2^{e_2} \cdots p_k^{e_k}$, then ~factor n~ should be ~[(p1, e1);
+(p2, e2); ...; (pk, ek)]~, with the primes appearing in increasing
+order.  The behavior of the function is undefined if the input is not
+positive.
 
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (factorize 1 = [])
-  let _ = assert (factorize 19 = [(19,1)])
-  let _ = assert (factorize 16 = [(2,4)])
-  let _ = assert (factorize 360 = [(2,3);(3,2);(5,1)])
+  let _ = assert (factor 1 = [])
+  let _ = assert (factor 19 = [(19,1)])
+  let _ = assert (factor 16 = [(2,4)])
+  let _ = assert (factor 360 = [(2,3);(3,2);(5,1)])
 #+end_src

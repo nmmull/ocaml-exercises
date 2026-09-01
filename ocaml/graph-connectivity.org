@@ -4,19 +4,20 @@
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
 Suppose we represent a graph with nodes of type ~'a~ as a list of
-edges.  More formally, if ~gph~ is of type ~('a * 'a) list~, and ~u~
-and ~v~ are of type ~'a~, then ~u~ and ~v~ are connected in ~gph~ if
-and only if ~(u, v)~ or ~(v, u)~ is a member of ~gph~.
+edges.  Formally, if ~gph~ is of type ~('a * 'a) list~, and ~u~ and
+~v~ are of type ~'a~, then ~u~ and ~v~ are connected in ~gph~ if and
+only if ~(u, v)~ or ~(v, u)~ is a member of ~gph~.
+
+A /path/ is a sequence of adjacent edges. An edge may appear multiple
+times in a path.  Also note that edges are undirected, and so may
+appear in any orientation in a path.
 
 Implement the function
 #+begin_src ocaml
   val connected : int -> 'a -> 'a -> ('a * 'a) list -> bool
 #+end_src
 so that ~connected len src snk gph~ is ~true~ if and only if there
-is a path in ~gph~ from ~src~ to ~snk~ of length ~len~.  A *path* is
-a sequence of adjacent edges, and for this problem an edge may
-appear multiple times in a path.  Also note that edges are
-undirected, and so may appear in any orientation in a path.
+is a path in ~gph~ from ~src~ to ~snk~ of length ~len~.
 
 ** Examples
 

@@ -3,13 +3,15 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
+A /suffix/ of a list ~l~ is a list ~suf~ such that there is a list
+~pre~ where ~pre @ suf = l~.
+
 Implement the function
 #+begin_src ocaml
   val suffixes : 'a list -> 'a list list
 #+end_src
 so that ~suffixes l~ is the list of all suffixes of ~l~ in decreasing
-order of length (~suf~ is a suffix of a list ~l~ if there is a list
-~pre~ such that ~pre @ suf = l~).
+order of length.
 
 ** Examples
 

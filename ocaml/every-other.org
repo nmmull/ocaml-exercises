@@ -3,8 +3,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-Without using any functions from the standard library except for the
-usual arithmetic operators, implement the function
+Implement the function
 #+begin_src ocaml
   val every_other : int list -> int list * int list
 #+end_src

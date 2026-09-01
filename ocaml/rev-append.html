@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 18:33 -->
+<!-- 2026-09-01 Tue 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reverse Append</title>
@@ -22,13 +22,12 @@ Implement the function
 </pre>
 </div>
 <p>
-so that <code>rev_append l r</code> is equivalent to <code>(List.rev l) @ r</code>, but
-does not use the function <code>List.rev</code>.  Your implementation must be
-tail recursive.
+so that <code>rev_append l r</code> is <code>(List.rev l) @ r</code>, but does not use the
+function <code>List.rev</code>.  Your implementation must be tail recursive.
 </p>
-<div id="outline-container-orgcb80dae" class="outline-2">
-<h2 id="orgcb80dae">Examples</h2>
-<div class="outline-text-2" id="text-orgcb80dae">
+<div id="outline-container-org60ba1c4" class="outline-2">
+<h2 id="org60ba1c4">Examples</h2>
+<div class="outline-text-2" id="text-org60ba1c4">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rev_append [1;2;3] [4;5] = [3;2;1;4;5])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rev_append <span style="color: #000000; background-color: #ffffff;">[]</span> [1;2] = [1;2])

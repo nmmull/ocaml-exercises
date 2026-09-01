@@ -1,4 +1,4 @@
-#+title: Pack
+#+title: Packing
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
@@ -8,11 +8,7 @@ Implement the function
   val pack : 'a list -> 'a list list
 #+end_src
 so that ~pack l~ packs together consecutive elements of ~l~ that are
-equal into a sublist.  For instance, with the input
-~[1;1;2;3;3;2;4;4;4]~, the output should be
-~[[1;1];[2];[3;3];[2];[4;4;4]]~.  Note that the second occurrence of
-~2~ is not packed with the first occurrence of ~2~, since only
-*consecutive* elements that are equal are packed together.
+equal into a sublist.
 
 ** Examples
 

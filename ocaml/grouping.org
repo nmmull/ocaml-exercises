@@ -3,46 +3,28 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-A list of integers ~l~ is *valid* if it satisfies the following
+A list of integers ~l~ is /valid/ if it satisfies the following
 properties:
 
-+ every ~0~ appearing in ~l~ *must* have nonzero integers to the left
-  and right of it *of opposite signs*
++ every ~0~ appearing in ~l~ has nonzero integers to the left
+  and right of it of opposite signs;
 + for every nonzero entry ~x~ of ~l~, if there is an entry adjacent
   to ~x~, then it must be the same sign as ~x~ or ~0~
 
-Lists which do not satisfy these properties are *invalid*.  So, for
-example
-#+begin_src ocaml
-  let l1 = [1;2;3;0;-1;-2;-3;0;1]
-#+end_src
-is valid, whereas
-#+begin_src ocaml
-  let l1 = [1;2;3;0;1;2;3;0;1]
-  let l2 = [0;1;2;3]
-  let l3 = [1;0;0;-1]
-#+end_src
-are invalid.
-
 Intuitively, a list is valid if it is made of nonempty sublists of
-same-sign integers, switching between positive and negative,
-separated by zeros (see how much nicer the formal description is?).
+same-sign integers, switching between positive and negative, separated
+by zeros.
 
-The *grouping* of a valid list of integers is a list of integer
-*lists* which groups together the adjacent nonzero entries (and drops
-the zero entries).  So, for example,
-#+begin_src ocaml
-  let l1_grouping = [[1;2;3];[-1;-2;-3];[1]]
-#+end_src
-is the grouping for the valid list ~l1~ above.
+The /grouping/ of a valid list of integers is a list of integer lists
+which groups together the adjacent nonzero entries and drops the zero
+entries.
 
 Implement the function
 #+begin_src ocaml
   val group : int list -> int list list option
 #+end_src
-so that ~group l~, given a list of integers ~l~, returns the grouping
-of ~l~ given ~l~ is valid.  The grouping should be returned as an
-~option~, where the output is ~None~ if the list is invalid.
+so that ~group l~ is the ~Some gs~ where ~gs~ is a grouping of ~l~ if
+~l~ is valid, and is ~None~ if ~l~ is invalid.
 
 ** Examples
 

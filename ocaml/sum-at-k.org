@@ -3,14 +3,14 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-Without using any functions from the standard library except for the
-usual arithmetic operators, implement the function
+Implement the function
 #+begin_src ocaml
   val sum_at_k : int list -> int -> int
 #+end_src
-so that ~sum_at_k l k~ is the result of adding together every
-~k~-th element of ~l~, starting from the ~0~-th element.  You may
-assume that ~k > 0~.  *Your implementation must be tail recursive.*
+so that ~sum_at_k l k~ is the result of adding together every $k$^{th}
+element of ~l~, starting from the ~0~-th element.  The behavior of the
+function is undefined if ~k~ is not positive.  Your implementation
+must be tail recursive.
 
 ** Examples
 

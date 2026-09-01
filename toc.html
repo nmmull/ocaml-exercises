@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 15:26 -->
+<!-- 2026-09-01 Tue 17:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OCaml Exercises</title>
@@ -21,14 +21,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org815c90e">Basics</a></li>
-<li><a href="#org01bcb65">Basics (unchecked)</a></li>
-<li><a href="#org5d76ea2">Lists</a></li>
-<li><a href="#orga99ac0b">Strings</a></li>
-<li><a href="#org7c43f8a">Algebraic Data Types</a></li>
-<li><a href="#org1405b3a">Records</a></li>
-<li><a href="#org659c855">Higher-Order Programming</a></li>
-<li><a href="#org86fb821">Written Problems</a></li>
+<li><a href="#org88142b8">Basics</a></li>
+<li><a href="#orgd759cca">Lists</a></li>
+<li><a href="#orgadc0152">Strings</a></li>
+<li><a href="#orgf9b9e22">Algebraic Data Types</a></li>
+<li><a href="#orgda4cb05">Records</a></li>
+<li><a href="#org1f3556b">Higher-Order Programming</a></li>
+<li><a href="#orgf935665">Written Problems</a></li>
 </ul>
 </div>
 </div>
@@ -49,11 +48,14 @@ course-specific version of
 <p>
 all of which are also valuable resources.
 </p>
-<div id="outline-container-org815c90e" class="outline-2">
-<h2 id="org815c90e">Basics</h2>
-<div class="outline-text-2" id="text-org815c90e">
+
+<hr />
+<div id="outline-container-org88142b8" class="outline-2">
+<h2 id="org88142b8">Basics</h2>
+<div class="outline-text-2" id="text-org88142b8">
 <ol class="org-ol">
 <li><a href="ocaml/temperature.html">Fahrenheit to Celsius</a></li>
+<li><a href="ocaml/factorial.html">Factorial, Twice</a></li>
 <li><a href="ocaml/num-digits.html">Number of Digits</a></li>
 <li><a href="ocaml/palindromic-integers.html">Palindromic Integers</a></li>
 <li><a href="ocaml/modular-arithmetic.html">Modular Arithmetic</a></li>
@@ -62,63 +64,59 @@ all of which are also valuable resources.
 <li><a href="ocaml/int-sqrt.html">Integer Square Root</a></li>
 <li><a href="ocaml/int-pow.html">Integer Exponentiation</a></li>
 <li><a href="ocaml/perfect-powers.html">Perfect Powers</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org01bcb65" class="outline-2">
-<h2 id="org01bcb65">Basics (unchecked)</h2>
-<div class="outline-text-2" id="text-org01bcb65">
-<ol class="org-ol">
-<li><a href="ocaml/primality-checking.html">Primality Checking</a></li>
-<li><a href="ocaml/nth-prime.html">N<sup>th</sup> Prime Number</a></li>
+<li><a href="ocaml/hanoi.html">Towers of Hanoi</a></li>
+<li><a href="ocaml/primality-checking.html">Primality</a></li>
 <li><a href="ocaml/number-of-factors.html">Number of Factors</a></li>
+<li><a href="ocaml/nth-prime.html">N<sup>th</sup> Prime Number</a></li>
 <li><a href="ocaml/perfect-numbers.html">Perfect Numbers</a></li>
+<li><a href="ocaml/pythagorean-triples.html">Hypotenuse</a></li>
 <li><a href="ocaml/min-sos.html">Sums of Squares</a></li>
 <li><a href="ocaml/taxicab-numbers.html">Taxicab Numbers</a></li>
 <li><a href="ocaml/total-stopping-time.html">Total Stopping Time Records</a></li>
 <li><a href="ocaml/path-record.html">Path Records</a></li>
-<li><a href="ocaml/pythagorean-triples.html">Pythagorean Triples</a></li>
-<li><a href="ocaml/hanoi.html">Towers of Hanoi</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org5d76ea2" class="outline-2">
-<h2 id="org5d76ea2">Lists</h2>
-<div class="outline-text-2" id="text-org5d76ea2">
+<div id="outline-container-orgd759cca" class="outline-2">
+<h2 id="orgd759cca">Lists</h2>
+<div class="outline-text-2" id="text-orgd759cca">
 <ol class="org-ol">
 <li><a href="ocaml/rev-append.html">Reverse Append</a></li>
 <li><a href="ocaml/rev-concat.html">Reverse Concatenation</a></li>
 <li><a href="ocaml/drop-leading.html">Drop Leading</a></li>
 <li><a href="ocaml/drop-trailing.html">Drop Trailing</a></li>
+<li><a href="ocaml/take-while.html">Take While</a></li>
+<li><a href="ocaml/drop-while.html">Drop While</a></li>
+<li><a href="ocaml/lookup.html">Lookup (Right)</a></li>
+<li><a href="ocaml/partition-by-value.html">Split by Less-Than</a></li>
+<li><a href="ocaml/split-at.html">Split At</a></li>
+<li><a href="ocaml/sum-at-k.html">Sum at K</a></li>
+<li><a href="ocaml/prod-above-k.html">Product Above K</a></li>
+<li><a href="ocaml/every-n.html">Every K Elements</a></li>
+<li><a href="ocaml/every-other.html">Every Other</a></li>
 <li><a href="ocaml/suffixes.html">Suffixes</a></li>
 <li><a href="ocaml/prefixes.html">Prefixes</a></li>
-<li><a href="ocaml/every-n.html">Every N Elements</a></li>
-<li><a href="ocaml/bitonic-sequences.html">Bitonic Sequences</a></li>
-<li><a href="ocaml/fib-gen.html">The Generalized Fibonacci Sequence</a></li>
 <li><a href="ocaml/nub.html">Nub</a></li>
-<li><a href="ocaml/graph-connectivity.html">Graph Connectivity</a></li>
-<li><a href="ocaml/split-at.html">Split At</a></li>
-<li><a href="ocaml/grouping.html">Grouping</a></li>
-<li><a href="ocaml/sublists.html">Sublists</a></li>
 <li><a href="ocaml/splits.html">Splits</a></li>
+<li><a href="ocaml/sublists.html">Sublists</a></li>
 <li><a href="ocaml/permutations.html">Permutations</a></li>
-<li><a href="ocaml/pack.html">Pack</a></li>
-<li><a href="ocaml/factorize.html">Factorize</a></li>
-<li><a href="ocaml/repeats.html">Repeats</a></li>
-<li><a href="ocaml/split-by.html">Split By</a></li>
 <li><a href="ocaml/pairs.html">Pairs</a></li>
-<li><a href="ocaml/partition-by-value.html">Partition by Value</a></li>
-<li><a href="ocaml/sum-at-k.html">Sum at K</a></li>
-<li><a href="ocaml/every-other.html">Every Other</a></li>
-<li><a href="ocaml/prod-above-k.html">Product Above K</a></li>
-<li><a href="ocaml/lookup.html">Lookup</a></li>
-<li><a href="ocaml/take-while.html">Take While</a></li>
+<li><a href="ocaml/bitonic-sequences.html">Bitonic Sequences</a></li>
+<li><a href="ocaml/pack.html">Packing</a></li>
+<li><a href="ocaml/grouping.html">Grouping</a></li>
+<li><a href="ocaml/factorize.html">Factoring</a></li>
+<li><a href="ocaml/fib-gen.html">The Generalized Fibonacci Sequence</a></li>
+<li><a href="ocaml/graph-connectivity.html">Graph Connectivity</a></li>
+<li>TODO</li>
+<li>TODO</li>
+<li>TODO</li>
+<li>TODO</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orga99ac0b" class="outline-2">
-<h2 id="orga99ac0b">Strings</h2>
-<div class="outline-text-2" id="text-orga99ac0b">
+<div id="outline-container-orgadc0152" class="outline-2">
+<h2 id="orgadc0152">Strings</h2>
+<div class="outline-text-2" id="text-orgadc0152">
 <ol class="org-ol">
 <li><a href="ocaml/string-reversal.html">Reverse</a></li>
 <li><a href="ocaml/split-by-whitespace.html">Split by Whitespace</a></li>
@@ -130,10 +128,11 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org7c43f8a" class="outline-2">
-<h2 id="org7c43f8a">Algebraic Data Types</h2>
-<div class="outline-text-2" id="text-org7c43f8a">
+<div id="outline-container-orgf9b9e22" class="outline-2">
+<h2 id="orgf9b9e22">Algebraic Data Types</h2>
+<div class="outline-text-2" id="text-orgf9b9e22">
 <ol class="org-ol">
+<li><a href="ocaml/repeats.html">Repeats</a></li>
 <li><a href="ocaml/grouping-integers-and-strings.html">Grouping Integers and Strings</a></li>
 <li><a href="ocaml/icy-hot.html">Icy Hot</a></li>
 <li><a href="ocaml/listing-paths.html">Manhattan Paths</a></li>
@@ -164,9 +163,9 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org1405b3a" class="outline-2">
-<h2 id="org1405b3a">Records</h2>
-<div class="outline-text-2" id="text-org1405b3a">
+<div id="outline-container-orgda4cb05" class="outline-2">
+<h2 id="orgda4cb05">Records</h2>
+<div class="outline-text-2" id="text-orgda4cb05">
 <ol class="org-ol">
 <li><a href="ocaml/recipes-by-ingredients.html">Recipes by Ingredients</a></li>
 <li><a href="ocaml/updating-recent-posts.html">Updating Recent Posts</a></li>
@@ -174,10 +173,11 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org659c855" class="outline-2">
-<h2 id="org659c855">Higher-Order Programming</h2>
-<div class="outline-text-2" id="text-org659c855">
+<div id="outline-container-org1f3556b" class="outline-2">
+<h2 id="org1f3556b">Higher-Order Programming</h2>
+<div class="outline-text-2" id="text-org1f3556b">
 <ol class="org-ol">
+<li><a href="ocaml/split-by.html">Split By</a></li>
 <li><a href="ocaml/curry3.html">Curry 3</a></li>
 <li><a href="ocaml/uncurry3.html">Uncurry 3</a></li>
 <li><a href="ocaml/map2.html">Map 2</a></li>
@@ -213,9 +213,9 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org86fb821" class="outline-2">
-<h2 id="org86fb821">Written Problems</h2>
-<div class="outline-text-2" id="text-org86fb821">
+<div id="outline-container-orgf935665" class="outline-2">
+<h2 id="orgf935665">Written Problems</h2>
+<div class="outline-text-2" id="text-orgf935665">
 <ol class="org-ol">
 <li><a href="written/an-ocaml-puzzle.html">An OCaml Puzzle</a></li>
 <li><a href="written/types-of-expressions.html">Types of Expressions</a></li>

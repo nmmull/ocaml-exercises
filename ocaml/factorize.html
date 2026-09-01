@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 10:04 -->
+<!-- 2026-09-01 Tue 16:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Factorize</title>
+<title>Factoring</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
@@ -22,13 +22,13 @@
     },
     chtml: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     svg: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     output: {
       font: 'mathjax-modern',
@@ -45,33 +45,31 @@
 </head>
 <body>
 <div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">Factorize</h1>
+<h1 class="title">Factoring</h1>
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">factorize</span> : int -&gt; (int * int) list
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">factor</span> : int -&gt; (int * int) list
 </pre>
 </div>
 <p>
-so that <code>factorize n</code> computes the prime factorization of <code>n</code> and
-returns it as a list of pairs of a prime factor and its
-corresponding exponent.  That is, if <code>n</code> can be written as
-\(p_1^{e_1} \cdot p_2^{e_2} \cdots p_k^{e_k}\), then <code>factorize n</code>
-should be <code>[(p1, e1); (p2, e2); ...; (pk, ek)]</code>, with the primes
-appearing in increasing order.  For example, <code>factorize 360</code> should
-be <code>[(2,3);(3,2);(5,1)]</code>, since \(360 = 2^3 \cdot 3^2 \cdot 5^1\).  For
-input <code>1</code>, the output should be the empty list.  You may assume the
-input is positive.
+so that <code>factor n</code> computes the prime factorization of <code>n</code> and returns
+it as a list of pairs of a prime factor and its corresponding
+exponent.  That is, if <code>n</code> can be written as \(p_1^{e_1} \cdot
+p_2^{e_2} \cdots p_k^{e_k}\), then <code>factor n</code> should be <code>[(p1, e1);
+(p2, e2); ...; (pk, ek)]</code>, with the primes appearing in increasing
+order.  The behavior of the function is undefined if the input is not
+positive.
 </p>
-<div id="outline-container-org50f7d46" class="outline-2">
-<h2 id="org50f7d46">Examples</h2>
-<div class="outline-text-2" id="text-org50f7d46">
+<div id="outline-container-orgb1e73bc" class="outline-2">
+<h2 id="orgb1e73bc">Examples</h2>
+<div class="outline-text-2" id="text-orgb1e73bc">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factorize 1 = <span style="color: #000000; background-color: #ffffff;">[]</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factorize 19 = [(19,1)])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factorize 16 = [(2,4)])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factorize 360 = [(2,3);(3,2);(5,1)])
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factor 1 = <span style="color: #000000; background-color: #ffffff;">[]</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factor 19 = [(19,1)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factor 16 = [(2,4)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (factor 360 = [(2,3);(3,2);(5,1)])
 </pre>
 </div>
 </div>

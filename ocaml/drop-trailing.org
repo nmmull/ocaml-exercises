@@ -5,10 +5,10 @@
 #+HTML_LINK_HOME: ../toc.html
 Implement the function
 #+begin_src ocaml
-  val drop_trailing : int -> int list -> int list
+  val drop_trailing : 'a -> 'a list -> 'a list
 #+end_src
 so that ~drop_trailing k l~ is the result of removing all instances
-of ~k~ from the /end/ of the list ~l~.
+of ~k~ from the end of the list ~l~.
 
 ** Examples
 

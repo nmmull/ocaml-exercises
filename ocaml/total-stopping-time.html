@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 11:45 -->
+<!-- 2026-09-01 Tue 15:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Total Stopping Time Records</title>
@@ -22,13 +22,13 @@
     },
     chtml: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     svg: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     output: {
       font: 'mathjax-modern',
@@ -47,37 +47,37 @@
 <div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Total Stopping Time Records</h1>
 <p>
-In this problem, we define a different sequence based on the <a href="collatz.html"><code>collatz</code></a>
-function.  The number <code>collatz</code> \(n\) is sometimes called the <b>total
-stopping time</b> of \(n\).  We say that \(n\) has a <b>total stopping time
-record</b> if its total stopping time is greater than that of any
-previous number. That is, \(n\) has a total stopping time record if
-<code>collatz</code> \(m\) \(<\) <code>collatz</code> \(n\) for all \(m\) satisfying \(1 \leq m < n\).
+We consider a different sequence based on the <a href="collatz.html">Collatz conjecture</a>.  The
+number <code>collatz n</code> is sometimes called the <b>total stopping time</b> of
+<code>n</code>.  We say that <code>n</code> has a <b>total stopping time record</b> if its total
+stopping time is greater than that of any previous number. That is,
+<code>n</code> has a total stopping time record if <code>collatz m &lt; collatz n</code>
+for all positive <code>m</code> less than <code>n</code>.
 </p>
 
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">tst_records</span> : int -&gt; int
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">tst_record</span> : int -&gt; int
 </pre>
 </div>
 <p>
-so that <code>tst_records</code> \(n\) is the \(n\)<sup>th</sup> number with a total stopping
+so that <code>tst_record n</code> is the \(n\)<sup>th</sup> number with a total stopping
 time record.
 </p>
-<div id="outline-container-orgc6dce99" class="outline-2">
-<h2 id="orgc6dce99">Examples</h2>
-<div class="outline-text-2" id="text-orgc6dce99">
+<div id="outline-container-org6e283a3" class="outline-2">
+<h2 id="org6e283a3">Examples</h2>
+<div class="outline-text-2" id="text-org6e283a3">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 0 = 1)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 1 = 2)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 2 = 3)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 3 = 6)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 4 = 7)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 5 = 9)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 6 = 18)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_records 7 = 25)
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 0 = 1)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 1 = 2)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 2 = 3)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 3 = 6)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 4 = 7)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 5 = 9)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 6 = 18)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (tst_record 7 = 25)
 </pre>
 </div>
 </div>

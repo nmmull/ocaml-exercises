@@ -1,4 +1,4 @@
-#+title: Lookup
+#+title: Lookup (Right)
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
@@ -13,9 +13,6 @@ so that ~lookup l a~ is
   are multiple such pairs, the output should be the value associated
   with the /rightmost/ such pair in ~l~;
 + ~None~ if there is no such pair.
-
-You /cannot/ use anything from the standard library except for
-comparison operators and constructors, e.g., ~(::)~ and ~[]~.
 
 ** Examples
 

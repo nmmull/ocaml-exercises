@@ -5,7 +5,7 @@
 #+HTML_LINK_HOME: ../toc.html
 Implement the function
 #+begin_src ocaml
-  val drop_leading : int -> int list -> int list
+  val drop_leading : 'a -> 'a list -> 'a list
 #+end_src
 so that ~drop_leading k l~ is the result of removing all instances
 of ~k~ from the beginning of the list ~l~.

@@ -1,14 +1,13 @@
-#+title: Partition by Value
+#+title: Split by Less-Than
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-Without using any functions from the standard library except for the
-usual arithmetic and comparison operators, implement the function
+Implement the function
 #+begin_src ocaml
-  val split : int -> int list -> int list * int list
+  val split_lt : int -> int list -> int list * int list
 #+end_src
-so that ~split n l~ is a pair of lists such that the first list
+so that ~split_lt n l~ is a pair of lists such that the first list
 contains all elements of ~l~ less than ~n~ and the second list
 contains all elements of ~l~ greater than or equal to ~n~.  You must
 maintain the relative order of elements.
@@ -16,6 +15,6 @@ maintain the relative order of elements.
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (split 4 [1;3;5;2;4;6] = ([1;3;2], [5;4;6]))
-  let _ = assert (split 0 [1;2;3] = ([], [1;2;3]))
+  let _ = assert (split_lt 4 [1;3;5;2;4;6] = ([1;3;2], [5;4;6]))
+  let _ = assert (split_lt 0 [1;2;3] = ([], [1;2;3]))
 #+end_src

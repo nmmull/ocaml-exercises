@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 10:41 -->
+<!-- 2026-09-01 Tue 16:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Towers of Hanoi</title>
@@ -31,7 +31,7 @@ peg;</li>
 </ol>
 
 <p>
-See the Wikipedia page (linked above) for more information about the
+See the Towers of Hanoi <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Wikipedia page</a> for more information about the
 rules.
 </p>
 
@@ -46,23 +46,28 @@ Implement the function
 so that <code>hanoi n</code> prints out the moves required to solve the towers
 of Hanoi problem with <code>n</code> disks, moving the stack from the left peg
 to the right peg (using the middle peg as an auxiliary), one move
-per line, in the format <code>"move disk from &lt;src&gt; peg to &lt;dst&gt; peg"</code>.
-</p>
-<div id="outline-container-orgd3ab0d0" class="outline-2">
-<h2 id="orgd3ab0d0">Examples</h2>
-<div class="outline-text-2" id="text-orgd3ab0d0">
-<p>
-For instance, <code>hanoi 3</code> should print
+per line, in the following format.
 </p>
 
-<pre class="example" id="org3880c98">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #8b2252;">"move disk from &lt;src&gt; peg to &lt;dst&gt; peg"</span>
+</pre>
+</div>
+<div id="outline-container-org324f877" class="outline-2">
+<h2 id="org324f877">Examples</h2>
+<div class="outline-text-2" id="text-org324f877">
+<p>
+<code>hanoi 3</code> prints:
+</p>
+
+<pre class="example" id="orgc2a1f90">
 move disk from left peg to right peg
 move disk from left peg to middle peg
-move disk from right peg to left peg
-move disk from left peg to right peg
-move disk from middle peg to right peg
-move disk from middle peg to left peg
 move disk from right peg to middle peg
+move disk from left peg to right peg
+move disk from middle peg to left peg
+move disk from middle peg to right peg
+move disk from left peg to right peg
 </pre>
 </div>
 </div>

@@ -15,7 +15,7 @@ following restrictions:
    peg;
 3. no disk may be placed on top of a disk that is smaller than it.
 
-See the Wikipedia page (linked above) for more information about the
+See the Towers of Hanoi [[https://en.wikipedia.org/wiki/Tower_of_Hanoi][Wikipedia page]] for more information about the
 rules.
 
 Implement the function
@@ -25,18 +25,22 @@ Implement the function
 so that ~hanoi n~ prints out the moves required to solve the towers
 of Hanoi problem with ~n~ disks, moving the stack from the left peg
 to the right peg (using the middle peg as an auxiliary), one move
-per line, in the format ~"move disk from <src> peg to <dst> peg"~.
+per line, in the following format.
+
+#+begin_src ocaml
+"move disk from <src> peg to <dst> peg"
+#+end_src
 
 ** Examples
 
-For instance, ~hanoi 3~ should print
+~hanoi 3~ prints:
 
 #+begin_example
   move disk from left peg to right peg
   move disk from left peg to middle peg
-  move disk from right peg to left peg
-  move disk from left peg to right peg
-  move disk from middle peg to right peg
-  move disk from middle peg to left peg
   move disk from right peg to middle peg
+  move disk from left peg to right peg
+  move disk from middle peg to left peg
+  move disk from middle peg to right peg
+  move disk from left peg to right peg
 #+end_example

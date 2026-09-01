@@ -30,12 +30,10 @@ Implement the function
 #+begin_src ocaml
   val gen_fib : int list -> int -> int
 #+end_src
-So that ~gen_fib~ $l$ $k$ is $G^l_k$ as defined above.  The behavior
-of the function is undefined if $l$ is empty or $k$ is negative.  Your
-solution must be tail recursive.
-
-*Challenge worth nothing:* Make the running time of your
-implementation independent of the length of the input list,
+So that ~gen_fib l k~ is $G^l_k$ as defined above.  The behavior of
+the function is undefined if $l$ is empty or $k$ is negative.  Your
+solution must be tail recursive, and the running time of your
+implementation must by independent of the length of the input list,
 asymptotically.
 
 ** Examples

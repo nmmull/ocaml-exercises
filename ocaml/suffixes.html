@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:42 -->
+<!-- 2026-09-01 Tue 16:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Suffixes</title>
@@ -15,6 +15,11 @@
 <div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Suffixes</h1>
 <p>
+A <i>suffix</i> of a list <code>l</code> is a list <code>suf</code> such that there is a list
+<code>pre</code> where <code>pre @ suf = l</code>.
+</p>
+
+<p>
 Implement the function
 </p>
 <div class="org-src-container">
@@ -23,12 +28,11 @@ Implement the function
 </div>
 <p>
 so that <code>suffixes l</code> is the list of all suffixes of <code>l</code> in decreasing
-order of length (<code>suf</code> is a suffix of a list <code>l</code> if there is a list
-<code>pre</code> such that <code>pre @ suf = l</code>).
+order of length.
 </p>
-<div id="outline-container-orgc8f611e" class="outline-2">
-<h2 id="orgc8f611e">Examples</h2>
-<div class="outline-text-2" id="text-orgc8f611e">
+<div id="outline-container-orgbe048cd" class="outline-2">
+<h2 id="orgbe048cd">Examples</h2>
+<div class="outline-text-2" id="text-orgbe048cd">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (suffixes [1;2;3] = [[1;2;3]; [2;3]; [3]; <span style="color: #000000; background-color: #ffffff;">[]</span>])
 </pre>

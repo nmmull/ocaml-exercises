@@ -3,25 +3,19 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-A split of a list ~l~ is a pair of lists ~l1~ and ~l2~ such that
-~l1~ concatenated with ~l2~ is ~l~ (i.e., ~l = l1 @ l2~).  For
-example ~([], [1;2;3])~ and ~([1;2], [3])~ are splits of ~[1;2;3]~.
+A /split/ of a list ~l~ is a pair of lists ~l1~ and ~l2~ such ~l1 @ l2 = l~.
 
 Implement the function
 #+begin_src ocaml
   val splits : 'a list -> ('a list * 'a list) list
 #+end_src
-so that ~splits l~ generates all possible splits of ~l~.  You should
-not use any library function for this problem; if you'd like to use a
-library function, define it yourself first.
+so that ~splits l~ is the list of all possible splits of ~l~, in order
+of increase length of the left list in the split.
 
 ** Examples
 
 #+begin_src ocaml
   let _ = assert (splits [] = [([], [])])
-  let _ = assert (List.length (splits [1;2;3]) = 4)
-  let _ = assert (List.mem ([], [1;2;3]) (splits [1;2;3]))
-  let _ = assert (List.mem ([1], [2;3]) (splits [1;2;3]))
-  let _ = assert (List.mem ([1;2], [3]) (splits [1;2;3]))
-  let _ = assert (List.mem ([1;2;3], []) (splits [1;2;3]))
+  let _ = assert (splits [1;2;3] =
+      [([], [1;2;3]); ([1], [2;3]); ([1;2], [3]); ([1;2;3], [])])
 #+end_src

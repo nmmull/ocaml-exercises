@@ -3,16 +3,15 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-Without using any functions from the standard library (except for
-basic constructors like ~(::)~ and ~[]~), implement the function
+Implement the function
 #+begin_src ocaml
   val split_by : ('a -> bool) -> 'a list -> 'a list * 'a list
 #+end_src
 so that ~split_by f l~ is a pair of lists ~(lt, lf)~ where ~lt~
 consists of those elements of ~l~ (in order, with repetitions) which
 satisfy the predicate ~f~, and ~lf~ consists of those elements which
-do not satisfy the predicate ~f~.  *Your solution must be tail
-recursive.*
+do not satisfy the predicate ~f~.  Your solution must be tail
+recursive.
 
 ** Examples
 

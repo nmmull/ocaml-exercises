@@ -7,8 +7,8 @@ Implement the function
 #+begin_src ocaml
   val rev_concat : 'a list list -> 'a list
 #+end_src
-so that ~rev_concat ls~ is the result of concatenating the lists in
-~ls~ and then reversing the result.  Your implementation must be tail
+so that ~rev_concat ls~ is ~List.rev (List.concat ls)~ but does not
+use the function ~List.rev~.  Your implementation must be tail
 recursive.
 
 ** Examples

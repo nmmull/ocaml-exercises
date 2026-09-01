@@ -3,29 +3,34 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../toc.html
-A finite sequence of integers is *bitonic* if it is monotonically
-increasing, monotonically decreasing, or monotonically increasing
-and then monotonically decreasing.  That is, given $s_1, s_2,
-\dots, s_n$, either $s_1 < \dots < s_n$, or $s_1 > \dots > s_n$, or
-there is an index $i$ such that
+A sequence of integers is /bitonic/ if it is monotonically increasing,
+monotonically decreasing, or monotonically increasing and then
+monotonically decreasing, or monotonically decreasing and then
+monotonically increasing.  That is, given $s_1, s_2, \dots, s_n$,
+either $s_1 < \dots < s_n$ or $s_1 > \dots > s_n$ or there is an index
+$i$ such that
 
 \[
-s_1 < \dots < s_{i - 1} < s_i > s_{i + 1} > \dots > s_n.
+s_1 < \dots < s_{i - 1} < s_i > s_{i + 1} > \dots > s_n
 \]
+or
+\[
+s_1 > \dots > s_{i - 1} > s_i < s_{i + 1} < \dots > s_n.
+\]
+
 
 Implement the function
 #+begin_src ocaml
   val bitonic : int list -> bool
 #+end_src
-so that ~bitonic l~ is ~true~ if ~l~ is bitonic, and ~false~
-otherwise.
+so that ~bitonic l~ is ~true~ if and only if ~l~ is bitonic.
 
 ** Examples
 
 #+begin_src ocaml
   let _ = assert (bitonic [1;2;3;2;1] = true)
   let _ = assert (bitonic [1;2;3] = true)
-  let _ = assert (bitonic [3;2;1;2] = false)
+  let _ = assert (bitonic [3;2;1;2] = true)
   let _ = assert (bitonic [] = true)
   let _ = assert (bitonic [1;1] = false)
   let _ = assert (bitonic [1;2;1;2] = false)
