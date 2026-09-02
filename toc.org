@@ -1,5 +1,4 @@
 #+title: OCaml Exercises
-#+subtitle: UNDER CONSTRUCTION
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
 #+OPTIONS: html-style:nil H:2 toc:2
 
@@ -65,97 +64,13 @@ all of which are also valuable resources.
 24. [[file:ocaml/factorize.org][Factoring]]
 25. [[file:ocaml/fib-gen.org][The Generalized Fibonacci Sequence]]
 26. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
-27. TODO
-28. TODO
-29. TODO
-30. TODO
 * Strings
-1. [[file:ocaml/string-reversal.org][Reverse]]
-2. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
-3. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace, Correctly]]
-4. [[file:ocaml/split-on-character.org][Split on Character]]
-5. [[file:ocaml/block-text.org][Block Text]]
-6. [[file:ocaml/string-triangle.org][String Triangle]]
-7. [[file:ocaml/hourglass.org][Hourglass]]
-8. TODO
-9. TODO
-10. TODO
+Coming soon...
 * Algebraic Data Types
-19. [[file:ocaml/repeats.org][Repeats]]
-1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
-2. [[file:ocaml/icy-hot.org][Icy Hot]]
-3. [[file:ocaml/listing-paths.org][Manhattan Paths]]
-4. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
-5. [[file:ocaml/forklist.org][Tailing Fork Lists]]
-6. [[file:ocaml/double-lists.org][Reversing Double Lists]]
-7. [[file:ocaml/list-to-reversed-doublelist.org][Double List of List]]
-8. [[file:ocaml/boolean-expressions.org][Boolean Expressions]] (TODO: Include or separate into Interpreters?)
-9. [[file:ocaml/rose-trees.org][Rose Trees]] (TODO: Split)
-10. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
-11. [[file:ocaml/sum-rtree.org][Sum of a Rose Tree]]
-12. [[file:ocaml/max-rtree.org][Max of a Rose Tree]]
-13. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
-11. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
-12. [[file:ocaml/ordered-binary-trees.org][Ordered Binary Trees]] (TODO: Split)
-13. [[file:ocaml/walking-distance.org][Walking Distance]]
-14. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
-15. [[file:ocaml/memory-allocator.org][Memory Allocator]]
-16. [[file:ocaml/tree-conversion.org][Tree Conversion]] (TODO: use rose trees)
-17. [[file:ocaml/file-trees.org][File Trees]]
-18. [[file:ocaml/printing-expressions.org][Printing Expressions]]
-19. [[file:ocaml/mapping-keys.org][Mapping Keys]] (TODO: Find a better place to put this)
-20. [[file:ocaml/merge-sort-with-a-tree.org][Merge Sort with a Tree]]
-21. [[file:ocaml/alternating-paths.org][Alternating Paths]]
-22. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
-23. [[file:ocaml/association-lists.org][Association Lists]]
-24. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
+Coming soon...
 * Records
-25. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
-25. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
-26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
+Coming soon...
 * Higher-Order Programming
-7. [[file:ocaml/split-by.org][Split By]]
-1. [[file:ocaml/curry3.org][Curry 3]]
-2. [[file:ocaml/uncurry3.org][Uncurry 3]]
-3. [[file:ocaml/map2.org][Map 2]]
-4. [[file:ocaml/filter-map.org][Filter Map]]
-5. [[file:ocaml/prefix-map.org][Prefix Map]]
-6. [[file:ocaml/fold-right-2.org][Fold Right 2]] (TODO: Add examples)
-7. [[file:ocaml/fold-left-2.org][Fold Left 2]] (TODO: Add examples)
-8. [[file:ocaml/filter-any.org][Filter Any]]
-9. [[file:ocaml/filter-all.org][Filter All]]
-10. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
-11. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
-12. [[file:ocaml/for-loops.org][Fake Loops]]
-13. [[file:ocaml/consecutives.org][Consecutives]]
-14. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
-15. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]] (TODO: Make part of matrices?)
-16. [[file:ocaml/fixpoints.org][Fixpoints]]
-17. [[file:ocaml/transpose.org][Transpose]] (TODO: Move, part of matrices )
-18. [[file:ocaml/diagonal.org][Diagonal]] (TOOD: Move to matrices )
-19. [[file:ocaml/increasing-sequence.org][Increasing Sequence]]
-20. [[file:ocaml/function-maximum.org][Function Maximum]]
-21. [[file:ocaml/replicate.org][Replicate]]
-22. [[file:ocaml/last-function-standing.org][Last Function Standing]]
-15. [[file:ocaml/folding-and-ounit.org][Folding and OUnit]]
-23. [[file:ocaml/curry.org][Curry]]
-24. [[file:ocaml/uncurry.org][Uncurry]]
-25. [[file:ocaml/split-list.org][Split List]]
-26. [[file:ocaml/split-tree.org][Split Tree]]
-27. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
-28. [[file:ocaml/double-fold.org][Double Fold]]
-29. [[file:ocaml/all-map.org][All Map]]
-30. [[file:ocaml/reimplement-list-functions.org][Reimplementing List Functions]]
-31. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
+Coming soon...
 * Written Problems
-1. [[file:written/an-ocaml-puzzle.org][An OCaml Puzzle]]
-2. [[file:written/types-of-expressions.org][Types of Expressions]]
-3. [[file:written/expressions-of-types.org][Expressions of Types]]
-4. [[file:written/gap-buffers.org][Gap Buffers]]
-5. [[file:written/game-player.org][Game Player]]
-6. [[file:written/records-and-variants.org][Records and Variants]]
-7. [[file:written/list-expressions.org][List Expressions]]
-8. [[file:written/tracing-mutual-recursion-3.org][Tracing Mutual Recursion (3)]]
-9. [[file:written/compute-tasks.org][Compute Tasks]]
-10. [[file:written/apply-tasks.org][Apply Tasks]]
-11. [[file:written/foo-bar-baz.org][Foo Bar Baz]]
+Coming soon...
