@@ -5,16 +5,16 @@
 #+HTML_LINK_HOME: ../index.html
 Implement the function
 #+begin_src ocaml
-  val perfect_pow : int -> int -> bool
+  val is_perfect_pow : int -> int -> bool
 #+end_src
-so that ~perfect_pow i n~ is ~true~ if and only if there is an integer $k$ such that $k^i = n$.
+so that ~is_perfect_pow i n~ is ~true~ if and only if there is an integer $k$ such that $k^i = n$.
 
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (perfect_pow 1 16)
-  let _ = assert (perfect_pow 2 16)
-  let _ = assert (not (perfect_pow 3 16))
-  let _ = assert (perfect_pow 4 16)
-  let _ = assert (perfect_pow 3 (-8))
+  let _ = assert (is_perfect_pow 1 16)
+  let _ = assert (is_perfect_pow 2 16)
+  let _ = assert (not (is_perfect_pow 3 16))
+  let _ = assert (is_perfect_pow 4 16)
+  let _ = assert (is_perfect_pow 3 (-8))
 #+end_src

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-02 Wed 09:40 -->
+<!-- 2026-09-02 Wed 14:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hypotenuse</title>
@@ -18,24 +18,24 @@
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">hypotenuse</span> : int -&gt; bool
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">is_hypotenuse</span> : int -&gt; bool
 </pre>
 </div>
 <p>
-so that <code>hypotenuse n</code> is <code>true</code> if and only if <code>n</code> is the hypotenuse
+so that <code>is_hypotenuse n</code> is <code>true</code> if and only if <code>n</code> is the hypotenuse
 of a right triangle with integer side lengths (i.e., there are <code>a</code> and
 <code>b</code> such that <code>a * a + b * b = n * n</code>).
 </p>
-<div id="outline-container-orgd333ff3" class="outline-2">
-<h2 id="orgd333ff3">Examples</h2>
-<div class="outline-text-2" id="text-orgd333ff3">
+<div id="outline-container-org339ac6e" class="outline-2">
+<h2 id="org339ac6e">Examples</h2>
+<div class="outline-text-2" id="text-org339ac6e">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (hypotenuse 5)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (hypotenuse 13)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (hypotenuse 17)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (hypotenuse 29)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (hypotenuse 28))
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (hypotenuse 6))
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_hypotenuse 5)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_hypotenuse 13)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_hypotenuse 17)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_hypotenuse 29)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_hypotenuse 28))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_hypotenuse 6))
 </pre>
 </div>
 </div>

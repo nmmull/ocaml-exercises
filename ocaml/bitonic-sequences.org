@@ -15,23 +15,23 @@ s_1 < \dots < s_{i - 1} < s_i > s_{i + 1} > \dots > s_n
 \]
 or
 \[
-s_1 > \dots > s_{i - 1} > s_i < s_{i + 1} < \dots > s_n.
+s_1 > \dots > s_{i - 1} > s_i < s_{i + 1} < \dots < s_n.
 \]
 
 
 Implement the function
 #+begin_src ocaml
-  val bitonic : int list -> bool
+  val is_bitonic : int list -> bool
 #+end_src
-so that ~bitonic l~ is ~true~ if and only if ~l~ is bitonic.
+so that ~is_bitonic l~ is ~true~ if and only if ~l~ is bitonic.
 
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (bitonic [1;2;3;2;1] = true)
-  let _ = assert (bitonic [1;2;3] = true)
-  let _ = assert (bitonic [3;2;1;2] = true)
-  let _ = assert (bitonic [] = true)
-  let _ = assert (bitonic [1;1] = false)
-  let _ = assert (bitonic [1;2;1;2] = false)
+  let _ = assert (is_bitonic [1;2;3;2;1] = true)
+  let _ = assert (is_bitonic [1;2;3] = true)
+  let _ = assert (is_bitonic [3;2;1;2] = true)
+  let _ = assert (is_bitonic [] = true)
+  let _ = assert (is_bitonic [1;1] = false)
+  let _ = assert (is_bitonic [1;2;1;2] = false)
 #+end_src

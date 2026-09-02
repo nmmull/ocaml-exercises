@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-02 Wed 09:42 -->
+<!-- 2026-09-02 Wed 14:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bitonic Sequences</title>
@@ -61,7 +61,7 @@ s_1 < \dots < s_{i - 1} < s_i > s_{i + 1} > \dots > s_n
 \]
 or
 \[
-s_1 > \dots > s_{i - 1} > s_i < s_{i + 1} < \dots > s_n.
+s_1 > \dots > s_{i - 1} > s_i < s_{i + 1} < \dots < s_n.
 \]
 </p>
 
@@ -70,22 +70,22 @@ s_1 > \dots > s_{i - 1} > s_i < s_{i + 1} < \dots > s_n.
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">bitonic</span> : int list -&gt; bool
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">is_bitonic</span> : int list -&gt; bool
 </pre>
 </div>
 <p>
-so that <code>bitonic l</code> is <code>true</code> if and only if <code>l</code> is bitonic.
+so that <code>is_bitonic l</code> is <code>true</code> if and only if <code>l</code> is bitonic.
 </p>
-<div id="outline-container-orgd3cbe50" class="outline-2">
-<h2 id="orgd3cbe50">Examples</h2>
-<div class="outline-text-2" id="text-orgd3cbe50">
+<div id="outline-container-org37484bd" class="outline-2">
+<h2 id="org37484bd">Examples</h2>
+<div class="outline-text-2" id="text-org37484bd">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (bitonic [1;2;3;2;1] = <span style="color: #008b8b;">true</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (bitonic [1;2;3] = <span style="color: #008b8b;">true</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (bitonic [3;2;1;2] = <span style="color: #008b8b;">true</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (bitonic <span style="color: #000000; background-color: #ffffff;">[]</span> = <span style="color: #008b8b;">true</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (bitonic [1;1] = <span style="color: #008b8b;">false</span>)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (bitonic [1;2;1;2] = <span style="color: #008b8b;">false</span>)
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_bitonic [1;2;3;2;1] = <span style="color: #008b8b;">true</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_bitonic [1;2;3] = <span style="color: #008b8b;">true</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_bitonic [3;2;1;2] = <span style="color: #008b8b;">true</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_bitonic <span style="color: #000000; background-color: #ffffff;">[]</span> = <span style="color: #008b8b;">true</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_bitonic [1;1] = <span style="color: #008b8b;">false</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_bitonic [1;2;1;2] = <span style="color: #008b8b;">false</span>)
 </pre>
 </div>
 </div>

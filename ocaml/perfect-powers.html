@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-02 Wed 09:39 -->
+<!-- 2026-09-02 Wed 14:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Perfect Powers</title>
@@ -50,21 +50,21 @@
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">perfect_pow</span> : int -&gt; int -&gt; bool
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">is_perfect_pow</span> : int -&gt; int -&gt; bool
 </pre>
 </div>
 <p>
-so that <code>perfect_pow i n</code> is <code>true</code> if and only if there is an integer \(k\) such that \(k^i = n\).
+so that <code>is_perfect_pow i n</code> is <code>true</code> if and only if there is an integer \(k\) such that \(k^i = n\).
 </p>
-<div id="outline-container-org3705fbf" class="outline-2">
-<h2 id="org3705fbf">Examples</h2>
-<div class="outline-text-2" id="text-org3705fbf">
+<div id="outline-container-org914a710" class="outline-2">
+<h2 id="org914a710">Examples</h2>
+<div class="outline-text-2" id="text-org914a710">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (perfect_pow 1 16)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (perfect_pow 2 16)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (perfect_pow 3 16))
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (perfect_pow 4 16)
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (perfect_pow 3 (-8))
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_perfect_pow 1 16)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_perfect_pow 2 16)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_perfect_pow 3 16))
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_perfect_pow 4 16)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_perfect_pow 3 (-8))
 </pre>
 </div>
 </div>

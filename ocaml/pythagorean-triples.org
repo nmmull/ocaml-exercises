@@ -5,19 +5,19 @@
 #+HTML_LINK_HOME: ../index.html
 Implement the function
 #+begin_src ocaml
-  val hypotenuse : int -> bool
+  val is_hypotenuse : int -> bool
 #+end_src
-so that ~hypotenuse n~ is ~true~ if and only if ~n~ is the hypotenuse
+so that ~is_hypotenuse n~ is ~true~ if and only if ~n~ is the hypotenuse
 of a right triangle with integer side lengths (i.e., there are ~a~ and
 ~b~ such that ~a * a + b * b = n * n~).
 
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (hypotenuse 5)
-  let _ = assert (hypotenuse 13)
-  let _ = assert (hypotenuse 17)
-  let _ = assert (hypotenuse 29)
-  let _ = assert (not (hypotenuse 28))
-  let _ = assert (not (hypotenuse 6))
+  let _ = assert (is_hypotenuse 5)
+  let _ = assert (is_hypotenuse 13)
+  let _ = assert (is_hypotenuse 17)
+  let _ = assert (is_hypotenuse 29)
+  let _ = assert (not (is_hypotenuse 28))
+  let _ = assert (not (is_hypotenuse 6))
 #+end_src
