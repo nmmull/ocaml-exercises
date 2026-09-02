@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 Recall the following environment-based semantic rules (which use
 only unnamed closures, written $\langle \mathcal{E}, \lambda x.e
 \rangle$ for the closure pairing an environment $\mathcal{E}$ with a

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 15:48 -->
+<!-- 2026-09-02 Wed 09:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Drop While</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Drop While</h1>
 <p>
 Implement the function
@@ -25,9 +25,9 @@ Implement the function
 so that <code>drop_while f l</code> is the result of removing the longest
 prefix from <code>l</code> whose elements satisfy the predicate <code>f</code>.
 </p>
-<div id="outline-container-orgae8fda0" class="outline-2">
-<h2 id="orgae8fda0">Examples</h2>
-<div class="outline-text-2" id="text-orgae8fda0">
+<div id="outline-container-org4d26dcd" class="outline-2">
+<h2 id="org4d26dcd">Examples</h2>
+<div class="outline-text-2" id="text-org4d26dcd">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (drop_while (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x &lt;= 3) [1;2;3;4;5;4;3;2;1] = [4;5;4;3;2;1])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (drop_while (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x) [<span style="color: #008b8b;">true</span>;<span style="color: #008b8b;">true</span>;<span style="color: #008b8b;">false</span>;<span style="color: #008b8b;">true</span>] = [<span style="color: #008b8b;">false</span>;<span style="color: #008b8b;">true</span>])

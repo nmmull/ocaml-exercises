@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 A /split/ of a list ~l~ is a pair of lists ~l1~ and ~l2~ such ~l1 @ l2 = l~.
 
 Implement the function

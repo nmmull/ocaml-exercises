@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 16:47 -->
+<!-- 2026-09-02 Wed 09:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graph Connectivity</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Graph Connectivity</h1>
 <p>
 Suppose we represent a graph with nodes of type <code>'a</code> as a list of
@@ -38,9 +38,9 @@ Implement the function
 so that <code>connected len src snk gph</code> is <code>true</code> if and only if there
 is a path in <code>gph</code> from <code>src</code> to <code>snk</code> of length <code>len</code>.
 </p>
-<div id="outline-container-org4c843f1" class="outline-2">
-<h2 id="org4c843f1">Examples</h2>
-<div class="outline-text-2" id="text-org4c843f1">
+<div id="outline-container-org32b1bd0" class="outline-2">
+<h2 id="org32b1bd0">Examples</h2>
+<div class="outline-text-2" id="text-org32b1bd0">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (connected 0 1 1 [(1, 2); (1, 3); (4, 5); (5, 1); (2, 4)])
 <span style="color: #b22222;">(* </span><span style="color: #b22222;">empty path</span><span style="color: #b22222;"> *)</span>

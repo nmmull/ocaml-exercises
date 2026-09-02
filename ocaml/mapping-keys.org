@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 OCaml's standard library provides maps and sets, implemented using
 /module functors/.  To use a map, we create a module for the type we
 want to use as keys via ~Map.Make~; for a set, we create a module

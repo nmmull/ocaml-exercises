@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 The following is a collection of problems which require you to reason
 about the types of OCaml expressions.
 1. What is the type of ~g~ so that the following expression is

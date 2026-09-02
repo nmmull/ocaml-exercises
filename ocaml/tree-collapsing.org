@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 One way to represent trees in OCaml is with the following recursive
 ADT.  In this representation, a node may have zero or more children
 (as opposed to exactly two in the case of binary trees).

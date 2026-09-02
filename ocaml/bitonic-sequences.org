@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 A sequence of integers is /bitonic/ if it is monotonically increasing,
 monotonically decreasing, or monotonically increasing and then
 monotonically decreasing, or monotonically decreasing and then

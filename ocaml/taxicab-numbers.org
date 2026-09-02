@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 A [[https://en.wikipedia.org/wiki/Taxicab_number][taxicab number]] is a positive integer that can be expressed as the
 sum of two positive cubes in more than one way.[fn::This is slightly
 different from the usual definition.]

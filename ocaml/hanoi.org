@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 [[https://en.wikipedia.org/wiki/Tower_of_Hanoi][Towers of Hanoi]] is a puzzle game consisting of disks of distinct
 sizes placed on one of three pegs in order of decreasing size (from
 top to bottom).  The goal is to move a stack of disks on one peg

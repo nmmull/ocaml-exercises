@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 Fill in the following implementation of the function ~transpose~
 which, given ~m : 'a list list~, returns the transpose of ~m~,
 assuming ~m~ represents the rows of a valid $m \times n$ matrix,

@@ -2,7 +2,7 @@
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
-#+HTML_LINK_HOME: ../toc.html
+#+HTML_LINK_HOME: ../index.html
 Suppose we represent a graph with nodes of type ~'a~ as a list of
 edges.  Formally, if ~gph~ is of type ~('a * 'a) list~, and ~u~ and
 ~v~ are of type ~'a~, then ~u~ and ~v~ are connected in ~gph~ if and
