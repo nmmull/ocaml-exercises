@@ -12,7 +12,8 @@ Implement the function
   val is_palindromic : int -> bool
 #+end_src
 so that ~is_palindromic n~ is ~true~ if and only if ~n~ is
-palindromic.
+palindromic.  You may only use arithmetic operations.  In particular,
+you may not convert ~n~ into a string.
 
 ** Examples
 
