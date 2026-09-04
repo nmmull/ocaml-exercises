@@ -82,20 +82,6 @@ all of which are also valuable resources.
 10. [[file:ocaml/binary-tree-insert.org][Binary Tree Insertion]]
 11. [[file:ocaml/flatten-tree.org][Flattening Binary Trees]]
 12. [[file:ocaml/sort-by-flat.org][Sorting by Flattening]]
-13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
-14. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
-15. No Collisions 3D
-16. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
-17. [[file:ocaml/memory-allocator.org][Memory Allocator]]
-18. [[file:ocaml/tree-conversion.org][Tree Conversion]] (TODO: use rose trees)
-19. [[file:ocaml/file-trees.org][File Trees]]
-20. [[file:ocaml/printing-expressions.org][Printing Expressions]]
-21. [[file:ocaml/mapping-keys.org][Mapping Keys]] (TODO: Find a better place to put this)
-22. [[file:ocaml/merge-sort-with-a-tree.org][Merge Sort with a Tree]]
-23. [[file:ocaml/alternating-paths.org][Alternating Paths]]
-24. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
-25. [[file:ocaml/association-lists.org][Association Lists]]
-26. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
 * Records
 Coming soon...
 * Higher-Order Programming
@@ -103,6 +89,5 @@ Coming soon...
 2. [[file:ocaml/drop-while.org][Drop While]]
 3. [[file:ocaml/map-rtree.org][Mapping Rose Trees]]
 4. [[file:ocaml/filter-rtree.org][Filtering Rose Trees]]
-
 * Written Problems
 Coming soon...

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-03 Thu 18:51 -->
+<!-- 2026-09-04 Fri 10:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OCaml Exercises</title>
@@ -18,13 +18,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1e7b171">1. Basics</a></li>
-<li><a href="#org9df0860">2. Lists</a></li>
-<li><a href="#org01aea85">3. Strings</a></li>
-<li><a href="#org10fb62a">4. Algebraic Data Types</a></li>
-<li><a href="#org5288284">5. Records</a></li>
-<li><a href="#org8dc3c6d">6. Higher-Order Programming</a></li>
-<li><a href="#org323977a">7. Written Problems</a></li>
+<li><a href="#orgb5eae98">1. Basics</a></li>
+<li><a href="#orgeb552bf">2. Lists</a></li>
+<li><a href="#orgcfacbaa">3. Strings</a></li>
+<li><a href="#orge769525">4. Algebraic Data Types</a></li>
+<li><a href="#org71cacdb">5. Records</a></li>
+<li><a href="#org694758a">6. Higher-Order Programming</a></li>
+<li><a href="#orgad4f310">7. Written Problems</a></li>
 </ul>
 </div>
 </div>
@@ -47,8 +47,8 @@ all of which are also valuable resources.
 </p>
 
 <hr />
-<div id="outline-container-org1e7b171" class="outline-2">
-<h2 id="org1e7b171"><span class="section-number-2">1.</span> Basics</h2>
+<div id="outline-container-orgb5eae98" class="outline-2">
+<h2 id="orgb5eae98"><span class="section-number-2">1.</span> Basics</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><a href="ocaml/temperature.html">Fahrenheit to Celsius</a></li>
@@ -74,8 +74,8 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org9df0860" class="outline-2">
-<h2 id="org9df0860"><span class="section-number-2">2.</span> Lists</h2>
+<div id="outline-container-orgeb552bf" class="outline-2">
+<h2 id="orgeb552bf"><span class="section-number-2">2.</span> Lists</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><a href="ocaml/rev-append.html">Reverse Append</a></li>
@@ -105,8 +105,8 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org01aea85" class="outline-2">
-<h2 id="org01aea85"><span class="section-number-2">3.</span> Strings</h2>
+<div id="outline-container-orgcfacbaa" class="outline-2">
+<h2 id="orgcfacbaa"><span class="section-number-2">3.</span> Strings</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><a href="ocaml/split-by-whitespace.html">Split by Whitespace</a></li>
@@ -118,15 +118,14 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org10fb62a" class="outline-2">
-<h2 id="org10fb62a"><span class="section-number-2">4.</span> Algebraic Data Types</h2>
+<div id="outline-container-orge769525" class="outline-2">
+<h2 id="orge769525"><span class="section-number-2">4.</span> Algebraic Data Types</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="ocaml/walking-distance.html">Walking Distance</a></li>
 <li><a href="ocaml/repeats.html">Repeats</a></li>
 <li><a href="ocaml/grouping-integers-and-strings.html">Grouping Integers and Strings</a></li>
 <li><a href="ocaml/icy-hot.html">Icy Hot</a></li>
-<li>Shortest Sort-of Manhattan Paths</li>
 <li><a href="ocaml/concatenation-lists.html">Sorting Concatenation Lists</a></li>
 <li><a href="ocaml/forklist.html">Tailing Ordered Fork Lists</a></li>
 <li><a href="ocaml/double-lists.html">Reversing Double Lists</a></li>
@@ -135,32 +134,19 @@ all of which are also valuable resources.
 <li><a href="ocaml/binary-tree-insert.html">Binary Tree Insertion</a></li>
 <li><a href="ocaml/flatten-tree.html">Flattening Binary Trees</a></li>
 <li><a href="ocaml/sort-by-flat.html">Sorting by Flattening</a></li>
-<li><a href="ocaml/no-collisions-on-a-line.html">No Collisions</a></li>
-<li><a href="ocaml/deepest-parentheses.html">Deepest Parentheses</a></li>
-<li><a href="ocaml/tree-collapsing.html">Tree Collapsing</a></li>
-<li><a href="ocaml/memory-allocator.html">Memory Allocator</a></li>
-<li><a href="ocaml/tree-conversion.html">Tree Conversion</a> (TODO: use rose trees)</li>
-<li><a href="ocaml/file-trees.html">File Trees</a></li>
-<li><a href="ocaml/printing-expressions.html">Printing Expressions</a></li>
-<li><a href="ocaml/mapping-keys.html">Mapping Keys</a> (TODO: Find a better place to put this)</li>
-<li><a href="ocaml/merge-sort-with-a-tree.html">Merge Sort with a Tree</a></li>
-<li><a href="ocaml/alternating-paths.html">Alternating Paths</a></li>
-<li><a href="ocaml/s-expressions.html">S-Expressions</a> (TODO: Split)</li>
-<li><a href="ocaml/association-lists.html">Association Lists</a></li>
-<li><a href="ocaml/alternating-arity-trees.html">Alternating Arity Trees</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org5288284" class="outline-2">
-<h2 id="org5288284"><span class="section-number-2">5.</span> Records</h2>
+<div id="outline-container-org71cacdb" class="outline-2">
+<h2 id="org71cacdb"><span class="section-number-2">5.</span> Records</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Coming soon&#x2026;
 </p>
 </div>
 </div>
-<div id="outline-container-org8dc3c6d" class="outline-2">
-<h2 id="org8dc3c6d"><span class="section-number-2">6.</span> Higher-Order Programming</h2>
+<div id="outline-container-org694758a" class="outline-2">
+<h2 id="org694758a"><span class="section-number-2">6.</span> Higher-Order Programming</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li><a href="ocaml/take-while.html">Take While</a></li>
@@ -170,8 +156,8 @@ Coming soon&#x2026;
 </ol>
 </div>
 </div>
-<div id="outline-container-org323977a" class="outline-2">
-<h2 id="org323977a"><span class="section-number-2">7.</span> Written Problems</h2>
+<div id="outline-container-orgad4f310" class="outline-2">
+<h2 id="orgad4f310"><span class="section-number-2">7.</span> Written Problems</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Coming soon&#x2026;
