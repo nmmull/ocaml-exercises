@@ -3,59 +3,183 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-03 Thu 18:47 -->
+<!-- 2026-09-04 Fri 11:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>No Collisions</title>
+<title>Valid 1D Paths</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '2em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">No Collisions</h1>
-<p>
-Consider the following game.  Player 1 and Player 2 stand on integers on the
-number line.  At each step they both move either left or right one
-integer, independently of one another.  They are not allowed to move
-to any integer that would force them to collide.  For example, if
-Player 1 is on 1 and Player 2 is on 2, then it is not allowed for Player 1 to move
-right and Player 2 to move left (they cannot pass through each other).
-Likewise, if Player 1 is on 4 and Player 2 is on 2, then it is not allowed for
-Player 1 to move left and Player 2 to move right (they cannot occupy the same
-space).
-</p>
-
-<p>
-A sequence of moves is represented as a list of pairs of directions
-(<code>dir</code> below), where the first element of the pair is a move for
-Player 1 and the second element of the pair is a move for Player 2.
-</p>
-
+<h1 class="title">Valid 1D Paths</h1>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">dir</span> = <span style="color: #000000; background-color: #ffffff;">Left</span> | Right
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">dir</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Left</span>
+  | <span style="color: #000000; background-color: #ffffff;">Right</span>
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">path</span> = int * (dir * int) list
 </pre>
 </div>
+
+<p>
+A <i>path</i> represents a sequence of integers from a given starting
+point.  For example, the path <code>(0, [(Left, 1);(Right, 2);(Right,
+3);(Left, 1)])</code> represents the sequence
+</p>
+
+<p>
+\[
+0 \longrightarrow (-1) \longrightarrow 1 \longrightarrow 4 \longrightarrow 3
+\]
+</p>
+
+<p>
+It's possible for the length-part of a path 0 or negative, i.e.,
+<code>(Left, 0)</code> stays in place and <code>(Left, -1)</code> move <i>right</i> by 1.
+</p>
+
+<p>
+We think of a path being traced out by a point mass on \(\mathbb R\)
+where, by time step \(i + 1\), the point mass travels the distance and
+direction given by the path at index \(i\).
+</p>
+
+<p>
+Two paths are <i>valid</i> if it's possible for their point masses to avoid
+"phasing through each other" during the execution of each path.  For
+example, the paths
+</p>
+
+<p>
+\[
+0 \longrightarrow 3 \longrightarrow -2
+\]
+</p>
+
+<p>
+and
+</p>
+
+<p>
+\[
+5 \longrightarrow 2 \longrightarrow -5
+\]
+</p>
+
+<p>
+are not valid because their point masses need to phase
+through each other to get to the correct positions after 1 time
+step, whereas the paths
+</p>
+
+<p>
+\[
+0 \longrightarrow 6 \longrightarrow -6
+\]
+</p>
+
+<p>
+and
+</p>
+
+<p>
+\[
+5 \longrightarrow 7 \longrightarrow -5
+\]
+</p>
+
+<p>
+are valid because, even though they cover a lot of the same parts of
+\(\mathbb{R}\), they can travel to each position by each time step
+without ever colliding (with some care taken as to their velocity
+inbetween timesteps).  If one path is longer than the other, the point
+mass of the shorter is treated as being stationary until the other
+path finishes.  For example,
+</p>
+
+<p>
+\[
+0 \longrightarrow 6
+\]
+</p>
+
+<p>
+and
+</p>
+
+<p>
+\[
+5 \longrightarrow 7 \longrightarrow -5
+\]
+</p>
+
+<p>
+are not valid because in order to get from 7 to -5, the second point
+mass has to travel through 6, where the first point mass remains
+stationary.
+</p>
 
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">no_collisions</span> : int -&gt; int -&gt; int -&gt; (dir * dir) list list
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">is_valid</span> : path -&gt; path -&gt; bool
 </pre>
 </div>
 <p>
-so that <code>no_collisions start1 start2 num_steps</code> is a list of all
-possible sequences of moves (without collisions) of length
-<code>num_steps</code>, with Player 1 starting at <code>start1</code> and Player 2 starting
-at <code>start2</code>.
+so that <code>is_valid (s1, p1) (s1, p2)</code> is <code>true</code> if and only if <code>p1</code> and <code>p2</code> are
+valid with respect to <code>s1</code> and <code>s2</code>.
 </p>
-<div id="outline-container-orgc8c61ee" class="outline-2">
-<h2 id="orgc8c61ee">Examples</h2>
-<div class="outline-text-2" id="text-orgc8c61ee">
+<div id="outline-container-orgecd80ea" class="outline-2">
+<h2 id="orgecd80ea">Examples</h2>
+<div class="outline-text-2" id="text-orgecd80ea">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [(<span style="color: #000000; background-color: #ffffff;">Left</span>, <span style="color: #000000; background-color: #ffffff;">Right</span>)] (no_collisions 0 2 1))
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (<span style="color: #228b22;">List.</span>mem [(<span style="color: #000000; background-color: #ffffff;">Right</span>, <span style="color: #000000; background-color: #ffffff;">Left</span>)] (no_collisions 0 2 1)))
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_valid (0, <span style="color: #000000; background-color: #ffffff;">[]</span>) (10, <span style="color: #000000; background-color: #ffffff;">[]</span>))
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p1</span> = (0, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 5)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p2</span> = (5, [(<span style="color: #000000; background-color: #ffffff;">Left</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 7)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_valid p1 p2))
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p3</span> = (0, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 6); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 12)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p4</span> = (5, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 12)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_valid p3 p4)
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p5</span> = (0, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 6)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_valid p5 p4))
 </pre>
 </div>
 </div>

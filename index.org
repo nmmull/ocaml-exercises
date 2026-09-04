@@ -69,21 +69,21 @@ all of which are also valuable resources.
 4. [[file:ocaml/split-on-character.org][Split on Character]]
 5. [[file:ocaml/string-triangle.org][String Triangle]]
 6. [[file:ocaml/hourglass.org][Hourglass]]
-* Algebraic Data Types
+* Sums and Products
 1. [[file:ocaml/walking-distance.org][Walking Distance]]
 2. [[file:ocaml/repeats.org][Repeats]]
 3. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 4. [[file:ocaml/icy-hot.org][Icy Hot]]
-5. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
-6. [[file:ocaml/forklist.org][Tailing Ordered Fork Lists]]
-7. [[file:ocaml/double-lists.org][Reversing Double Lists]]
-8. [[file:ocaml/sum-rtree.org][Summing Rose Trees]]
-9. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
-10. [[file:ocaml/binary-tree-insert.org][Binary Tree Insertion]]
-11. [[file:ocaml/flatten-tree.org][Flattening Binary Trees]]
-12. [[file:ocaml/sort-by-flat.org][Sorting by Flattening]]
-* Records
-Coming soon...
+5. Height of a Binary Tree
+6. [[file:ocaml/binary-tree-insert.org][Binary Tree Insertion]]
+7. [[file:ocaml/flatten-tree.org][Flattening Binary Trees]]
+8. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
+9. [[file:ocaml/forklist.org][Tailing Ordered Fork Lists]]
+10. [[file:ocaml/double-lists.org][Reversing Double Lists]]
+11. [[file:ocaml/sum-rtree.org][Summing Rose Trees]]
+12. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
+13. [[file:ocaml/sort-by-flat.org][Sorting by Flattening]]
+14. [[file:ocaml/no-collisions-on-a-line.org][Valid 1D Paths]]
 * Higher-Order Programming
 1. [[file:ocaml/take-while.org][Take While]]
 2. [[file:ocaml/drop-while.org][Drop While]]
