@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:30 -->
+<!-- 2026-09-03 Thu 18:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>No Collisions</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">No Collisions</h1>
 <p>
 Consider the following game.  Player 1 and Player 2 stand on integers on the
@@ -45,14 +45,14 @@ Implement the function
 </pre>
 </div>
 <p>
-so that <code>no_collisions start1 start2 num_steps</code> is the list of all
+so that <code>no_collisions start1 start2 num_steps</code> is a list of all
 possible sequences of moves (without collisions) of length
-<code>num_steps</code>, with Player 1 starting at <code>start1</code> and Player 2 starting at
-<code>start2</code>.
+<code>num_steps</code>, with Player 1 starting at <code>start1</code> and Player 2 starting
+at <code>start2</code>.
 </p>
-<div id="outline-container-orgbde1e0c" class="outline-2">
-<h2 id="orgbde1e0c">Examples</h2>
-<div class="outline-text-2" id="text-orgbde1e0c">
+<div id="outline-container-orgc8c61ee" class="outline-2">
+<h2 id="orgc8c61ee">Examples</h2>
+<div class="outline-text-2" id="text-orgc8c61ee">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">List.</span>mem [(<span style="color: #000000; background-color: #ffffff;">Left</span>, <span style="color: #000000; background-color: #ffffff;">Right</span>)] (no_collisions 0 2 1))
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (<span style="color: #228b22;">List.</span>mem [(<span style="color: #000000; background-color: #ffffff;">Right</span>, <span style="color: #000000; background-color: #ffffff;">Left</span>)] (no_collisions 0 2 1)))

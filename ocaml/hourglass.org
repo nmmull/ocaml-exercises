@@ -8,19 +8,7 @@ Implement the function
   val hourglass : int -> string
 #+end_src
 so that ~hourglass n~ is a string in the shape of an hourglass with
-~2 * n + 1~ lines, e.g., ~hourglass 4~ is the string
-
-#+begin_example
-  *********
-   *******
-    *****
-     ***
-      *
-     ***
-    *****
-   *******
-  *********
-#+end_example
+~2 * n + 1~ lines.
 
 ** Examples
 

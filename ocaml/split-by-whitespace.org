@@ -6,9 +6,9 @@
 
 Implement the function
 #+begin_src ocaml
-  val split_on_ws : string -> string list
+  val split_on_ws' : string -> string list
 #+end_src
-so that ~split_on_ws s~ is the list of contiguous non-whitespace
+so that ~split_on_ws' s~ is the list of contiguous non-whitespace
 substrings of ~s~, in the order in which they appear.
 
 For this version of the problem, you may work with strings as lists of
@@ -17,7 +17,11 @@ between strings and character lists.
 
 #+begin_src ocaml
   let explode (s : string) : char list =
-    List.init (String.length s) (String.get s)
+    let rec loop acc i =
+      if i = String.length s
+      then acc
+      else loop (s.[i] :: acc) (i + 1)
+    in List.rev (loop [] 0)
 
   let implode (l : char list) : string =
     String.init (List.length l) (List.nth l)
@@ -26,6 +30,6 @@ between strings and character lists.
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (split_on_ws "1 23 + -94  *" = ["1"; "23"; "+"; "-94"; "*"])
-  let _ = assert (split_on_ws "  foo    bar  \n\n   baz   " = ["foo"; "bar"; "baz"])
+  let _ = assert (split_on_ws' "1 23 + -94  *" = ["1"; "23"; "+"; "-94"; "*"])
+  let _ = assert (split_on_ws' "  foo    bar  \n\n   baz   " = ["foo"; "bar"; "baz"])
 #+end_src

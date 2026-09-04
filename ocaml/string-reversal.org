@@ -1,20 +1,21 @@
-#+title: Reverse
+#+title: Reversing Strings
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
 Implement the function
 #+begin_src ocaml
-  val rev_string : string -> string
+  val rev : string -> string
 #+end_src
-so that ~rev_string s~ is the string with the same characters as ~s~
-but in reverse order.  Do this without converting the string into a
-list of characters.
+so that ~rev s~ is the string with the same characters as ~s~
+but in reverse order.  Do this /without/ converting the string into a
+list of characters.  See the functions in [[https://nmmull.github.io/stdlib320/stdlib320/Stdlib320/String/index.html][Stdlib320.String]] to get a
+sense of the possible approaches.
 
 ** Examples
 
 #+begin_src ocaml
-  let _ = assert (rev_string "testing" = "gnitset")
-  let _ = assert (rev_string "12345" = "54321")
-  let _ = assert (rev_string "noon" = "noon")
+  let _ = assert (rev "testing" = "gnitset")
+  let _ = assert (rev "12345" = "54321")
+  let _ = assert (rev "noon" = "noon")
 #+end_src

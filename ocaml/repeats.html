@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 16:17 -->
+<!-- 2026-09-03 Thu 17:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Repeats</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Repeats</h1>
 <p>
 Without using any functions from the standard library, implement the
@@ -25,16 +25,15 @@ function
 <p>
 so that <code>repeats l</code> is the result of replacing each tuple
 <code>(x, n)</code> with <code>n</code> copies of <code>Some x</code> in the case that <code>n</code> is
-nonnegative, and <code>-n</code> copies of <code>None</code> otherwise.  <b>Your
-implementation must be tail recursive.</b>
+nonnegative, and <code>-n</code> copies of <code>None</code> otherwise.  Your
+implementation must be tail recursive.
 </p>
-<div id="outline-container-orgf2947ee" class="outline-2">
-<h2 id="orgf2947ee">Examples</h2>
-<div class="outline-text-2" id="text-orgf2947ee">
+<div id="outline-container-org9ef9269" class="outline-2">
+<h2 id="org9ef9269">Examples</h2>
+<div class="outline-text-2" id="text-org9ef9269">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (repeats [(<span style="color: #008b8b;">true</span>, 3)] = [<span style="color: #000000; background-color: #ffffff;">Some</span> <span style="color: #008b8b;">true</span>; <span style="color: #000000; background-color: #ffffff;">Some</span> <span style="color: #008b8b;">true</span>; <span style="color: #000000; background-color: #ffffff;">Some</span> <span style="color: #008b8b;">true</span>])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (repeats [(1, 2); (2, 0); (3, -3)]
-                = [<span style="color: #000000; background-color: #ffffff;">Some</span> 1; <span style="color: #000000; background-color: #ffffff;">Some</span> 1; <span style="color: #000000; background-color: #ffffff;">None</span>; <span style="color: #000000; background-color: #ffffff;">None</span>; <span style="color: #000000; background-color: #ffffff;">None</span>])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (repeats [(1, 2); (2, 0); (3, -3)] = [<span style="color: #000000; background-color: #ffffff;">Some</span> 1; <span style="color: #000000; background-color: #ffffff;">Some</span> 1; <span style="color: #000000; background-color: #ffffff;">None</span>; <span style="color: #000000; background-color: #ffffff;">None</span>; <span style="color: #000000; background-color: #ffffff;">None</span>])
 </pre>
 </div>
 </div>

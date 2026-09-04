@@ -10,13 +10,12 @@ function
 #+end_src
 so that ~repeats l~ is the result of replacing each tuple
 ~(x, n)~ with ~n~ copies of ~Some x~ in the case that ~n~ is
-nonnegative, and ~-n~ copies of ~None~ otherwise.  *Your
-implementation must be tail recursive.*
+nonnegative, and ~-n~ copies of ~None~ otherwise.  Your
+implementation must be tail recursive.
 
 ** Examples
 
 #+begin_src ocaml
   let _ = assert (repeats [(true, 3)] = [Some true; Some true; Some true])
-  let _ = assert (repeats [(1, 2); (2, 0); (3, -3)]
-                  = [Some 1; Some 1; None; None; None])
+  let _ = assert (repeats [(1, 2); (2, 0); (3, -3)] = [Some 1; Some 1; None; None; None])
 #+end_src

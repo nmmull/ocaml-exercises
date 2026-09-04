@@ -1,0 +1,25 @@
+#+title: Sorting by Flattening
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+#+begin_src ocaml
+  type 'a tree
+    = Empty
+    | Node of 'a * 'a tree * 'a tree
+#+end_src
+
+A binary tree is /ordered/ if, given ~Node (a, left, right)~, every
+element of ~left~ is at most ~a~ and every element of ~right~ is
+greater than ~a~.  Repetitions are allowed.
+
+Using [[file:binary-tree-insert.org][~insert~]] and [[file:flatten-tree.org][~flatten~]], implement the function
+#+begin_src ocaml
+  val sort : 'a list -> 'a list
+#+end_src
+so that ~sort l~ is the elements of ~l~ in sorted order.
+
+#+begin_src ocaml
+  let _ = assert (sort [5; 3; 8; 1; 4] = [1; 3; 4; 5; 8])
+#+end_src

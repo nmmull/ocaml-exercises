@@ -3,17 +3,17 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:45 -->
+<!-- 2026-09-03 Thu 18:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tailing Fork Lists</title>
+<title>Tailing Ordered Fork Lists</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">Tailing Fork Lists</h1>
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Tailing Ordered Fork Lists</h1>
 <p>
 A <code>forklist</code> is a combination of a list and a binary tree.  It has
 constructors for the empty list (<code>Nil</code>), a single link (<code>Cons</code>), and
@@ -29,7 +29,7 @@ a double link (<code>Fork</code>).
 </div>
 
 <p>
-A forklist <code>l</code> with distinct elements is <b>ordered</b> if it satisfies
+A forklist <code>l</code> with distinct elements is <i>ordered</i> if it satisfies
 the following properties:
 </p>
 
@@ -42,7 +42,7 @@ greater than <code>x</code>.</li>
 </ol>
 
 <p>
-A forklist <code>l</code> is <b>tailed</b> if it satisfies the property that if
+A forklist <code>l</code> is <i>tailed</i> if it satisfies the property that if
 <code>Cons (x, xs)</code> appears in <code>l</code>, then <code>xs</code> contains no <code>Fork</code> constructors.
 </p>
 
@@ -54,7 +54,7 @@ Implement the function
 </pre>
 </div>
 <p>
-so that, given an ordered forklist of integers <code>f</code>, <code>delay_cons f</code>
+so that, given an <i>ordered</i> forklist of integers <code>f</code>, <code>delay_cons f</code>
 is a tailed ordered forklist with the following properties:
 </p>
 
@@ -68,9 +68,9 @@ as <code>f</code>, respectively.</li>
 Note that the output does not need to look exactly like the one in
 the example below; it just has to satisfy the above properties.
 </p>
-<div id="outline-container-org1e8cf1d" class="outline-2">
-<h2 id="org1e8cf1d">Examples</h2>
-<div class="outline-text-2" id="text-org1e8cf1d">
+<div id="outline-container-org8908706" class="outline-2">
+<h2 id="org8908706">Examples</h2>
+<div class="outline-text-2" id="text-org8908706">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">f</span> = <span style="color: #000000; background-color: #ffffff;">Cons</span> (2, <span style="color: #000000; background-color: #ffffff;">Fork</span> (4, <span style="color: #000000; background-color: #ffffff;">Cons</span> (3, <span style="color: #000000; background-color: #ffffff;">Nil</span>), <span style="color: #000000; background-color: #ffffff;">Cons</span> (5, <span style="color: #000000; background-color: #ffffff;">Nil</span>)))
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">g</span> = <span style="color: #000000; background-color: #ffffff;">Fork</span> (4, <span style="color: #000000; background-color: #ffffff;">Cons</span> (2, <span style="color: #000000; background-color: #ffffff;">Cons</span> (3, <span style="color: #000000; background-color: #ffffff;">Nil</span>)), <span style="color: #000000; background-color: #ffffff;">Cons</span> (5, <span style="color: #000000; background-color: #ffffff;">Nil</span>))

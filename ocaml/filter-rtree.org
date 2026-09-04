@@ -1,0 +1,35 @@
+#+title: Filtering Rose Trees
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+#+begin_src ocaml
+  type 'a rtree = Node of 'a * 'a rtree list
+#+end_src
+#+begin_src ocaml
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val filter_rtree : ('a -> bool) -> 'a rtree -> 'a rtree option
+#+end_src
+so that ~filter_rtree f t~ is the result of filtering out those values
+~v~ of ~t~ for which ~f v = false~.  For a subtree ~Node (v, ts)~, if
+~f v = false~ then /the whole subtree/ should be removed.  In
+particular, ~filter_rtree f (Node (v, ts))~ is ~None~ if if ~f v = false~.
+
+#+begin_src ocaml
+  let example : int rtree =
+    Node
+      ( 1
+      , [ Node (2, [])
+        ; Node (3, [Node (4, []); Node (5, [])])
+        ; Node (6, [])
+        ]
+      )
+  let _ = assert
+    (filter_rtree (fun x -> x <> 3) example
+     = Some (Node (1, [Node (2, []); Node (6, [])])))
+  let _ = assert (filter_rtree (fun x -> x <> 1) example = None)
+#+end_src

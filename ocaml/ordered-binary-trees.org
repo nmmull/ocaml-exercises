@@ -3,7 +3,6 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
-A binary tree is represented by the following ADT.
 
 #+begin_src ocaml
   type 'a tree
@@ -11,9 +10,9 @@ A binary tree is represented by the following ADT.
     | Node of 'a * 'a tree * 'a tree
 #+end_src
 
-A tree is *ordered* if, for every ~Node (a, left, right)~, every
+A binary tree is /ordered/ if, given ~Node (a, left, right)~, every
 element of ~left~ is at most ~a~ and every element of ~right~ is
-greater than ~a~ (repetitions are allowed).
+greater than ~a~.  Repetitions are allowed.
 
 ** Task 1
 

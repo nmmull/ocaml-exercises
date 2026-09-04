@@ -1,19 +1,18 @@
-#+title: Tree Collapsing
+#+title: Collapsing Binary Trees
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
-One way to represent trees in OCaml is with the following recursive
-ADT.  In this representation, a node may have zero or more children
-(as opposed to exactly two in the case of binary trees).
 
 #+begin_src ocaml
-  type tree =
-    | Leaf of int
-    | Node of tree list
+  type 'a tree
+    = Empty
+    | Node of 'a * 'a tree * 'a tree
+
+  type 'a rtree = Node of 'a * 'a rtree list
 #+end_src
 
-The height of a tree is defined as the maximum number of steps from
+The /height/ of a tree is defined as the maximum number of steps from
 the root to a leaf or node.  If a tree is just a leaf or a node with
 no children, then it has height 0 (this may be different from other
 definitions of height).  So, for example, the tree

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-03 Thu 18:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mapping Rose Trees</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Mapping Rose Trees</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a rtree</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a rtree list
+</pre>
+</div>
+
+<p>
+Implement the function
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">map_rtree</span> : ('a -&gt; 'b) -&gt; 'a rtree -&gt; 'b rtree
+</pre>
+</div>
+
+<p>
+so that <code>map_rtree f t</code> is the result of applying <code>f</code> to every value
+of <code>t</code>, maintaining the structure of <code>t</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">example</span> :<span style="color: #228b22;"> int rtree </span>=
+  <span style="color: #000000; background-color: #ffffff;">Node</span>
+    ( 1
+    , [ <span style="color: #000000; background-color: #ffffff;">Node</span> (2, <span style="color: #000000; background-color: #ffffff;">[]</span>)
+      ; <span style="color: #000000; background-color: #ffffff;">Node</span> (3, [<span style="color: #000000; background-color: #ffffff;">Node</span> (4, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+      ; <span style="color: #000000; background-color: #ffffff;">Node</span> (6, <span style="color: #000000; background-color: #ffffff;">[]</span>)
+      ]
+    )
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (map_rtree (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x * x) example
+   =
+   <span style="color: #000000; background-color: #ffffff;">Node</span>
+     ( 1
+     , [ <span style="color: #000000; background-color: #ffffff;">Node</span> (4, <span style="color: #000000; background-color: #ffffff;">[]</span>)
+       ; <span style="color: #000000; background-color: #ffffff;">Node</span> (9, [<span style="color: #000000; background-color: #ffffff;">Node</span> (16, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (25, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
+       ; <span style="color: #000000; background-color: #ffffff;">Node</span> (36, <span style="color: #000000; background-color: #ffffff;">[]</span>)
+       ]
+     ))
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-04 Fri 10:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Summing Rose Trees</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Summing Rose Trees</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a rtree</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a rtree list
+</pre>
+</div>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">sum</span> : int rtree -&gt; int
+</pre>
+</div>
+<p>
+so that <code>sum t</code> is the sum of all the elements at the nodes of <code>t</code>.
+</p>
+<div id="outline-container-orgb5bec3e" class="outline-2">
+<h2 id="orgb5bec3e">Examples</h2>
+<div class="outline-text-2" id="text-orgb5bec3e">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sum (<span style="color: #000000; background-color: #ffffff;">Node</span> (1, [<span style="color: #000000; background-color: #ffffff;">Node</span> (2, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (3, <span style="color: #000000; background-color: #ffffff;">[]</span>)])) = 6)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sum (<span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">[]</span>)) = 5)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

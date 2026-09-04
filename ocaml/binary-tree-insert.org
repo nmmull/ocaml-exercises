@@ -1,0 +1,27 @@
+#+title: Binary Tree Insertion
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+#+begin_src ocaml
+  type 'a tree
+    = Empty
+    | Node of 'a * 'a tree * 'a tree
+#+end_src
+
+A binary tree is /ordered/ if, given ~Node (a, left, right)~, every
+element of ~left~ is at most ~a~ and every element of ~right~ is
+greater than ~a~.  Repetitions are allowed.
+
+Implement the function
+#+begin_src ocaml
+  val insert : 'a -> 'a tree -> 'a tree
+#+end_src
+so that ~insert x t~, given an ordered tree ~t~, is an ordered tree
+with the same elements as ~t~ along with the new element ~x~.
+
+#+begin_src ocaml
+  let _ = assert (insert 4 (insert 8 (insert 3 (insert 5 Empty))) =
+      Node (5, Node (3, Empty, Node (4, Empty, Empty)), Node (8, Empty, Empty)))
+#+end_src

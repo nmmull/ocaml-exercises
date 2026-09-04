@@ -1,3 +1,6 @@
+4. [[file:ocaml/listing-paths.org][Manhattan Paths]]
+9. [[file:ocaml/boolean-expressions.org][Boolean Expressions]] (TODO: Include or separate into Interpreters?)
+15. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
 * Written Problems
 ** Reasoning about OCaml
 38. [[file:written/types-of-expressions.org][Types of Expressions]]

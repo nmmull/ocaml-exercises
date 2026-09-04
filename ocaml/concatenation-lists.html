@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:44 -->
+<!-- 2026-09-03 Thu 18:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sorting Concatenation Lists</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Sorting Concatenation Lists</h1>
 <p>
 A <code>concatlist</code> is a list whose constructors are based on
@@ -42,9 +42,9 @@ in sorted order.  You should do this without first converting <code>l</code>
 into a regular list; in particular, you cannot use the function
 <code>List.sort</code>.
 </p>
-<div id="outline-container-org492f40e" class="outline-2">
-<h2 id="org492f40e">Examples</h2>
-<div class="outline-text-2" id="text-org492f40e">
+<div id="outline-container-org5f03bee" class="outline-2">
+<h2 id="org5f03bee">Examples</h2>
+<div class="outline-text-2" id="text-org5f03bee">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">l</span> = <span style="color: #000000; background-color: #ffffff;">Concat</span> (<span style="color: #000000; background-color: #ffffff;">Concat</span> (<span style="color: #000000; background-color: #ffffff;">Single</span> 3, <span style="color: #000000; background-color: #ffffff;">Single</span> 2), <span style="color: #000000; background-color: #ffffff;">Concat</span> (<span style="color: #000000; background-color: #ffffff;">Single</span> 1, <span style="color: #000000; background-color: #ffffff;">Single</span> 10))
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sort l = [1;2;3;10])

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 18:15 -->
+<!-- 2026-09-03 Thu 17:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Split on Character</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Split on Character</h1>
 <p>
 Implement the function
@@ -26,9 +26,9 @@ so that <code>split_on_char sep s</code> is the list of all (possibly empty)
 substrings of <code>s</code> that are delimited by the character <code>sep</code>.  If <code>s</code>
 is empty, the result is the singleton list <code>[""]</code>.
 </p>
-<div id="outline-container-orgd626051" class="outline-2">
-<h2 id="orgd626051">Examples</h2>
-<div class="outline-text-2" id="text-orgd626051">
+<div id="outline-container-orge9e7e0e" class="outline-2">
+<h2 id="orge9e7e0e">Examples</h2>
+<div class="outline-text-2" id="text-orge9e7e0e">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_on_char <span style="color: #8b2252;">' '</span> <span style="color: #8b2252;">"foo bar baz"</span> = [<span style="color: #8b2252;">"foo"</span>; <span style="color: #8b2252;">"bar"</span>; <span style="color: #8b2252;">"baz"</span>])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_on_char <span style="color: #8b2252;">','</span> <span style="color: #8b2252;">"a,,b"</span> = [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">""</span>; <span style="color: #8b2252;">"b"</span>])

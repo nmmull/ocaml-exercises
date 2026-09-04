@@ -25,10 +25,10 @@ Implement the function
 #+begin_src ocaml
   val no_collisions : int -> int -> int -> (dir * dir) list list
 #+end_src
-so that ~no_collisions start1 start2 num_steps~ is the list of all
+so that ~no_collisions start1 start2 num_steps~ is a list of all
 possible sequences of moves (without collisions) of length
-~num_steps~, with Player 1 starting at ~start1~ and Player 2 starting at
-~start2~.
+~num_steps~, with Player 1 starting at ~start1~ and Player 2 starting
+at ~start2~.
 
 ** Examples
 
