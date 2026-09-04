@@ -62,6 +62,7 @@ all of which are also valuable resources.
 22. [[file:ocaml/factorize.org][Factoring]]
 23. [[file:ocaml/fib-gen.org][The Generalized Fibonacci Sequence]]
 24. [[file:ocaml/graph-connectivity.org][Graph Connectivity]]
+25. [[file:ocaml/no-collisions-on-a-line.org][Valid 1D Paths]]
 * Strings
 1. [[file:ocaml/split-by-whitespace.org][Split by Whitespace]]
 2. [[file:ocaml/split-by-whitespace-correctly.org][Split by Whitespace, Correctly]]
@@ -83,7 +84,6 @@ all of which are also valuable resources.
 11. [[file:ocaml/sum-rtree.org][Summing Rose Trees]]
 12. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
 13. [[file:ocaml/sort-by-flat.org][Sorting by Flattening]]
-14. [[file:ocaml/no-collisions-on-a-line.org][Valid 1D Paths]]
 * Higher-Order Programming
 1. [[file:ocaml/take-while.org][Take While]]
 2. [[file:ocaml/drop-while.org][Drop While]]

@@ -17,6 +17,9 @@ all of which are also valuable resources.
 
 -----
 
+26. [[file:ocaml/no-collisions-plane.org][Valid 2D Paths]]
+
+
 * ADT ACTUAL TODO
 13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
 14. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]

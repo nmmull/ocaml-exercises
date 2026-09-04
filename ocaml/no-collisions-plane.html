@@ -6,7 +6,7 @@
 <!-- 2026-09-04 Fri 12:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Valid 1D Paths</title>
+<title>Valid 2D Paths</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
@@ -45,18 +45,18 @@
 </head>
 <body>
 <div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">Valid 1D Paths</h1>
+<h1 class="title">Valid 2D Paths</h1>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">path</span> = int * (bool * int) list
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">point</span> = {x : int; y : int}
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">path</span> = point list
 </pre>
 </div>
 
 <p>
 A <i>path</i> represents a sequence of integers from a given starting
-point, where each element of the list pairs a direction (<code>true</code> for
-right, <code>false</code> for left) with a distance.  For example, the path
-<code>(0, [(false, 1);(true, 2);(true, 3);(false, 1)])</code> represents the
-sequence
+point.  For example, the path <code>(0, [(Left, 1);(Right, 2);(Right,
+3);(Left, 1)])</code> represents the sequence
 </p>
 
 <p>
@@ -67,7 +67,7 @@ sequence
 
 <p>
 It's possible for the length-part of a path to be 0 or negative, i.e.,
-<code>(false, 0)</code> stays in place and <code>(false, -1)</code> moves <i>right</i> by 1.
+<code>(Left, 0)</code> stays in place and <code>(Left, -1)</code> moves <i>right</i> by 1.
 </p>
 
 <p>
@@ -162,21 +162,21 @@ Implement the function
 so that <code>is_valid (s1, p1) (s2, p2)</code> is <code>true</code> if and only if <code>p1</code> and <code>p2</code> are
 valid with respect to <code>s1</code> and <code>s2</code>.
 </p>
-<div id="outline-container-org7abead7" class="outline-2">
-<h2 id="org7abead7">Examples</h2>
-<div class="outline-text-2" id="text-org7abead7">
+<div id="outline-container-org6c1a962" class="outline-2">
+<h2 id="org6c1a962">Examples</h2>
+<div class="outline-text-2" id="text-org6c1a962">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_valid (0, <span style="color: #000000; background-color: #ffffff;">[]</span>) (10, <span style="color: #000000; background-color: #ffffff;">[]</span>))
 
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p1</span> = (0, [(<span style="color: #008b8b;">true</span>, 3); (<span style="color: #008b8b;">false</span>, 5)])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p2</span> = (5, [(<span style="color: #008b8b;">false</span>, 3); (<span style="color: #008b8b;">false</span>, 7)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p1</span> = (0, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 5)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p2</span> = (5, [(<span style="color: #000000; background-color: #ffffff;">Left</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 7)])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_valid p1 p2))
 
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p3</span> = (0, [(<span style="color: #008b8b;">true</span>, 6); (<span style="color: #008b8b;">false</span>, 12)])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p4</span> = (5, [(<span style="color: #008b8b;">true</span>, 2); (<span style="color: #008b8b;">false</span>, 12)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p3</span> = (0, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 6); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 12)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p4</span> = (5, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Left</span>, 12)])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_valid p3 p4)
 
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p5</span> = (0, [(<span style="color: #008b8b;">true</span>, 6)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">p5</span> = (0, [(<span style="color: #000000; background-color: #ffffff;">Right</span>, 6)])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #a52a2a;">not</span> (is_valid p5 p4))
 </pre>
 </div>

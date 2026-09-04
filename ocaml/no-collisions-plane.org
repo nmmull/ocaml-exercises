@@ -1,25 +1,25 @@
-#+title: Valid 1D Paths
+#+title: Valid 2D Paths
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
 
 #+begin_src ocaml
-  type path = int * (bool * int) list
+  type point = {x : int; y : int}
+
+  type path = point list
 #+end_src
 
 A /path/ represents a sequence of integers from a given starting
-point, where each element of the list pairs a direction (~true~ for
-right, ~false~ for left) with a distance.  For example, the path
-~(0, [(false, 1);(true, 2);(true, 3);(false, 1)])~ represents the
-sequence
+point.  For example, the path ~(0, [(Left, 1);(Right, 2);(Right,
+3);(Left, 1)])~ represents the sequence
 
 \[
 0 \longrightarrow (-1) \longrightarrow 1 \longrightarrow 4 \longrightarrow 3
 \]
 
 It's possible for the length-part of a path to be 0 or negative, i.e.,
-~(false, 0)~ stays in place and ~(false, -1)~ moves /right/ by 1.
+~(Left, 0)~ stays in place and ~(Left, -1)~ moves /right/ by 1.
 
 We think of a path as being traced out by a point mass on $\mathbb R$
 where, by time step $i + 1$, the point mass travels the distance and
@@ -86,14 +86,14 @@ valid with respect to ~s1~ and ~s2~.
 #+begin_src ocaml
   let _ = assert (is_valid (0, []) (10, []))
 
-  let p1 = (0, [(true, 3); (false, 5)])
-  let p2 = (5, [(false, 3); (false, 7)])
+  let p1 = (0, [(Right, 3); (Left, 5)])
+  let p2 = (5, [(Left, 3); (Left, 7)])
   let _ = assert (not (is_valid p1 p2))
 
-  let p3 = (0, [(true, 6); (false, 12)])
-  let p4 = (5, [(true, 2); (false, 12)])
+  let p3 = (0, [(Right, 6); (Left, 12)])
+  let p4 = (5, [(Right, 2); (Left, 12)])
   let _ = assert (is_valid p3 p4)
 
-  let p5 = (0, [(true, 6)])
+  let p5 = (0, [(Right, 6)])
   let _ = assert (not (is_valid p5 p4))
 #+end_src
