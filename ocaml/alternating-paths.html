@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-06 Sun 17:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alternating Paths</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Alternating Paths</h1>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a tree</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Leaf</span>
+  | <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a tree * 'a tree
+</pre>
+</div>
+
+<p>
+We can think of a path in a binary tree from the root of the tree to
+a leaf as a sequence of "lefts" and "rights", i.e., whether the path
+goes down a left subtree or a right subtree.  The <i>alternation
+number</i> of a path is the number of times the path went "left" after
+going "right" or vice versa.  The alternation number of a tree is
+the maximum alternation number over all paths from the root to a
+leaf in the tree.
+</p>
+
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">alt_num</span> : 'a tree -&gt; int
+</pre>
+</div>
+<p>
+so that <code>alt_num t</code> is the alternation number of the tree <code>t</code>.
+</p>
+<div id="outline-container-org3a93d6c" class="outline-2">
+<h2 id="org3a93d6c">Examples</h2>
+<div class="outline-text-2" id="text-org3a93d6c">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (alt_num <span style="color: #000000; background-color: #ffffff;">Leaf</span> = 0)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (alt_num (<span style="color: #000000; background-color: #ffffff;">Node</span> (1, <span style="color: #000000; background-color: #ffffff;">Leaf</span>, <span style="color: #000000; background-color: #ffffff;">Leaf</span>)) = 0)
+
+<span style="color: #b22222;">(* </span><span style="color: #b22222;">a single path root -L-&gt; 2 -R-&gt; 4 -L-&gt; 6, with switches L-&gt;R and R-&gt;L</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t1</span> =
+  <span style="color: #000000; background-color: #ffffff;">Node</span>
+    ( 1
+    , <span style="color: #000000; background-color: #ffffff;">Node</span> (2, <span style="color: #000000; background-color: #ffffff;">Leaf</span>, <span style="color: #000000; background-color: #ffffff;">Node</span> (4, <span style="color: #000000; background-color: #ffffff;">Node</span> (6, <span style="color: #000000; background-color: #ffffff;">Leaf</span>, <span style="color: #000000; background-color: #ffffff;">Leaf</span>), <span style="color: #000000; background-color: #ffffff;">Leaf</span>))
+    , <span style="color: #000000; background-color: #ffffff;">Leaf</span>
+    )
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (alt_num t1 = 2)
+
+<span style="color: #b22222;">(* </span><span style="color: #b22222;">root -L-&gt; 2 -L-&gt; 4 (no switches) vs. root -R-&gt; 3 -R-&gt; 5 -L-&gt; 7 (one switch)</span><span style="color: #b22222;"> *)</span>
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t2</span> =
+  <span style="color: #000000; background-color: #ffffff;">Node</span>
+    ( 1
+    , <span style="color: #000000; background-color: #ffffff;">Node</span> (2, <span style="color: #000000; background-color: #ffffff;">Node</span> (4, <span style="color: #000000; background-color: #ffffff;">Leaf</span>, <span style="color: #000000; background-color: #ffffff;">Leaf</span>), <span style="color: #000000; background-color: #ffffff;">Leaf</span>)
+    , <span style="color: #000000; background-color: #ffffff;">Node</span> (3, <span style="color: #000000; background-color: #ffffff;">Leaf</span>, <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">Node</span> (7, <span style="color: #000000; background-color: #ffffff;">Leaf</span>, <span style="color: #000000; background-color: #ffffff;">Leaf</span>), <span style="color: #000000; background-color: #ffffff;">Leaf</span>))
+    )
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (alt_num t2 = 1)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

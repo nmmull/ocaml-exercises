@@ -3,7 +3,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
-Consider the following ADT for a binary tree.
+
 #+begin_src ocaml
   type 'a tree =
     | Leaf
@@ -22,11 +22,8 @@ Implement the function
 #+begin_src ocaml
   val alt_num : 'a tree -> int
 #+end_src
-so that ~alt_num t~ is the alternation number of the tree ~t~.  You
-may not use any function in the standard library except ~max~.
-*Hint:* Write a helper function that returns /two/ values instead of
-one.
-
+so that ~alt_num t~ is the alternation number of the tree ~t~.
+h
 ** Examples
 
 #+begin_src ocaml
