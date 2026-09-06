@@ -23,7 +23,7 @@ Implement the function
   val alt_num : 'a tree -> int
 #+end_src
 so that ~alt_num t~ is the alternation number of the tree ~t~.
-h
+
 ** Examples
 
 #+begin_src ocaml
