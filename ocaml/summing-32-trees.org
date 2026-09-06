@@ -5,7 +5,7 @@
 #+HTML_LINK_HOME: ../index.html
 
 A /3-2 tree/ is a tree whose nodes have either two or three children,
-with the property that every /three/-child node is at an even depth and
+with the property that every /three/-child node is at an even depth, and
 every /two/-child node is at an odd depth.
 #+begin_src ocaml
   type 'a tree23 =
