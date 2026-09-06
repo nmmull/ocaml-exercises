@@ -13,10 +13,10 @@ Implement the function
   val dist : dir list -> float
 #+end_src
 so that ~dist dirs~, given a list of directions ~dirs~, computes the
-$\ell_2$ distance (i.e., "as the crow flies") in meters between the
-starting point and ending point of the path given by ~dirs~.  Note
-that it doesn't matter where you start, the distance between the
-starting and ending points will always be the same.
+$\ell_2$ distance (i.e., "as the crow flies") between the starting
+point and ending point of the path given by ~dirs~.  Note that it
+doesn't matter where you start, the distance between the starting and
+ending points will always be the same.
 
 ** Examples
 

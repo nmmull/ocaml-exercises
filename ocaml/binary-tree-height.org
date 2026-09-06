@@ -1,0 +1,33 @@
+#+title: Height of a Binary Tree
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+#+begin_src ocaml
+  type 'a tree
+    = Empty
+    | Node of 'a * 'a tree * 'a tree
+#+end_src
+
+The /height/ of a binary tree is the length of the longest path from
+the root to a leaf (in this case, to any ~Empty~ constructor).
+
+Implement the function
+#+begin_src ocaml
+  val height : 'a tree -> int
+#+end_src
+so that ~height t~ is the height of ~t~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (height Empty = 0)
+  let _ = assert (height (Node (1, Empty, Empty)) = 1)
+
+  let t1 = Node (1, Node (2, Empty, Empty), Node (3, Empty, Empty))
+  let _ = assert (height t1 = 2)
+
+  let t2 = Node (1, t1, Empty)
+  let _ = assert (height t2 = 3)
+#+end_src

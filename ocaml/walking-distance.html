@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-03 Thu 18:32 -->
+<!-- 2026-09-06 Sun 15:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Walking Distance</title>
@@ -60,14 +60,14 @@ Implement the function
 </div>
 <p>
 so that <code>dist dirs</code>, given a list of directions <code>dirs</code>, computes the
-\(\ell_2\) distance (i.e., "as the crow flies") in meters between the
-starting point and ending point of the path given by <code>dirs</code>.  Note
-that it doesn't matter where you start, the distance between the
-starting and ending points will always be the same.
+\(\ell_2\) distance (i.e., "as the crow flies") between the starting
+point and ending point of the path given by <code>dirs</code>.  Note that it
+doesn't matter where you start, the distance between the starting and
+ending points will always be the same.
 </p>
-<div id="outline-container-org25027bb" class="outline-2">
-<h2 id="org25027bb">Examples</h2>
-<div class="outline-text-2" id="text-org25027bb">
+<div id="outline-container-org9b6f48c" class="outline-2">
+<h2 id="org9b6f48c">Examples</h2>
+<div class="outline-text-2" id="text-org9b6f48c">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">is_close</span> <span style="color: #a0522d;">f1</span> <span style="color: #a0522d;">f2</span> = <span style="color: #228b22;">Float.</span>abs (f1 -.f2) &lt; 10. ** (-15.)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_close (dist [<span style="color: #000000; background-color: #ffffff;">North</span>; <span style="color: #000000; background-color: #ffffff;">North</span>; <span style="color: #000000; background-color: #ffffff;">South</span>; <span style="color: #000000; background-color: #ffffff;">East</span>]) (sqrt 2.))

@@ -8,7 +8,7 @@ They've been written by [[https://nmmull.github.io][me]] over the last iteration
 with help from [[https://ankushdas.github.io][Ankush Das]] and others.  This page is essentially a
 course-specific version of
 
-+ [[https://ocaml.org/exercises][OCaml Exercises]]
++ [[https://ocaml.org/exercises][OCaml: Exercises]]
 + Exercises from [[https://cs3110.github.io/textbook/cover.html][OCaml Programming: Correct + Efficient + Beautiful]]
 + [[https://projecteuler.net][Project Euler]]
 
@@ -75,7 +75,7 @@ all of which are also valuable resources.
 2. [[file:ocaml/repeats.org][Repeats]]
 3. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
 4. [[file:ocaml/icy-hot.org][Icy Hot]]
-5. Height of a Binary Tree
+5. [[file:ocaml/binary-tree-height.org][Height of a Binary Tree]]
 6. [[file:ocaml/binary-tree-insert.org][Binary Tree Insertion]]
 7. [[file:ocaml/flatten-tree.org][Flattening Binary Trees]]
 8. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
