@@ -37,7 +37,7 @@ according to the following rules.
 + A negative number should be surrounded by parentheses *unless* it's
   the first number of a (possibly empty) sequence of infix operations.
   For example, ~Add (Num (-2), Add (Num (-3), Num 4))~ should be
-  represented as the string ~"-2 + (-3) + 4"~ whereas ~Mul (Num (-2),
+  represented by the string ~"-2 + (-3) + 4"~ whereas ~Mul (Num (-2),
   Add (Num (-3), Num 4))~ should be represented by the string ~"-2 *
   (-3 + 4)"~.  Note that ~-3~ is not surrounded by parentheses in this
   last example.

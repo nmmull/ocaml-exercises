@@ -81,6 +81,9 @@ Implement the function
 so that ~is_valid (s1, p1) (s2, p2)~ is ~true~ if and only if ~p1~ and ~p2~ are
 valid with respect to ~s1~ and ~s2~.
 
+*Challenge worth nothing:* Implement this function so that it takes a
+list of paths instead of two paths.
+
 ** Examples
 
 #+begin_src ocaml
