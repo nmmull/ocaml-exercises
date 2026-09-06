@@ -3,7 +3,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
-A ~doublelist~ is a data type which represents a list, but elements
+A /double list/ is a data type which represents a list, but elements
 are ~Cons~-ed two at a time.  In order to represent lists with an odd
 number of elements, there is also a constructor for a singleton
 list.
