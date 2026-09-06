@@ -84,6 +84,7 @@ all of which are also valuable resources.
 11. [[file:ocaml/double-lists.org][Reversing Double Lists]]
 12. [[file:ocaml/sum-rtree.org][Summing Rose Trees]]
 13. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
+18. [[file:ocaml/tree-conversion.org][Binary Tree to Rose Tree]]
 14. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
 15. [[file:ocaml/memory-allocator.org][Allocating Memory]]
 16. [[file:ocaml/memory-allocator-free.org][Freeing Memory]]
