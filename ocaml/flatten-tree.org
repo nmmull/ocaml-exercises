@@ -19,7 +19,7 @@ Implement the function
   val flatten : 'a tree -> 'a list
 #+end_src
 so that ~flatten t~, given an ordered tree ~t~, the list with the same
-elements as ~t~ sorted in-order.
+elements as ~t~ sorted [[https://en.wikipedia.org/wiki/Tree_traversal#In-order,_LNR][in-order]].
 
 ** Example
 
