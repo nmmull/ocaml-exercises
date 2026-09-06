@@ -21,13 +21,10 @@ all of which are also valuable resources.
 
 
 * ADT ACTUAL TODO
-19. [[file:ocaml/file-trees.org][File Trees]]
 20. [[file:ocaml/printing-expressions.org][Printing Expressions]]
 21. [[file:ocaml/mapping-keys.org][Mapping Keys]] (TODO: Find a better place to put this)
-22. [[file:ocaml/merge-sort-with-a-tree.org][Merge Sort with a Tree]]
 23. [[file:ocaml/alternating-paths.org][Alternating Paths]]
 24. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
-25. [[file:ocaml/association-lists.org][Association Lists]]
 26. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
 13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
 14. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]

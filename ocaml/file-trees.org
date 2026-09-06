@@ -8,7 +8,7 @@
 #+end_src
 
 We can think of a file system as a tree of directories and files.
-In this problem we will be converting a list of file paths into an
+In this problem, we will be converting a list of file paths into an
 ~rtree~.  For example, given the paths
 
 #+begin_example
@@ -46,7 +46,7 @@ In this representation, a file is a leaf node, i.e., a node with no
 children.  We will take a very relaxed definition of a file name: /a
 file name can be any sequence of characters not including '/'/.
 This means that every string is a valid path (even ~"foo/bar///baz"~).
-In particular ~""~ represents the file with the empty string as its
+In particular, ~""~ represents the file with the empty string as its
 name (this isn't realistic, but it makes the problem easier).
 
 Implement the function
@@ -61,7 +61,7 @@ the root to the leaves of the tree and paths in ~file_paths~.
 
 *Note.* The order of the children at each node isn't important, as
 long as the correspondence above holds.  One way to sanity-check
-your implementation: if you strip the root off of every path from
+your implementation: if you strip the root off every path from
 the root to a leaf of ~file_tree root file_paths~, you should get
 back ~file_paths~ (potentially in a different order).
 
