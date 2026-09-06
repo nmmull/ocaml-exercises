@@ -18,7 +18,7 @@ Implement the function
 #+end_src
 so that ~rtree_of_tree t~ is ~None~ if ~t~ is empty and, otherwise, is
 ~Some t'~ where ~t'~ is a representation of ~t~ as a nonempty tree.
-In particular, each child of a ~Node2~ that is a ~Empty~ should simply
+In particular, each child of a ~Node~ that is ~Empty~ should simply
 not appear in the list of children of the corresponding ~Node~.
 
 ** Examples
