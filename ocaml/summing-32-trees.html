@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-06 Sun 17:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Summing 3-2 Trees</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Summing 3-2 Trees</h1>
+<p>
+A <i>3-2 tree</i> is a tree whose nodes have either two or three children,
+with the property that every <i>three</i>-child node is at an even depth and
+every <i>two</i>-child node is at an odd depth.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a tree23</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Empty2</span>
+  | <span style="color: #000000; background-color: #ffffff;">Node2</span> <span style="color: #a020f0;">of</span> 'a * 'a tree32 * 'a tree32
+<span style="color: #000000; font-weight: bold;">and</span> 'a <span style="color: #a0522d;">tree32</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Empty3</span>
+  | <span style="color: #000000; background-color: #ffffff;">Node3</span> <span style="color: #a020f0;">of</span> 'a * 'a tree23 * 'a tree23 * 'a tree23
+</pre>
+</div>
+<p>
+Implement the function
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">sum</span> : int tree32 -&gt; int
+</pre>
+</div>
+<p>
+so that <code>sum t</code> is the sum of all the values in <code>t</code>.  Note that this
+function will need to be mutually recursive.
+</p>
+<div id="outline-container-orgd47fc69" class="outline-2">
+<h2 id="orgd47fc69">Examples</h2>
+<div class="outline-text-2" id="text-orgd47fc69">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">example</span> :<span style="color: #228b22;"> int tree23 </span>=
+  <span style="color: #000000; background-color: #ffffff;">Node3</span>
+    ( 1
+    , <span style="color: #000000; background-color: #ffffff;">Node2</span>
+        ( 2
+        , <span style="color: #000000; background-color: #ffffff;">Node3</span> (3, <span style="color: #000000; background-color: #ffffff;">Empty2</span>, <span style="color: #000000; background-color: #ffffff;">Empty2</span>, <span style="color: #000000; background-color: #ffffff;">Empty2</span>)
+        , <span style="color: #000000; background-color: #ffffff;">Empty3</span>
+        )
+    , <span style="color: #000000; background-color: #ffffff;">Node2</span>
+        ( 6
+        , <span style="color: #000000; background-color: #ffffff;">Node3</span> (7, <span style="color: #000000; background-color: #ffffff;">Empty2</span>, <span style="color: #000000; background-color: #ffffff;">Empty2</span>, <span style="color: #000000; background-color: #ffffff;">Empty2</span>)
+        , <span style="color: #000000; background-color: #ffffff;">Node3</span> (4, <span style="color: #000000; background-color: #ffffff;">Empty2</span>, <span style="color: #000000; background-color: #ffffff;">Empty2</span>, <span style="color: #000000; background-color: #ffffff;">Empty2</span>)
+        )
+    , <span style="color: #000000; background-color: #ffffff;">Empty2</span>
+    )
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sum example = 1 + 2 + 3 + 6 + 7 + 4)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (sum <span style="color: #000000; background-color: #ffffff;">Empty3</span> = 0)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

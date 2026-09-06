@@ -1,0 +1,45 @@
+#+title: Summing 3-2 Trees
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+A /3-2 tree/ is a tree whose nodes have either two or three children,
+with the property that every /three/-child node is at an even depth and
+every /two/-child node is at an odd depth.
+#+begin_src ocaml
+  type 'a tree23 =
+    | Empty2
+    | Node2 of 'a * 'a tree32 * 'a tree32
+  and 'a tree32 =
+    | Empty3
+    | Node3 of 'a * 'a tree23 * 'a tree23 * 'a tree23
+#+end_src
+Implement the function
+#+begin_src ocaml
+  val sum : int tree32 -> int
+#+end_src
+so that ~sum t~ is the sum of all the values in ~t~.  Note that this
+function will need to be mutually recursive.
+
+** Examples
+
+#+begin_src ocaml
+  let example : int tree23 =
+    Node3
+      ( 1
+      , Node2
+          ( 2
+          , Node3 (3, Empty2, Empty2, Empty2)
+          , Empty3
+          )
+      , Node2
+          ( 6
+          , Node3 (7, Empty2, Empty2, Empty2)
+          , Node3 (4, Empty2, Empty2, Empty2)
+          )
+      , Empty2
+      )
+  let _ = assert (sum example = 1 + 2 + 3 + 6 + 7 + 4)
+  let _ = assert (sum Empty3 = 0)
+#+end_src
