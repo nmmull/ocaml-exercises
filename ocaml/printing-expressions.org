@@ -1,4 +1,4 @@
-#+title: Printing Expressions
+#+title: Pretty Arithmetic Expressions
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
@@ -22,7 +22,7 @@ so that ~string_of_expr e~ is a string representation of ~e~
 according to the following rules.
 
 + Every operator is surrounded by exactly one space.  There is no
-  other whitespace in the string.
+  other whitespace in the output.
 + Multiplication has higher precedence than addition.  This means
   that the expression ~Mul (Num 2, Add (Num 3, Num 4))~ should be
   represented by the string ~"2 * (3 + 4)"~ and not ~"2 * 3 + 4"~.
@@ -34,14 +34,13 @@ according to the following rules.
   disambiguation.  For example, ~Add (Mul (Num 2, Num 3), Num 4)~
   should be represented by the string ~"2 * 3 + 4"~ and not
   ~"(2 * 3) + 4"~.
-+ A negative number should be surrounded by parentheses *unless* it
-  is the first number of a (possibly empty) sequence of operations
-  at the top-level, or within parentheses.  For example,
-  ~Add (Num (-2), Add (Num (-3), Num 4))~ should be represented as
-  the string ~"-2 + (-3) + 4"~ whereas
-  ~Mul (Num (-2), Add (Num (-3), Num 4))~ should be represented by
-  the string ~"-2 * (-3 + 4)"~.  Note that ~-3~ is not surrounded by
-  parentheses in this last example.
++ A negative number should be surrounded by parentheses *unless* it's
+  the first number of a (possibly empty) sequence of infix operations.
+  For example, ~Add (Num (-2), Add (Num (-3), Num 4))~ should be
+  represented as the string ~"-2 + (-3) + 4"~ whereas ~Mul (Num (-2),
+  Add (Num (-3), Num 4))~ should be represented by the string ~"-2 *
+  (-3 + 4)"~.  Note that ~-3~ is not surrounded by parentheses in this
+  last example.
 
 ** Examples
 
