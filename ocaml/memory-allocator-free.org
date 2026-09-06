@@ -1,0 +1,60 @@
+#+title: Freeing Memory
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+#+begin_src ocaml
+  type mem_status =
+    | Free
+    | Occupied
+
+  type memory = (mem_status * int) list
+#+end_src
+
+This problem uses the same memory model as a [[file:memory-allocator.org][previous problem]]. Recall that, in
+this model, memory is represented as a list of pairs, each
+representing a chunk of memory.  The first entry of the pair
+determines if the chunk is ~Free~ or ~Occupied~, and the second
+determines how many units of memory the chunk occupies.  Furthermore,
+we require that memory has the following properties:
+
++ there are no adjacent ~Free~ chunks of memory (there may be adjacent
+  chunks of ~Occupied~ memory);
++ there is no ~Free~ chunk of memory at the end of the list, i.e.,
+  either the list is empty or the last element is an ~Occupied~ block.
+
+In this problem, you'll be implementing memory freeing.
+
+#+begin_src ocaml
+  type free_result =
+    | Success of memory
+    | Invalid_position
+#+end_src
+
+Implement the function
+
+#+begin_src ocaml
+
+  val free : int -> memory -> free_result
+#+end_src
+so that ~free pos mem~ is a ~free_result~ such that:
+
++ If ~pos~ is negative, or is not the beginning of an ~Occupied~
+  chunk of memory, then the position is invalid.
++ The chunk starting at ~pos~ in ~mem~ should be converted to a
+  ~Free~ block, and the result should be updated to maintain the
+  above invariants (no adjacent ~Free~ chunks, no trailing ~Free~
+  chunk).
+
+** Examples
+
+#+begin_src ocaml
+  let m0 = [(Free, 3); (Occupied, 1); (Occupied, 3); (Free, 2); (Occupied, 1)]
+  let _ = assert (free (-1) m0 = Invalid_position)
+  let _ = assert (free 1 m0 = Invalid_position) (* not the start of a chunk *)
+  let _ = assert (free 3 m0 =
+                  Success [(Free, 4); (Occupied, 3); (Free, 2); (Occupied, 1)])
+  let _ = assert (free 9 m0 =
+                  Success [(Free, 3); (Occupied, 1); (Occupied, 3)])
+  (* the trailing Free chunk is dropped, since memory is unlimited *)
+#+end_src

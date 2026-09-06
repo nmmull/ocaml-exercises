@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-03 Thu 19:00 -->
+<!-- 2026-09-06 Sun 16:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tree Collapsing</title>
+<title>Collapsing Binary Trees</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
@@ -45,22 +45,18 @@
 </head>
 <body>
 <div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">Tree Collapsing</h1>
-<p>
-One way to represent trees in OCaml is with the following recursive
-ADT.  In this representation, a node may have zero or more children
-(as opposed to exactly two in the case of binary trees).
-</p>
-
+<h1 class="title">Collapsing Binary Trees</h1>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">tree</span> =
-  | <span style="color: #000000; background-color: #ffffff;">Leaf</span> <span style="color: #a020f0;">of</span> int
-  | <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> tree list
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a tree</span>
+  = <span style="color: #000000; background-color: #ffffff;">Empty</span>
+  | <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a tree * 'a tree
+
+<span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a rtree</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a rtree list
 </pre>
 </div>
 
 <p>
-The height of a tree is defined as the maximum number of steps from
+The <i>height</i> of a tree is defined as the maximum number of steps from
 the root to a leaf or node.  If a tree is just a leaf or a node with
 no children, then it has height 0 (this may be different from other
 definitions of height).  So, for example, the tree
@@ -126,9 +122,9 @@ so that <code>collapse h t</code>, given a <b>positive</b> integer <code>h</code
 <code>t</code>, returns the same tree collapsed to height <code>h</code>.  The behavior of
 the function is undefined if <code>h</code> is not positive.
 </p>
-<div id="outline-container-org657090a" class="outline-2">
-<h2 id="org657090a">Examples</h2>
-<div class="outline-text-2" id="text-org657090a">
+<div id="outline-container-org9dfc15b" class="outline-2">
+<h2 id="org9dfc15b">Examples</h2>
+<div class="outline-text-2" id="text-org9dfc15b">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t</span> =
   <span style="color: #000000; background-color: #ffffff;">Node</span>

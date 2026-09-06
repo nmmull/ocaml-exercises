@@ -21,11 +21,6 @@ all of which are also valuable resources.
 
 
 * ADT ACTUAL TODO
-13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
-14. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
-15. No Collisions 3D
-16. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
-17. [[file:ocaml/memory-allocator.org][Memory Allocator]]
 18. [[file:ocaml/tree-conversion.org][Tree Conversion]] (TODO: use rose trees)
 19. [[file:ocaml/file-trees.org][File Trees]]
 20. [[file:ocaml/printing-expressions.org][Printing Expressions]]
@@ -35,6 +30,9 @@ all of which are also valuable resources.
 24. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
 25. [[file:ocaml/association-lists.org][Association Lists]]
 26. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
+13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
+14. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
+15. No Collisions 3D
 
 
 
