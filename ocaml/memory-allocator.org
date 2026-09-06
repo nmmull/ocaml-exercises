@@ -11,17 +11,17 @@
   type memory = (mem_status * int) list
 #+end_src
 
-You'll be with with a very simple model of (unlimited) memory.  In
+You'll be working with a very simple model of (unlimited) memory.  In
 this model, memory is represented as a list of pairs, each
 representing a chunk of memory.  The first entry of the pair
-determines if the chunk is ~Free~ or ~Occupied~, and the second
+determines whether the chunk is ~Free~ or ~Occupied~, and the second
 determines how many units of memory the chunk occupies.  Furthermore,
 we require that memory has the following properties:
 
 + there are no adjacent ~Free~ chunks of memory (there may be adjacent
   chunks of ~Occupied~ memory);
 + there is no ~Free~ chunk of memory at the end of the list, i.e.,
-  either the list is empty or the last element is an ~Occupied~ block.
+  either the list is empty or the last element is an ~Occupied~ chunk.
 
 For example, the list:
 

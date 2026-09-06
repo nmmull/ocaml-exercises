@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-06 Sun 16:51 -->
+<!-- 2026-09-06 Sun 16:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Freeing Memory</title>
@@ -24,10 +24,10 @@
 </div>
 
 <p>
-This problem uses the same memory model as a <a href="memory-allocator.html">previous problem</a>. Recall that, in
-this model, memory is represented as a list of pairs, each
+This problem uses the same memory model as a <a href="memory-allocator.html">previous problem</a>. Recall
+that, in this model, memory is represented as a list of pairs, each
 representing a chunk of memory.  The first entry of the pair
-determines if the chunk is <code>Free</code> or <code>Occupied</code>, and the second
+determines whether the chunk is <code>Free</code> or <code>Occupied</code>, and the second
 determines how many units of memory the chunk occupies.  Furthermore,
 we require that memory has the following properties:
 </p>
@@ -67,13 +67,13 @@ so that <code>free pos mem</code> is a <code>free_result</code> such that:
 <li>If <code>pos</code> is negative, or is not the beginning of an <code>Occupied</code>
 chunk of memory, then the position is invalid.</li>
 <li>The chunk starting at <code>pos</code> in <code>mem</code> should be converted to a
-<code>Free</code> block, and the result should be updated to maintain the
+<code>Free</code> chunk, and the result should be updated to maintain the
 above invariants (no adjacent <code>Free</code> chunks, no trailing <code>Free</code>
 chunk).</li>
 </ul>
-<div id="outline-container-org863d6dc" class="outline-2">
-<h2 id="org863d6dc">Examples</h2>
-<div class="outline-text-2" id="text-org863d6dc">
+<div id="outline-container-org6013ebd" class="outline-2">
+<h2 id="org6013ebd">Examples</h2>
+<div class="outline-text-2" id="text-org6013ebd">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">m0</span> = [(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)]
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (free (-1) m0 = <span style="color: #000000; background-color: #ffffff;">Invalid_position</span>)

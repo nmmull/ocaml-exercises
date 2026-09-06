@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-06 Sun 16:36 -->
+<!-- 2026-09-06 Sun 16:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Allocating Memory</title>
@@ -24,10 +24,10 @@
 </div>
 
 <p>
-You'll be with with a very simple model of (unlimited) memory.  In
+You'll be working with a very simple model of (unlimited) memory.  In
 this model, memory is represented as a list of pairs, each
 representing a chunk of memory.  The first entry of the pair
-determines if the chunk is <code>Free</code> or <code>Occupied</code>, and the second
+determines whether the chunk is <code>Free</code> or <code>Occupied</code>, and the second
 determines how many units of memory the chunk occupies.  Furthermore,
 we require that memory has the following properties:
 </p>
@@ -36,7 +36,7 @@ we require that memory has the following properties:
 <li>there are no adjacent <code>Free</code> chunks of memory (there may be adjacent
 chunks of <code>Occupied</code> memory);</li>
 <li>there is no <code>Free</code> chunk of memory at the end of the list, i.e.,
-either the list is empty or the last element is an <code>Occupied</code> block.</li>
+either the list is empty or the last element is an <code>Occupied</code> chunk.</li>
 </ul>
 
 <p>
@@ -52,7 +52,7 @@ For example, the list:
 represents the following layout.
 </p>
 
-<pre class="example" id="org76e52d0">
+<pre class="example" id="org7fa06d3">
 ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───
 │ F │ F │ F │ O │ O │ O │ O │ F │ F │ O │ F │ F │ ...
 └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───
@@ -60,7 +60,7 @@ represents the following layout.
 </pre>
 
 <p>
-In this problem, you be implementing a simple allocator for this
+In this problem, you'll be implementing a simple allocator for this
 model.
 </p>
 
@@ -108,7 +108,7 @@ position <code>0</code>, giving us the list:
 which represents the following layout.
 </p>
 
-<pre class="example" id="org515df6a">
+<pre class="example" id="orgd892975">
 ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───
 │ O │ O │ F │ O │ O │ O │ O │ F │ F │ O │ F │ F │ ...
 └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───
@@ -129,15 +129,15 @@ position <code>10</code>, giving us the list:
 which represents the following layout.
 </p>
 
-<pre class="example" id="orgf06b04b">
+<pre class="example" id="org9d4d429">
 ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───
 │ F │ F │ F │ O │ O │ O │ O │ F │ F │ O │ O │ O │ O │ O │ O │ F │ F │ ...
 └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───
  0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16   ...
 </pre>
-<div id="outline-container-org5bcf6a9" class="outline-2">
-<h2 id="org5bcf6a9">Examples</h2>
-<div class="outline-text-2" id="text-org5bcf6a9">
+<div id="outline-container-orgabf8fbb" class="outline-2">
+<h2 id="orgabf8fbb">Examples</h2>
+<div class="outline-text-2" id="text-orgabf8fbb">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">m0</span> = [(<span style="color: #000000; background-color: #ffffff;">Free</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 3); (<span style="color: #000000; background-color: #ffffff;">Free</span>, 2); (<span style="color: #000000; background-color: #ffffff;">Occupied</span>, 1)]
 

@@ -11,10 +11,10 @@
   type memory = (mem_status * int) list
 #+end_src
 
-This problem uses the same memory model as a [[file:memory-allocator.org][previous problem]]. Recall that, in
-this model, memory is represented as a list of pairs, each
+This problem uses the same memory model as a [[file:memory-allocator.org][previous problem]]. Recall
+that, in this model, memory is represented as a list of pairs, each
 representing a chunk of memory.  The first entry of the pair
-determines if the chunk is ~Free~ or ~Occupied~, and the second
+determines whether the chunk is ~Free~ or ~Occupied~, and the second
 determines how many units of memory the chunk occupies.  Furthermore,
 we require that memory has the following properties:
 
@@ -42,7 +42,7 @@ so that ~free pos mem~ is a ~free_result~ such that:
 + If ~pos~ is negative, or is not the beginning of an ~Occupied~
   chunk of memory, then the position is invalid.
 + The chunk starting at ~pos~ in ~mem~ should be converted to a
-  ~Free~ block, and the result should be updated to maintain the
+  ~Free~ chunk, and the result should be updated to maintain the
   above invariants (no adjacent ~Free~ chunks, no trailing ~Free~
   chunk).
 
