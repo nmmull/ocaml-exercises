@@ -10,10 +10,6 @@
     | Node of 'a * 'a tree * 'a tree
 #+end_src
 
-A binary tree is /ordered/ if, given ~Node (a, left, right)~, every
-element of ~left~ is at most ~a~ and every element of ~right~ is
-greater than ~a~.  Repetitions are allowed.
-
 Using [[file:binary-tree-insert.org][~insert~]] and [[file:flatten-tree.org][~flatten~]], implement the function
 #+begin_src ocaml
   val sort : 'a list -> 'a list
