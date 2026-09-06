@@ -1,0 +1,23 @@
+#+title: All Some
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+Implement the function
+#+begin_src ocaml
+  val all_some : 'a option list -> 'a list option
+#+end_src
+which converts a list of options into an optional list according to
+the following specification.
+
++ If ~None~ is an element of the list ~l~, then ~all_some l~ is ~None~.
++ Otherwise, ~all_some l~ is ~Some l'~ where ~l'~ is the list of
+  arguments of the ~Some~ elements of ~l~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (all_some [Some 1; Some 2; Some 3] = Some [1;2;3])
+  let _ = assert (all_some [Some 1; None; Some 3] = None)
+#+end_src
