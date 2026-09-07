@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 12:24 -->
+<!-- 2026-09-07 Mon 10:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Updating Recent Posts</title>
@@ -12,12 +12,12 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Updating Recent Posts</h1>
 <p>
 An online post (defined by the record type <code>post</code> below) has a
 title, content, and timestamp.  A user is defined by a record type
-with many fields (see below) but the important fields for this
+with many fields (see below), but the important fields for this
 problem are
 </p>
 
@@ -72,12 +72,12 @@ following properties:
 (with respect to the current time <code>time</code>) has been moved to
 <code>old_posts</code>;</li>
 <li>the ordering property above is maintained: timestamps still
-appear in decreasing order, and <code>old_posts</code> are older than
+appear in decreasing order, and <code>old_posts</code> is older than
 <code>recent_posts</code>.</li>
 </ul>
-<div id="outline-container-orge22b243" class="outline-2">
-<h2 id="orge22b243">Examples</h2>
-<div class="outline-text-2" id="text-orge22b243">
+<div id="outline-container-orgbbd5fa3" class="outline-2">
+<h2 id="orgbbd5fa3">Examples</h2>
+<div class="outline-text-2" id="text-orgbbd5fa3">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">p</span> <span style="color: #a0522d;">t</span> = {title=<span style="color: #8b2252;">""</span>;content=<span style="color: #8b2252;">""</span>;timestamp=t}
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">mk</span> <span style="color: #a0522d;">op</span> <span style="color: #a0522d;">rp</span> = {

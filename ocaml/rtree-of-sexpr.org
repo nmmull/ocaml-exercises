@@ -1,0 +1,41 @@
+#+title: S-Expressions to Rose Trees
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+
+#+begin_src ocaml
+  type 'a rtree = Node of 'a * 'a rtree list
+
+  type 'a sexpr =
+    | Atom of 'a
+    | List of 'a sexpr list
+#+end_src
+
+There is /not/ a 1-1 correspondence between rose trees and
+S-expressions. Take for example, the S-expressions ~()~ and ~((foo)
+bar)~.  An S-expression is /rose tree representable/ if every ~List~
+subexpression has at least two elments, and it's first element is an
+~Atom~.  We can think of this first element as a /tag/ for the ~List~,
+which becomes the value carried by a ~Node~ when represented as a rose
+tree.
+
+Implement the function
+
+#+begin_src ocaml
+  val rtree_of_sexpr : 'a sexpr -> 'a rtree option
+#+end_src
+
+so that ~rtree_of_sexpr e~ is ~Some t~ where ~t~ is the rose tree
+representation of ~e~, given one exists, and ~None~ otherwise.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (rtree_of_sexpr (List [Atom "foo"; Atom "bar"; Atom "baz"])
+                  = Some (Node ("foo", [Node ("bar", []); Node ("baz", [])])))
+  let _ = assert (rtree_of_sexpr (List [List [Atom "foo"]; Atom "bar"]) = None)
+  let _ = assert (rtree_of_sexpr (List [List [List []]]) = None)
+  let _ = assert (rtree_of_sexpr (List [Atom "one"; List [Atom "two"]])
+                  = Some (Node ("one", [Node ("two", [])])))
+#+end_src

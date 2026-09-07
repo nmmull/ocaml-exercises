@@ -22,7 +22,6 @@ all of which are also valuable resources.
 13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
 
 * Records
-25. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
 26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming
 7. [[file:ocaml/split-by.org][Split By]]

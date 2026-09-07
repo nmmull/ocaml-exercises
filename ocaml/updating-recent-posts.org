@@ -5,7 +5,7 @@
 #+HTML_LINK_HOME: ../index.html
 An online post (defined by the record type ~post~ below) has a
 title, content, and timestamp.  A user is defined by a record type
-with many fields (see below) but the important fields for this
+with many fields (see below), but the important fields for this
 problem are
 
    - ~old_posts~: a list of posts in decreasing order of timestamp;
@@ -48,7 +48,7 @@ following properties:
      (with respect to the current time ~time~) has been moved to
      ~old_posts~;
    - the ordering property above is maintained: timestamps still
-     appear in decreasing order, and ~old_posts~ are older than
+     appear in decreasing order, and ~old_posts~ is older than
      ~recent_posts~.
 
 ** Examples

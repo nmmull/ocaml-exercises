@@ -1,0 +1,25 @@
+#+title: Rose Trees to S-Expressions
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+#+begin_src ocaml
+  type 'a rtree = Node of 'a * 'a rtree list
+
+  type 'a sexpr =
+    | Atom of 'a
+    | List of 'a sexpr list
+#+end_src
+
+Implement the function
+#+begin_src ocaml
+  val sexpr_of_rtree : 'a rtree -> 'a sexpr
+#+end_src
+so that it's the right-inverse of [[file:rtree-of-sexpr.org][~rtree_of_sexpr~]].
+
+** Examples
+
+#+begin_src ocaml
+  let t = Node ("foo", [Node ("bar", []); Node ("baz", [])])
+  let _ = assert (rtree_of_sexpr (sexpr_of_rtree t) = Some t)
+#+end_src

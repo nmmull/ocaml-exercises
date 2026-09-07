@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-07 Mon 10:37 -->
+<!-- 2026-09-07 Mon 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OCaml Exercises</title>
@@ -18,12 +18,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf0046b6">1. Basics</a></li>
-<li><a href="#org3d40e3c">2. Lists</a></li>
-<li><a href="#org0f0a3e5">3. Strings</a></li>
-<li><a href="#orgd8fc8b0">4. Sums and Products</a></li>
-<li><a href="#org5da8c27">5. Higher-Order Programming</a></li>
-<li><a href="#org349213c">6. Written Problems</a></li>
+<li><a href="#org36e803f">1. Arithmetic</a></li>
+<li><a href="#org16f3531">2. Lists and Strings</a></li>
+<li><a href="#orgdf94a4a">3. Sums and Products</a></li>
+<li><a href="#orgc2ae3f9">4. Higher-Order Programming</a></li>
+<li><a href="#orgc0363e4">5. Written Problems</a></li>
 </ul>
 </div>
 </div>
@@ -46,8 +45,8 @@ all of which are also valuable resources.
 </p>
 
 <hr />
-<div id="outline-container-orgf0046b6" class="outline-2">
-<h2 id="orgf0046b6"><span class="section-number-2">1.</span> Basics</h2>
+<div id="outline-container-org36e803f" class="outline-2">
+<h2 id="org36e803f"><span class="section-number-2">1.</span> Arithmetic</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><a href="ocaml/temperature.html">Fahrenheit to Celsius</a></li>
@@ -60,7 +59,7 @@ all of which are also valuable resources.
 <li><a href="ocaml/int-sqrt.html">Integer Square Root</a></li>
 <li><a href="ocaml/int-pow.html">Integer Exponentiation</a></li>
 <li><a href="ocaml/perfect-powers.html">Perfect Powers</a></li>
-<li><a href="ocaml/hanoi.html">Towers of Hanoi</a></li>
+<li><a href="ocaml/hanoi.html">Towers of Hanoi</a> (TODO: Remove)</li>
 <li><a href="ocaml/primality-checking.html">Primality</a></li>
 <li><a href="ocaml/number-of-factors.html">Number of Factors</a></li>
 <li><a href="ocaml/nth-prime.html">N<sup>th</sup> Prime Number</a></li>
@@ -73,14 +72,17 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org3d40e3c" class="outline-2">
-<h2 id="org3d40e3c"><span class="section-number-2">2.</span> Lists</h2>
+<div id="outline-container-org16f3531" class="outline-2">
+<h2 id="org16f3531"><span class="section-number-2">2.</span> Lists and Strings</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><a href="ocaml/rev-append.html">Reverse Append</a></li>
 <li><a href="ocaml/rev-concat.html">Reverse Concatenation</a></li>
 <li><a href="ocaml/drop-leading.html">Drop Leading</a></li>
 <li><a href="ocaml/drop-trailing.html">Drop Trailing</a></li>
+<li><a href="ocaml/hanoi.html">Towers of Hanoi</a></li>
+<li><a href="ocaml/string-triangle.html">String Triangle</a></li>
+<li><a href="ocaml/hourglass.html">Hourglass</a></li>
 <li><a href="ocaml/lookup.html">Lookup (Right)</a></li>
 <li><a href="ocaml/partition-by-value.html">Split by Less-Than</a></li>
 <li><a href="ocaml/split-at.html">Split At</a></li>
@@ -102,25 +104,16 @@ all of which are also valuable resources.
 <li><a href="ocaml/fib-gen.html">The Generalized Fibonacci Sequence</a></li>
 <li><a href="ocaml/graph-connectivity.html">Graph Connectivity</a></li>
 <li><a href="ocaml/no-collisions-on-a-line.html">Valid 1D Paths</a></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org0f0a3e5" class="outline-2">
-<h2 id="org0f0a3e5"><span class="section-number-2">3.</span> Strings</h2>
-<div class="outline-text-2" id="text-3">
-<ol class="org-ol">
 <li><a href="ocaml/split-by-whitespace.html">Split by Whitespace</a></li>
 <li><a href="ocaml/split-by-whitespace-correctly.html">Split by Whitespace, Correctly</a></li>
 <li><a href="ocaml/string-reversal.html">Reversing Strings</a></li>
 <li><a href="ocaml/split-on-character.html">Split on Character</a></li>
-<li><a href="ocaml/string-triangle.html">String Triangle</a></li>
-<li><a href="ocaml/hourglass.html">Hourglass</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd8fc8b0" class="outline-2">
-<h2 id="orgd8fc8b0"><span class="section-number-2">4.</span> Sums and Products</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgdf94a4a" class="outline-2">
+<h2 id="orgdf94a4a"><span class="section-number-2">3.</span> Sums and Products</h2>
+<div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><a href="ocaml/walking-distance.html">Walking Distance</a></li>
 <li><a href="ocaml/repeats.html">Repeats</a></li>
@@ -135,6 +128,7 @@ all of which are also valuable resources.
 <li><a href="ocaml/alternating-arity-trees.html">Counting 2-3 Trees</a></li>
 <li><a href="ocaml/summing-32-trees.html">Summing 3-2 Trees</a></li>
 <li><a href="ocaml/recipes-by-ingredients.html">Recipes by Ingredients</a></li>
+<li><a href="ocaml/updating-recent-posts.html">Updating Recent Posts</a></li>
 <li><a href="ocaml/concatenation-lists.html">Sorting Concatenation Lists</a></li>
 <li><a href="ocaml/forklist.html">Tailing Ordered Fork Lists</a></li>
 <li><a href="ocaml/double-lists.html">Reversing Double Lists</a></li>
@@ -147,12 +141,14 @@ all of which are also valuable resources.
 <li><a href="ocaml/memory-allocator-free.html">Freeing Memory</a></li>
 <li><a href="ocaml/printing-expressions.html">Pretty Arithmetic Expressions</a></li>
 <li><a href="ocaml/mapping-keys.html">Mapping Keys</a></li>
+<li><a href="ocaml/rtree-of-sexpr.html">S-Expressions to Rose Trees</a></li>
+<li><a href="ocaml/sexpr-of-rtree.html">Rose Trees to S-Expressions</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org5da8c27" class="outline-2">
-<h2 id="org5da8c27"><span class="section-number-2">5.</span> Higher-Order Programming</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgc2ae3f9" class="outline-2">
+<h2 id="orgc2ae3f9"><span class="section-number-2">4.</span> Higher-Order Programming</h2>
+<div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="ocaml/take-while.html">Take While</a></li>
 <li><a href="ocaml/drop-while.html">Drop While</a></li>
@@ -161,9 +157,9 @@ all of which are also valuable resources.
 </ol>
 </div>
 </div>
-<div id="outline-container-org349213c" class="outline-2">
-<h2 id="org349213c"><span class="section-number-2">6.</span> Written Problems</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgc0363e4" class="outline-2">
+<h2 id="orgc0363e4"><span class="section-number-2">5.</span> Written Problems</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 Coming soon&#x2026;
 </p>
