@@ -21,34 +21,33 @@ all of which are also valuable resources.
 1. [[file:ocaml/tree-collapsing.org][Flattening Rose Trees]]
 26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming
-3. [[file:ocaml/map2.org][Map 2]]
-4. [[file:ocaml/filter-map.org][Filter Map]]
-5. [[file:ocaml/prefix-map.org][Prefix Map]]
-6. [[file:ocaml/fold-right-2.org][Fold Right 2]] (TODO: Add examples)
-7. [[file:ocaml/fold-left-2.org][Fold Left 2]] (TODO: Add examples)
-8. [[file:ocaml/filter-any.org][Filter Any]]
-9. [[file:ocaml/filter-all.org][Filter All]]
-10. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
-11. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
-12. [[file:ocaml/for-loops.org][Fake Loops]]
-13. [[file:ocaml/consecutives.org][Consecutives]]
-14. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
-15. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]] (TODO: Make part of matrices?)
-16. [[file:ocaml/fixpoints.org][Fixpoints]]
-17. [[file:ocaml/transpose.org][Transpose]] (TODO: Move, part of matrices )
-18. [[file:ocaml/diagonal.org][Diagonal]] (TOOD: Move to matrices )
-19. [[file:ocaml/increasing-sequence.org][Increasing Sequence]]
-20. [[file:ocaml/function-maximum.org][Function Maximum]]
-21. [[file:ocaml/replicate.org][Replicate]]
-22. [[file:ocaml/last-function-standing.org][Last Function Standing]]
-15. [[file:ocaml/folding-and-ounit.org][Folding and OUnit]]
-25. [[file:ocaml/split-list.org][Split List]]
-26. [[file:ocaml/split-tree.org][Split Tree]]
-27. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
-28. [[file:ocaml/double-fold.org][Double Fold]]
-29. [[file:ocaml/all-map.org][All Map]]
-30. [[file:ocaml/reimplement-list-functions.org][Reimplementing List Functions]]
-31. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
+1. [[file:ocaml/map2.org][Map 2]]
+2. [[file:ocaml/filter-map.org][Filter Map]]
+3. [[file:ocaml/prefix-map.org][Prefix Map]]
+4. [[file:ocaml/fold-right-2.org][Fold Right 2]] (TODO: Add examples)
+5. [[file:ocaml/fold-left-2.org][Fold Left 2]] (TODO: Add examples)
+6. [[file:ocaml/filter-any.org][Filter Any]]
+7. [[file:ocaml/filter-all.org][Filter All]]
+8. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
+9. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
+10. [[file:ocaml/for-loops.org][Fake Loops]]
+11. [[file:ocaml/consecutives.org][Consecutives]]
+12. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
+13. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]] (TODO: Make part of matrices?)
+14. [[file:ocaml/fixpoints.org][Fixpoints]]
+15. [[file:ocaml/transpose.org][Transpose]] (TODO: Move, part of matrices )
+16. [[file:ocaml/diagonal.org][Diagonal]] (TOOD: Move to matrices )
+17. [[file:ocaml/increasing-sequence.org][Increasing Sequence]]
+18. [[file:ocaml/function-maximum.org][Function Maximum]]
+19. [[file:ocaml/replicate.org][Replicate]]
+20. [[file:ocaml/last-function-standing.org][Last Function Standing]]
+21. [[file:ocaml/folding-and-ounit.org][Folding and OUnit]]
+22. [[file:ocaml/split-list.org][Split List]]
+23. [[file:ocaml/split-tree.org][Split Tree]]
+24. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
+25. [[file:ocaml/double-fold.org][Double Fold]]
+26. [[file:ocaml/all-map.org][All Map]]
+27. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
 * Written Problems
 1. [[file:written/an-ocaml-puzzle.org][An OCaml Puzzle]]
 2. [[file:written/types-of-expressions.org][Types of Expressions]]
