@@ -7,7 +7,7 @@ Implement the function
 #+begin_src ocaml
   val curry3 : ('a * 'b * 'c -> 'd) -> 'a -> 'b -> 'c -> 'd
 #+end_src
-which converts a "multi-argument" function (i.e., a function which
+which converts a "three-argument" function (i.e., a function that
 takes a tuple as an argument) into nested single-argument functions.
 
 ** Examples

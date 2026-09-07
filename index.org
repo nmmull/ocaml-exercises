@@ -90,7 +90,6 @@ all of which are also valuable resources.
 17. [[file:ocaml/double-lists.org][Reversing Double Lists]]
 18. [[file:ocaml/sum-rtree.org][Summing Rose Trees]]
 19. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
-20. Flattening Rose Trees
 21. [[file:ocaml/tree-conversion.org][Binary Tree to Rose Tree]]
 22. [[file:ocaml/file-trees.org][File Trees]]
 23. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
@@ -101,10 +100,14 @@ all of which are also valuable resources.
 28. [[file:ocaml/rtree-of-sexpr.org][S-Expressions to Rose Trees]]
 29. [[file:ocaml/sexpr-of-rtree.org][Rose Trees to S-Expressions]]
 * Higher-Order Programming
-2. [[file:ocaml/take-while.org][Take While]]
-3. [[file:ocaml/drop-while.org][Drop While]]
-1. [[file:ocaml/split-by.org][Split By]]
-4. [[file:ocaml/map-rtree.org][Mapping Rose Trees]]
-5. [[file:ocaml/filter-rtree.org][Filtering Rose Trees]]
+1. [[file:ocaml/curry.org][Curry]]
+2. [[file:ocaml/uncurry.org][Uncurry]]
+3. [[file:ocaml/curry3.org][Curry 3]]
+4. [[file:ocaml/uncurry3.org][Uncurry 3]]
+5. [[file:ocaml/take-while.org][Take While]]
+6. [[file:ocaml/drop-while.org][Drop While]]
+7. [[file:ocaml/split-by.org][Split By]]
+8. [[file:ocaml/map-rtree.org][Mapping Rose Trees]]
+9. [[file:ocaml/filter-rtree.org][Filtering Rose Trees]]
 * Written Problems
 Coming soon...

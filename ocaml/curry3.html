@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 12:07 -->
+<!-- 2026-09-07 Mon 11:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Curry 3</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Curry 3</h1>
 <p>
 Implement the function
@@ -22,12 +22,12 @@ Implement the function
 </pre>
 </div>
 <p>
-which converts a "multi-argument" function (i.e., a function which
+which converts a "three-argument" function (i.e., a function that
 takes a tuple as an argument) into nested single-argument functions.
 </p>
-<div id="outline-container-org77df285" class="outline-2">
-<h2 id="org77df285">Examples</h2>
-<div class="outline-text-2" id="text-org77df285">
+<div id="outline-container-orge69b176" class="outline-2">
+<h2 id="orge69b176">Examples</h2>
+<div class="outline-text-2" id="text-orge69b176">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f</span> (<span style="color: #a0522d;">x</span>, <span style="color: #a0522d;">y</span>, <span style="color: #a0522d;">z</span>) = x + y + z
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">g</span> = curry3 f

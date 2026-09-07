@@ -7,8 +7,8 @@ Implement the function
 #+begin_src ocaml
   val curry : (('a * 'b) -> 'c) -> 'a -> 'b -> 'c
 #+end_src
-which converts a "multi-argument" function (i.e., a function which
-takes a tuple as an argument) into nested single-argument functions.
+which converts a "two-argument" function (i.e., a function that takes
+a tuple as an argument) into nested single-argument functions.
 
 ** Examples
 

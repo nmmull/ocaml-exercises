@@ -7,8 +7,8 @@ Implement the function
 #+begin_src ocaml
   val uncurry : ('a -> 'b -> 'c) -> ('a * 'b) -> 'c
 #+end_src
-which is the inverse of [[file:curry.org][curry]], i.e., it converts a Curried
-two-argument function into a function which takes a tuple as an
+which is the inverse of [[file:curry.org][curry]], i.e., it converts a curried
+two-argument function into a function that takes a tuple as an
 argument.
 
 ** Examples

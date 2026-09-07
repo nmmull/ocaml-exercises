@@ -21,8 +21,6 @@ all of which are also valuable resources.
 1. [[file:ocaml/tree-collapsing.org][Flattening Rose Trees]]
 26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming
-1. [[file:ocaml/curry3.org][Curry 3]]
-2. [[file:ocaml/uncurry3.org][Uncurry 3]]
 3. [[file:ocaml/map2.org][Map 2]]
 4. [[file:ocaml/filter-map.org][Filter Map]]
 5. [[file:ocaml/prefix-map.org][Prefix Map]]
@@ -44,8 +42,6 @@ all of which are also valuable resources.
 21. [[file:ocaml/replicate.org][Replicate]]
 22. [[file:ocaml/last-function-standing.org][Last Function Standing]]
 15. [[file:ocaml/folding-and-ounit.org][Folding and OUnit]]
-23. [[file:ocaml/curry.org][Curry]]
-24. [[file:ocaml/uncurry.org][Uncurry]]
 25. [[file:ocaml/split-list.org][Split List]]
 26. [[file:ocaml/split-tree.org][Split Tree]]
 27. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
