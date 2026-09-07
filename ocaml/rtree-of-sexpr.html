@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-07 Mon 11:06 -->
+<!-- 2026-09-07 Mon 11:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>S-Expressions to Rose Trees</title>
@@ -25,9 +25,9 @@
 
 <p>
 There is <i>not</i> a 1-1 correspondence between rose trees and
-S-expressions. Take for example, the S-expressions <code>()</code> and <code>((foo)
+S-expressions.  Take, for example, the S-expressions <code>()</code> and <code>((foo)
 bar)</code>.  An S-expression is <i>rose tree representable</i> if every <code>List</code>
-subexpression has at least two elments, and it's first element is an
+subexpression has at least two elements, and its first element is an
 <code>Atom</code>.  We can think of this first element as a <i>tag</i> for the <code>List</code>,
 which becomes the value carried by a <code>Node</code> when represented as a rose
 tree.
@@ -46,9 +46,9 @@ Implement the function
 so that <code>rtree_of_sexpr e</code> is <code>Some t</code> where <code>t</code> is the rose tree
 representation of <code>e</code>, given one exists, and <code>None</code> otherwise.
 </p>
-<div id="outline-container-org3762bf7" class="outline-2">
-<h2 id="org3762bf7">Examples</h2>
-<div class="outline-text-2" id="text-org3762bf7">
+<div id="outline-container-orgc72ad4e" class="outline-2">
+<h2 id="orgc72ad4e">Examples</h2>
+<div class="outline-text-2" id="text-orgc72ad4e">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rtree_of_sexpr (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"foo"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"bar"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"baz"</span>])
                 = <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"foo"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"bar"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"baz"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])))

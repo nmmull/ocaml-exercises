@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-07 Mon 10:53 -->
+<!-- 2026-09-07 Mon 11:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rose Trees to S-Expressions</title>
@@ -33,9 +33,9 @@ Implement the function
 <p>
 so that it's the right-inverse of <a href="rtree-of-sexpr.html"><code>rtree_of_sexpr</code></a>.
 </p>
-<div id="outline-container-org33d5c07" class="outline-2">
-<h2 id="org33d5c07">Examples</h2>
-<div class="outline-text-2" id="text-org33d5c07">
+<div id="outline-container-org3125640" class="outline-2">
+<h2 id="org3125640">Examples</h2>
+<div class="outline-text-2" id="text-org3125640">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"foo"</span>, [<span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"bar"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>); <span style="color: #000000; background-color: #ffffff;">Node</span> (<span style="color: #8b2252;">"baz"</span>, <span style="color: #000000; background-color: #ffffff;">[]</span>)])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (rtree_of_sexpr (sexpr_of_rtree t) = <span style="color: #000000; background-color: #ffffff;">Some</span> t)

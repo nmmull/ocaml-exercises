@@ -13,9 +13,9 @@
 #+end_src
 
 There is /not/ a 1-1 correspondence between rose trees and
-S-expressions. Take for example, the S-expressions ~()~ and ~((foo)
+S-expressions.  Take, for example, the S-expressions ~()~ and ~((foo)
 bar)~.  An S-expression is /rose tree representable/ if every ~List~
-subexpression has at least two elments, and it's first element is an
+subexpression has at least two elements, and its first element is an
 ~Atom~.  We can think of this first element as a /tag/ for the ~List~,
 which becomes the value carried by a ~Node~ when represented as a rose
 tree.
