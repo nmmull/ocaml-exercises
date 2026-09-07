@@ -17,14 +17,10 @@ all of which are also valuable resources.
 
 -----
 
-* ADT ACTUAL TODO
-24. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
-13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
-
-* Records
+* Sum and Products
+1. [[file:ocaml/tree-collapsing.org][Flattening Rose Trees]]
 26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming
-7. [[file:ocaml/split-by.org][Split By]]
 1. [[file:ocaml/curry3.org][Curry 3]]
 2. [[file:ocaml/uncurry3.org][Uncurry 3]]
 3. [[file:ocaml/map2.org][Map 2]]

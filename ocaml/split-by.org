@@ -8,8 +8,8 @@ Implement the function
   val split_by : ('a -> bool) -> 'a list -> 'a list * 'a list
 #+end_src
 so that ~split_by f l~ is a pair of lists ~(lt, lf)~ where ~lt~
-consists of those elements of ~l~ (in order, with repetitions) which
-satisfy the predicate ~f~, and ~lf~ consists of those elements which
+consists of those elements of ~l~ (in order, with repetitions) that
+satisfy the predicate ~f~, and ~lf~ consists of those elements that
 do not satisfy the predicate ~f~.  Your solution must be tail
 recursive.
 
