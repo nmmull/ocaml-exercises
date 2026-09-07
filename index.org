@@ -94,6 +94,7 @@ all of which are also valuable resources.
 21. [[file:ocaml/memory-allocator.org][Allocating Memory]]
 22. [[file:ocaml/memory-allocator-free.org][Freeing Memory]]
 23. [[file:ocaml/printing-expressions.org][Pretty Arithmetic Expressions]]
+21. [[file:ocaml/mapping-keys.org][Mapping Keys]]
 * Higher-Order Programming
 1. [[file:ocaml/take-while.org][Take While]]
 2. [[file:ocaml/drop-while.org][Drop While]]
