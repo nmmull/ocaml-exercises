@@ -27,21 +27,25 @@ Implement the function
 #+end_src
 so that ~flip_keys_and_values m~ is the map ~m'~ gotten by making
 the values of ~m~ into keys.  The value associated with a key ~v~ in
-~m'~ is the set of keys in ~m~ which map to the value ~v~.
+~m'~ is the set of keys in ~m~ that map to the value ~v~.
 
 ** Examples
 
 Since ~StringMap.t~ and ~IntMap.t~ values aren't directly comparable
 with ~=~ in a way that reflects their bindings, we compare using
-~bindings~ (and ~StringSet.elements~) instead, both of which return
-their entries/elements in increasing order.
+~IntMap.equal~ (and ~StringSet.equal~) instead.
 
 #+begin_src ocaml
   let m = StringMap.of_seq (List.to_seq [("a", 1); ("b", 2); ("c", 1); ("d", 3)])
   let out = flip_keys_and_values m
-  let _ = assert
-      (List.map (fun (k, s) -> (k, StringSet.elements s)) (IntMap.bindings out)
-       = [(1, ["a"; "c"]); (2, ["b"]); (3, ["d"])])
+  let expected =
+    IntMap.of_seq (List.to_seq
+      [(1, StringSet.of_list ["a"; "c"]);
+       (2, StringSet.of_list ["b"]);
+       (3, StringSet.of_list ["d"])])
+  let _ = assert (IntMap.equal StringSet.equal out expected)
 
-  let _ = assert (IntMap.bindings (flip_keys_and_values StringMap.empty) = [])
+  let _ = assert
+      (IntMap.equal StringSet.equal
+         (flip_keys_and_values StringMap.empty) IntMap.empty)
 #+end_src

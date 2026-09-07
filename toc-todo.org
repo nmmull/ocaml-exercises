@@ -17,48 +17,11 @@ all of which are also valuable resources.
 
 -----
 
-26. [[file:ocaml/no-collisions-plane.org][Valid 2D Paths]]
-
-
 * ADT ACTUAL TODO
 24. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
 13. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
-14. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
-15. No Collisions 3D
 
-
-
-* Algebraic Data Types
-19. [[file:ocaml/repeats.org][Repeats]]
-1. [[file:ocaml/grouping-integers-and-strings.org][Grouping Integers and Strings]]
-2. [[file:ocaml/icy-hot.org][Icy Hot]]
-3. [[file:ocaml/listing-paths.org][Manhattan Paths]]
-4. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
-5. [[file:ocaml/forklist.org][Tailing Fork Lists]]
-6. [[file:ocaml/double-lists.org][Reversing Double Lists]]
-7. [[file:ocaml/list-to-reversed-doublelist.org][Double List of List]]
-8. [[file:ocaml/boolean-expressions.org][Boolean Expressions]] (TODO: Include or separate into Interpreters?)
-9. [[file:ocaml/rose-trees.org][Rose Trees]] (TODO: Split)
-10. [[file:ocaml/reversing-rose-trees.org][Reversing Rose Trees]]
-11. [[file:ocaml/sum-rtree.org][Sum of a Rose Tree]]
-12. [[file:ocaml/max-rtree.org][Max of a Rose Tree]]
-13. [[file:ocaml/no-collisions-on-a-line.org][No Collisions]]
-11. [[file:ocaml/deepest-parentheses.org][Deepest Parentheses]]
-12. [[file:ocaml/ordered-binary-trees.org][Ordered Binary Trees]] (TODO: Split)
-13. [[file:ocaml/walking-distance.org][Walking Distance]]
-14. [[file:ocaml/tree-collapsing.org][Tree Collapsing]]
-15. [[file:ocaml/memory-allocator.org][Memory Allocator]]
-16. [[file:ocaml/tree-conversion.org][Tree Conversion]] (TODO: use rose trees)
-17. [[file:ocaml/file-trees.org][File Trees]]
-18. [[file:ocaml/printing-expressions.org][Printing Expressions]]
-19. [[file:ocaml/mapping-keys.org][Mapping Keys]] (TODO: Find a better place to put this)
-20. [[file:ocaml/merge-sort-with-a-tree.org][Merge Sort with a Tree]]
-21. [[file:ocaml/alternating-paths.org][Alternating Paths]]
-22. [[file:ocaml/s-expressions.org][S-Expressions]] (TODO: Split)
-23. [[file:ocaml/association-lists.org][Association Lists]]
-24. [[file:ocaml/alternating-arity-trees.org][Alternating Arity Trees]]
 * Records
-25. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 25. [[file:ocaml/updating-recent-posts.org][Updating Recent Posts]]
 26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming

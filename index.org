@@ -83,6 +83,7 @@ all of which are also valuable resources.
 10. [[file:ocaml/alternating-paths.org][Alternating Paths]]
 11. [[file:ocaml/alternating-arity-trees.org][Counting 2-3 Trees]]
 12. [[file:ocaml/summing-32-trees.org][Summing 3-2 Trees]]
+25. [[file:ocaml/recipes-by-ingredients.org][Recipes by Ingredients]]
 13. [[file:ocaml/concatenation-lists.org][Sorting Concatenation Lists]]
 14. [[file:ocaml/forklist.org][Tailing Ordered Fork Lists]]
 15. [[file:ocaml/double-lists.org][Reversing Double Lists]]
@@ -94,7 +95,7 @@ all of which are also valuable resources.
 21. [[file:ocaml/memory-allocator.org][Allocating Memory]]
 22. [[file:ocaml/memory-allocator-free.org][Freeing Memory]]
 23. [[file:ocaml/printing-expressions.org][Pretty Arithmetic Expressions]]
-21. [[file:ocaml/mapping-keys.org][Mapping Keys]]
+24. [[file:ocaml/mapping-keys.org][Mapping Keys]]
 * Higher-Order Programming
 1. [[file:ocaml/take-while.org][Take While]]
 2. [[file:ocaml/drop-while.org][Drop While]]

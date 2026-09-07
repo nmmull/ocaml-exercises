@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-07 Mon 10:29 -->
+<!-- 2026-09-07 Mon 10:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mapping Keys</title>
@@ -47,26 +47,30 @@ Implement the function
 <p>
 so that <code>flip_keys_and_values m</code> is the map <code>m'</code> gotten by making
 the values of <code>m</code> into keys.  The value associated with a key <code>v</code> in
-<code>m'</code> is the set of keys in <code>m</code> which map to the value <code>v</code>.
+<code>m'</code> is the set of keys in <code>m</code> that map to the value <code>v</code>.
 </p>
-<div id="outline-container-org4bcb68f" class="outline-2">
-<h2 id="org4bcb68f">Examples</h2>
-<div class="outline-text-2" id="text-org4bcb68f">
+<div id="outline-container-orgdbcc4e6" class="outline-2">
+<h2 id="orgdbcc4e6">Examples</h2>
+<div class="outline-text-2" id="text-orgdbcc4e6">
 <p>
 Since <code>StringMap.t</code> and <code>IntMap.t</code> values aren't directly comparable
 with <code>=</code> in a way that reflects their bindings, we compare using
-<code>bindings</code> (and <code>StringSet.elements</code>) instead, both of which return
-their entries/elements in increasing order.
+<code>IntMap.equal</code> (and <code>StringSet.equal</code>) instead.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">m</span> = <span style="color: #228b22;">StringMap.</span>of_seq (<span style="color: #228b22;">List.</span>to_seq [(<span style="color: #8b2252;">"a"</span>, 1); (<span style="color: #8b2252;">"b"</span>, 2); (<span style="color: #8b2252;">"c"</span>, 1); (<span style="color: #8b2252;">"d"</span>, 3)])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">out</span> = flip_keys_and_values m
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
-    (<span style="color: #228b22;">List.</span>map (<span style="color: #a020f0;">fun</span> (<span style="color: #a0522d;">k</span>, <span style="color: #a0522d;">s</span>) -&gt; (k, <span style="color: #228b22;">StringSet.</span>elements s)) (<span style="color: #228b22;">IntMap.</span>bindings out)
-     = [(1, [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"c"</span>]); (2, [<span style="color: #8b2252;">"b"</span>]); (3, [<span style="color: #8b2252;">"d"</span>])])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">expected</span> =
+  <span style="color: #228b22;">IntMap.</span>of_seq (<span style="color: #228b22;">List.</span>to_seq
+    [(1, <span style="color: #228b22;">StringSet.</span>of_list [<span style="color: #8b2252;">"a"</span>; <span style="color: #8b2252;">"c"</span>]);
+     (2, <span style="color: #228b22;">StringSet.</span>of_list [<span style="color: #8b2252;">"b"</span>]);
+     (3, <span style="color: #228b22;">StringSet.</span>of_list [<span style="color: #8b2252;">"d"</span>])])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">IntMap.</span>equal <span style="color: #228b22;">StringSet.</span>equal out expected)
 
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (<span style="color: #228b22;">IntMap.</span>bindings (flip_keys_and_values <span style="color: #228b22;">StringMap.</span>empty) = <span style="color: #000000; background-color: #ffffff;">[]</span>)
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+    (<span style="color: #228b22;">IntMap.</span>equal <span style="color: #228b22;">StringSet.</span>equal
+       (flip_keys_and_values <span style="color: #228b22;">StringMap.</span>empty) <span style="color: #228b22;">IntMap.</span>empty)
 </pre>
 </div>
 </div>
