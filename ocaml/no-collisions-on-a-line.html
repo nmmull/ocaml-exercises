@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-06 Sun 17:24 -->
+<!-- 2026-09-10 Thu 08:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Valid 1D Paths</title>
@@ -53,10 +53,9 @@
 
 <p>
 A <i>path</i> represents a sequence of integers from a given starting
-point, where each element of the list pairs a direction (<code>true</code> for
-right, <code>false</code> for left) with a distance.  For example, the path
-<code>(0, [(false, 1);(true, 2);(true, 3);(false, 1)])</code> represents the
-sequence
+point, where each element is a direction (<code>true</code> for right, <code>false</code>
+for left) together with a distance.  For example, the path <code>(0,
+[(false, 1);(true, 2);(true, 3);(false, 1)])</code> represents the sequence
 </p>
 
 <p>
@@ -73,13 +72,15 @@ It's possible for the length-part of a path to be 0 or negative, i.e.,
 <p>
 We think of a path as being traced out by a point mass on \(\mathbb R\)
 where, by time step \(i + 1\), the point mass travels the distance and
-direction given by the path at index \(i\).
+direction given by the path at index \(i\). In between each time step,
+the point mass travels at a <b>constant</b> velocity.  Note that this means
+the point mass will travel different velocities between each time
+step, depending on how far it has to travel.
 </p>
 
 <p>
-Two paths are <i>valid</i> if it's possible for their point masses to avoid
-"phasing through each other" during the execution of each path.  For
-example, the paths
+Two paths are <i>valid</i> if their point masses never "phasing through
+each other" during the tracing of each path.  For example, the paths
 </p>
 
 <p>
@@ -122,11 +123,10 @@ and
 
 <p>
 are valid because, even though they cover a lot of the same parts of
-\(\mathbb{R}\), they can travel to each position by each time step
-without ever colliding (with some care taken as to their velocity
-in between time steps).  If one path is longer than the other, the point
-mass of the shorter path is treated as being stationary until the other
-path finishes.  For example,
+\(\mathbb{R}\), the point masses never occupy the same position at the
+same time.  If one path is longer than the other, the point mass of
+the shorter path is treated as being stationary until the other path
+finishes.  For example,
 </p>
 
 <p>
@@ -159,17 +159,23 @@ Implement the function
 </pre>
 </div>
 <p>
-so that <code>is_valid (s1, p1) (s2, p2)</code> is <code>true</code> if and only if <code>p1</code> and <code>p2</code> are
-valid with respect to <code>s1</code> and <code>s2</code>.
+so that <code>is_valid p1 p2</code> is <code>true</code> if and only if <code>p1</code> and <code>p2</code> are
+valid.
+</p>
+
+<p>
+<b>Hint:</b> Think about the plots of the point mass positions against
+time.  What does the constant velocity mean about those plots? What do
+the plots look like when the point masses "phase through" each other?
 </p>
 
 <p>
 <b>Challenge worth nothing:</b> Implement this function so that it takes a
-list of paths instead of two paths.
+list of paths instead of just two paths.
 </p>
-<div id="outline-container-orgc40a3e6" class="outline-2">
-<h2 id="orgc40a3e6">Examples</h2>
-<div class="outline-text-2" id="text-orgc40a3e6">
+<div id="outline-container-org2f4a3d5" class="outline-2">
+<h2 id="org2f4a3d5">Examples</h2>
+<div class="outline-text-2" id="text-org2f4a3d5">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (is_valid (0, <span style="color: #000000; background-color: #ffffff;">[]</span>) (10, <span style="color: #000000; background-color: #ffffff;">[]</span>))
 

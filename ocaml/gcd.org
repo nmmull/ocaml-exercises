@@ -1,0 +1,20 @@
+#+title: Greatest Common Divisor
+#+HTML_MATHJAX: align: left indent: 2em
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
+#+OPTIONS: html-style:nil H:1 toc:nil num:nil
+#+HTML_LINK_HOME: ../index.html
+Using Euclid's algorithm, implement the function
+#+begin_src ocaml
+  val gcd : int -> int -> int
+#+end_src
+so that ~gcd m n~ is the [[https://en.wikipedia.org/wiki/Greatest_common_divisor][greatest common divisor]] of ~m~ and ~n~.
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (gcd 12 8 = 4)
+  let _ = assert (gcd 17 5 = 1)
+  let _ = assert (gcd 0 9 = 9)
+  let _ = assert (gcd 48 18 = 6)
+  let _ = assert (gcd 100 75 = 25)
+#+end_src
