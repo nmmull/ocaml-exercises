@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-03 Thu 17:40 -->
+<!-- 2026-09-17 Thu 17:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Split by Whitespace, Correctly</title>
@@ -18,11 +18,11 @@
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_on_ws</span> : string -&gt; string list
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_by_ws</span> : string -&gt; string list
+</code></pre>
 </div>
 <p>
-so that <code>split_on_ws s</code> is the list of contiguous non-whitespace
+so that <code>split_by_ws s</code> is the list of contiguous non-whitespace
 substrings of <code>s</code>, in the order in which they appear, <i>but without
 using <code>implode</code> and <code>explode</code></i>.  Instead you should use <code>String.sub</code>
 and keep track of indices into <code>s</code>.

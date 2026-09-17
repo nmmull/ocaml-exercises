@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-03 Thu 17:40 -->
+<!-- 2026-09-17 Thu 17:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Split by Whitespace</title>
@@ -18,11 +18,11 @@
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_on_ws'</span> : string -&gt; string list
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">split_by_ws'</span> : string -&gt; string list
+</code></pre>
 </div>
 <p>
-so that <code>split_on_ws' s</code> is the list of contiguous non-whitespace
+so that <code>split_by_ws' s</code> is the list of contiguous non-whitespace
 substrings of <code>s</code>, in the order in which they appear.
 </p>
 
@@ -33,7 +33,7 @@ between strings and character lists.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">explode</span> (<span style="color: #a0522d;">s</span> :<span style="color: #228b22;"> string</span>) :<span style="color: #228b22;"> char list </span>=
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">explode</span> (<span style="color: #a0522d;">s</span> :<span style="color: #228b22;"> string</span>) :<span style="color: #228b22;"> char list </span>=
   <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #000000; font-weight: bold;">rec</span> <span style="color: #0000ff;">loop</span> <span style="color: #a0522d;">acc</span> <span style="color: #a0522d;">i</span> =
     <span style="color: #a020f0;">if</span> i = <span style="color: #228b22;">String.</span>length s
     <span style="color: #a020f0;">then</span> acc
@@ -42,15 +42,15 @@ between strings and character lists.
 
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">implode</span> (<span style="color: #a0522d;">l</span> :<span style="color: #228b22;"> char list</span>) :<span style="color: #228b22;"> string </span>=
   <span style="color: #228b22;">String.</span>init (<span style="color: #228b22;">List.</span>length l) (<span style="color: #228b22;">List.</span>nth l)
-</pre>
+</code></pre>
 </div>
-<div id="outline-container-orge786bb4" class="outline-2">
-<h2 id="orge786bb4">Examples</h2>
-<div class="outline-text-2" id="text-orge786bb4">
+<div id="outline-container-org7459e1f" class="outline-2">
+<h2 id="org7459e1f">Examples</h2>
+<div class="outline-text-2" id="text-org7459e1f">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_on_ws' <span style="color: #8b2252;">"1 23 + -94  *"</span> = [<span style="color: #8b2252;">"1"</span>; <span style="color: #8b2252;">"23"</span>; <span style="color: #8b2252;">"+"</span>; <span style="color: #8b2252;">"-94"</span>; <span style="color: #8b2252;">"*"</span>])
-<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_on_ws' <span style="color: #8b2252;">"  foo    bar  \n\n   baz   "</span> = [<span style="color: #8b2252;">"foo"</span>; <span style="color: #8b2252;">"bar"</span>; <span style="color: #8b2252;">"baz"</span>])
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_by_ws' <span style="color: #8b2252;">"1 23 + -94  *"</span> = [<span style="color: #8b2252;">"1"</span>; <span style="color: #8b2252;">"23"</span>; <span style="color: #8b2252;">"+"</span>; <span style="color: #8b2252;">"-94"</span>; <span style="color: #8b2252;">"*"</span>])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (split_by_ws' <span style="color: #8b2252;">"  foo    bar  \n\n   baz   "</span> = [<span style="color: #8b2252;">"foo"</span>; <span style="color: #8b2252;">"bar"</span>; <span style="color: #8b2252;">"baz"</span>])
+</code></pre>
 </div>
 </div>
 </div>
