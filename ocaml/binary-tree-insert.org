@@ -21,6 +21,8 @@ Implement the function
 so that ~insert x t~, given an ordered tree ~t~, is an ordered tree
 with the same elements as ~t~ along with the new element ~x~.
 
+*Challenge worth nothing:* Make your implementation tail recursive.
+
 ** Examples
 
 #+begin_src ocaml

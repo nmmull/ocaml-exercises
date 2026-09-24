@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-06 Sun 16:03 -->
+<!-- 2026-09-24 Thu 09:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Binary Tree Insertion</title>
@@ -15,10 +15,10 @@
 <div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Binary Tree Insertion</h1>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a tree</span>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">'a tree</span>
   = <span style="color: #000000; background-color: #ffffff;">Empty</span>
   | <span style="color: #000000; background-color: #ffffff;">Node</span> <span style="color: #a020f0;">of</span> 'a * 'a tree * 'a tree
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -31,18 +31,22 @@ greater than <code>a</code>.  Repetitions are allowed.
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">insert</span> : 'a -&gt; 'a tree -&gt; 'a tree
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">insert</span> : 'a -&gt; 'a tree -&gt; 'a tree
+</code></pre>
 </div>
 <p>
 so that <code>insert x t</code>, given an ordered tree <code>t</code>, is an ordered tree
 with the same elements as <code>t</code> along with the new element <code>x</code>.
 </p>
-<div id="outline-container-orgdc9690a" class="outline-2">
-<h2 id="orgdc9690a">Examples</h2>
-<div class="outline-text-2" id="text-orgdc9690a">
+
+<p>
+<b>Challenge worth nothing:</b> Make your implementation tail recursive.
+</p>
+<div id="outline-container-org9db70b5" class="outline-2">
+<h2 id="org9db70b5">Examples</h2>
+<div class="outline-text-2" id="text-org9db70b5">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (insert 5 <span style="color: #000000; background-color: #ffffff;">Empty</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Empty</span>))
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (insert 5 <span style="color: #000000; background-color: #ffffff;">Empty</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Empty</span>))
 
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">t</span> = <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Empty</span>)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (insert 3 t = <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">Node</span> (3, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Empty</span>), <span style="color: #000000; background-color: #ffffff;">Empty</span>))
@@ -50,7 +54,7 @@ with the same elements as <code>t</code> along with the new element <code>x</cod
 
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (insert 4 (insert 8 (insert 3 (insert 5 <span style="color: #000000; background-color: #ffffff;">Empty</span>))) =
     <span style="color: #000000; background-color: #ffffff;">Node</span> (5, <span style="color: #000000; background-color: #ffffff;">Node</span> (3, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Node</span> (4, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Empty</span>)), <span style="color: #000000; background-color: #ffffff;">Node</span> (8, <span style="color: #000000; background-color: #ffffff;">Empty</span>, <span style="color: #000000; background-color: #ffffff;">Empty</span>)))
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
