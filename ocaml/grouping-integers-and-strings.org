@@ -10,8 +10,8 @@
     | String of string
 
   type int_list_or_string_list
-    = IntList of int list
-    | StringList of string list
+    = Int_list of int list
+    | String_list of string list
 #+end_src
 
 Implement the function
@@ -25,6 +25,6 @@ adjacent ~int~ values and ~string~ values in ~l~ are grouped together.
 
 #+begin_src ocaml
   let test_in = [Int 2; Int 3; String "a"; String "b"; Int 4; String "c"]
-  let test_out = [IntList [2;3]; StringList ["a";"b"]; IntList [4]; StringList ["c"]]
+  let test_out = [Int_list [2;3]; String_list ["a";"b"]; Int_list [4]; String_list ["c"]]
   let _ = assert (convert test_in = test_out)
 #+end_src

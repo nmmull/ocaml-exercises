@@ -22,5 +22,5 @@ ending points will always be the same.
 
 #+begin_src ocaml
   let is_close f1 f2 = Float.abs (f1 -.f2) < 10. ** (-15.)
-  let _ = assert (is_close (dist [North; North; South; East]) (sqrt 2.))
+  let _ = assert (is_close (dist [N; N; S; E]) (sqrt 2.))
 #+end_src
