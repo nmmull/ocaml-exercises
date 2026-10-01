@@ -18,10 +18,6 @@ all of which are also valuable resources.
 -----
 
 * Higher-Order Programming
-4. [[file:ocaml/fold-right-2.org][Fold Right 2]] (TODO: Add examples)
-5. [[file:ocaml/fold-left-2.org][Fold Left 2]] (TODO: Add examples)
-6. [[file:ocaml/filter-any.org][Filter Any]]
-7. [[file:ocaml/filter-all.org][Filter All]]
 8. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
 9. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
 10. [[file:ocaml/for-loops.org][Fake Loops]]
