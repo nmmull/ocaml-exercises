@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 18:43 -->
+<!-- 2026-10-01 Thu 18:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Prefix Map</title>
@@ -12,14 +12,14 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Prefix Map</h1>
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">prefix_map</span> : ('a list -&gt; 'b option) -&gt; 'a list -&gt; ('b * 'a list) option
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">prefix_map</span> : ('a list -&gt; 'b option) -&gt; 'a list -&gt; ('b * 'a list) option
+</code></pre>
 </div>
 <p>
 so that <code>prefix_map f l</code> is
@@ -32,14 +32,14 @@ so that <code>prefix_map f l</code> is
 <li><code>None</code> if <code>f pre = None</code> for every prefix <code>pre</code> of <code>l</code>
 (including <code>l</code> itself).</li>
 </ul>
-<div id="outline-container-org2df9be0" class="outline-2">
-<h2 id="org2df9be0">Examples</h2>
-<div class="outline-text-2" id="text-org2df9be0">
+<div id="outline-container-orgf781e2f" class="outline-2">
+<h2 id="orgf781e2f">Examples</h2>
+<div class="outline-text-2" id="text-orgf781e2f">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f</span> <span style="color: #a0522d;">pre</span> = <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">s</span> = <span style="color: #228b22;">List.</span>fold_left (<span style="color: #0000ff;">+</span>) 0 pre <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">if</span> s &gt;= 5 <span style="color: #a020f0;">then</span> <span style="color: #000000; background-color: #ffffff;">Some</span> s <span style="color: #a020f0;">else</span> <span style="color: #000000; background-color: #ffffff;">None</span>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f</span> <span style="color: #a0522d;">pre</span> = <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">s</span> = <span style="color: #228b22;">List.</span>fold_left (<span style="color: #0000ff;">+</span>) 0 pre <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">if</span> s &gt;= 5 <span style="color: #a020f0;">then</span> <span style="color: #000000; background-color: #ffffff;">Some</span> s <span style="color: #a020f0;">else</span> <span style="color: #000000; background-color: #ffffff;">None</span>
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (prefix_map f [1;2;3;4] = <span style="color: #000000; background-color: #ffffff;">Some</span> (6, [4]))
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (prefix_map f [1;1] = <span style="color: #000000; background-color: #ffffff;">None</span>)
-</pre>
+</code></pre>
 </div>
 </div>
 </div>

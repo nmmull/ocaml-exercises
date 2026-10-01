@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 17:46 -->
+<!-- 2026-10-01 Thu 18:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Map 2</title>
@@ -12,15 +12,15 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Map 2</h1>
 <p>
 Implement the function
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">map2</span> : ('a -&gt; 'b -&gt; 'c) -&gt; 'a list -&gt; 'b list -&gt; 'c list
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">map2</span> : ('a -&gt; 'b -&gt; 'c) -&gt; 'a list -&gt; 'b list -&gt; 'c list
+</code></pre>
 </div>
 
 <p>
@@ -34,9 +34,20 @@ shorter list.  For example, <code>map2 f [a;b] [c;d;e]</code> is equivalent to
 <p>
 This is a two-list version of the function <code>List.map</code>.  You should
 not use the function <code>List.map2</code> in your implementation (the
-standard library version does not work the way we've defined <code>map2</code>
+standard library version doesn't work the way we've defined <code>map2</code>
 here).
 </p>
+<div id="outline-container-org0f1b549" class="outline-2">
+<h2 id="org0f1b549">Examples</h2>
+<div class="outline-text-2" id="text-org0f1b549">
+<div class="org-src-container">
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (map2 (<span style="color: #0000ff;">+</span>) [1;2;3] [10;20;30] = [11;22;33])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (map2 (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> <span style="color: #a0522d;">y</span> -&gt; (x, y)) [1;2;3] [<span style="color: #8b2252;">"a"</span>;<span style="color: #8b2252;">"b"</span>] = [(1, <span style="color: #8b2252;">"a"</span>); (2, <span style="color: #8b2252;">"b"</span>)])
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (map2 ( <span style="color: #0000ff;">*</span> ) <span style="color: #000000; background-color: #ffffff;">[]</span> [1;2;3] = <span style="color: #000000; background-color: #ffffff;">[]</span>)
+</code></pre>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

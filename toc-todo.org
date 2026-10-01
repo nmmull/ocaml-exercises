@@ -17,13 +17,7 @@ all of which are also valuable resources.
 
 -----
 
-* Sum and Products
-1. [[file:ocaml/tree-collapsing.org][Flattening Rose Trees]]
-26. [[file:ocaml/matrices.org][Matrices]] (TODO: Separate into interpreters?)
 * Higher-Order Programming
-1. [[file:ocaml/map2.org][Map 2]]
-2. [[file:ocaml/filter-map.org][Filter Map]]
-3. [[file:ocaml/prefix-map.org][Prefix Map]]
 4. [[file:ocaml/fold-right-2.org][Fold Right 2]] (TODO: Add examples)
 5. [[file:ocaml/fold-left-2.org][Fold Left 2]] (TODO: Add examples)
 6. [[file:ocaml/filter-any.org][Filter Any]]

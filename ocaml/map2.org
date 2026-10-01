@@ -18,5 +18,13 @@ shorter list.  For example, ~map2 f [a;b] [c;d;e]~ is equivalent to
 
 This is a two-list version of the function ~List.map~.  You should
 not use the function ~List.map2~ in your implementation (the
-standard library version does not work the way we've defined ~map2~
+standard library version doesn't work the way we've defined ~map2~
 here).
+
+** Examples
+
+#+begin_src ocaml
+  let _ = assert (map2 (+) [1;2;3] [10;20;30] = [11;22;33])
+  let _ = assert (map2 (fun x y -> (x, y)) [1;2;3] ["a";"b"] = [(1, "a"); (2, "b")])
+  let _ = assert (map2 ( * ) [] [1;2;3] = [])
+#+end_src
