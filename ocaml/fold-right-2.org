@@ -15,3 +15,9 @@ base~ is equivalent to
 the function is undefined if ~l~ and ~r~ are not the same length.
 
 ** Examples
+
+#+begin_src ocaml
+  let _ = assert (fold_right2 (fun x y acc -> x * y + acc) [1;2;3] [4;5;6] 0 = 32)
+  let _ = assert (fold_right2 (fun x y acc -> (x, y) :: acc) [1;2;3] ["a";"b";"c"] [] = [(1, "a"); (2, "b"); (3, "c")])
+  let _ = assert (fold_right2 (fun x y acc -> x ^ y ^ acc) ["a";"b"] ["c";"d"] "" = "acbd")
+#+end_src

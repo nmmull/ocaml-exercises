@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 17:44 -->
+<!-- 2026-10-01 Thu 18:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Left Fold 2</title>
@@ -12,14 +12,14 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Left Fold 2</h1>
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fold_left2</span> : ('acc -&gt; 'a -&gt; 'b -&gt; 'acc) -&gt; 'acc -&gt; 'a list -&gt; 'b list -&gt; 'acc
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fold_left2</span> : ('acc -&gt; 'a -&gt; 'b -&gt; 'acc) -&gt; 'acc -&gt; 'a list -&gt; 'b list -&gt; 'acc
+</code></pre>
 </div>
 <p>
 so that <code>fold_left2 op base l r</code> is the result of left-associatively
@@ -29,8 +29,8 @@ folding <code>op</code> over the lists <code>l</code> and <code>r</code> simulta
 function is undefined if <code>l</code> and <code>r</code> are not the same length.  Your
 solution must be tail recursive.
 </p>
-<div id="outline-container-org36be0ce" class="outline-2">
-<h2 id="org36be0ce">Examples</h2>
+<div id="outline-container-org68d7489" class="outline-2">
+<h2 id="org68d7489">Examples</h2>
 </div>
 </div>
 </body>

@@ -110,7 +110,7 @@ all of which are also valuable resources.
 5. [[file:ocaml/take-while.org][Take While]]
 6. [[file:ocaml/drop-while.org][Drop While]]
 7. [[file:ocaml/split-by.org][Split By]]
+4. [[file:ocaml/fold-right-2.org][Fold Right 2]]
+5. [[file:ocaml/fold-left-2.org][Fold Left 2]]
 8. [[file:ocaml/map-rtree.org][Mapping Rose Trees]]
 9. [[file:ocaml/filter-rtree.org][Filtering Rose Trees]]
-* Written Problems
-Coming soon...
