@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-29 Sat 22:03 -->
+<!-- 2026-10-01 Thu 19:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Last Function Standing</title>
@@ -22,13 +22,13 @@
     },
     chtml: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     svg: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     output: {
       font: 'mathjax-modern',
@@ -44,20 +44,20 @@
 </script>
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Last Function Standing</h1>
 <p>
 Given
 </p>
 
 <ul class="org-ul">
-<li>a <b>starting value</b> \(s\) of type <code>'a</code></li>
-<li>a <b>failing condition</b> \(P\) of type <code>'a -&gt; bool</code></li>
+<li>a <i>starting value</i> \(s\) of type <code>'a</code></li>
+<li>a <i>failing condition</i> \(P\) of type <code>'a -&gt; bool</code></li>
 </ul>
 
 <p>
-we say that a function \(f\) of type <code>'a -&gt; 'a</code> <b>survives for \(k\) steps
-with respect to \(s\) and \(P\)</b> if \(P(f^i(s))\) is false for every integer
+we say that a function \(f\) of type <code>'a -&gt; 'a</code> <i>survives for \(k\) steps
+with respect to \(s\) and \(P\)</i> if \(P(f^i(s))\) is false for every integer
 \(i\) satisfying \(1 \leq i \leq k\).  In logical notation:
 \[\neg P(f(s)) \land \neg P(f(f(s))) \land \dots \land \neg P(f^k(s))\]
 We define \(\mathsf{lifespan}(f, s, P)\) to be the greatest number of
@@ -66,8 +66,8 @@ may be \(\infty\).
 </p>
 
 <p>
-Given a set of functions \(F\), we define the <b>last function standing
-with respect to \(s\) and \(P\)</b> to be
+Given a set of functions \(F\), we define the <i>last function standing
+with respect to \(s\) and \(P\)</i> to be
 \[\mathsf{argmax}_{f \in F} \mathsf{lifespan}(f, s, P)\]
 For this problem, we will say that the \(\mathsf{argmax}\) is undefined
 if there are multiple functions in \(F\) with the same lifespan, or if
@@ -78,8 +78,8 @@ if there are multiple functions in \(F\) with the same lifespan, or if
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">last_function_standing</span> : ('a -&gt; 'a) list -&gt; 'a -&gt; ('a -&gt; bool) -&gt; ('a -&gt; 'a) option
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">last_function_standing</span> : ('a -&gt; 'a) list -&gt; 'a -&gt; ('a -&gt; bool) -&gt; ('a -&gt; 'a) option
+</code></pre>
 </div>
 <p>
 so that <code>last_function_standing funcs start pred</code> is the last
@@ -90,11 +90,11 @@ there are multiple functions in <code>funcs</code> with the same <b>finite</b>
 maximum lifespan.  The behavior of the implementation is undefined if
 <code>funcs</code> has multiple functions with infinite lifespan.
 </p>
-<div id="outline-container-org43e3e08" class="outline-2">
-<h2 id="org43e3e08">Examples</h2>
-<div class="outline-text-2" id="text-org43e3e08">
+<div id="outline-container-org08d486b" class="outline-2">
+<h2 id="org08d486b">Examples</h2>
+<div class="outline-text-2" id="text-org08d486b">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f1</span> <span style="color: #a0522d;">x</span> = x + 3 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 3 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f1</span> <span style="color: #a0522d;">x</span> = x + 3 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 3 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f2</span> <span style="color: #a0522d;">x</span> = x + 6 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 1 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">f3</span> <span style="color: #a0522d;">x</span> = x + 1 <span style="color: #b22222;">(* </span><span style="color: #b22222;">lifespan 10 w.r.t. 0 and (fun x -&gt; x &gt; 10)</span><span style="color: #b22222;"> *)</span>
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">pred</span> <span style="color: #a0522d;">x</span> = x &gt; 10
@@ -106,7 +106,7 @@ maximum lifespan.  The behavior of the implementation is undefined if
 
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (last_function_standing <span style="color: #000000; background-color: #ffffff;">[]</span> 0 pred = <span style="color: #000000; background-color: #ffffff;">None</span>)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (last_function_standing [f1; (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x + 3)] 0 pred = <span style="color: #000000; background-color: #ffffff;">None</span>)
-</pre>
+</code></pre>
 </div>
 </div>
 </div>

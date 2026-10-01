@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-21 Fri 13:08 -->
+<!-- 2026-10-01 Thu 19:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Consecutives</title>
@@ -12,15 +12,15 @@
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Consecutives</h1>
 <p>
 Implement the function
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">consecutives</span> : int -&gt; 'a list -&gt; 'a list list
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">consecutives</span> : int -&gt; 'a list -&gt; 'a list list
+</code></pre>
 </div>
 
 <p>
@@ -30,16 +30,16 @@ function is undefined if <code>len</code> is not positive.
 </p>
 
 <p>
-Hint: use the functions <a href="map2.html"><code>map2</code></a> and <code>List.map</code>.
+<b>Hint.</b> use the functions <a href="map2.html"><code>map2</code></a> and <code>List.map</code>.
 </p>
-<div id="outline-container-org30b537f" class="outline-2">
-<h2 id="org30b537f">Examples</h2>
-<div class="outline-text-2" id="text-org30b537f">
+<div id="outline-container-orgd917840" class="outline-2">
+<h2 id="orgd917840">Examples</h2>
+<div class="outline-text-2" id="text-orgd917840">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (consecutives 2 [1;2;3;4;5] = [[1;2];[2;3];[3;4];[4;5]])
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (consecutives 2 [1;2;3;4;5] = [[1;2];[2;3];[3;4];[4;5]])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (consecutives 1 <span style="color: #000000; background-color: #ffffff;">[]</span> = [<span style="color: #000000; background-color: #ffffff;">[]</span>])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (consecutives 10 [1;2;3;4;5] = [[1;2;3;4;5]])
-</pre>
+</code></pre>
 </div>
 </div>
 </div>

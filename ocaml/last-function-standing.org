@@ -5,19 +5,19 @@
 #+HTML_LINK_HOME: ../index.html
 Given
 
-+ a *starting value* $s$ of type ~'a~
-+ a *failing condition* $P$ of type ~'a -> bool~
++ a /starting value/ $s$ of type ~'a~
++ a /failing condition/ $P$ of type ~'a -> bool~
 
-we say that a function $f$ of type ~'a -> 'a~ *survives for $k$ steps
-with respect to $s$ and $P$* if $P(f^i(s))$ is false for every integer
+we say that a function $f$ of type ~'a -> 'a~ /survives for $k$ steps
+with respect to $s$ and $P$/ if $P(f^i(s))$ is false for every integer
 $i$ satisfying $1 \leq i \leq k$.  In logical notation:
 $$\neg P(f(s)) \land \neg P(f(f(s))) \land \dots \land \neg P(f^k(s))$$
 We define $\mathsf{lifespan}(f, s, P)$ to be the greatest number of
 steps $f$ survives with respect to $s$ and $P$.  Note that this value
 may be $\infty$.
 
-Given a set of functions $F$, we define the *last function standing
-with respect to $s$ and $P$* to be
+Given a set of functions $F$, we define the /last function standing
+with respect to $s$ and $P$/ to be
 $$\mathsf{argmax}_{f \in F} \mathsf{lifespan}(f, s, P)$$
 For this problem, we will say that the $\mathsf{argmax}$ is undefined
 if there are multiple functions in $F$ with the same lifespan, or if

@@ -8,10 +8,7 @@ Implement the function
 #+begin_src ocaml
   val fun_max : (int -> int) list -> int -> int
 #+end_src
-so that ~fun_max fs x~ is given by
-\[
-\mathsf{funMax}(\texttt{fs}, x) = \max\left(\max_{f \in \mathtt{fs}}\{f(x)\}, 0\right).
-\]
+so that ~fun_max fs x~ is $\max\left(\max_{f \in \mathtt{fs}}\{f(\texttt{x})\}, 0\right)$.
 
 ** Examples
 

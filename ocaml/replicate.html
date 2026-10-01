@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-29 Sat 21:49 -->
+<!-- 2026-10-01 Thu 19:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Replicate</title>
@@ -22,13 +22,13 @@
     },
     chtml: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     svg: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     output: {
       font: 'mathjax-modern',
@@ -44,14 +44,14 @@
 </script>
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Replicate</h1>
 <p>
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">replicate</span> : 'a list -&gt; ('a -&gt; 'a) -&gt; int -&gt; 'a list
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">replicate</span> : 'a list -&gt; ('a -&gt; 'a) -&gt; int -&gt; 'a list
+</code></pre>
 </div>
 <p>
 so that <code>replicate l f n</code>, given a list <code>l</code>, a function <code>f</code> and a
@@ -60,19 +60,19 @@ are applied (in this order) to each element of <code>l</code>. For example,
 <code>replicate [a;b] f 3</code> is
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml">[f a; f (f a); f (f (f a)); f b; f (f b); f (f (f b))]
-</pre>
+<pre class="src src-ocaml"><code>[f a; f (f a); f (f (f a)); f b; f (f b); f (f (f b))]
+</code></pre>
 </div>
 <p>
 The behavior of the function is undefined if <code>n</code> is not positive.
 </p>
-<div id="outline-container-org3d4ba6d" class="outline-2">
-<h2 id="org3d4ba6d">Examples</h2>
-<div class="outline-text-2" id="text-org3d4ba6d">
+<div id="outline-container-orgf494631" class="outline-2">
+<h2 id="orgf494631">Examples</h2>
+<div class="outline-text-2" id="text-orgf494631">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (replicate [1;5;8;9] (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x + 1) 2 = [2;3;6;7;9;10;10;11])
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (replicate [1;5;8;9] (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x + 1) 2 = [2;3;6;7;9;10;10;11])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (replicate [1;2;3] (<span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x * x) 1 = [1;4;9])
-</pre>
+</code></pre>
 </div>
 </div>
 </div>

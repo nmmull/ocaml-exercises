@@ -1,17 +1,17 @@
-#+title: Split Tree
+#+title: Splitting Rose Trees
 #+HTML_MATHJAX: align: left indent: 2em
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
 #+begin_src ocaml
-  type 'a ntree = Node of 'a * 'a ntree list
+  type 'a rtree = Node of 'a * 'a rtree list
 #+end_src
 
 Implement the function
 #+begin_src ocaml
-  val split_tree : ('a * 'b) ntree -> 'a ntree * 'b ntree
+  val split : ('a * 'b) rtree -> 'a rtree * 'b rtree
 #+end_src
-so that ~split_tree t~ constructs two trees of the same structure as
+so that ~split t~ constructs two trees of the same structure as
 ~t~, one with the left element of the tuple in each node of ~t~, and
 one with the right element of the tuple in each node.
 
@@ -19,9 +19,9 @@ one with the right element of the tuple in each node.
 
 #+begin_src ocaml
   let t = Node ((1, "a"), [Node ((2, "b"), []); Node ((3, "c"), [])])
-  let _ = assert (split_tree t =
+  let _ = assert (split t =
       ( Node (1, [Node (2, []); Node (3, [])])
       , Node ("a", [Node ("b", []); Node ("c", [])])
       ))
-  let _ = assert (split_tree (Node ((1, "a"), [])) = (Node (1, []), Node ("a", [])))
+  let _ = assert (split (Node ((1, "a"), [])) = (Node (1, []), Node ("a", [])))
 #+end_src

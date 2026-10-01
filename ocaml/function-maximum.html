@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-22 Sat 13:25 -->
+<!-- 2026-10-01 Thu 19:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Function Maximum</title>
@@ -44,29 +44,26 @@
 </script>
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Function Maximum</h1>
 <p>
 Implement the function
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fun_max</span> : (int -&gt; int) list -&gt; int -&gt; int
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">fun_max</span> : (int -&gt; int) list -&gt; int -&gt; int
+</code></pre>
 </div>
 <p>
-so that <code>fun_max fs x</code> is given by
-\[
-\mathsf{funMax}(\texttt{fs}, x) = \max\left(\max_{f \in \mathtt{fs}}\{f(x)\}, 0\right).
-\]
+so that <code>fun_max fs x</code> is \(\max\left(\max_{f \in \mathtt{fs}}\{f(\texttt{x})\}, 0\right)\).
 </p>
-<div id="outline-container-org5f6cd3e" class="outline-2">
-<h2 id="org5f6cd3e">Examples</h2>
-<div class="outline-text-2" id="text-org5f6cd3e">
+<div id="outline-container-orgb7cb4f2" class="outline-2">
+<h2 id="orgb7cb4f2">Examples</h2>
+<div class="outline-text-2" id="text-orgb7cb4f2">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fun_max [(<span style="color: #0000ff;">+</span>) 1; <span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x * x] 1 = 2)
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fun_max [(<span style="color: #0000ff;">+</span>) 1; <span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x * x] 1 = 2)
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (fun_max [(<span style="color: #0000ff;">+</span>) 1; <span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; x * x] (-2) = 4)
-</pre>
+</code></pre>
 </div>
 </div>
 </div>

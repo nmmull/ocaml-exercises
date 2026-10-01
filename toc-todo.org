@@ -18,24 +18,7 @@ all of which are also valuable resources.
 -----
 
 * Higher-Order Programming
-8. [[file:ocaml/cyclic-function-application.org][Cyclic Function Application]]
-9. [[file:ocaml/walking-on-a-graph.org][Walking on a Graph]]
-10. [[file:ocaml/for-loops.org][Fake Loops]]
-11. [[file:ocaml/consecutives.org][Consecutives]]
-12. [[file:ocaml/list-convolution-and-polynomial-multiplication.org][List Convolution and Multiplying Polynomials]]
-13. [[file:ocaml/mat-vec-mul.org][Matrix-Vector Multiplication]] (TODO: Make part of matrices?)
-14. [[file:ocaml/fixpoints.org][Fixpoints]]
-15. [[file:ocaml/transpose.org][Transpose]] (TODO: Move, part of matrices )
-16. [[file:ocaml/diagonal.org][Diagonal]] (TOOD: Move to matrices )
-17. [[file:ocaml/increasing-sequence.org][Increasing Sequence]]
-18. [[file:ocaml/function-maximum.org][Function Maximum]]
-19. [[file:ocaml/replicate.org][Replicate]]
-20. [[file:ocaml/last-function-standing.org][Last Function Standing]]
-21. [[file:ocaml/folding-and-ounit.org][Folding and OUnit]]
-22. [[file:ocaml/split-list.org][Split List]]
-23. [[file:ocaml/split-tree.org][Split Tree]]
 24. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
-25. [[file:ocaml/double-fold.org][Double Fold]]
 26. [[file:ocaml/all-map.org][All Map]]
 27. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
 * Written Problems
