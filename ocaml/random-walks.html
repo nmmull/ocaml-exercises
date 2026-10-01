@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-01 Tue 10:31 -->
+<!-- 2026-10-01 Thu 19:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Random Walks</title>
@@ -22,13 +22,13 @@
     },
     chtml: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     svg: {
       scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
+      displayAlign: 'left',
+      displayIndent: '2em'
     },
     output: {
       font: 'mathjax-modern',
@@ -44,7 +44,7 @@
 </script>
 </head>
 <body>
-<div id="org-div-home-and-up">[<a href="../toc.html">back</a>]</div><div id="content" class="content">
+<div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
 <h1 class="title">Random Walks</h1>
 <p>
 We can think of a function <code>p</code> of type <code>int -&gt; int</code> as a <i>path
@@ -54,8 +54,8 @@ starting at <code>start</code> is
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml">[start; p start; p (p start); p (p (p start))]
-</pre>
+<pre class="src src-ocaml"><code>[start; p start; p (p start); p (p (p start))]
+</code></pre>
 </div>
 
 <p>
@@ -76,8 +76,8 @@ function
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">drunkard</span> <span style="color: #a0522d;">x</span> = [x + 1; x - 1]
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">drunkard</span> <span style="color: #a0522d;">x</span> = [x + 1; x - 1]
+</code></pre>
 </div>
 
 <p>
@@ -88,13 +88,13 @@ steps from <code>start</code>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">rat</span> = {
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">rat</span> = {
   num : int;
   denom : int;
 }
 
 <span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">distr</span> = (int * rat) list
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -115,8 +115,8 @@ probability <code>0</code>.  We maintain that:
 Implement the function
 </p>
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">random_walk</span> : (int -&gt; int list) -&gt; int -&gt; int -&gt; distr
-</pre>
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">val</span> <span style="color: #0000ff;">random_walk</span> : (int -&gt; int list) -&gt; int -&gt; int -&gt; distr
+</code></pre>
 </div>
 <p>
 so that the distribution <code>random_walk walk start num_steps</code> is the
@@ -125,17 +125,17 @@ taking a <code>num_steps</code>-length random walk starting at <code>start</code
 Specifically, if the probability of being at vertex \(n\) is \(p\), then
 <code>(n, p)</code> should appear in the resulting distribution.
 </p>
-<div id="outline-container-org80f49bc" class="outline-2">
-<h2 id="org80f49bc">Examples</h2>
-<div class="outline-text-2" id="text-org80f49bc">
+<div id="outline-container-org48bb932" class="outline-2">
+<h2 id="org48bb932">Examples</h2>
+<div class="outline-text-2" id="text-org48bb932">
 <div class="org-src-container">
-<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">drunkard</span> <span style="color: #a0522d;">x</span> = [x + 1; x - 1]
+<pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">drunkard</span> <span style="color: #a0522d;">x</span> = [x + 1; x - 1]
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (random_walk drunkard 0 0 = [(0, {num=1;denom=1})])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (random_walk drunkard 0 1 =
     [(-1, {num=1;denom=2}); (1, {num=1;denom=2})])
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span> (random_walk drunkard 0 2 =
     [(-2, {num=1;denom=4}); (0, {num=1;denom=2}); (2, {num=1;denom=4})])
-</pre>
+</code></pre>
 </div>
 </div>
 </div>

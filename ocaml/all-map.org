@@ -3,21 +3,17 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:1 toc:nil num:nil
 #+HTML_LINK_HOME: ../index.html
-Without using any functions from the standard library (except for
-basic constructors like ~Some~, ~None~, ~(::)~, and ~[]~), implement
-the function
+Implement the function
 #+begin_src ocaml
   val all_map : ('a -> 'b option) -> 'a list -> 'b list option
 #+end_src
-which converts a list into an optional list according to the
-following specification.
+so that ~all_map f l~ is
 
-+ If the function ~f~ applied to any element of the list ~l~ is
-  ~None~, then ~all_map f l~ is ~None~.
-+ Otherwise, ~all_map f l~ is ~Some l'~ where ~l'~ is the same as
-  the list ~List.map f l~ but with the ~Some~ constructors removed.
++ ~None~ if the function ~f~ applied to any element of the list ~l~ is
+  ~None~
++ ~List.map f l~ with the but with the ~Some~ constructors removed, otherwise.
 
-*Your solution must be tail recursive.*
+Your solution must be tail recursive.
 
 ** Examples
 

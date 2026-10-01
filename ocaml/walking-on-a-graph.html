@@ -3,17 +3,17 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-10-01 Thu 19:16 -->
+<!-- 2026-10-01 Thu 19:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Graph Walking</title>
+<title>Graph Walks</title>
 <meta name="author" content="Nathan" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
 <div id="org-div-home-and-up">[<a href="../index.html">back</a>]</div><div id="content" class="content">
-<h1 class="title">Graph Walking</h1>
+<h1 class="title">Graph Walks</h1>
 <p>
 We can think of a function <code>g</code> of type <code>'a -&gt; 'a -&gt; bool</code> as a graph
 in which there is an edge between <code>i</code> and <code>j</code> exactly when <code>g i j</code>
@@ -55,9 +55,9 @@ even if some potential paths are dropped because they are not valid in
 You should use the functions <code>List.map</code> and <code>List.filter</code>.  It may
 also be useful to try to use the pipelining operator <code>|&gt;</code>.
 </p>
-<div id="outline-container-orgd33c68a" class="outline-2">
-<h2 id="orgd33c68a">Examples</h2>
-<div class="outline-text-2" id="text-orgd33c68a">
+<div id="outline-container-org09ed045" class="outline-2">
+<h2 id="org09ed045">Examples</h2>
+<div class="outline-text-2" id="text-org09ed045">
 <div class="org-src-container">
 <pre class="src src-ocaml"><code><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">g1</span> (<span style="color: #a0522d;">i</span> :<span style="color: #228b22;"> int</span>) (<span style="color: #a0522d;">j</span> :<span style="color: #228b22;"> int</span>) = i &lt; j <span style="color: #a52a2a;">&amp;&amp;</span> i &lt;= 10 <span style="color: #a52a2a;">&amp;&amp;</span> j &lt;= 10
 <span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">g2</span> (<span style="color: #a0522d;">i</span> :<span style="color: #228b22;"> int</span>) (<span style="color: #a0522d;">j</span> :<span style="color: #228b22;"> int</span>) = i &lt;= 10 <span style="color: #a52a2a;">&amp;&amp;</span> j &lt;= 10

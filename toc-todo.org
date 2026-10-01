@@ -18,9 +18,6 @@ all of which are also valuable resources.
 -----
 
 * Higher-Order Programming
-24. [[file:ocaml/random-walks.org][Random Walks]] (TODO: Split into question about fractions)
-26. [[file:ocaml/all-map.org][All Map]]
-27. [[file:ocaml/matrix-init-map-fold.org][Matrix Init, Map, and Fold]] (TODO: Move, part of matrices)
 * Written Problems
 1. [[file:written/an-ocaml-puzzle.org][An OCaml Puzzle]]
 2. [[file:written/types-of-expressions.org][Types of Expressions]]
